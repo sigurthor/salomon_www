@@ -1,15 +1,12 @@
 SalomonWww::Application.routes.draw do
   get "store/index"
-
   get "team/index"
-
   get "team/show"
-
   get "product/index"
-
   get "product/show"
-
   get "home/index"
+
+  mount A2::Engine => "/a2"
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
@@ -60,7 +57,7 @@ SalomonWww::Application.routes.draw do
 
   # You can have the root of your site routed with "root"
   # just remember to delete public/index.html.
-  root :to => 'home#index'
+  root :to => 'a2/nice#index'
 
   # See how all your routes lay out with "rake routes"
 
