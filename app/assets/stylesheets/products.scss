@@ -1,0 +1,144 @@
+$base: #003240;
+
+i {
+  font-family: $icon-font;
+}
+
+.products {
+
+  .mix_all {
+    opacity: 0;
+    display: none;
+  }
+
+  .product {
+    padding-top: 1em;
+    margin-bottom: 2em;
+    height: 550px;
+    font-family: 'TradeGothicW01-BoldCn20 675334';
+    color: $base;
+    text-transform: uppercase;
+
+    &:hover {
+      background: #ebebec;
+    }
+
+    img {
+      max-width: emCalc(174);
+      margin-bottom: 22px;
+    }
+
+    .main-info {
+      text-align: center;
+
+      h2 {
+        font-family: $font-heading;
+        color: $color-lightblue;
+
+        font-size: 36px;
+        margin: 0 0 6px 0;
+        line-height: 1;
+      }
+
+      .model {
+        font-family: "Trade Gothic W01 Cn 18";
+        font-size: 10px;
+        color: #bbcccf;
+        margin: 2px 0 7px;
+        text-transform: none;
+      }
+
+      .price {
+        font-size: 20px;
+      }
+    }
+
+    .more-info {
+      margin-top: 20px;
+      font-size: 14px;
+      text-align: center;
+
+      h5 {
+        display: inline;
+        margin: 0;
+        font-size: 14px;
+        color: #9B9B9B;
+      }
+
+      ul {
+        display: inline-block;
+        padding: 0;
+        margin: 0;
+        list-style: none
+      }
+
+      li {
+        display: inline;
+      }
+
+      div + div {
+        margin-top: 4px;
+      }
+
+    }
+
+    &.last {
+      position: relative;
+      padding: 40px 30px 20px;
+      background: #ebebec;
+
+      h2 {
+        font-family: $font-heading;
+        font-size: 24px;
+        color: $color-lightblue;
+        line-height: 32px;
+      }
+
+      .message {
+        font-family: $font-light;
+        color: $color-darkblue;
+        line-height: 1.6;
+        text-transform: none;
+      }
+
+      ul.links {
+        position: absolute;
+        bottom: 0;
+        font-family: $font-boldobl;
+        list-style: none;
+
+        a {
+          font-size: 20px;
+          color: $color-darkblue;
+          border-bottom: 3px solid $color-darkblue;
+          line-height: 40px;
+        }
+
+        li:before {
+          display: inline-block;
+          width: 35px;
+          height: 35px;
+          margin-right: 10px;
+          font-family: $icon-font;
+          font-size: 24px;
+          color: #fff;
+          text-align: center;
+          line-height: 42px;
+          vertical-align: middle;
+          background: $color-darkblue;
+        }
+
+        li:nth-child(1):before {
+          content: "\2713";
+        }
+
+        li:nth-child(2):before {
+          content: "\2421";
+        }
+        li:nth-child(3):before {
+          content: "\2B05";
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,24 @@
+section#filterbar {
+
+  position: relative;
+  top: 100px;
+
+  width: 100%;
+
+  background-color: #E9E9EA;
+
+  h4 {
+    font-size: 38px;
+    font-family: $font-heading;
+    margin-bottom: 10px;
+  }
+
+  ul {
+    list-style: none;
+
+    li {
+      padding: 10px 0;
+    }
+  }
+
+}

@@ -1,0 +1,27 @@
+!!! 5
+/[if lt IE 7] <html class="no-js lt-ie9 lt-ie8 lt-ie7">
+/[if IE 7] <html class="no-js lt-ie9 lt-ie8">
+/[if IE 8] <html class="no-js lt-ie9">
+/ [if gt IE 8]><!
+%html.no-js
+  / <![endif]
+
+  = render :file => '/shared/head'
+  %body.frontpage
+  = render :file => '/shared/nav'
+
+  =yield
+
+  = render :file => '/shared/footer'
+  = render :file => '/shared/javascript'
+
+
+/
+  From old template:
+
+  <title><%= content_for?(:title) ? yield(:title) : "Untitled" %></title>
+  <%= stylesheet_link_tag    "application" %>
+  <%= javascript_include_tag "vendor/custom.modernizr" %>
+  <%= csrf_meta_tags %>
+  <%= yield %>
+  <%= javascript_include_tag "application" %>

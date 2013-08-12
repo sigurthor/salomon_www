@@ -1,0 +1,41 @@
+.searchbar
+  %input.search-input{:type => 'text', :placeholder => 'What are you searching for?'}
+  %input{:type => 'submit', :value => 'Submit'}
+
+#nav-container{:class=>yield(:navclass)}
+  %nav.top-bar
+    %section.top-bar-section
+      %ul.title-area
+        %li
+          %a.logo{:href => 'frontpage.html'} Salomon Snowboards
+        %li.toggle-topbar
+          %a{:href=>'#'}
+            %span Menu
+      / Left Nav Section
+      %ul.left
+        %li.has-dropdown
+          %a{:href => "#"} Gear
+          %ul.dropdown
+            %li
+              %a{:href=>'products.html'} Boards
+            %li
+              %a{:href=>'products.html'} Bindings
+            %li
+              %a{:href=>'products.html'} Boots
+            %li
+              %a{:href=>'products.html'} Apparel
+
+        %li
+          %a{:href => "products.html"} Team
+        %li
+          %a{:href => "products.html"} Videos
+        %li
+          %a{:href => "products.html"} Blog
+        %li
+          %a{:href=>'store.html'} Stores
+
+      %ul.right
+        %li
+          %a.searchbutton{:href => '#'} Search
+        %li.basket
+          %a{:href => '#'} My Account <i class="ss-icon ss-standard">cart</i> 0

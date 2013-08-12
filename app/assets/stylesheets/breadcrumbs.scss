@@ -1,0 +1,54 @@
+/* General */
+section#breadcrumbs {
+  position: fixed;
+  top: 100px;
+
+  z-index: 1019;
+
+  width: 100%;
+  height: 60px;
+
+  padding-left: 20px;
+
+  background: $color-darkblue;
+
+  text-transform: uppercase;
+
+  @include transition(top 0.25s ease-in-out);
+
+  ul {
+    list-style: none;
+
+    li {
+      display: inline;
+      line-height: 60px;
+
+      font-family: "Trade Gothic W01 Bold";
+      font-size: 18px;
+
+      &:nth-child(n+3) {
+        &:before {
+          font-family: "SSStandard";
+          font-size: 8px;
+          content: "\25BB";
+          margin: 0 1em;
+          color: #fff;
+        }
+      }
+
+      &:first-child {
+        margin-right: 24px;
+        font-family: "TradeGothicW01-BoldCn20 675337";
+        color: #fff;
+        font-size: 14px;
+      }
+
+
+    }
+
+  }
+}
+
+.sticky + #breadcrumbs {
+  top: 40px;
+}

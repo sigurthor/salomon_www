@@ -1,5 +1,6 @@
-PATH
-  remote: ../A2
+GIT
+  remote: https://github.com/sigurthor/a2_backend.git
+  revision: 1484d476cc43b532b908be881f5faaec2182de0e
   specs:
     a2 (0.0.1)
       activerecord-import
@@ -130,10 +131,10 @@ GEM
       net-ssh (>= 2.1.3)
       nokogiri (~> 1.5.0)
       ruby-hmac
-    font-awesome-rails (3.2.1.2)
+    font-awesome-rails (3.2.1.3)
       railties (>= 3.2, < 5.0)
     formatador (0.2.4)
-    friendly_id (4.0.9)
+    friendly_id (4.0.10)
     fssm (0.2.10)
     gli (2.7.0)
     globalize3 (0.3.0)

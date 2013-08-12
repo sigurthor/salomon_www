@@ -1,0 +1,133 @@
+
+#storelocator {
+
+  #map-canvas {
+    margin-top: 40px;
+
+    width: 100%;
+    height: 600px;
+  }
+
+  #map-search-overlay {
+    position: absolute;
+    top: 0px;
+    width: 100%;
+    height: 600px;
+
+    background: rgba(0,50,64,0.85);
+
+    @include transition(all 0.4s ease-in-out);
+
+    .overlay-inner {
+      width: 450px;
+      margin: 6em auto 0 auto;
+
+      color: white;
+      text-align: center;
+
+      h1 {
+        font-family: $font-heading;
+        font-size: 72px;
+        color: white;
+      }
+
+      p {
+        font-family: $font-boldcnd20;
+        font-size: 18px;
+        text-transform: uppercase;
+      }
+
+      a {
+        color: white;
+      }
+
+      .separator {
+        padding: 0 5px;
+      }
+    }
+
+    &.compact {
+      top: 60px;
+      left: 100px;
+
+      width: 380px;
+      height: 480px;
+
+      background: rgba(255,255,255,0.90);
+      @include box-shadow(0px 0px 5px 0px rgba(0,0,0,0.15));
+
+      .overlay-inner {
+        margin: 0;
+        padding: 10px;
+
+        h1 {
+          display: none;
+        }
+
+        input[type="text"] {
+          width: 250px;
+          margin-right: 10px;
+        }
+        input[type="text"], input[type="submit"] {
+          float: left;
+        }
+      }
+
+    }
+  }
+
+
+  .online-retailers {
+    background-color: #E9E9EA;
+    padding-top: 3em;
+
+
+    h2 {
+      text-align: center;
+      font-family: $font-heading;
+      font-size: 72px;
+      color: $color-lightblue;
+
+    }
+
+    .retailer {
+      position: relative;
+      background-color: white;
+      text-align: center;
+      min-height: 150px;
+
+      img {
+        margin: 1em 0;
+      }
+
+      p:last-child {
+        position: absolute;
+        bottom: 0;
+        text-align: center;
+        width: 100%;
+
+        a {
+          font-family: $font-boldcnd20obl;
+          font-size: 14px;
+          color: $color-darkblue;
+
+          &:before {
+            position: relative;
+            top: 3px;
+            margin-right: 3px;
+
+
+            font-family: "SSStandard";
+            font-size: 18px;
+            color: $color-darkblue;
+
+            content: "link";
+
+          }
+        }
+      }
+    }
+
+  }
+
+}
