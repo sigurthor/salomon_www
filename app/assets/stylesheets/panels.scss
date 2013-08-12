@@ -1,0 +1,22 @@
+section#main {
+  padding-top: 140px;
+}
+
+section.panel {
+  margin-bottom: 1em;
+  padding: 2.5em 0;
+
+  .row {
+    margin-bottom: 2.5em;
+  }
+
+  h2 {
+    font-family: "TradeGothicW01-BoldCn20 675337";
+    text-transform: uppercase;
+    border-bottom: 3px #003240 solid;
+  }
+}
+
+.gray {
+  background-color: #D8D8D8;
+}

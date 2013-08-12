@@ -1,0 +1,46 @@
+section#hero {
+  height: 680px;
+  margin-top: 100px;
+  text-transform: uppercase;
+  text-shadow: 0 1px 0 #000;
+  background: url(image-path('hero/bg1.jpg')) top center no-repeat;
+
+  h2 {
+    font-family: $font-heading;
+    color: #fff;
+    div {
+      &:first-child {
+        font-size: 48px;
+      }
+      &:nth-child(2) {
+        font-size: 24px;
+        margin-top: 15px;
+      }
+      &:nth-child(3) {
+        font-size: 144px;
+        margin-top: -20px;
+      }
+    }
+  }
+
+  .price {
+    font-family: $font-heading;
+    font-size: 36px;
+    color: #fff;
+    margin-top: -30px;
+    margin-bottom: 40px;
+  }
+
+  .hero-text {
+    position: relative;
+    top: 190px;
+  }
+
+  @include transition(margin-top 0.25s ease-in-out);
+  @include translateZ(0);
+}
+
+.sticky + #hero {
+  margin-top: 45px;
+}
+

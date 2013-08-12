@@ -1,5 +1,6 @@
-PATH
-  remote: ../A2
+GIT
+  remote: https://github.com/sigurthor/a2_backend.git
+  revision: 1484d476cc43b532b908be881f5faaec2182de0e
   specs:
     a2 (0.0.1)
       activerecord-import
