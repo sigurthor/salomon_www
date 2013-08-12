@@ -1,0 +1,91 @@
+- content_for(:navclass) do
+  sticky
+
+%section#breadcrumbs
+  %ul
+    %li Your Location
+    %li
+      %a{:href=>'#'} Boots
+    %li
+      %a{:href=>'#'} Launch
+
+%section#main.product-details
+  .row
+    .large-1.columns.product-thumbnails
+      = image_tag('fixme-boot.png')
+      %p Back view
+
+      = image_tag('fixme-boot.png')
+      %p Front view
+      = image_tag('fixme-boot.png')
+      %p Some other view
+    .large-5.columns
+      = image_tag('fixme-boot.png')
+    .large-6.columns
+      %h1 Launch
+      %h2 $89.95
+      %p.product-model Model 326526
+      %p.product-description Maximum bang for your buck, the all new Launch sets the bar high and keeps the price tag low. Featuring Balance 1 Compact Liner, we cut out the excess and added a stylish outer construction that is built to last. Cinch it down with ZoneLock lacing and rise above the rest with this go-to freestyle model.
+      %form.custom
+        %ul.product-meta.product-color
+          %li Color
+          %li
+            %a.black
+          %li
+            %a.red.selected
+          %li
+            %a.purple
+          %li
+            %a.gray
+
+        %ul.product-meta
+          %li Size
+          %li
+            %select.dropdown.small
+              %option 8.5
+              %option 9
+              %option 9.5
+              %option 10
+              %option 11
+
+        %ul.product-meta
+          %li Quantity
+          %li
+            %input{:type=>'text', :value=>'1'}
+          %li
+            %input.button{:type=>'submit', :value=>'Add to cart'}
+%section.panel.gray
+  .row
+    .large-12.columns
+      %h2 Gallery
+
+    .large-2.columns
+      %img{:src=>'http://placehold.it/180x180'}
+    .large-2.columns
+      %img{:src=>'http://placehold.it/180x180'}
+    .large-2.columns
+      %img{:src=>'http://placehold.it/180x180'}
+    .large-2.columns
+      %img{:src=>'http://placehold.it/180x180'}
+    .large-2.columns
+      %img{:src=>'http://placehold.it/180x180'}
+    .large-2.columns
+      %img{:src=>'http://placehold.it/180x180'}
+
+  .row
+
+    .large-12.columns
+      %h2 Riders
+    .large-2.columns
+      %img{:src=>'http://placekitten.com/180/180'}
+    .large-2.columns
+      %img{:src=>'http://placekitten.com/g/180/180'}
+    .large-2.columns
+      %img{:src=>'http://placekitten.com/180/180'}
+    .large-6.columns
+      %img{:src=>'http://placekitten.com/g/180/180'}
+
+%section.panel
+  .row
+    .large-12.columns
+      %h2 Tech
