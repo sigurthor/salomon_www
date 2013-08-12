@@ -1,5 +1,547 @@
-<h1>Product#index</h1>
-<p>Find me in app/views/product/index.html.erb</p>
-<% @products.each do |product| %>
-    <%= product.name %><br/>
-<% end %>
+- content_for :bodyclass do
+  subpage
+
+- content_for :navclass do
+  sticky
+
+%section#breadcrumbs
+  %ul
+    %li Your Location
+    %li
+      %a{:href=>'#'} Boots
+    %li
+      %a{:href=>'#'} Launch
+
+%section#filterbar
+  %form.custom
+    .row
+      .large-3.columns
+        %h4 Rider
+        %ul
+          %li.filter(data-filter="men")
+            %label(for="men-checkbox")
+              %input#men-checkbox.hidden-field{:type=>'checkbox'}
+              %span.custom.checkbox
+              Men
+          %li.filter(data-filter="women")
+            %label(for="men-checkbox")
+              %input#men-checkbox.hidden-field{:type=>'checkbox'}
+              %span.custom.checkbox
+              Women
+          %li
+            %label(for="men-checkbox")
+              %input#men-checkbox.hidden-field{:type=>'checkbox'}
+              %span.custom.checkbox
+              Youth
+      .large-3.columns
+        %h4 Terrain
+        %ul
+          %li
+            %label(for="men-checkbox")
+              %input#men-checkbox.hidden-field{:type=>'checkbox'}
+              %span.custom.checkbox
+              All Mountain
+          %li
+            %label(for="men-checkbox")
+              %input#men-checkbox.hidden-field{:type=>'checkbox'}
+              %span.custom.checkbox
+              Park & Freestyle
+          %li
+            %label(for="men-checkbox")
+              %input#men-checkbox.hidden-field{:type=>'checkbox'}
+              %span.custom.checkbox
+              Backyard
+      .large-3.columns
+
+        %h4 Camber
+        %ul
+          %li
+            %label(for="men-checkbox")
+              %input#men-checkbox.hidden-field{:type=>'checkbox'}
+              %span.custom.checkbox
+              Pres-Sure Rocker
+          %li
+            %label(for="men-checkbox")
+              %input#men-checkbox.hidden-field{:type=>'checkbox'}
+              %span.custom.checkbox
+              Pow Rocker
+          %li
+            %label(for="men-checkbox")
+              %input#men-checkbox.hidden-field{:type=>'checkbox'}
+              %span.custom.checkbox
+              Super Flat
+      .large-3.columns
+        %h4 &nbsp;
+        %ul
+          %li
+            %label(for="men-checkbox")
+              %input#men-checkbox.hidden-field{:type=>'checkbox'}
+              %span.custom.checkbox
+              Rock Out Camber
+          %li
+            %label(for="men-checkbox")
+              %input#men-checkbox.hidden-field{:type=>'checkbox'}
+              %span.custom.checkbox
+              Cross Profile
+          %li
+            %label(for="men-checkbox")
+              %input#men-checkbox.hidden-field{:type=>'checkbox'}
+              %span.custom.checkbox
+              Camber
+
+%section#main
+  .row
+    .products
+      .large-3.columns.mix.men
+        .product
+          .main-info
+            = image_tag('fixme-boards/board1.png')
+            %h2
+              %a{:href=>'product.html'} Salvatore Sanchez
+            .price $89.95
+          .more-info
+            .sizes
+              %h5 Sizes
+              %ul
+                %li 139,
+                %li 142,
+                %li 145,
+                %li 149,
+                %li 152,
+                %li 156,
+                %li 158,
+                %li 160 ...
+            .shape
+              %h5
+                Shape
+              %span
+                Directional Twin
+            .profile
+              %h5
+                Profile
+              %span
+                Super Flat
+      .large-3.columns.mix.women
+        .product
+          .main-info
+            = image_tag('fixme-boards/board2.png')
+            %h2
+              %a{:href=>'product.html'} Pulse
+            .price $89.95
+          .more-info
+            .sizes
+              %h5 Sizes
+              %ul
+                %li 139,
+                %li 142,
+                %li 145,
+                %li 149,
+                %li 152,
+                %li 156,
+                %li 158,
+                %li 160 ...
+            .shape
+              %h5
+                Shape
+              %span
+                Directional Twin
+            .profile
+              %h5
+                Profile
+              %span
+                Super Flat
+      .large-3.columns.mix.men
+        .product
+          .main-info
+            = image_tag('fixme-boards/board3.png')
+            %h2
+              %a{:href=>'product.html'} Drift Rocker
+            .price $89.95
+          .more-info
+            .sizes
+              %h5 Sizes
+              %ul
+                %li 139,
+                %li 142,
+                %li 145,
+                %li 149,
+                %li 152,
+                %li 156,
+                %li 158,
+                %li 160 ...
+            .shape
+              %h5
+                Shape
+              %span
+                Directional Twin
+            .profile
+              %h5
+                Profile
+              %span
+                Super Flat
+      .large-3.columns.mix.women
+        .product
+          .main-info
+            = image_tag('fixme-boards/board4.png')
+            %h2
+              %a{:href=>'product.html'} Salomonder
+            .price $89.95
+          .more-info
+            .sizes
+              %h5 Sizes
+              %ul
+                %li 139,
+                %li 142,
+                %li 145,
+                %li 149,
+                %li 152,
+                %li 156,
+                %li 158,
+                %li 160 ...
+            .shape
+              %h5
+                Shape
+              %span
+                Directional Twin
+            .profile
+              %h5
+                Profile
+              %span
+                Super Flat
+      .large-3.columns.mix.men
+        .product
+          .main-info
+            = image_tag('fixme-boards/board5.png')
+            %h2
+              %a{:href=>'product.html'} Lorem Board
+            .price $89.95
+          .more-info
+            .sizes
+              %h5 Sizes
+              %ul
+                %li 139,
+                %li 142,
+                %li 145,
+                %li 149,
+                %li 152,
+                %li 156,
+                %li 158,
+                %li 160 ...
+            .shape
+              %h5
+                Shape
+              %span
+                Directional Twin
+            .profile
+              %h5
+                Profile
+              %span
+                Super Flat
+      .large-3.columns.mix.men
+        .product
+          .main-info
+            = image_tag('fixme-boards/board6.png')
+            %h2
+              %a{:href=>'product.html'} Boardee
+            .price $89.95
+          .more-info
+            .sizes
+              %h5 Sizes
+              %ul
+                %li 139,
+                %li 142,
+                %li 145,
+                %li 149,
+                %li 152,
+                %li 156,
+                %li 158,
+                %li 160 ...
+            .shape
+              %h5
+                Shape
+              %span
+                Directional Twin
+            .profile
+              %h5
+                Profile
+              %span
+                Super Flat
+      .large-3.columns.mix.women
+        .product
+          .main-info
+            = image_tag('fixme-boards/board7.png')
+            %h2
+              %a{:href=>'product.html'} Pulse
+            .price $89.95
+          .more-info
+            .sizes
+              %h5 Sizes
+              %ul
+                %li 139,
+                %li 142,
+                %li 145,
+                %li 149,
+                %li 152,
+                %li 156,
+                %li 158,
+                %li 160 ...
+            .shape
+              %h5
+                Shape
+              %span
+                Directional Twin
+            .profile
+              %h5
+                Profile
+              %span
+                Super Flat
+
+      .large-3.columns.mix.men
+        .product
+          .main-info
+            = image_tag('fixme-boards/board1.png')
+            %h2
+              %a{:href=>'product.html'} Salvatore Sanchez
+            .price $89.95
+          .more-info
+            .sizes
+              %h5 Sizes
+              %ul
+                %li 139,
+                %li 142,
+                %li 145,
+                %li 149,
+                %li 152,
+                %li 156,
+                %li 158,
+                %li 160 ...
+            .shape
+              %h5
+                Shape
+              %span
+                Directional Twin
+            .profile
+              %h5
+                Profile
+              %span
+                Super Flat
+      .large-3.columns.mix.women
+        .product
+          .main-info
+            = image_tag('fixme-boards/board2.png')
+            %h2
+              %a{:href=>'product.html'} Pulse
+            .price $89.95
+          .more-info
+            .sizes
+              %h5 Sizes
+              %ul
+                %li 139,
+                %li 142,
+                %li 145,
+                %li 149,
+                %li 152,
+                %li 156,
+                %li 158,
+                %li 160 ...
+            .shape
+              %h5
+                Shape
+              %span
+                Directional Twin
+            .profile
+              %h5
+                Profile
+              %span
+                Super Flat
+      .large-3.columns.mix.men
+        .product
+          .main-info
+            = image_tag('fixme-boards/board3.png')
+            %h2
+              %a{:href=>'product.html'} Drift Rocker
+            .price $89.95
+          .more-info
+            .sizes
+              %h5 Sizes
+              %ul
+                %li 139,
+                %li 142,
+                %li 145,
+                %li 149,
+                %li 152,
+                %li 156,
+                %li 158,
+                %li 160 ...
+            .shape
+              %h5
+                Shape
+              %span
+                Directional Twin
+            .profile
+              %h5
+                Profile
+              %span
+                Super Flat
+      .large-3.columns.mix.women
+        .product
+          .main-info
+            = image_tag('fixme-boards/board4.png')
+            %h2
+              %a{:href=>'product.html'} Salomonder
+            .price $89.95
+          .more-info
+            .sizes
+              %h5 Sizes
+              %ul
+                %li 139,
+                %li 142,
+                %li 145,
+                %li 149,
+                %li 152,
+                %li 156,
+                %li 158,
+                %li 160 ...
+            .shape
+              %h5
+                Shape
+              %span
+                Directional Twin
+            .profile
+              %h5
+                Profile
+              %span
+                Super Flat
+      .large-3.columns.mix.men
+        .product
+          .main-info
+            = image_tag('fixme-boards/board5.png')
+            %h2
+              %a{:href=>'product.html'} Snowden
+            .price $89.95
+          .more-info
+            .sizes
+              %h5 Sizes
+              %ul
+                %li 139,
+                %li 142,
+                %li 145,
+                %li 149,
+                %li 152,
+                %li 156,
+                %li 158,
+                %li 160 ...
+            .shape
+              %h5
+                Shape
+              %span
+                Directional Twin
+            .profile
+              %h5
+                Profile
+              %span
+                Super Flat
+      .large-3.columns.mix.men
+        .product
+          .main-info
+            = image_tag('fixme-boards/board6.png')
+            %h2
+              %a{:href=>'product.html'} 2unlimited
+            .price $89.95
+          .more-info
+            .sizes
+              %h5 Sizes
+              %ul
+                %li 139,
+                %li 142,
+                %li 145,
+                %li 149,
+                %li 152,
+                %li 156,
+                %li 158,
+                %li 160 ...
+            .shape
+              %h5
+                Shape
+              %span
+                Directional Twin
+            .profile
+              %h5
+                Profile
+              %span
+                Super Flat
+      .large-3.columns.mix.women
+        .product
+          .main-info
+            = image_tag('fixme-boards/board7.png')
+            %h2
+              %a{:href=>'product.html'} Pulse
+            .price $89.95
+          .more-info
+            .sizes
+              %h5 Sizes
+              %ul
+                %li 139,
+                %li 142,
+                %li 145,
+                %li 149,
+                %li 152,
+                %li 156,
+                %li 158,
+                %li 160 ...
+            .shape
+              %h5
+                Shape
+              %span
+                Directional Twin
+            .profile
+              %h5
+                Profile
+              %span
+                Super Flat
+      .large-3.columns.mix.men
+        .product
+          .main-info
+            = image_tag('fixme-boards/board1.png')
+            %h2
+              %a{:href=>'product.html'} Salvatore Sanchez
+            .price $89.95
+          .more-info
+            .sizes
+              %h5 Sizes
+              %ul
+                %li 139,
+                %li 142,
+                %li 145,
+                %li 149,
+                %li 152,
+                %li 156,
+                %li 158,
+                %li 160 ...
+            .shape
+              %h5
+                Shape
+              %span
+                Directional Twin
+            .profile
+              %h5
+                Profile
+              %span
+                Super Flat
+      .large-3.columns
+        .product.last
+          %h2
+            You've reached
+            %br
+            the last
+            %br
+            product
+
+          .message Donec sed odio dui. Maecenas faucibus mollis interdum. Fusce dapibus, tellus ac cursus commodo.
+          %ul.links
+            %li
+              %a Modify filters
+            %li
+              %a Clear filters
+            %li
+              %a Back to front page
