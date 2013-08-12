@@ -1,4 +1,8 @@
 SalomonWww::Application.routes.draw do
+  namespace :admin do
+    get "category/assign_product_to_category"
+  end
+
   get "store/index"
   get "team/index"
   get "team/show"
