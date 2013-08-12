@@ -1,6 +1,5 @@
-GIT
-  remote: https://github.com/sigurthor/a2_backend.git
-  revision: 1484d476cc43b532b908be881f5faaec2182de0e
+PATH
+  remote: ../A2
   specs:
     a2 (0.0.1)
       activerecord-import
@@ -307,8 +306,6 @@ GEM
       rails
       rush
     ya2yaml (0.31)
-    zurb-foundation (4.0.9)
-      sass (>= 3.2.0)
 
 PLATFORMS
   ruby
@@ -322,4 +319,3 @@ DEPENDENCIES
   rails (= 3.2.14)
   sass-rails (~> 3.2.3)
   uglifier (>= 1.0.3)
-  zurb-foundation (~> 4.0.0)
