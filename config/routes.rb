@@ -10,6 +10,8 @@ SalomonWww::Application.routes.draw do
   get "product/show"
   get "home/index"
 
+  match '/gear/(:category)' => 'product#index', :as => 'products'
+
   mount A2::Engine => "/a2"
 
   # The priority is based upon order of creation:

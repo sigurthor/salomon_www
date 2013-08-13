@@ -16,15 +16,8 @@
         %li.has-dropdown
           %a{:href => "#"} Gear
           %ul.dropdown
-            %li
-              %a{:href=>'products.html'} Boards
-            %li
-              %a{:href=>'products.html'} Bindings
-            %li
-              %a{:href=>'products.html'} Boots
-            %li
-              %a{:href=>'products.html'} Apparel
-
+            - gear_categories.each do |c|
+              %li=link_to c.name,products_url(c.slug)
         %li
           %a{:href => "products.html"} Team
         %li
