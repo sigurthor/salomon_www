@@ -1,0 +1,22 @@
+section#product-feature {
+  h2 {
+    font-family: $font-boldcnd20obl;
+    font-size: 24px;
+    color: $color-darkblue;
+    margin: 0;
+    text-transform: uppercase;
+  }
+  h3 {
+    font-family: $font-heading;
+    font-size: 96px;
+    color: $color-lightblue;
+    margin-top: 30px;
+    line-height: 48px;
+  }
+  p {
+    font-family: $font-light;
+    font-size: 16px;
+    line-height: 26px;
+    color: #000;
+  }
+}

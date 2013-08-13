@@ -1,0 +1,67 @@
+section#newsletter {
+  color: #fff;
+  background: $color-darkblue;
+
+  h3 {
+    font-family: $font-heading;
+    font-size: 72px;
+    color: #fff;
+    line-height: 72px;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+  }
+  p {
+    font-family: $font-light;
+    font-size: 16px;
+    line-height: 26px;
+    color: #fff;
+    margin-bottom: 40px;
+  }
+  ul {
+    font-family: $font-boldcnd20obl;
+    font-size: 20px;
+    color: #fff;
+    list-style: none;
+    li {
+      line-height: 40px;
+      a:before {
+        position: relative;
+        top: 5px;
+        display: inline-block;
+        font-family: "SSSocialRegular";
+        font-size: 24px;
+        width: 30px;
+        height: 30px;
+        margin-right: 7px;
+        text-align: center;
+        line-height: 36px;
+        color: $color-darkblue;
+        background-color: white;
+      }
+
+      a.facebook:before { content: '\F610'; }
+      a.twitter:before { content: '\F611'; }
+      a.tumblr:before { content: '\F620'; }
+      a.instagram:before { content: '\F641'; }
+
+      a:hover:before {
+        content: '+';
+        font-family: SSStandard;
+        color: #fff;
+        background: $color-lightblue;
+      }
+
+      a span {
+        color: white;
+        border-bottom: 2px solid #fff;
+      }
+    }
+  }
+  .email-subscription > div {
+    float: left;
+    display: inline-block;
+    &:nth-child(2) {
+      margin-left: 24px;
+    }
+  }
+}

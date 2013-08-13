@@ -1,0 +1,32 @@
+%section#newsletter
+  .row
+    .large-7.columns
+      .call-out
+
+        %h3 Sign up for the newsletter
+        %p
+          Donec sed odio dui. Maecenas faucibus mollis interdum. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Maecenas faucibus mollis interdum.
+
+          .email-subscription
+            %div
+              %input.email-input{:class => 'large-input', :type => 'text',:placeholder => 'E-mail Address'}
+            %div
+              %input{:class => 'button small-button', :type => 'submit', :value => 'Submit'}
+    .large-4.columns.large-offset-1
+      %h3
+        Or...
+        %br
+        follow us
+      %ul
+        %li
+          %a{:class=>'facebook', :href => '#'}
+            %span Facebook
+        %li
+          %a{:class=>'twitter', :href => '#'}
+            %span Twitter
+        %li
+          %a{:class=>'tumblr', :href => '#'}
+            %span Tumblr
+        %li
+          %a{:class=>'instagram', :href => '#'}
+            %span Instagram
