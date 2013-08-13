@@ -40,15 +40,11 @@
 //
 
 .img-zoom-hover {
-  overflow: hidden;
-
   img {
     @include transition(all 0.2s ease-in-out);
   }
 
-  &:hover {
-    img {
-      @include scale(1.2);
-    }
-  }
+  &.team-member:hover img { @include scale(1.2); }
+  &.main-info:hover img { @include scale(1.025); }
+
 }

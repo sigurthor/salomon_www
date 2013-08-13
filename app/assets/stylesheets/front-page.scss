@@ -300,6 +300,8 @@
       position: relative;
       color: #fff;
       z-index: 1;
+      overflow: hidden;
+
       &:before {
         content: '';
         position: absolute;
