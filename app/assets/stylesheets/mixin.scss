@@ -67,3 +67,14 @@
           transform-origin: $settings;
 }
 
+@-webkit-keyframes spin360 { 100% { -webkit-transform: rotate(360deg); } }
+   @-moz-keyframes spin360 { 100% { -moz-transform: rotate(360deg); } }
+    @-ms-keyframes spin360 { 100% { -ms-transform: rotate(360deg); } }
+        @keyframes spin360 { 100% { -webkit-transform: rotate(360deg); transform:rotate(360deg); } }
+
+@mixin spin {
+  -webkit-animation: spin360 1.5s linear infinite;
+     -moz-animation: spin360 1.5s linear infinite;
+      -ms-animation: spin360 1.5s linear infinite;
+          animation: spin360 1.5s linear infinite;
+}

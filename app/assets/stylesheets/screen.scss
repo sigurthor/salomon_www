@@ -42,8 +42,10 @@
 "vendor/foundation/components/tooltips",
 "vendor/foundation/components/dropdown";
 
+@import "mixin";
+
 @import
-  "mixin",
+  "general",
   "searchbar",
   "navigation", "breadcrumbs", "hero.scss.erb",
   "product",

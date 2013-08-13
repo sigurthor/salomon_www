@@ -21,6 +21,9 @@
     if $('#product-list').length
       self.initProductList()
 
+    if $('.product-details').length
+      self.initProductPage()
+
   initNavbar: () ->
     $(window).scroll ->
       $nav = $('#nav-container')
@@ -68,5 +71,10 @@
       $el = $(this)
       href = $el.find('h2 a').attr('href')
       window.location = href
+
+  initProductPage: ->
+    $('.disable-on-click').bind 'click', (e) ->
+      $(this).addClass('disabled').html('One moment...')
+      e.preventDefault()
 
 $(document).ready(salomon.initialize())
