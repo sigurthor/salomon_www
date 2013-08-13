@@ -47,7 +47,9 @@
 @import
   "general",
   "searchbar",
-  "navigation", "breadcrumbs", "hero.scss.erb",
+  "navigation",
+  "breadcrumbs",
+  "hero",
   "product",
   "products",
   "footer",
@@ -55,6 +57,7 @@
   "store",
   "shame",
   "front-page",
+  "fp-team",
   "filterbar";
 
 // Unresponsifying Foundation.
