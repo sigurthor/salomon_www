@@ -1,10 +1,16 @@
 SalomonWww::Application.routes.draw do
+  namespace :admin do
+    get "category/assign_product_to_category"
+  end
+
   get "store/index"
   get "team/index"
   get "team/show"
   get "product/index"
   get "product/show"
   get "home/index"
+
+  match '/gear/(:category)' => 'product#index', :as => 'products'
 
   mount A2::Engine => "/a2"
 
@@ -57,7 +63,7 @@ SalomonWww::Application.routes.draw do
 
   # You can have the root of your site routed with "root"
   # just remember to delete public/index.html.
-  root :to => 'a2/nice#index'
+  root :to => 'home#index'
 
   # See how all your routes lay out with "rake routes"
 

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130809154338) do
+ActiveRecord::Schema.define(:version => 20130811162758) do
 
   create_table "a2_brands", :id => false, :force => true do |t|
     t.string   "id"
@@ -161,9 +161,10 @@ ActiveRecord::Schema.define(:version => 20130809154338) do
     t.string   "s3_key"
     t.string   "img"
     t.integer  "position"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.datetime "created_at",   :null => false
+    t.datetime "updated_at",   :null => false
     t.string   "brand"
+    t.integer  "variant_code"
   end
 
   create_table "a2_product_lines", :force => true do |t|
