@@ -18,6 +18,9 @@
     if $('#map-search-overlay').length
       self.initStoreLocator()
 
+    if $('#product-list').length
+      self.initProductList()
+
   initNavbar: () ->
     $(window).scroll ->
       $nav = $('#nav-container')
@@ -58,5 +61,12 @@
     $('#map-search-overlay .button.search').bind 'click', (e) ->
       e.preventDefault()
       $('#map-search-overlay').addClass 'compact'
+
+  initProductList: () ->
+    console.log 'initializing product list'
+    $('#product-list .product').bind 'click', ->
+      $el = $(this)
+      href = $el.find('h2 a').attr('href')
+      window.location = href
 
 $(document).ready(salomon.initialize())
