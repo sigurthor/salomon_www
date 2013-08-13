@@ -11,16 +11,18 @@
 
 %section#main.product-details
   .row
-    .large-1.columns.product-thumbnails
-      = image_tag('fixme-boot.png')
-      %p Back view
-
-      = image_tag('fixme-boot.png')
-      %p Front view
-      = image_tag('fixme-boot.png')
-      %p Some other view
-    .large-5.columns
-      = image_tag('fixme-boot.png')
+    .large-6.columns
+      = image_tag('fixme-boot.png', class:'product-main-image')
+      .row
+        .large-6.columns.product-thumbnails
+          .product-thumbnail
+            %a{:href=>'#'}
+              = image_tag('fixme-boot.png', :data=>{:fullsize=>asset_path('fixme-boot.png')})
+              Front view
+          .product-thumbnail
+            %a{:href=>'#'}
+              = image_tag('fixme-boot-back.png', :data=>{:fullsize=>asset_path('fixme-boot-back.png')})
+              Back view
     .large-6.columns
       %h1 Launch
       %h2 $89.95

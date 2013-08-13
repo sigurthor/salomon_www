@@ -2,6 +2,7 @@
 
 .product-details {
 
+  padding-bottom: 3em;
 
   h1 {
     font-family: $font-heading;
@@ -22,11 +23,19 @@
   }
 
   .product-thumbnails {
+    margin-top: 1em;
+    text-align: center;
+
+    div {
+      max-width: 100px;
+      float: left;
+      margin-right: 20px;
+    }
     img {
       margin-bottom: .5em;
       border: 1px $color-darkblue solid;
     }
-    p {
+    a {
       font-family: $font-boldcnd20obl;
       font-size: 14px;
       line-height: 20px;
