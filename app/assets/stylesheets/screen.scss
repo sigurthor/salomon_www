@@ -42,10 +42,14 @@
 "vendor/foundation/components/tooltips",
 "vendor/foundation/components/dropdown";
 
+@import "mixin";
+
 @import
-  "mixin",
+  "general",
   "searchbar",
-  "navigation", "breadcrumbs", "hero.scss.erb",
+  "navigation",
+  "breadcrumbs",
+  "hero",
   "product",
   "products",
   "footer",
@@ -53,6 +57,10 @@
   "store",
   "shame",
   "front-page",
+  "fp-team",
+  "fp-updates",
+  "fp-feature",
+  "fp-newsletter",
   "filterbar";
 
 // Unresponsifying Foundation.

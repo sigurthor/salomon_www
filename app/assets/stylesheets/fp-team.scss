@@ -1,0 +1,82 @@
+section#the-team {
+  img {
+    display: inline-block;
+  }
+  .row + .row {
+    margin-top: 25px;
+  }
+  .team-member {
+    position: relative;
+    color: #fff;
+    z-index: 1;
+    overflow: hidden;
+
+    &:before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: $color-lightblue;
+      opacity: .25;
+      z-index: 999;
+
+      @include transition(opacity 0.2s ease-in-out);
+    }
+
+    &:hover:before {
+      opacity: 0;
+    }
+
+    .team-member-info {
+      position: absolute;
+      top: 0;
+      left: 0;
+      margin: 0 20px;
+      z-index: 9999;
+      h2 {
+        font-family: $font-heading;
+        font-size: 46px;
+        color: #fff;
+        margin: 17px 0 10px;
+        line-height: 46px;
+      }
+      .team-member-country {
+        font-family: $font-obl;
+        font-size: 24px;
+        letter-spacing: -1.2px;
+      }
+    }
+  }
+  .see-more {
+    font-family: $font-heading;
+    font-size: 46px;
+
+    .full-team {
+      font-family: $font-boldcnd20obl;
+      font-size: 20px;
+      text-transform: uppercase;
+      margin-top: 40px;
+      a {
+        position: relative;
+        top: -5px;
+        display: inline-block;
+        color: $color-darkblue;
+        border-bottom: 2px solid $color-darkblue;
+      }
+      &:before {
+        content: '+';
+        display: inline-block;
+        width: 32px;
+        height: 32px;
+        color: #fff;
+        margin-right: 10px;
+        font-family: SSStandard;
+        text-align: center;
+        line-height: 38px;
+        background: $color-darkblue;
+      }
+    }
+  }
+}

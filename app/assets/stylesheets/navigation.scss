@@ -73,12 +73,7 @@
 
   a.logo {
     @include transition(all 0.25s ease-in-out);
-
-    -webkit-transform-origin: 0 0;
-       -moz-transform-origin: 0 0;
-        -ms-transform-origin: 0 0;
-         -o-transform-origin: 0 0;
-            transform-origin: 0 0;
+    @include transform-origin(0 0);
 
     left: 20px;
     top: 10px;
