@@ -1,4 +1,4 @@
-class StoreController < ApplicationController
+class StoreController < BaseController
   def index
   end
 end
