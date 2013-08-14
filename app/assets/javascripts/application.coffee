@@ -27,8 +27,6 @@
   initNavbar: () ->
     $(window).scroll ->
       $nav = $('#nav-container')
-
-
       if $nav.offset().top > 5
         unless $nav.hasClass 'sticky'
           $nav.addClass 'sticky'
@@ -73,7 +71,6 @@
       window.location = href
 
   initProductPage: ->
-
     $('.product-thumbnail').each () ->
       $el = $(this)
       newImg = $el.find('img').data('fullsize')
