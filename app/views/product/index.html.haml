@@ -91,6 +91,25 @@
 
 %section#main
   .row
+    %ul
+      -@products.each do |p|
+        %li
+          %p= "#{p.name} #{p.price}$ - #{p.tag_line}"
+          %p= "#{p.description}"
+          %ul
+            -p.product_color_variants.each.with_index do |cv,index|
+              %li= cl_image_tag(cv.image, :width => 100, :height => 100,  :crop => :fill)
+          %h5 Features
+          %ul
+            -p.product_features.each do |f|
+              %li= "#{f.product_feature_type_name} > #{f.name}"
+          %h5 Features grouped
+          %ul
+            -p.features_by_type.each do |key,value|
+              %li= "#{key} #{(value.map(&:name)).join(" ,")}"
+
+
+  .row
     #product-list
       .large-3.columns.mix.men
         .product
