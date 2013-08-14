@@ -4,13 +4,14 @@
 
     // Vimeo column
     .large-6.columns
-      .update-item
+      .update-item.vimeo
         .update-meta
           %i.ss-icon.ss-standard video
           %p At Home with Chris Grenier
           .time-ago 4 days ago
-        .update-item-image
+        .img-wrapper
           = image_tag('frontpage/fixme-updates-1.png')
+      %a.button.vimeo{:href=>'#'} More videos on Vimeo
 
     // Facebook column
     .large-3.columns
@@ -28,12 +29,14 @@
           .time-ago 4 days ago
         %img{:src=>'http://placekitten.com/100/100'}
         %p It’s all about just following your heart and simply doing what you love. Don’t listen to anyone who…
+      %a.button.facebook{:href=>'#'} More on Facebook
 
     // Instagram column
     .large-3.columns
-      .update-item
+      .update-item.instagram
         .update-meta
           %i.ss-icon.ss-social instagram
           .time-ago 4 days ago
-        %p Donec sed odio dui. Donec ullamcorper nulla non metus auctor fringilla. Vivamus sagittis lacus vel augue laoreet rutrum faucibus...
         = image_tag('frontpage/fixme-updates-2.jpg')
+        %p Donec sed odio dui. Donec ullamcorper nulla non metus auctor fringilla. Vivamus sagittis lacus vel augue laoreet rutrum faucibus...
+      %a.button.instagram{:href=>'#'} More on Instagram
