@@ -1,9 +1,14 @@
 /* Product related */
 
+​path {
+  fill: #fff;
+}​
+
+ul {
+  list-style: none;
+}
+
 .product-details {
-
-  padding-bottom: 3em;
-
   h1 {
     font-family: $font-heading;
     font-size: 72px;
@@ -23,19 +28,11 @@
   }
 
   .product-thumbnails {
-    margin-top: 1em;
-    text-align: center;
-
-    div {
-      max-width: 100px;
-      float: left;
-      margin-right: 20px;
-    }
     img {
       margin-bottom: .5em;
       border: 1px $color-darkblue solid;
     }
-    a {
+    p {
       font-family: $font-boldcnd20obl;
       font-size: 14px;
       line-height: 20px;
@@ -125,6 +122,158 @@
         &.red { background-color: #D4363F; }
         &.purple { background-color: #7E4E6D; }
         &.gray { background-color: #766562; }
+      }
+    }
+  }
+}
+
+
+ul.riders {
+  list-style: none;
+  li + li {
+    margin-top: 8px;
+  }
+  li {
+    font-family: $font-boldobl;
+    font-size: 20px;
+    color: $color-darkblue;
+    text-transform: uppercase;
+    &:before {
+      content: '\1F464';
+      display: inline-block;
+      width: 30px;
+      height: 30px;
+      font-family: $icon-font;
+      font-size: 16px;
+      color: $color-darkblue;
+      line-height: 34px;
+      text-align: center;
+      margin: 0 10px 0 0;
+      background-color: #fff;
+    }
+    &:last-child {
+      &:before {
+        content: '\1F465';
+      }
+    }
+    &:hover {
+      &:before {
+        color: #fff;
+        background-color: $color-darkblue;
+      }
+    }    
+  }
+}
+
+.more-images {
+  line-height: 36px;
+  a {
+    color: $color-darkblue;
+  }
+  & div:before {
+    content: '\1F304';
+    display: inline-block;
+    width: 30px;
+    height: 30px;
+    font-family: $icon-font;
+    color: #fff;
+    text-align: center;
+    background-color: $color-darkblue    
+  }
+  float: right;
+  display: inline;
+  font-family: $font-boldobl;
+  font-size: 20px;
+  color: $color-darkblue;
+  text-transform: uppercase;
+  span {
+    position: relative;
+    top: -6px;
+    border-bottom: 3px solid $color-darkblue;
+  }
+  margin-top: 20px;
+}
+
+section#tech {
+  background-image: url(image-path('fixme-product-tech-bg.png'));
+
+  h2 {
+    font-size: 72px;
+    color: #fff;
+    text-align: center;
+  }
+
+  .sizes {
+    h2 {
+      font-size: 48px;
+      margin: 0;
+    }
+  }
+
+
+  ul.size-list {
+    font-family: $font-heading;
+    font-size: 36px;
+    color: #fff;
+    margin: 0 auto;
+    text-align: center;
+    h4 {
+      display: inline-block;
+      font-family: $font-heading;
+      font-size: 36px;
+      color: #fff;
+    }
+    li {
+      display: inline;
+    }
+  }
+
+  ul.tech-list {
+    list-style: none;
+    li + li {
+      margin-top: 4px;
+    }
+    li {
+      font-size: 24px;
+      height: 60px;
+      background-color: #023A4A;
+      i {
+        display: inline-block;
+        width: 40px;
+        height: 40px;
+        color: $color-darkblue;
+        line-height: 45px;
+        text-align: center;
+        border-radius: 50%;
+        background-color: #fff;
+      }
+      span:first-of-type {
+        font-family: $font-boldobl;
+        color: #fff;
+      }
+      span:last-of-type {
+        font-family: $font-boldcnd20;
+        color: $color-lightblue;
+      }
+      padding: 10px;
+      text-transform: uppercase;
+    }
+  }
+
+  ul.tech-stats {
+    font-family: $font-boldcnd20;
+    font-size: 18px;
+    color: #fff;
+    line-height: 30px;
+    text-transform: uppercase;
+    list-style: none;
+    li {
+      span {
+        cursor: pointer;
+        &:first-child {
+          display: inline-block;
+          width: 190px;
+        }
       }
     }
   }
