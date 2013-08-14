@@ -1,8 +1,8 @@
 GIT
   remote: https://8822694c4779c052130037718ba51b09d8ae7839:x-oauth-basic@github.com/sigurthor/a2_backend.git
-  revision: dd692c4fcf4918df86e52e88eb7bfdc9a67ce710
+  revision: 65e9b6ed2de49cb68a1ff203a08b56f188c7bca6
   specs:
-    a2 (0.0.1)
+    a2 (0.0.3)
       activerecord-import
       acts-as-taggable-on
       ancestry
