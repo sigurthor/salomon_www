@@ -31,10 +31,10 @@
     }
 
     .member-nav-wrapper {
+      display: inline-block;
       position: relative;
-      width: 3000px;
-      margin-left: -1500px;
       left: 50%;
+      overflow: hidden;
       -webkit-transition: all .5s ease-in-out;
       -moz-transition: all .5s ease-in-out;
       -o-transition: all .5s ease-in-out;
@@ -43,15 +43,17 @@
   }
 
   ul.team-nav {
+    display: inline-block;
     margin: 0;
+    overflow: hidden;
     li + li {
       margin-left: 20px;
     }
-    li {
-      float: left;
-      position: relative;
-      display: inline-block;
-      padding-bottom: 20px;
+
+    li.has-overlay {
+      .team-member-info {
+        display: block;
+      }
       &:after {
         position: absolute;
         top: 0;
@@ -62,11 +64,19 @@
         opacity: .5;
         background-color: $color-darkblue;
         z-index: 1;
-      }           
+      }
+    }
+
+    li {
+      float: left;
+      position: relative;
+      display: inline-block;
+      padding-bottom: 20px;
       .team-member-info {
+        display: none;
         position: absolute;
         top: 5px;
-        left: 5px;           
+        left: 5px;
         h3 {
           font-family: $font-heading;
           font-size: 32px;
@@ -277,4 +287,22 @@
     }
   }
 
+  .hover-nav-left {
+    position: absolute;
+    top: 64px;
+    left: 0;
+    width: 100px;
+    height: 200px;
+    z-index: 9999;
+  }
+
+
+  .hover-nav-right {
+    position: absolute;
+    top: 64px;
+    right: 0;
+    width: 100px;
+    height: 200px;
+    z-index: 9999;
+  }
 }
