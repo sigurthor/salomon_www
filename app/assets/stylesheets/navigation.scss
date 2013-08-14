@@ -57,16 +57,14 @@
         left: 40px;
         z-index: 99;
       }
+
+      @include transition(top 0.25s ease-in-out);
     }
   }
   &.sticky {
     .has-dropdown.open {
       ul.dropdown {
-        top: 40px;
-
-        &:before {
-          left: 20px;
-        }
+        top: 60px;
       }
     }
   }
