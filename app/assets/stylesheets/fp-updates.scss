@@ -44,5 +44,27 @@ section#updates {
       margin-top: 2px;
     }
 
+    .update-item-image {
+      position: relative;
+      cursor: pointer;
+    }
+
+    &.video {
+      .update-item-image:before {
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        margin: auto;        
+        content: '\25B6';
+        height: 64px;
+        font-family: $icon-font;
+        font-size: 64px;
+        color: #fff;
+        text-align: center;
+      }
+    }
+
   }
 }
