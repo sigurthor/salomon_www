@@ -72,20 +72,20 @@
   }
 
   a.logo {
-    @include transition(all 0.25s ease-in-out);
-    @include transform-origin(0 0);
-
     left: 20px;
-    top: 10px;
+    top: 30px;
 
     display: block;
     position: absolute;
 
-    width: 80px;
-    height: 80px;
-    background: url(image-path('layout/salomon-logo.png')) 0 0 no-repeat;
+    width: 137px;
+    height: 40px;
+    background: url(image-path('layout/salomon-snowboards-logo@2x.png')) 0 0 no-repeat;
+    background-size: 137px 40px;
 
     text-indent: -9999px;
+
+    @include transition(top 0.25s ease-in-out);
   }
 
   ul.left, ul.right {
@@ -119,16 +119,13 @@
     }
 
     &.left {
-      margin-left: 120px;
+      margin-left: 180px;
 
       & > li > a {
         font-size: 24px;
         text-transform: uppercase;
         font-family: "TradeGothicW01-BoldCn20 675337";
       }
-
-
-      @include transition(margin-left 0.25s ease-in-out);
     }
   }
 
@@ -147,29 +144,14 @@
   }
 
   &.sticky {
-    height: 40px;
+    height: 60px;
+
+    a.logo {
+      top: 10px;
+    }
 
     ul li a {
-      line-height: 40px;
-    }
-
-    ul.left {
-      margin-left: 40px;
-      li a {
-        font-size: 20px;
-        padding: 0 11px;
-      }
-    }
-
-    ul.right {
-      li a {
-        padding: 0 11px;
-      }
-    }
-
-    a.logo{
-      @include scale(0.25);
-      left: 10px;
+      line-height: 60px;
     }
   }
 
