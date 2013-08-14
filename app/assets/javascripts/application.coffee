@@ -74,12 +74,15 @@
       window.location = href
 
   initProductPage: ->
-    $('.product-thumbnail').each () ->
+    $thumbs = $('.product-thumbnails li')
+    $thumbs.each () ->
       $el = $(this)
       newImg = $el.find('img').data('fullsize')
-      $el.bind
-        mouseenter: (e) ->
-          $('.product-main-image').attr('src', newImg)
+      $el.bind 'click', (e) ->
+        $thumbs.removeClass('active')
+        $(this).addClass('active')
+        $('.product-main-image').attr('src', newImg)
+
 
     $('.disable-on-click').bind 'click', (e) ->
       $(this).addClass('disabled').html('One moment...')
