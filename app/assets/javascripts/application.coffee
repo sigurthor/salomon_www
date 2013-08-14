@@ -28,8 +28,8 @@
     console.log 'api'  
 
   initNavbar: () ->
+    $nav = $('#nav-container')
     $(window).scroll ->
-      $nav = $('#nav-container')
       if $nav.offset().top > 5
         unless $nav.hasClass 'sticky'
           $nav.addClass 'sticky'
