@@ -24,6 +24,9 @@
     if $('.product-details').length
       self.initProductPage()
 
+    $('.navigation-buttons a').click ->
+    console.log 'api'  
+
   initNavbar: () ->
     $nav = $('#nav-container')
     $(window).scroll ->
@@ -80,6 +83,6 @@
 
     $('.disable-on-click').bind 'click', (e) ->
       $(this).addClass('disabled').html('One moment...')
-      e.preventDefault()
+      e.preventDefault()  
 
 $(document).ready(salomon.initialize())
