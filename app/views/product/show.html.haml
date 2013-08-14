@@ -1,6 +1,5 @@
 - content_for(:navclass) do
   sticky
-
 %section#breadcrumbs
   %ul
     %li Your Location
@@ -11,18 +10,15 @@
 
 %section#main.product-details
   .row
-    .large-6.columns
-      = image_tag('fixme-boot.png', class:'product-main-image')
-      .row
-        .large-6.columns.product-thumbnails
-          .product-thumbnail
-            %a{:href=>'#'}
-              = image_tag('fixme-boot.png', :data=>{:fullsize=>asset_path('fixme-boot.png')})
-              Front view
-          .product-thumbnail
-            %a{:href=>'#'}
-              = image_tag('fixme-boot-back.png', :data=>{:fullsize=>asset_path('fixme-boot-back.png')})
-              Back view
+    .large-1.columns.product-thumbnails
+      = image_tag('fixme-boot.png')
+      %p Back view
+      = image_tag('fixme-boot.png')
+      %p Front view
+      = image_tag('fixme-boot.png')
+      %p Some other view
+    .large-5.columns
+      = image_tag('fixme-boot.png')
     .large-6.columns
       %h1 Launch
       %h2 $89.95
@@ -55,39 +51,119 @@
           %li
             %input{:type=>'text', :value=>'1'}
           %li
-            %a.button.disable-on-click{:href=>'#'} Add to cart
+            %input.button{:type=>'submit', :value=>'Add to cart'}
 %section.panel.gray
   .row
-    .large-12.columns
-      %h2 Gallery
-
-    .large-2.columns
-      %img{:src=>'http://placehold.it/180x180'}
-    .large-2.columns
-      %img{:src=>'http://placehold.it/180x180'}
-    .large-2.columns
-      %img{:src=>'http://placehold.it/180x180'}
-    .large-2.columns
-      %img{:src=>'http://placehold.it/180x180'}
-    .large-2.columns
-      %img{:src=>'http://placehold.it/180x180'}
-    .large-2.columns
-      %img{:src=>'http://placehold.it/180x180'}
-
-  .row
-
-    .large-12.columns
+    .large-8.columns
+      %h2 Gallery          
+      .large-3.columns
+        %img{:src=>'http://placehold.it/180x180'}
+      .large-3.columns
+        %img{:src=>'http://placehold.it/180x180'}
+      .large-3.columns
+        %img{:src=>'http://placehold.it/180x180'}
+      .large-3.columns
+        %img{:src=>'http://placehold.it/180x180'}
+        .more-images
+          %a{:href => '#'} 
+            %div
+              %span 7 more images
+    .large-3.columns.large-offset-1
       %h2 Riders
-    .large-2.columns
-      %img{:src=>'http://placekitten.com/180/180'}
-    .large-2.columns
-      %img{:src=>'http://placekitten.com/g/180/180'}
-    .large-2.columns
-      %img{:src=>'http://placekitten.com/180/180'}
-    .large-6.columns
-      %img{:src=>'http://placekitten.com/g/180/180'}
+      %ul.riders
+        %li Takaharu Nakai
+        %li Takaharu Nakai
+        %li Takaharu Nakai
+        %li Takaharu Nakai
+        %li Takaharu Nakai
+        %li 5 other riders
 
-%section.panel
+
+%section.panel#tech
   .row
-    .large-12.columns
-      %h2 Tech
+    %h2 Technology
+    .large-6.columns
+      .tech-info
+        %ul.tech-list
+          %li
+            %i.ss-icon.ss-standard plus
+            %span Terrain 
+            %span All mountain
+          %li
+            %i.ss-icon.ss-standard plus
+            %span Terrain 
+            %span All mountain
+          %li
+            %i.ss-icon.ss-standard plus
+            %span Terrain 
+            %span All mountain
+          %li
+            %i.ss-icon.ss-standard plus
+            %span Terrain 
+            %span All mountain
+          %li
+            %i.ss-icon.ss-standard plus
+            %span Terrain 
+            %span All mountain
+          %li
+            %i.ss-icon.ss-standard plus
+            %span Terrain 
+            %span All mountain
+    .large-6.columns
+      %ul.tech-list
+        %li
+          %i.ss-icon.ss-standard plus
+          %span Terrain 
+          %span All mountain
+        %li
+          %i.ss-icon.ss-standard plus
+          %span Terrain 
+          %span All mountain
+        %li
+          %i.ss-icon.ss-standard plus
+          %span Terrain 
+          %span All mountain
+        %li
+          %i.ss-icon.ss-standard plus
+          %span Terrain 
+          %span All mountain
+        %li
+          %i.ss-icon.ss-standard plus
+          %span Terrain 
+          %span All mountain
+  .row.sizes        
+    %h2 Sizing information
+    %ul.size-list
+      %h4 Size:
+      %li 150
+      %li 154
+      %li 156
+      %li 159      
+    .large-3.columns
+      %ul.tech-stats
+        %li
+          %span Contact length
+          %span 1145
+        %li
+          %span Effective edge
+          %span 1175
+        %li
+          %span Max stance
+          %span 636
+        %li
+          %span Waist width
+          %span 248
+        %li
+          %span Tail length
+          %span 190
+        %li
+          %span Nose length
+          %span 205
+        %li
+          %span Set back
+          %span 15
+        %li
+          %span Sidecut radius
+          %span 7.8                                                 
+    .large-8.columns.large-offset-1
+      %iframe{:src => "../fixme-board02.svg"}

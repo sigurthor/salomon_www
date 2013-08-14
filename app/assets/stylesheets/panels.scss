@@ -11,9 +11,8 @@ section.panel {
   }
 
   h2 {
-    font-family: "TradeGothicW01-BoldCn20 675337";
+    font-family: $font-heading;
     text-transform: uppercase;
-    border-bottom: 3px #003240 solid;
   }
 }
 

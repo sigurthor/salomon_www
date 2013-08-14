@@ -1,0 +1,56 @@
+body.team {
+
+  section#the-pros, section#the-ams {
+    padding: 70px 0;
+    background-color: $color-darkblue;
+
+    & > .row > h2 {
+      font-family: $font-heading;
+      font-size: 72px;
+      color: #fff;
+      letter-spacing: -1px;
+      line-height: 50px;
+      text-align: center;
+    }
+  }
+
+  margin-top: 100px;
+  .row + .row {
+    margin-top: 25px;
+  }
+  .team-member {
+    position: relative;
+    color: #fff;
+    z-index: 1;
+    &:before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 280px;
+      height: 280px;
+      background-color: $color-darkblue;
+      opacity: .5;
+      z-index: 999;
+    }
+    .team-member-info {
+      position: absolute;
+      top: 0;
+      left: 0;
+      margin: 0 20px;
+      z-index: 9999;
+      h2 {
+        font-family: $font-heading;
+        font-size: 46px;
+        color: #fff;
+        margin: 17px 0 10px;
+        line-height: 46px;
+      }
+      .team-member-country {
+        font-family: $font-obl;
+        font-size: 24px;
+        letter-spacing: -1.2px;
+      }
+    }
+  }
+}
