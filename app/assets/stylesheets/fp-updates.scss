@@ -1,52 +1,5 @@
 section#updates {
 
-  // .columns {
-  //   margin-bottom: 25px;
-  // }
-
-  .update-6 {
-    .update-meta {
-      margin: 40px 0 0 !important;
-    }
-  }
-
-  .update-item-image {
-    position: absolute;
-    bottom: 20px;
-  }
-
-  .update-1, .update-2, .update-5, .update-7 {
-    height: 392px;
-  }
-
-  .update-3, .update-6 {
-    height: 136px;
-  }
-
-  .update-4 {
-    height: 236px;
-  }
-
-  .update-6 {
-    height: 135px;
-  }
-
-  .update-6 {
-    overflow: hidden;
-
-    .update-meta {
-      float: left;
-      width: 135px;
-    }
-    .update-item-image {
-      right: 20px;
-    }
-  }
-
-  .large-8.columns {
-    float: left;
-  }
-
   background: #E9E9EA;
 
   .update-item {
@@ -58,53 +11,32 @@ section#updates {
     background: #fff;
 
     .update-meta {
-      margin-top: -10px;
+      @include clearfix;
+
+      margin-bottom: 10px;
+
+      i {
+        float: left;
+        font-size: 32px;
+        margin-right: 16px;
+      }
 
       p {
         margin: 0;
-        line-height: 16px;
-      }
-
-      &:before {
-        position: absolute;
-        top: 20px;
-        left: 20px;
-        font-family: $icon-font;
-        font-size: 32px;
       }
     }
 
-    &.video{
-      .update-meta {
-        margin-left: 50px;
-        &:before {
-          content: '\1F4F9';
-        }
+    p { line-height: 16px; }
+
+    &.facebook {
+      max-height: 182px;
+      overflow: hidden;
+
+      img {
+        float: left;
+        margin-right: 20px;
       }
     }
-
-    &.blog {
-      .update-meta {
-        margin-left: 40px;
-        &:before {
-          content: '\1F4C4';
-        }
-      }
-    }
-
-    img {
-      display: block;
-    }
-
-    .hashtags {
-      list-style: none;
-      margin: 0;
-
-      li {
-        display: inline;
-      }
-    }
-
     .time-ago {
       font-family: $font-boldobl;
       font-size: 14px;
@@ -112,66 +44,5 @@ section#updates {
       margin-top: 2px;
     }
 
-  }
-}
-
-.last-item {
-  height: 236px;
-  padding: 20px;
-  margin-top: 20px;
-  background: #fff;
-
-  h2 {
-    font-family: $font-heading;
-    font-size: 36px;
-    line-height: 36px;
-  }
-  .item-nav {
-    position: absolute;
-    bottom: 20px;
-    font-family: $font-boldobl;
-    font-size: 20px;
-    overflow: hidden;
-    a {
-      span { border-bottom: 2px solid $color-lightblue; }
-      text-transform: uppercase;
-      &:first-child {
-        float: left;
-        margin-right: 40px;
-        opacity: .25;
-        &:before {
-          content: '\25C5';
-          display: inline-block;
-          color: #fff;
-          width: 40px;
-          height: 40px;
-          margin-right: 5px;
-          font-family: $icon-font;
-          text-align: center;
-          line-height: 45px;
-          background: #00A4D1;
-        }
-      }
-      &:nth-child(2) {
-        float: right;
-        &:after {
-          content: '\25BB';
-          display: inline-block;
-          color: #fff;
-          width: 40px;
-          height: 40px;
-          margin-left: 5px;
-          font-family: $icon-font;
-          text-align: center;
-          line-height: 45px;
-          background: #00A4D1;
-        }
-      }
-    }
-  }
-  p {
-    font-family: $font-light;
-    font-size: 18px;
-    color: $color-darkblue;
   }
 }
