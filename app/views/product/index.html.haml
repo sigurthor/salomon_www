@@ -96,15 +96,16 @@
         .large-3.columns.mix.men
           .product
             .main-info.img-zoom-hover
-              = image_tag('fixme-boards/board2.png')
+              = cl_image_tag product.master_image,  :width => 200, :crop => :fit
               %h2
                 %a{:href=>'/product/show'} #{product.name}
               .price=product.price
             .more-info
               -product.product_features.each do |feature|
                 .feature
-                  %h5=feature.product_feature_type_name
-                  %span=feature.name
+                  - if feature.product_feature_type_show_in_category_overview
+                    %h5=feature.product_feature_type_name
+                    %span=feature.name
 
       .large-3.columns
         .product.last

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130811162758) do
+ActiveRecord::Schema.define(:version => 20130814143115) do
 
   create_table "a2_brands", :id => false, :force => true do |t|
     t.string   "id"
@@ -132,11 +132,12 @@ ActiveRecord::Schema.define(:version => 20130811162758) do
   create_table "a2_product_feature_types", :force => true do |t|
     t.integer  "feature_type_code"
     t.string   "name"
-    t.datetime "created_at",        :null => false
-    t.datetime "updated_at",        :null => false
+    t.datetime "created_at",                :null => false
+    t.datetime "updated_at",                :null => false
     t.string   "brand"
     t.integer  "position"
     t.string   "category"
+    t.boolean  "show_in_category_overview"
   end
 
   add_index "a2_product_feature_types", ["feature_type_code"], :name => "index_a2_product_feature_types_on_feature_type_code", :unique => true
