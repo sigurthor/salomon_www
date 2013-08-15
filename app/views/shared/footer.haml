@@ -11,19 +11,19 @@
     .large-2.columns
       %nav
         %h5 Stay in touch
-        %ul
+        %ul.social
           %li
-            %a{} Facebook
+            %a.ss-facebook{} Facebook
           %li
-            %a{} Twitter
+            %a.ss-twitter{} Twitter
           %li
-            %a{} Tumblr
+            %a.ss-tumblr{} Tumblr
           %li
-            %a{} Instagram
+            %a.ss-instagram{} Instagram
           %li
-            %a{} Vimeo
+            %a.ss-vimeo{} Vimeo
           %li
-            %a{} YouTube
+            %a.ss-youtube{} YouTube
 
     .large-2.columns
       %nav
@@ -64,5 +64,5 @@
       .newsletter
         %h5 Signup for our newsletter
         %form.custom
-          %input{:type=>'text'}
+          %input{:type=>'text', :placeholder => 'your@email.address'}
           %input.button{:type=>'submit', :value=>'Go'}
