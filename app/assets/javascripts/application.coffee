@@ -12,7 +12,7 @@
     if $('#map-canvas').length
       self.initMap()
 
-    if $('.products').length
+    if $('#product-list').length
       self.initFilters()
 
     if $('#map-search-overlay').length
@@ -54,12 +54,12 @@
     google.maps.event.addDomListener(window, 'load', mapInit)
 
   initFilters: () ->
-    $('.products').mixitup
+    $('#product-list').mixitup
       effects: ['fade', 'blur']
       easing: 'WindBack'
       transitionSpeed: 400
-      multiFilter: true
-      showOnLoad: 'men women'
+      #multiFilter: true
+      #showOnLoad: 'men women'
 
   initStoreLocator: () ->
     $('#map-search-overlay .button.search').bind 'click', (e) ->

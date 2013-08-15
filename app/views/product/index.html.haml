@@ -16,21 +16,30 @@
   %form.custom
     .row
       - @feature_types.each do |filter|
-        .large-3.columns
+        - if filter.product_features.size < 5
+          - filterCssClass = 'large-3'
+        - elsif filter.product_features.size < 9
+          - filterCssClass = 'large-6'
+        - else
+          - filterCssClass = 'large-9'
+
+        .columns{:class => filterCssClass}
           %h4=filter.name
           %ul
             - filter.product_features.each do |feature|
-              %li.filter(data-filter="men")
+              %li.filter(data-filter="filter-#{feature.feature_code}")
                 %label(for="men-checkbox")
                   %input#men-checkbox.hidden-field{:type=>'checkbox'}
                   %span.custom.checkbox
                   =feature.name
 
+
 %section#main
   .row
     #product-list
       -@products.each do |product|
-        .large-3.columns.mix.men
+        - filterClasses = product.product_features.map { |p| "filter-#{p.feature_code}" }.join ' '
+        .large-3.columns.mix{:class=>filterClasses}
           .product
             .main-info.img-zoom-hover
               = cl_image_tag product.master_image,  :width => 200, :crop => :fit
