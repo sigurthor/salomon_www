@@ -15,21 +15,42 @@
 %section#filterbar
   %form.custom
     .row
-      - @feature_types.each do |filter|
+      .large-3.columns
+        %h4 Rider
+        %ul
+          %li.filter(data-filter="gender-M")
+            %label(for="men-checkbox")
+              %input#men-checkbox.hidden-field{:type=>'checkbox'}
+              %span.custom.checkbox
+              Men
+          %li.filter(data-filter="gender-W")
+            %label(for="women-checkbox")
+              %input#women-checkbox.hidden-field{:type=>'checkbox'}
+              %span.custom.checkbox
+              Women
+          %li.filter(data-filter="gender-Y")
+            %label(for="youth-checkbox")
+              %input#youth-checkbox.hidden-field{:type=>'checkbox'}
+              %span.custom.checkbox
+              Youth
+
+      - @feature_types.each_with_index do |filter, index|
         - if filter.product_features.size < 5
           - filterCssClass = 'large-3'
         - elsif filter.product_features.size < 9
           - filterCssClass = 'large-6'
         - else
           - filterCssClass = 'large-9'
+        - if @feature_types.size - 1 == index
+          - filterCssClass << ' end'
 
         .columns{:class => filterCssClass}
           %h4=filter.name
           %ul
             - filter.product_features.each do |feature|
               %li.filter(data-filter="filter-#{feature.feature_code}")
-                %label(for="men-checkbox")
-                  %input#men-checkbox.hidden-field{:type=>'checkbox'}
+                %label(for="checkbox-#{feature.feature_code}")
+                  %input.hidden-field{:type=>'checkbox', :id => "checkbox-#{feature.feature_code}"}
                   %span.custom.checkbox
                   =feature.name
 
@@ -39,6 +60,7 @@
     #product-list
       -@products.each do |product|
         - filterClasses = product.product_features.map { |p| "filter-#{p.feature_code}" }.join ' '
+        - filterClasses << " gender-#{product.gender}"
         .large-3.columns.mix{:class=>filterClasses}
           .product
             .main-info.img-zoom-hover
