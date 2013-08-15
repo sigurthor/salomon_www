@@ -103,7 +103,7 @@
             .more-info
               -product.product_features.each do |feature|
                 .feature
-                  - if feature.product_feature_type_show_in_category_overview
+                - if feature.product_feature_type_show_in_category_overview
                     %h5=feature.product_feature_type_name
                     %span=feature.name
 
