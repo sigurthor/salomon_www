@@ -1,6 +1,7 @@
 GIT
   remote: https://8822694c4779c052130037718ba51b09d8ae7839:x-oauth-basic@github.com/sigurthor/a2_backend.git
-  revision: bc921e523e5710af4e4ad5c10d96dbbd68b0fdfc
+  revision: 0c9a648ed7251531ce052cca984a53b4bff02bba
+  branch: master
   specs:
     a2 (0.0.6)
       activerecord-import
