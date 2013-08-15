@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130815103111) do
+ActiveRecord::Schema.define(:version => 20130815135428) do
 
   create_table "a2_brands", :id => false, :force => true do |t|
     t.string   "id"
@@ -283,6 +283,29 @@ ActiveRecord::Schema.define(:version => 20130815103111) do
     t.datetime "created_at",  :null => false
     t.datetime "updated_at",  :null => false
     t.string   "brand"
+  end
+
+  create_table "a2_team_members", :force => true do |t|
+    t.string   "name"
+    t.string   "slug"
+    t.string   "fullname"
+    t.text     "description"
+    t.string   "country"
+    t.string   "city"
+    t.string   "vimeo"
+    t.integer  "team_category_id"
+    t.string   "tag_line"
+    t.string   "video"
+    t.string   "facebook"
+    t.string   "twitter"
+    t.string   "website"
+    t.string   "instragram"
+    t.string   "thumb_image"
+    t.string   "main_image"
+    t.string   "gender"
+    t.boolean  "visible",          :default => true
+    t.datetime "created_at",                         :null => false
+    t.datetime "updated_at",                         :null => false
   end
 
   create_table "a2_tech_feature_translations", :force => true do |t|
