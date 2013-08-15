@@ -128,11 +128,44 @@
   }
 
   ul.right {
+    margin-right: 20px;
+
     font-family: "Trade Gothic W01 Cn 18";
     text-transform: uppercase;
 
     li a {
       font-size: 16px;
+    }
+
+    li.basket {
+      margin-right: 10px;
+    }
+
+    li.social {
+      a {
+        width: 34px;
+        height: 34px;
+
+        margin-right: 10px;
+        margin-top: 34px;
+        padding: 0;
+
+        background-color: $color-darkblue;
+
+        font-family: "SSSocialRegular";
+        text-transform: none;
+        font-size: 16px;
+        line-height: 38px;
+        color: white;
+        text-align: center;
+
+        @include transition(margin-top 0.25s ease-in-out);
+
+        &:hover {
+          background-color: $color-lightblue;
+        }
+      }
+
     }
   }
 
@@ -150,6 +183,10 @@
 
     ul li a {
       line-height: 60px;
+    }
+
+    ul.right li.social a {
+      margin-top: 13px;
     }
   }
 
