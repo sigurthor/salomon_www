@@ -15,79 +15,16 @@
 %section#filterbar
   %form.custom
     .row
-      .large-3.columns
-        %h4 Rider
-        %ul
-          %li.filter(data-filter="men")
-            %label(for="men-checkbox")
-              %input#men-checkbox.hidden-field{:type=>'checkbox'}
-              %span.custom.checkbox
-              Men
-          %li.filter(data-filter="women")
-            %label(for="men-checkbox")
-              %input#men-checkbox.hidden-field{:type=>'checkbox'}
-              %span.custom.checkbox
-              Women
-          %li
-            %label(for="men-checkbox")
-              %input#men-checkbox.hidden-field{:type=>'checkbox'}
-              %span.custom.checkbox
-              Youth
-      .large-3.columns
-        %h4 Terrain
-        %ul
-          %li
-            %label(for="men-checkbox")
-              %input#men-checkbox.hidden-field{:type=>'checkbox'}
-              %span.custom.checkbox
-              All Mountain
-          %li
-            %label(for="men-checkbox")
-              %input#men-checkbox.hidden-field{:type=>'checkbox'}
-              %span.custom.checkbox
-              Park & Freestyle
-          %li
-            %label(for="men-checkbox")
-              %input#men-checkbox.hidden-field{:type=>'checkbox'}
-              %span.custom.checkbox
-              Backyard
-      .large-3.columns
-
-        %h4 Camber
-        %ul
-          %li
-            %label(for="men-checkbox")
-              %input#men-checkbox.hidden-field{:type=>'checkbox'}
-              %span.custom.checkbox
-              Pres-Sure Rocker
-          %li
-            %label(for="men-checkbox")
-              %input#men-checkbox.hidden-field{:type=>'checkbox'}
-              %span.custom.checkbox
-              Pow Rocker
-          %li
-            %label(for="men-checkbox")
-              %input#men-checkbox.hidden-field{:type=>'checkbox'}
-              %span.custom.checkbox
-              Super Flat
-      .large-3.columns
-        %h4 &nbsp;
-        %ul
-          %li
-            %label(for="men-checkbox")
-              %input#men-checkbox.hidden-field{:type=>'checkbox'}
-              %span.custom.checkbox
-              Rock Out Camber
-          %li
-            %label(for="men-checkbox")
-              %input#men-checkbox.hidden-field{:type=>'checkbox'}
-              %span.custom.checkbox
-              Cross Profile
-          %li
-            %label(for="men-checkbox")
-              %input#men-checkbox.hidden-field{:type=>'checkbox'}
-              %span.custom.checkbox
-              Camber
+      - @feature_types.each do |filter|
+        .large-3.columns
+          %h4=filter.name
+          %ul
+            - filter.product_features.each do |feature|
+              %li.filter(data-filter="men")
+                %label(for="men-checkbox")
+                  %input#men-checkbox.hidden-field{:type=>'checkbox'}
+                  %span.custom.checkbox
+                  =feature.name
 
 %section#main
   .row
@@ -104,10 +41,10 @@
               -product.product_features.each do |feature|
                 .feature
                 - if feature.product_feature_type_show_in_category_overview
-                    %h5=feature.product_feature_type_name
-                    %span=feature.name
+                  %h5=feature.product_feature_type_name
+                  %span=feature.name
 
-      .large-3.columns
+      .large-3.columns.end
         .product.last
           %h2
             You've reached
