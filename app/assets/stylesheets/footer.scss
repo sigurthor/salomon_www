@@ -6,13 +6,15 @@ footer {
     width: 279px;
     height: 81px;
     margin-bottom: 20px;
-    background: url(image-path('fixme-footer-logo.png'));
+    background: url(image-path('layout/salomon-snowboards-logo@2x.png')) 0 0 no-repeat;
+    background-size: 180px 53px;
   }
 
   .copyright {
     font-family:'Trade Gothic W01 Cn 18';
     font-size: 12px;
     line-height: 30px;
+    max-width: 180px;
   }
 
   .language-selector form.custom .custom.dropdown.small {
@@ -26,26 +28,16 @@ footer {
     }
   }
 
-  .footer-right > .columns {
-    border-top: 3px solid #003240;
-
-    &:first-child {
-      padding-top: 20px;
-      padding-left: 0;
-    }
-
-    &:nth-child(2) {
-      padding-top: 10px;
-    }
+  h5 {
+    margin: 0;
+    font-size: 14px;
+    line-height: 30px;
+    text-transform: uppercase;
   }
 
-  .footer-links {
-    font-size: 14px;
-
-    nav {
-      float: left;
-      display: inline-block;
-    }
+  nav {
+    float: left;
+    display: inline-block;
 
     ul {
       display: inline-block;
@@ -57,12 +49,6 @@ footer {
       }
     }
 
-    h5 {
-      margin: 0;
-      font-size: 14px;
-      line-height: 30px;
-      text-transform: uppercase;
-    }
-
+    font-size: 14px;
   }
 }
