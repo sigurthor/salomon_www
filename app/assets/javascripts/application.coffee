@@ -25,7 +25,7 @@
       self.initProductPage()
 
     $('.navigation-buttons a').click ->
-    console.log 'api'  
+      undefined
 
   initNavbar: () ->
     $nav = $('#nav-container')
@@ -67,25 +67,71 @@
       $('#map-search-overlay').addClass 'compact'
 
   initProductList: () ->
-    console.log 'initializing product list'
     $('#product-list .product').bind 'click', ->
       $el = $(this)
       href = $el.find('h2 a').attr('href')
       window.location = href
 
+
   initProductPage: ->
+    self = this
+
+    self.initProductThumbnails()
+
+    # Add to cart button should disable on click
+    $('.disable-on-click').bind 'click', (e) ->
+      e.preventDefault()
+      $(this).addClass('disabled').html('One moment...')
+      e.preventDefault()
+
+    self.initProductColorPicker()
+
+  initProductThumbnails: ->
     $thumbs = $('.product-thumbnails li')
     $thumbs.each () ->
       $el = $(this)
       newImg = $el.find('img').data('fullsize')
       $el.bind 'click', (e) ->
+        e.preventDefault()
         $thumbs.removeClass('active')
         $(this).addClass('active')
         $('.product-main-image').attr('src', newImg)
 
+  initProductColorPicker: ->
+    self = this
 
-    $('.disable-on-click').bind 'click', (e) ->
-      $(this).addClass('disabled').html('One moment...')
-      e.preventDefault()
+    $('.imageset').each ->
+      $el = $(this)
+      imageSetIndex = $el.data 'imagesetindex'
+      set = imageSet[parseInt(imageSetIndex)]
+
+      $el.bind 'click', (e) ->
+        e.preventDefault()
+        self.updateImageset(set)
+        $el.parent().parent().find('li').removeClass 'selected'
+        $el.parent().addClass 'selected'
+
+  updateImageset: (set) ->
+    self = this
+
+    # First image goes into the main spot...
+    $('.product-main-image').attr('src', set[0]);
+
+    $thumbList = $('.product-thumbnails ul')
+    $thumbList.html('')
+
+    for img, i in set
+      cssClass = ''
+      cssClass = 'active' if i == 0
+
+      imgTpl = '
+        <li class="'+cssClass+'">
+          <a href="#"><img src="'+img+'" data-fullsize="'+img+'" /></a>
+          <a href="#">View ' + (i+1) + '</a>
+        </li>'
+      $thumbList.append imgTpl
+
+    self.initProductThumbnails()
+
 
 $(document).ready(salomon.initialize())
