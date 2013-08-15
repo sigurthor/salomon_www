@@ -23,8 +23,8 @@
               = link_to image_tag('fixme-boot-back.png', :data=>{:fullsize=>asset_path('fixme-boot-back.png')}), '#'
             %a{:href=>'#'} Back view
     .large-6.columns
-      %h1 Launch
-      %h2 $89.95
+      %h1= @product.name
+      %h2= "$#{@product.price}"
       %form.custom
         %ul.product-meta.product-color
           %li Color
@@ -54,7 +54,7 @@
           %li
             %input.button.disable-on-click{:type=>'submit', :value=>'Add to cart'}
 
-      %p.product-model Model 326526
+      %p.product-model= "MODEL #{@product.model}"
 
       %p.product-description Maximum bang for your buck, the all new Launch sets the bar high and keeps the price tag low. Featuring Balance 1 Compact Liner, we cut out the excess and added a stylish outer construction that is built to last. Cinch it down with ZoneLock lacing and rise above the rest with this go-to freestyle model.
 %section.panel.gray

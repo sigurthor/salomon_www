@@ -11,6 +11,7 @@ SalomonWww::Application.routes.draw do
   get "home/index"
 
   match '/gear/(:category)' => 'product#index', :as => 'products'
+  match '/gear/(:category)/(:product)' => 'product#show', :as => 'product_show'
 
   mount A2::Engine => "/a2"
 

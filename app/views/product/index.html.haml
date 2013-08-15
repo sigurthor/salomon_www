@@ -98,7 +98,7 @@
             .main-info.img-zoom-hover
               = cl_image_tag product.master_image,  :width => 200, :crop => :fit
               %h2
-                %a{:href=>'/product/show'} #{product.name}
+                = link_to product.name, product_show_path(params[:category],product.slug)
               .price=product.price
             .more-info
               -product.product_features.each do |feature|
