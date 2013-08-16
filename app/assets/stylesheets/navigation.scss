@@ -22,7 +22,6 @@
     &.open {
       ul.dropdown {
         top: 100px;
-
       }
     }
 
@@ -89,7 +88,7 @@
   ul.left, ul.right {
     background: transparent;
 
-    li.open a {
+    li.open > a {
       background: $color-lightblue;
       color: white;
     }
@@ -133,7 +132,7 @@
     font-family: "Trade Gothic W01 Cn 18";
     text-transform: uppercase;
 
-    li a {
+    li > a {
       font-size: 16px;
     }
 
@@ -142,7 +141,7 @@
     }
 
     li.social {
-      a {
+      & > a {
         width: 34px;
         height: 34px;
 
@@ -164,6 +163,63 @@
         &:hover {
           background-color: $color-lightblue;
         }
+      }
+    }
+
+    iframe { display: none; }
+
+    li.open {
+      & > a {
+        background-color: $color-lightblue;
+        color: white;
+      }
+
+      iframe { display: block; }
+    }
+
+    .dropdown {
+      padding-top: 10px;
+      text-align: center;
+
+      .dropdown-inner {
+        border: 10px $color-lightblue solid;
+        padding: 10px;
+        background-color: white;
+      }
+
+      &:before {
+        @include css-triangle(10px, $color-lightblue, bottom);
+        position: absolute;
+        top: -10px;
+
+        z-index: 99;
+      }
+
+      &.facebook {
+        left: -120px;
+        width: 270px;
+
+        &:before { left: 125px; }
+      }
+
+      &.twitter {
+        left: -90px;
+        width: 150px;
+
+        iframe {
+          width: 80px !important;
+          margin: 0 auto;
+        }
+
+        &:before { left: 96px; }
+      }
+
+      &.pinterest {
+        width: 240px;
+        left: -206px;
+
+        &:before { left: 213px; }
+
       }
 
     }
