@@ -46,6 +46,7 @@
 
       setTimeout () ->
           $videoEl.play()
+          $videoEl.muted = false
           $video.fadeIn(2500)
         , 2000
 
