@@ -27,6 +27,19 @@
     if $('.member-nav-wrapper').length
       self.initTeamNav()
 
+    $('#volume-control').bind 'click', (e) ->
+
+      console.log 'click'
+      e.preventDefault()
+      $video = $('video').get(0)
+
+      if $video.muted
+        $video.muted = false
+        $('#volume-control').addClass 'on'
+      else
+        $video.muted = true
+        $('#volume-control').removeClass 'on'
+
   initNavbar: () ->
     $nav = $('#nav-container')
     $(window).scroll ->

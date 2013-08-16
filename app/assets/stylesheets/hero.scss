@@ -36,6 +36,65 @@ section#hero {
     top: 190px;
   }
 
+
+  overflow: hidden;
+  video {
+    width: 100%;
+    position: relative;
+    top: -60px;
+  }
+
+  #video-controls {
+    position: absolute;
+    top: 600px;
+    left: 200px;
+    z-index: 3000;
+    font-size: 32px;
+
+    a {
+      width: 34px;
+      height: 34px;
+      line-height: 40px;
+      text-align: center;
+      display: block;
+      background-color: white;
+      color: $color-darkblue;
+      font-size: 26px;
+
+      @include transition(
+        color 0.25s ease-in-out,
+        opacity 2s ease-in-out
+      );
+
+      &:before {
+        content: "\1F508";
+        font-family: "SSStandard";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+      }
+
+      &:hover {
+        color: $color-lightblue;
+        opacity: 1;
+
+        &:before {
+          content: "\1F509";
+        }
+      }
+
+      &.on{
+        &:before {
+          content: "\1F509";
+        }
+        opacity: 0.5;
+      }
+    }
+
+  }
+
   @include transition(margin-top 0.25s ease-in-out);
   @include translateZ(0);
 }
