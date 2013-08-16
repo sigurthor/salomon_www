@@ -43,8 +43,7 @@ section#hero {
   video {
     cursor: pointer;
     position: relative;
-    top: -60px;
-    min-height: 800px;
+    min-height: 600px;
     margin: 0 auto;
   }
 
@@ -117,6 +116,6 @@ section#hero {
 }
 
 .sticky + #hero {
-  margin-top: 45px;
+  margin-top: 60px;
 }
 

@@ -37,11 +37,12 @@
       $videoEl = $('video').get(0)
       $videoEl.pause()
 
+      $('#nav-container').addClass 'sticky'
       $('#play-overlay, video').fadeOut 1500, () ->
-        $video.find('source').get(0).src = 'http://pdl.vimeocdn.com/30447/812/177689239.mp4?aktimeoffset=0&aksessionid=27a6cc0ce61c2357f62087466420a062&token=1376690838_e2af6a663b8b392ea5c93a680bf6ec6e';
+        $video.find('source').get(0).src = 'http://vimeo.com/70501536/download?t=1376686407&v=177689239&s=d4646d19567293ddb7b9188f87f82379';
         $videoEl.load()
 
-      $('#hero').css('height', '600px')
+      $('#hero').css('height', '680px')
 
       setTimeout () ->
           $videoEl.play()
