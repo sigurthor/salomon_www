@@ -5,115 +5,36 @@
     %span Pros
     %span Ams
   .navigation-buttons
-    %a{:href => '#'}
-      %i{:class => 'ss-icon ss-standard'} navigateleft
-    %a{:href => '#'}  
-      %i{:class => 'ss-icon ss-standard'} navigateright        
+    .click-buttons
+      %a.left-arrow{:href => '#'}
+        %i{:class => 'ss-icon ss-standard'} navigateleft
+      %a.right-arrow{:href => '#'}
+        %i{:class => 'ss-icon ss-standard'} navigateright
+    .hover-buttons
+      .hover-nav-left
+      .hover-nav-right
   .member-nav-wrapper
     %ul.team-nav
-      %li
-        %img{:src => 'http://placekitten.com/g/140/140'}
-        .team-member-info
-          %h3 Takaharu Nakai
-          .team-member-country Japan
-      %li
-        %img{:src => 'http://placekitten.com/g/140/140'}
-        .team-member-info
-          %h3 Takaharu Nakai
-          .team-member-country Japan
-      %li
-        %img{:src => 'http://placekitten.com/g/140/140'}
-        .team-member-info
-          %h3 Takaharu Nakai
-          .team-member-country Japan
-      %li
-        %img{:src => 'http://placekitten.com/g/140/140'}
-        .team-member-info
-          %h3 Takaharu Nakai
-          .team-member-country Japan
-      %li
-        %img{:src => 'http://placekitten.com/g/140/140'}
-        .team-member-info
-          %h3 Takaharu Nakai
-          .team-member-country Japan
-      %li
-        %img{:src => 'http://placekitten.com/g/140/140'}
-        .team-member-info
-          %h3 Takaharu Nakai
-          .team-member-country Japan
-      %li
-        %img{:src => 'http://placekitten.com/g/140/140'}
-        .team-member-info
-          %h3 Takaharu Nakai
-          .team-member-country Japan
-      %li
-        %img{:src => 'http://placekitten.com/g/140/140'}
-        .team-member-info
-          %h3 Takaharu Nakai
-          .team-member-country Japan
-      %li
-        %img{:src => 'http://placekitten.com/g/140/140'}
-        .team-member-info
-          %h3 Takaharu Nakai
-          .team-member-country Japan
-      %li
-        %img{:src => 'http://placekitten.com/g/140/140'}
-        .team-member-info
-          %h3 Takaharu Nakai
-          .team-member-country Japan
-      %li
-        %img{:src => 'http://placekitten.com/g/140/140'}
-        .team-member-info
-          %h3 Takaharu Nakai
-          .team-member-country Japan
-      %li
-        %img{:src => 'http://placekitten.com/g/140/140'}
-        .team-member-info
-          %h3 Takaharu Nakai
-          .team-member-country Japan
-      %li
-        %img{:src => 'http://placekitten.com/g/140/140'}
-        .team-member-info
-          %h3 Takaharu Nakai
-          .team-member-country Japan
-      %li
-        %img{:src => 'http://placekitten.com/g/140/140'}
-        .team-member-info
-          %h3 Takaharu Nakai
-          .team-member-country Japan
-      %li
-        %img{:src => 'http://placekitten.com/g/140/140'}
-        .team-member-info
-          %h3 Takaharu Nakai
-          .team-member-country Japan
-      %li
-        %img{:src => 'http://placekitten.com/g/140/140'}
-        .team-member-info
-          %h3 Takaharu Nakai
-          .team-member-country Japan
-      %li
-        %img{:src => 'http://placekitten.com/g/140/140'}
-        .team-member-info
-          %h3 Takaharu Nakai
-          .team-member-country Japan
-      %li
-        %img{:src => 'http://placekitten.com/g/140/140'}
-        .team-member-info
-          %h3 Takaharu Nakai
-          .team-member-country Japan                                                    
-
-
+      - @team_categories.each do |c|
+        - c.team_members.each do |tm|
+          %li.has-overlay
+            %img{:src => 'http://placekitten.com/g/140/140'}
+            .team-member-info
+              %h3
+                = tm.fullname
+              .team-member-country
+                = tm.country
 
 %section#member
   .row
-    .member-profile
+    .member-profile{:style => 'background-image: url("http://placekitten.com/g/1200/600")' }
       .play-video
         %span Play video
         %i{:class => 'ss-icon ss-standard'} play
       .profile-text
         %h2= @team_member.name
         %p
-          Louif is hands down the best and my favorite snowboarder, he’s amazing to snowboard with and to watch. He’s a really creative and innovative person and is taking street snowboarding to a next level. He’s also an amazing dude to hang out with.
+          = @team_member.description
 
       .quote
         .author Laurent Nicolas Paquin
@@ -128,7 +49,7 @@
               .facebook
                 %a{:href => '#'}
                   %i{:class => 'ss-icon ss-social'} facebook
-                  %span /Louifparadis
+                  %spans /Louifparadis
               .twitter
                 %a{:href => '#'}
                   %i{:class => 'ss-icon ss-social'} twitter
@@ -139,8 +60,10 @@
             .hometown.detail-label Hometown
             .sponsors.detail-label Sponsors
           .large-6.columns.offset-3
-            .country.detail-value Canada
-            .hometown.detail-value Quebec city
+            .country.detail-value
+              = @team_member.country
+            .hometown.detail-value
+              = @team_member.city
             .sponsors.detail-value
               %ul
                 %li Salomon
