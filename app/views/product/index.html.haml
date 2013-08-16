@@ -3,92 +3,92 @@
 
 - content_for :navclass do
   sticky
+- cache @category do
+  %section#breadcrumbs
+    %ul
+      %li Your Location
+      %li
+        %a{:href=>'#'} Boots
+      %li
+        %a{:href=>'#'} Launch
 
-%section#breadcrumbs
-  %ul
-    %li Your Location
-    %li
-      %a{:href=>'#'} Boots
-    %li
-      %a{:href=>'#'} Launch
-
-%section#filterbar
-  %form.custom
-    .row
-      .large-3.columns
-        %h4 Rider
-        %ul
-          %li.filter(data-filter="gender-M")
-            %label(for="men-checkbox")
-              %input#men-checkbox.hidden-field{:type=>'checkbox'}
-              %span.custom.checkbox
-              Men
-          %li.filter(data-filter="gender-W")
-            %label(for="women-checkbox")
-              %input#women-checkbox.hidden-field{:type=>'checkbox'}
-              %span.custom.checkbox
-              Women
-          %li.filter(data-filter="gender-Y")
-            %label(for="youth-checkbox")
-              %input#youth-checkbox.hidden-field{:type=>'checkbox'}
-              %span.custom.checkbox
-              Youth
-
-      - @feature_types.each_with_index do |filter, index|
-        - if filter.product_features.size < 5
-          - filterCssClass = 'large-3'
-        - elsif filter.product_features.size < 9
-          - filterCssClass = 'large-6'
-        - else
-          - filterCssClass = 'large-9'
-        - if @feature_types.size - 1 == index
-          - filterCssClass << ' end'
-
-        .columns{:class => filterCssClass}
-          %h4=filter.name
+  %section#filterbar
+    %form.custom
+      .row
+        .large-3.columns
+          %h4 Rider
           %ul
-            - filter.product_features.each do |feature|
-              %li.filter(data-filter="filter-#{feature.feature_code}")
-                %label(for="checkbox-#{feature.feature_code}")
-                  %input.hidden-field{:type=>'checkbox', :id => "checkbox-#{feature.feature_code}"}
-                  %span.custom.checkbox
-                  =feature.name
+            %li.filter(data-filter="gender-M")
+              %label(for="men-checkbox")
+                %input#men-checkbox.hidden-field{:type=>'checkbox'}
+                %span.custom.checkbox
+                Men
+            %li.filter(data-filter="gender-W")
+              %label(for="women-checkbox")
+                %input#women-checkbox.hidden-field{:type=>'checkbox'}
+                %span.custom.checkbox
+                Women
+            %li.filter(data-filter="gender-Y")
+              %label(for="youth-checkbox")
+                %input#youth-checkbox.hidden-field{:type=>'checkbox'}
+                %span.custom.checkbox
+                Youth
+
+        - @feature_types.each_with_index do |filter, index|
+          - if filter.product_features.size < 5
+            - filterCssClass = 'large-3'
+          - elsif filter.product_features.size < 9
+            - filterCssClass = 'large-6'
+          - else
+            - filterCssClass = 'large-9'
+          - if @feature_types.size - 1 == index
+            - filterCssClass << ' end'
+
+          .columns{:class => filterCssClass}
+            %h4=filter.name
+            %ul
+              - filter.product_features.each do |feature|
+                %li.filter(data-filter="filter-#{feature.feature_code}")
+                  %label(for="checkbox-#{feature.feature_code}")
+                    %input.hidden-field{:type=>'checkbox', :id => "checkbox-#{feature.feature_code}"}
+                    %span.custom.checkbox
+                    =feature.name
 
 
-%section#main
-  .row
-    #product-list
-      -@products.each do |product|
-        - filterClasses = product.product_features.map { |p| "filter-#{p.feature_code}" }.join ' '
-        - filterClasses << " gender-#{product.gender}"
-        .large-3.columns.mix{:class=>filterClasses}
-          .product
-            .main-info.img-zoom-hover
-              = cl_image_tag product.master_image,  :width => 200, :crop => :fit
-              %h2
-                = link_to product.name, product_show_path(params[:category],product.slug)
-              .price=product.price
-            .more-info
-              -product.product_features.each do |feature|
-                .feature
-                - if feature.product_feature_type_show_in_category_overview
-                  %h5=feature.product_feature_type_name
-                  %span=feature.name
+  %section#main
+    .row
+      #product-list
+        -@products.each do |product|
+          - filterClasses = product.product_features.map { |p| "filter-#{p.feature_code}" }.join ' '
+          - filterClasses << " gender-#{product.gender}"
+          .large-3.columns.mix{:class=>filterClasses}
+            .product
+              .main-info.img-zoom-hover
+                = cl_image_tag product.master_image,  :width => 200, :crop => :fit
+                %h2
+                  = link_to product.name, product_show_path(params[:category],product.slug)
+                .price=product.price
+              .more-info
+                -product.product_features.each do |feature|
+                  .feature
+                  - if feature.product_feature_type_show_in_category_overview
+                    %h5=feature.product_feature_type_name
+                    %span=feature.name
 
-      .large-3.columns.end
-        .product.last
-          %h2
-            You've reached
-            %br
-            the last
-            %br
-            product
+        .large-3.columns.end
+          .product.last
+            %h2
+              You've reached
+              %br
+              the last
+              %br
+              product
 
-          .message Donec sed odio dui. Maecenas faucibus mollis interdum. Fusce dapibus, tellus ac cursus commodo.
-          %ul.links
-            %li
-              %a Modify filters
-            %li
-              %a Clear filters
-            %li
-              %a Back to front page
+            .message Donec sed odio dui. Maecenas faucibus mollis interdum. Fusce dapibus, tellus ac cursus commodo.
+            %ul.links
+              %li
+                %a Modify filters
+              %li
+                %a Clear filters
+              %li
+                %a Back to front page
