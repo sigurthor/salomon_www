@@ -27,18 +27,26 @@
     if $('.member-nav-wrapper').length
       self.initTeamNav()
 
-    $('#volume-control').bind 'click', (e) ->
 
-      console.log 'click'
+    setTimeout () ->
+        $('#play-overlay').fadeIn(4000)
+      , 250
+    $('#play-overlay').bind 'click', (e) ->
       e.preventDefault()
-      $video = $('video').get(0)
+      $video = $('video')
+      $videoEl = $('video').get(0)
+      $videoEl.pause()
 
-      if $video.muted
-        $video.muted = false
-        $('#volume-control').addClass 'on'
-      else
-        $video.muted = true
-        $('#volume-control').removeClass 'on'
+      $('#play-overlay, video').fadeOut 1500, () ->
+        $video.find('source').get(0).src = 'http://pdl.vimeocdn.com/30447/812/177689239.mp4?aktimeoffset=0&aksessionid=27a6cc0ce61c2357f62087466420a062&token=1376690838_e2af6a663b8b392ea5c93a680bf6ec6e';
+        $videoEl.load()
+
+      $('#hero').css('height', '600px')
+
+      setTimeout () ->
+          $videoEl.play()
+          $video.fadeIn(2500)
+        , 2000
 
   initNavbar: () ->
     $nav = $('#nav-container')
