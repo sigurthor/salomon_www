@@ -21,4 +21,20 @@ section#filterbar {
     }
   }
 
+  .large-6 {
+    ul {
+      -webkit-column-count: 2;
+         -moz-column-count: 2;
+          -ms-column-count: 2;
+    }
+  }
+
+  .large-9 {
+    ul {
+      -webkit-column-count: 3;
+      -moz-column-count: 3;
+      -ms-column-count: 3;
+    }
+  }
+
 }

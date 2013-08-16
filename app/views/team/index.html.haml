@@ -2,6 +2,11 @@
   team
 %section#the-pros
   .row
+    - @team_categories.each do |c|
+      %h2= c.name
+      - c.team_members.each do |tm|
+        = link_to tm.name, team_member_path(tm.slug)
+  .row
     %h2 Pros
     .team-members
       .row

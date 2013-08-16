@@ -8,20 +8,19 @@
 
   = render :file => '/shared/head'
   %body{:class=>yield(:bodyclass)}
+    #fb-root
+    :javascript
+      (function(d, s, id) {
+        var js, fjs = d.getElementsByTagName(s)[0];
+        if (d.getElementById(id)) return;
+        js = d.createElement(s); js.id = id;
+        js.src = "//connect.facebook.net/en_US/all.js#xfbml=1&appId=351424181646845";
+        fjs.parentNode.insertBefore(js, fjs);
+      }(document, 'script', 'facebook-jssdk'));
+
     = render :file => '/shared/nav'
 
     =yield
 
     = render :file => '/shared/footer'
     = render :file => '/shared/javascript'
-
-
-/
-  From old template:
-
-  <title><%= content_for?(:title) ? yield(:title) : "Untitled" %></title>
-  <%= stylesheet_link_tag    "application" %>
-  <%= javascript_include_tag "vendor/custom.modernizr" %>
-  <%= csrf_meta_tags %>
-  <%= yield %>
-  <%= javascript_include_tag "application" %>

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130811162758) do
+ActiveRecord::Schema.define(:version => 20130815135428) do
 
   create_table "a2_brands", :id => false, :force => true do |t|
     t.string   "id"
@@ -35,6 +35,7 @@ ActiveRecord::Schema.define(:version => 20130811162758) do
     t.string   "type"
     t.string   "brand"
     t.integer  "magento_id"
+    t.string   "filters"
   end
 
   add_index "a2_categories", ["ancestry"], :name => "index_a2_categories_on_ancestry"
@@ -132,11 +133,12 @@ ActiveRecord::Schema.define(:version => 20130811162758) do
   create_table "a2_product_feature_types", :force => true do |t|
     t.integer  "feature_type_code"
     t.string   "name"
-    t.datetime "created_at",        :null => false
-    t.datetime "updated_at",        :null => false
+    t.datetime "created_at",                :null => false
+    t.datetime "updated_at",                :null => false
     t.string   "brand"
     t.integer  "position"
     t.string   "category"
+    t.boolean  "show_in_category_overview"
   end
 
   add_index "a2_product_feature_types", ["feature_type_code"], :name => "index_a2_product_feature_types_on_feature_type_code", :unique => true
@@ -281,6 +283,29 @@ ActiveRecord::Schema.define(:version => 20130811162758) do
     t.datetime "created_at",  :null => false
     t.datetime "updated_at",  :null => false
     t.string   "brand"
+  end
+
+  create_table "a2_team_members", :force => true do |t|
+    t.string   "name"
+    t.string   "slug"
+    t.string   "fullname"
+    t.text     "description"
+    t.string   "country"
+    t.string   "city"
+    t.string   "vimeo"
+    t.integer  "team_category_id"
+    t.string   "tag_line"
+    t.string   "video"
+    t.string   "facebook"
+    t.string   "twitter"
+    t.string   "website"
+    t.string   "instragram"
+    t.string   "thumb_image"
+    t.string   "main_image"
+    t.string   "gender"
+    t.boolean  "visible",          :default => true
+    t.datetime "created_at",                         :null => false
+    t.datetime "updated_at",                         :null => false
   end
 
   create_table "a2_tech_feature_translations", :force => true do |t|

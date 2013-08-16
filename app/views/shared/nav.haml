@@ -17,8 +17,7 @@
           %ul.dropdown
             - gear_categories.each do |c|
               %li=link_to c.name,products_url(c.slug)
-        %li
-          %a{:href => "products.html"} Team
+        %li= link_to 'Team', team_path
         %li
           %a{:href => "products.html"} Videos
         %li
@@ -31,3 +30,25 @@
           %a.searchbutton{:href => '#'} Search
         %li.basket
           %a{:href => '#'} My Account <i class="ss-icon ss-standard">cart</i> 0
+        %li.social.has-dropdown
+          %a.ss-icon.ss-social{:href=>'#'} facebook
+          .dropdown.facebook
+            .dropdown-inner
+              .fb-like-box{"data-header" => "true", "data-href" => "https://www.facebook.com/SalomonSnowboardFans", "data-show-border" => "true", "data-show-faces" => "false", "data-stream" => "false", "data-width" => "292"}
+
+        %li.social
+          %a.ss-icon.ss-social{:href=>'http://instagram.com/salomonsnowboards'} instagram
+
+        %li.social.has-dropdown
+          %a.ss-icon.ss-social{:href=>''} twitter
+          .dropdown.twitter
+            .dropdown-inner
+              %a.twitter-follow-button{"data-show-count" => "false", "data-size" => "large", :href => "https://twitter.com/salomonboarduk"} Follow @salomonboarduk
+              :javascript
+                !function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');
+
+        %li.social.has-dropdown
+          %a.ss-icon.ss-social{:href=>'#'} pinterest
+          .dropdown.pinterest
+            .dropdown-inner
+              %a{"data-pin-do" => "buttonFollow", :href => "http://pinterest.com/salomonsnow/"} Salomon Snowboards

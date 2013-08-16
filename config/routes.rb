@@ -10,7 +10,10 @@ SalomonWww::Application.routes.draw do
   get "product/show"
   get "home/index"
 
+  match 'team' => 'team#index', :as => 'team'
+  match 'team/:team_member' => 'team#show', :as => 'team_member'
   match '/gear/(:category)' => 'product#index', :as => 'products'
+  match '/gear/(:category)/(:product)' => 'product#show', :as => 'product_show'
 
   mount A2::Engine => "/a2"
 
