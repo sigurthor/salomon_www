@@ -41,6 +41,7 @@
       $('#play-overlay, video').fadeOut 1500, () ->
         $video.find('source').get(0).src = 'http://vimeo.com/70501536/download?t=1376686407&v=177689239&s=d4646d19567293ddb7b9188f87f82379';
         $videoEl.load()
+        $video.removeClass 'ambient'
 
       $('#hero').css('height', '680px')
 
