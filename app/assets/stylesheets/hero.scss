@@ -40,12 +40,15 @@ section#hero {
   background: black;
   text-align: center;
   overflow: hidden;
+
   video {
     cursor: pointer;
     position: relative;
     min-height: 600px;
     margin: 0 auto;
   }
+
+  video.ambient { width: 100%; }
 
   #play-overlay {
     position: absolute;

@@ -1,0 +1,5 @@
+en-UK:
+  zone: 'eu'
+  region: 'United States'
+  currency: 'gbp'
+  display_currency: "£%{price}"
