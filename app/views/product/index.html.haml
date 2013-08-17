@@ -56,7 +56,7 @@
                 %h2
                   = link_to product.name, product_show_path(:category => params[:category], :product => product.slug)
                 .price= t :display_currency, price: product.price
-                = cl_image_tag product.master_image,  :width => 188, :height => 300, :crop => :fill
+                = cl_image_tag product.master_image,  :width => 200, :crop => :fill
                 //%img{:src => 'http://placehold.it/188x380'}
               .more-info
                 -product.product_features.each do |feature|

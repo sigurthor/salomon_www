@@ -69,7 +69,7 @@ GEM
     ancestry (2.0.0)
       activerecord (>= 3.0.0)
     arel (3.0.2)
-    atomic (1.1.10)
+    atomic (1.1.13)
     aws-sdk (1.15.0)
       json (~> 1.4)
       nokogiri (< 1.6.0)
