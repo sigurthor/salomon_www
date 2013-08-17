@@ -2,7 +2,7 @@
 #storelocator {
 
   #map-canvas {
-    margin-top: 40px;
+    margin-top: 60px;
 
     width: 100%;
     height: 600px;
@@ -17,6 +17,10 @@
     background: rgba(0,50,64,0.85);
 
     @include transition(all 0.4s ease-in-out);
+
+    .searchform {
+      @include clearfix();
+    }
 
     .overlay-inner {
       width: 450px;
@@ -73,6 +77,9 @@
         }
       }
 
+      .intro {
+        display: none;
+      }
     }
   }
 
