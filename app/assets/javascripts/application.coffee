@@ -78,12 +78,93 @@
     google.maps.event.addDomListener(window, 'load', mapInit)
 
   initFilters: () ->
-    $('#product-list').mixitup
-      effects: ['fade', 'blur']
-      easing: 'WindBack'
-      transitionSpeed: 400
-      #multiFilter: true
-      #showOnLoad: 'men women'
+    # INSTANTIATE MIXITUP
+    $("#product-list").mixitup
+      layoutMode: "grid" # Start in list mode (display: block) by default
+      effects: ["fade", "blur"] # List of effects
+      listEffects: ["fade", "rotateX"] # List of effects ONLY for list mode
+
+    #
+    #				*	The desired behaviour of multi-dimensional filtering can differ greatly
+    #				*	from project to project. MixItUp's built in filter button handlers are best
+    #				*	suited to simple filter operations, so we will need to build our own handlers
+    #				*	for this demo to achieve the precise behaviour we need.
+    #
+    $filters = $(".filters").find("li")
+    dimensions = {}
+
+    # Bind checkbox click handlers:
+    $filters.on "click", (e) ->
+      e.preventDefault()
+
+      $t = $(this)
+      dimension = $t.attr("data-dimension")
+      filter = $t.attr("data-filter")
+
+      unless dimensions.hasOwnProperty dimension
+        dimensions[dimension] = "all"
+
+      filterString = dimensions[dimension]
+      if filter is "all"
+
+        # If "all"
+        unless $t.hasClass("active")
+
+          # if unchecked, check "all" and uncheck all other active filters
+          $t.addClass("active").siblings().removeClass "active"
+
+          # Replace entire string with "all"
+          filterString = "all"
+        else
+
+          # Uncheck
+          $t.removeClass "active"
+
+          # Emtpy string
+          filterString = ""
+      else
+
+        # Else, uncheck "all"
+        $t.siblings("[data-filter=\"all\"]").removeClass "active"
+
+        # Remove "all" from string
+        filterString = filterString.replace("all", "")
+        unless $t.hasClass("active")
+
+          # Check checkbox
+          $t.addClass "active"
+
+          # Append filter to string
+          filterString = (if filterString is "" then filter else filterString + " " + filter)
+        else
+
+          # Uncheck
+          $t.removeClass "active"
+
+          # Remove filter and preceeding space from string with RegEx
+          re = new RegExp("(\\s|^)" + filter)
+          filterString = filterString.replace(re, "")
+
+      # Set demension with filterString
+      dimensions[dimension] = filterString
+
+      # We now have two strings containing the filter arguments for each dimension:
+      console.info dimensions
+
+      dimensionsArr = $.map dimensions, (k, v) ->
+        return [k]
+
+      #
+      #					*	We then send these strings to MixItUp using the filter method. We can send as
+      #					*	many dimensions to MixitUp as we need using an array as the second argument
+      #					*	of the "filter" method. Each dimension must be a space seperated string.
+      #					*
+      #					*	In this case, MixItUp will show elements using OR logic within each dimension and
+      #					*	AND logic between dimensions. At least one dimension must pass for the element to show.
+      #
+      $("#product-list").mixitup "filter", dimensionsArr
+
+
 
   initStoreLocator: () ->
     $('#map-search-overlay .button.search').bind 'click', (e) ->

@@ -5,22 +5,34 @@
 
 %section#storelocator
   #map-canvas
-  #map-search-overlay
+  #map-search-overlay.compact
     .overlay-inner
       %h1 Find a Store
 
-      %form
-        %input{:type=>'text', :placeholder=>'Find a City, State or Zip Code'}
-        %input.button.search{:type=>'submit', :value=>'Search'}
+      .searchform
+        %form
+          %input{:type=>'text', :placeholder=>'Find a City, State or Zip Code'}
+          %input.button.search{:type=>'submit', :value=>'Search'}
 
-      %p
-        %em or
+      .intro
+        %p
+          %em or
 
-      %p
-        %a{} Browse the map
-        %span.separator
-          |
-        %a{} Online Retailers
+        %p
+          %a{} Browse the map
+          %span.separator
+            |
+          %a{} Online Retailers
+
+
+      %ul#results
+        %li
+          %h4 Ellis brigham
+          %p TOWER HOUSE, 3-11 SOUTHAMPTON STREET
+          %p LONDON WC2E 7HA
+          %p 0207 3951010
+
+
 
   %section.online-retailers
     %h2 Online retailers

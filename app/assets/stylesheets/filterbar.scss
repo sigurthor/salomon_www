@@ -1,40 +1,83 @@
 section#filterbar {
 
-  position: relative;
-  top: 120px;
+  @include clearfix();
 
+  position: relative;
+  top: 60px;
   width: 100%;
 
-  background-color: #E9E9EA;
+  background-color: $color-darkblue;
+
+  color: white;
+
+  .filter-text {
+    text-align: center;
+    color: white;
+
+    h1 {
+      color: white;
+      font-family: $font-heading;
+      font-size: 64px;
+      line-height: 72px;
+      margin-bottom: 30px;
+      margin-top: 60px;
+    }
+
+    p {
+      font-size: 14px;
+      font-family: $font-light;
+      line-height: 20px;
+    }
+
+  }
 
   h4 {
-    font-size: 38px;
+    font-size: 24px;
     font-family: $font-heading;
     margin-bottom: 10px;
+    color: white;
   }
 
   ul {
     list-style: none;
 
     li {
+      display: inline;
       padding: 10px 0;
     }
   }
 
-  .large-6 {
-    ul {
-      -webkit-column-count: 2;
-         -moz-column-count: 2;
-          -ms-column-count: 2;
+  .filters {
+    @include clearfix();
+
+    max-width: emCalc(1200);
+    margin: 0 auto;
+    text-align: center;
+
+    .group {
+      display: inline-block;
+      margin: 0 40px;
     }
   }
 
-  .large-9 {
-    ul {
-      -webkit-column-count: 3;
-      -moz-column-count: 3;
-      -ms-column-count: 3;
+
+  .button {
+    vertical-align: middle;
+    background-color: #00637F;
+    padding-top: 8px;
+    padding-bottom: 10px;
+    height: 30px;
+
+    &:hover {
+      height: 40px;
+      padding-top: 12px;
     }
+  }
+
+  .active .button {
+    height: 40px;
+    padding-top: 12px;
+    background-color: $color-lightblue;
   }
 
 }
