@@ -1,2 +1,5 @@
 en-US:
+  zone: 'us'
   region: 'United States'
+  currency: 'usd'
+  display_currency: "$%{price}"

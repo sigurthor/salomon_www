@@ -1,0 +1,5 @@
+de-DE:
+  zone: 'eu'
+  region: 'Germany'
+  currecny: 'Eur'
+  display_currency: "%{price} €"
