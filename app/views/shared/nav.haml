@@ -19,7 +19,7 @@
               %li=link_to c.name,products_url(:category => c.slug)
         %li= link_to 'Team', team_path
         %li
-          %a{:href => "products.html"} Videos
+          %a= link_to 'Videos', video_path
         %li
           %a{:href => "products.html"} Blog
         %li
