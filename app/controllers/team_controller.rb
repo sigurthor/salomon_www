@@ -1,6 +1,17 @@
 class TeamController < BaseController
   def index
-    @team_categories = A2::TeamCategory.find_by_slug('salomon').descendants
+
+    if(params[:category])
+      @team_categories = [A2::TeamCategory.includes(:team_members).find_by_slug(params[:category])]
+    else
+      @team_categories = A2::TeamCategory.includes(:team_members).find_by_slug('salomon').descendants
+    end
+
+    respond_to do |format|
+      format.html
+      format.json { render :json => @team_categories.to_json(:include => :team_members) }
+    end
+
   end
 
   def show
