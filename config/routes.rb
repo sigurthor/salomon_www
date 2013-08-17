@@ -8,6 +8,7 @@ SalomonWww::Application.routes.draw do
   scope :path => "(:locale)", :shallow_path => "(:locale)" do
     match '/' => 'home#index'
     match 'team' => 'team#index', :as => 'team'
+    match 'team(/:category)' => 'team#index', :as => 'team'
     match 'team/:team_member' => 'team#show', :as => 'team_member'
     match 'gear/(:category)' => 'product#index', :as => 'products'
     match 'gear/(:category)/(:product)' => 'product#show', :as => 'product_show'
