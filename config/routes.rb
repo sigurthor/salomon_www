@@ -1,4 +1,7 @@
 SalomonWww::Application.routes.draw do
+
+  get "video/index"
+
   namespace :admin do
     get "category/assign_product_to_category"
   end
@@ -7,6 +10,7 @@ SalomonWww::Application.routes.draw do
   scope :path => "(:locale)", :shallow_path => "(:locale)", :locale => /en-US|de-CH|de-DE|en-UK|fr-CH|fr-FR|ru-RU/ do
     match '/' => 'home#index', :as => 'home'
     match 'stores' => 'store#index', :as => 'store'
+    match 'videos' => 'video#index', :as => 'video'
     match 'team' => 'team#index', :as => 'team'
     match 'team(/:category)' => 'team#index', :as => 'team'
     match 'team/:team_member' => 'team#show', :as => 'team_member'
