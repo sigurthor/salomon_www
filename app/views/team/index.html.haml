@@ -7,7 +7,7 @@
       .team-members
         .row
           - c.team_members.each do |tm|
-            %div{:class => (c.name != 'Nationals' ? 'large-3 columns' : 'large-2 columns')}
+            %div{set_column_number(c.name)}
               .team-member
                 .team-member-info
                   %h2
