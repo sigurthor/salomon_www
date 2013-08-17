@@ -1,13 +1,5 @@
 /* Product related */
 
-g {
-  fill: #FF0000;
-}
-
-​path {
-  fill: #fff;
-}​
-
 ul {
   list-style: none;
 }
@@ -207,7 +199,7 @@ ul.riders {
         color: #fff;
         background-color: $color-darkblue;
       }
-    }    
+    }
   }
 }
 
@@ -224,7 +216,7 @@ ul.riders {
     font-family: $icon-font;
     color: #fff;
     text-align: center;
-    background-color: $color-darkblue    
+    background-color: $color-darkblue
   }
   float: right;
   display: inline;
@@ -259,7 +251,7 @@ section#tech {
 
   ul.size-list {
     font-family: $font-heading;
-    font-size: 36px;
+    font-size: 48px;
     color: #fff;
     margin: 0 auto;
     text-align: center;
@@ -321,6 +313,49 @@ section#tech {
           width: 190px;
         }
       }
+    }
+  }
+}
+
+.technical-drawing {
+  position: relative;
+  margin-top: 50px;
+  .technical-value {
+    position: absolute;
+    top: -25px; right: 0; bottom: 0; left: 0;
+    margin: auto;
+    height: 50px;
+    font-family: $font-boldcnd20obl;
+    font-size: 28px;
+    color: $color-lightblue;
+    text-align: center;
+  }
+  .technical-demonstration {
+    .technical-indicator {
+      &:before {
+        content: '';
+        position: absolute;
+        top: -18px;
+        left: 0;
+        width: 4px;
+        height: 40px;
+        background-color: $color-lightblue;
+      }
+      &:after {
+        content: '';
+        position: absolute;
+        top: -18px;
+        right: 0;
+        width: 4px;
+        height: 40px;
+        background-color: $color-lightblue;
+      }
+      position: absolute;
+      top: 0; right: 0; bottom: 0; left: 0;
+      margin: auto;
+      width: 50%;
+      height: 4px;
+      background-color: $color-lightblue;
     }
   }
 }
