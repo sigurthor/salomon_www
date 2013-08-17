@@ -50,13 +50,13 @@ section#filterbar {
   .filters {
     @include clearfix();
 
-    max-width: emCalc(1200);
+    max-width: emCalc(1300);
     margin: 0 auto;
     text-align: center;
 
     .group {
       display: inline-block;
-      margin: 0 40px;
+      margin: 0 20px;
     }
   }
 

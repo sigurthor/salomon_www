@@ -17,7 +17,7 @@
     .filters
       .group
         %h4 Rider
-        %ul
+        %ul.filter-list
           %li.active(data-filter="all" data-dimension="gender")
             %a.button{:href=>'#'} All
           %li(data-filter="gender-M" data-dimension="gender")
@@ -30,12 +30,19 @@
       - @feature_types.each_with_index do |filter, index|
         .group
           %h4=filter.name
-          %ul
+          %ul.filter-list
             %li.active(data-filter="all" data-dimension="feature-#{filter.feature_type_code}")
               %a.button{} All
             - filter.product_features.each do |feature|
               %li(data-filter="filter-#{feature.feature_code}" data-dimension="feature-#{filter.feature_type_code}")
                 %a.button{}=feature.name
+      .group
+        %h4 Sort by
+        %ul
+          %li.sort(data-sort="data-name" data-order="desc" )
+            %a.button{:href=>'#'} A-Z
+          %li.sort(data-sort="data-price" data-order="desc" )
+            %a.button{:href=>'#'} Price
 
   %section#main
     .row
@@ -43,7 +50,7 @@
         -@products.each do |product|
           - filterClasses = product.product_features.map { |p| "filter-#{p.feature_code}" }.join ' '
           - filterClasses << " gender-#{product.gender}"
-          .large-3.columns.mix{:class=>filterClasses}
+          .large-3.columns.mix{:class=>filterClasses, :data => {:name => "#{product.name}", :price => "#{product.price}"}}
             .product
               .main-info.img-zoom-hover
                 %h2

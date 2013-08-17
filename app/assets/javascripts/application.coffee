@@ -90,7 +90,7 @@
     #				*	suited to simple filter operations, so we will need to build our own handlers
     #				*	for this demo to achieve the precise behaviour we need.
     #
-    $filters = $(".filters").find("li")
+    $filters = $(".filter-list").find("li")
     dimensions = {}
 
     # Bind checkbox click handlers:
