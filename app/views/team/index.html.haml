@@ -7,7 +7,7 @@
       .team-members
         .row
           - c.team_members.each do |tm|
-            .large-3.columns
+            %div{set_column_number(c.name)}
               .team-member
                 .team-member-info
                   %h2
@@ -15,5 +15,5 @@
                   .team-member-country
                     = tm.country
                 %img{:src=>'http://placekitten.com/g/280/280'}
-                / = image_tag tm.thumb_image
+                / = image_tag tm.thumb_image #For dynamic images
 
