@@ -42,7 +42,6 @@ body {
 //
 //  Image hover zoom
 //
-
 .img-zoom-hover {
   img {
     @include transition(all 0.2s ease-in-out);
@@ -51,4 +50,38 @@ body {
   &.team-member:hover img { @include scale(1.2); }
   &.main-info:hover img { @include scale(1.025); }
 
+}
+
+#page-header {
+  @include clearfix();
+
+  position: relative;
+  top: 60px;
+  width: 100%;
+
+  background-color: $color-darkblue;
+
+  color: white;
+  text-align: center;
+
+  h1 {
+    color: white;
+    font-family: $font-heading;
+    font-size: 64px;
+    line-height: 72px;
+    margin-bottom: 30px;
+    margin-top: 40px;
+  }
+
+  p {
+    font-size: 14px;
+    font-family: $font-light;
+    line-height: 20px;
+    margin-bottom: 2em;
+  }
+
+}
+
+#page-header + section {
+  padding: 5em 0;
 }

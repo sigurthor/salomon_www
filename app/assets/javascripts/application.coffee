@@ -27,6 +27,8 @@
     if $('.member-nav-wrapper').length
       self.initTeamNav()
 
+    if $('.vimeo').length
+      self.initVimeo()
 
     setTimeout () ->
         $('#play-overlay').fadeIn(4000)
@@ -87,7 +89,6 @@
     $filters = $(".filter-list").find("li")
     dimensions = {}
 
-    # Bind checkbox click handlers:
     $filters.on "click", (e) ->
       e.preventDefault()
 
@@ -100,62 +101,28 @@
 
       filterString = dimensions[dimension]
       if filter is "all"
-
-        # If "all"
         unless $t.hasClass("active")
-
-          # if unchecked, check "all" and uncheck all other active filters
           $t.addClass("active").siblings().removeClass "active"
-
-          # Replace entire string with "all"
           filterString = "all"
         else
-
-          # Uncheck
           $t.removeClass "active"
-
-          # Emtpy string
           filterString = ""
       else
-
-        # Else, uncheck "all"
         $t.siblings("[data-filter=\"all\"]").removeClass "active"
-
-        # Remove "all" from string
         filterString = filterString.replace("all", "")
         unless $t.hasClass("active")
-
-          # Check checkbox
           $t.addClass "active"
-
-          # Append filter to string
           filterString = (if filterString is "" then filter else filterString + " " + filter)
         else
-
-          # Uncheck
           $t.removeClass "active"
-
-          # Remove filter and preceeding space from string with RegEx
           re = new RegExp("(\\s|^)" + filter)
           filterString = filterString.replace(re, "")
 
-      # Set demension with filterString
       dimensions[dimension] = filterString
-
-      # We now have two strings containing the filter arguments for each dimension:
-      console.info dimensions
 
       dimensionsArr = $.map dimensions, (k, v) ->
         return [k]
 
-      #
-      #					*	We then send these strings to MixItUp using the filter method. We can send as
-      #					*	many dimensions to MixitUp as we need using an array as the second argument
-      #					*	of the "filter" method. Each dimension must be a space seperated string.
-      #					*
-      #					*	In this case, MixItUp will show elements using OR logic within each dimension and
-      #					*	AND logic between dimensions. At least one dimension must pass for the element to show.
-      #
       $("#product-list").mixitup "filter", dimensionsArr
 
 
@@ -231,6 +198,27 @@
       $thumbList.append imgTpl
 
     self.initProductThumbnails()
+
+  initVimeo: () ->
+    $('.vimeo').bind 'click', (e) ->
+      $self = $(this)
+      e.preventDefault();
+      $self.find('.img-wrapper').hide()
+
+      vimeoId = $self.data 'vimeo-id'
+
+      player = '
+        <iframe
+          src="http://player.vimeo.com/video/'+vimeoId+'?color=00a4d1&amp;autoplay=1"
+          width="540" height="304" frameborder="0"
+          webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>'
+
+      $self.find('.video-player').show()
+      $self.find('.video-player').html(player)
+
+      $self.unbind()
+
+
 
   initTeamNav: () ->
     totalRiders = $('ul.team-nav li').size()

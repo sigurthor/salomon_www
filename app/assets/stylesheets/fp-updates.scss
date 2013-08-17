@@ -77,35 +77,47 @@ section#updates {
       }
     }
 
-    &.vimeo .img-wrapper {
-      cursor: pointer;
-      position: relative;
+    &.vimeo {
 
-      &:before {
-        position: absolute;
+      .video-player {
+        display: none;
+        height: 302px;
+        width: 540px;
+        overflow: hidden;
 
-        top: 0;
-        left: 0;
-
-        width: 100%;
-        height: 100%;
-
-        background: rgba(0, 50, 64, 0.5);
-
-        text-align: center;
-
-        font-family: "SSStandard";
-        font-size: 64px;
-        line-height: 310px;
-        color: white;
-        content: "\25B6";
-
-        @include transition(all 0.25s ease-in-out);
+        background-color: black;
       }
 
-      &:hover:before {
-        font-size: 70px;
-        background: rgba(0, 50, 64, 0);
+      .img-wrapper {
+        cursor: pointer;
+        position: relative;
+
+        &:before {
+          position: absolute;
+
+          top: 0;
+          left: 0;
+
+          width: 100%;
+          height: 100%;
+
+          background: rgba(0, 50, 64, 0.5);
+
+          text-align: center;
+
+          font-family: "SSStandard";
+          font-size: 64px;
+          line-height: 310px;
+          color: white;
+          content: "\25B6";
+
+          @include transition(all 0.25s ease-in-out);
+        }
+
+        &:hover:before {
+          font-size: 70px;
+          background: rgba(0, 50, 64, 0);
+        }
       }
     }
 
