@@ -4,16 +4,16 @@ SalomonWww::Application.routes.draw do
   end
 
   get "store/index"
-  get "team/index"
-  get "team/show"
-  get "product/index"
-  get "product/show"
-  get "home/index"
 
-  match 'team' => 'team#index', :as => 'team'
-  match 'team/:team_member' => 'team#show', :as => 'team_member'
-  match '/gear/(:category)' => 'product#index', :as => 'products'
-  match '/gear/(:category)/(:product)' => 'product#show', :as => 'product_show'
+  scope :path => "(:locale)", :shallow_path => "(:locale)" do
+    match '/' => 'home#index'
+    match 'team' => 'team#index', :as => 'team'
+    match 'team/:team_member' => 'team#show', :as => 'team_member'
+    match 'gear/(:category)' => 'product#index', :as => 'products'
+    match 'gear/(:category)/(:product)' => 'product#show', :as => 'product_show'
+  end
+
+
 
   mount A2::Engine => "/a2"
 

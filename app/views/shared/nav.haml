@@ -16,7 +16,7 @@
           %a{:href => "#"} Gear
           %ul.dropdown
             - gear_categories.each do |c|
-              %li=link_to c.name,products_url(c.slug)
+              %li=link_to c.name,products_url(:category => c.slug)
         %li= link_to 'Team', team_path
         %li
           %a{:href => "products.html"} Videos
@@ -27,7 +27,9 @@
 
       %ul.right
         %li
-          %a.searchbutton{:href => '#'} Search
+          %a= t :region
+        //%li
+        //%a.searchbutton{:href => '#'} Search
         %li.basket
           %a{:href => '#'} My Account <i class="ss-icon ss-standard">cart</i> 0
         %li.social.has-dropdown

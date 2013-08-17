@@ -66,8 +66,8 @@
               .main-info.img-zoom-hover
                 = cl_image_tag product.master_image,  :width => 200, :crop => :fit
                 %h2
-                  = link_to product.name, product_show_path(params[:category],product.slug)
-                .price=product.price
+                  = link_to product.name, product_show_path(:category => params[:category], :product => product.slug)
+                .price=product.product_variants[0].sku
               .more-info
                 -product.product_features.each do |feature|
                   .feature
