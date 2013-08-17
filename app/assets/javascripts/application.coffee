@@ -78,18 +78,12 @@
     google.maps.event.addDomListener(window, 'load', mapInit)
 
   initFilters: () ->
-    # INSTANTIATE MIXITUP
-    $("#product-list").mixitup
-      layoutMode: "grid" # Start in list mode (display: block) by default
-      effects: ["fade", "blur"] # List of effects
-      listEffects: ["fade", "rotateX"] # List of effects ONLY for list mode
 
-    #
-    #				*	The desired behaviour of multi-dimensional filtering can differ greatly
-    #				*	from project to project. MixItUp's built in filter button handlers are best
-    #				*	suited to simple filter operations, so we will need to build our own handlers
-    #				*	for this demo to achieve the precise behaviour we need.
-    #
+    $("#product-list").mixitup
+      layoutMode: "grid"
+      effects: ["fade", "blur"]
+      listEffects: ["fade", "rotateX"]
+
     $filters = $(".filter-list").find("li")
     dimensions = {}
 
