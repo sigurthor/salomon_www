@@ -37,6 +37,13 @@
   %section.online-retailers
     %h2 Online retailers
 
+    - @online_store_categories.each do |c|
+      %h3= c.name
+      %ul
+        - c.online_stores.each do |s|
+          %li= s.name
+
+
     .row
       .large-2.columns
         .retailer

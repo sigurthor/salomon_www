@@ -1,6 +1,6 @@
 GIT
   remote: https://8822694c4779c052130037718ba51b09d8ae7839:x-oauth-basic@github.com/sigurthor/a2_backend.git
-  revision: 05c52042f121a8247133e031f5f20cecb2262162
+  revision: d982867ec109d5b27729a1fa31afd65184ee2984
   branch: master
   specs:
     a2 (0.0.6)
@@ -190,6 +190,7 @@ GEM
     net-scp (1.0.4)
       net-ssh (>= 1.99.1)
     net-ssh (2.6.8)
+    newrelic_rpm (3.6.6.147)
     nokogiri (1.5.10)
     nori (2.3.0)
     orm_adapter (0.4.0)
@@ -290,7 +291,7 @@ GEM
     thread_safe (0.1.2)
       atomic
     tilt (1.4.1)
-    treetop (1.4.14)
+    treetop (1.4.15)
       polyglot
       polyglot (>= 0.3.1)
     tzinfo (0.3.37)
@@ -307,7 +308,7 @@ GEM
     wasabi (3.2.0)
       httpi (~> 2.0)
       nokogiri (>= 1.4.0, < 1.6)
-    workless (1.2.0)
+    workless (1.2.1)
       delayed_job (>= 2.0.7)
       heroku-api
       rails
@@ -324,6 +325,7 @@ DEPENDENCIES
   compass-rails
   jquery-rails
   mysql2
+  newrelic_rpm
   rails (= 3.2.14)
   sass-rails (~> 3.2.3)
   uglifier (>= 1.0.3)

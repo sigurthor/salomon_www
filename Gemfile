@@ -4,8 +4,8 @@ source 'https://rubygems.org'
 gem 'rails', '3.2.14'
 gem 'mysql2'
 gem 'cache_digests'
-
 gem 'a2', :git => 'https://8822694c4779c052130037718ba51b09d8ae7839:x-oauth-basic@github.com/sigurthor/a2_backend.git', :branch => 'master' #399f70846458cef2cae13bec28cf3bfe20409749
+gem 'newrelic_rpm'
 
 group :assets, :frontend_development do
   gem 'sass-rails', '~> 3.2.3'

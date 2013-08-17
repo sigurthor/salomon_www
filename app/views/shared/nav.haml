@@ -6,7 +6,7 @@
   %nav.top-bar
     %section.top-bar-section
       %ul.title-area
-        %li=link_to 'Salomon Snowboards', root_path, class: 'logo'
+        %li=link_to 'Salomon Snowboards', home_path, class: 'logo'
         %li.toggle-topbar
           %a{:href=>'#'}
             %span Menu
@@ -23,7 +23,7 @@
         %li
           %a{:href => "products.html"} Blog
         %li
-          %a{:href=>'store.html'} Stores
+          %a= link_to( 'Stores', store_path)
 
       %ul.right
         %li

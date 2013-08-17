@@ -3,11 +3,12 @@ SalomonWww::Application.routes.draw do
     get "category/assign_product_to_category"
   end
 
-  get "store/index"
 
-  scope :path => "(:locale)", :shallow_path => "(:locale)" do
-    match '/' => 'home#index'
+  scope :path => "(:locale)", :shallow_path => "(:locale)", :locale => /en-US|de-CH|de-DE|en-UK|fr-CH|fr-FR|ru-RU/ do
+    match '/' => 'home#index', :as => 'home'
+    match 'stores' => 'store#index', :as => 'store'
     match 'team' => 'team#index', :as => 'team'
+    match 'team(/:category)' => 'team#index', :as => 'team'
     match 'team/:team_member' => 'team#show', :as => 'team_member'
     match 'gear/(:category)' => 'product#index', :as => 'products'
     match 'gear/(:category)/(:product)' => 'product#show', :as => 'product_show'
