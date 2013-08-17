@@ -175,9 +175,6 @@
 
     $(document).ready ->
       viewportWidth = itemsTotalWidth
-      $('.member-nav-wrapper').css 'width', itemsTotalWidth
-      $('.member-nav-wrapper').css 'margin-left', -Math.abs(viewportWidth / 2)
-      console.log viewportWidth
 
     # Click nav (arrows)
     $('.navigation-buttons a').click ->
