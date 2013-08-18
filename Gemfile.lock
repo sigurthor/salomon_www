@@ -1,6 +1,6 @@
 GIT
   remote: https://8822694c4779c052130037718ba51b09d8ae7839:x-oauth-basic@github.com/sigurthor/a2_backend.git
-  revision: d6cff648fc48bbbe570af2afce1c4c8fae03300a
+  revision: 08c394fa65ca1573522a1e2117afff7ce20475ab
   branch: master
   specs:
     a2 (0.0.6)
