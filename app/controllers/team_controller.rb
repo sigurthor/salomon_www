@@ -1,6 +1,5 @@
 class TeamController < BaseController
   def index
-
     if(params[:category])
       @team_categories = [A2::TeamCategory.includes(:team_members).find_by_slug(params[:category])]
     else
