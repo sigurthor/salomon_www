@@ -2,6 +2,8 @@ section#product-feature {
   position: relative;
 
   padding-top: 120px;
+  padding-bottom: 0;
+
   border-top: 3px $color-darkblue solid;
 
   img.boredom {
@@ -24,6 +26,7 @@ section#product-feature {
     font-size: 96px;
     color: $color-lightblue;
     margin-top: 30px;
+    margin-bottom: 40px;
     line-height: 48px;
   }
   p {
