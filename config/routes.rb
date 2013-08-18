@@ -12,8 +12,8 @@ SalomonWww::Application.routes.draw do
     match 'stores' => 'store#index', :as => 'store'
     match 'videos' => 'video#index', :as => 'video'
     match 'team' => 'team#index', :as => 'team'
+    match 'team/rider-:team_member' => 'team#show', :as => 'team_member'
     match 'team(/:category)' => 'team#index', :as => 'team'
-    match 'team/:team_member' => 'team#show', :as => 'team_member'
     match 'gear/(:category)' => 'product#index', :as => 'products'
     match 'gear/(:category)/(:product)' => 'product#show', :as => 'product_show'
   end
