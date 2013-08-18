@@ -86,8 +86,8 @@
             //.message Donec sed odio dui. Maecenas faucibus mollis interdum. Fusce dapibus, tellus ac cursus commodo.
             %ul.links
               %li
-                %a Modify filters
+                %a.modify-filters{:href=>'#filterbar'} Modify filters
               %li
-                %a Clear filters
+                %a.clear-filters{:href=>'#'} Clear filters
               %li
-                %a Back to front page
+                =link_to 'Back to front page', home_path
