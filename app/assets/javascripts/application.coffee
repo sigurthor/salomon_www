@@ -4,6 +4,11 @@
 
     if $('.frontpage').length
       self.initNavbar()
+
+      setTimeout () ->
+          $('#language-bar').addClass 'open'
+        , 1500
+
     self.initSearch()
     $(document).foundation 'topbar'
     $(document).foundation 'forms'
@@ -36,6 +41,14 @@
     setTimeout () ->
         $('#play-overlay').fadeIn(4000)
       , 250
+
+    # Language bar ignore button
+    $('#language-bar .ignore').on 'click', (e) ->
+      e.preventDefault()
+      $('#language-bar').removeClass 'open'
+
+
+    # Play overlay for Vimeo
     $('#play-overlay').bind 'click', (e) ->
       e.preventDefault()
       $video = $('video')
@@ -235,7 +248,7 @@
 
 
   clickableTeamMembers: () ->
-    $(".team-member").click ->
+    $("body.team .team-member").click ->
       window.location = $(this).find("a").attr("href");
 
   initTeamNav: () ->

@@ -1,9 +1,6 @@
 section#filterbar {
 
   @include clearfix();
-
-  position: relative;
-  top: 60px;
   width: 100%;
 
   background-color: $color-darkblue;

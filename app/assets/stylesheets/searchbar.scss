@@ -2,6 +2,8 @@
   Top search bar
 */
 .searchbar {
+  @include clearfix();
+
   position: fixed;
   top: -50px;
   left: 0;
