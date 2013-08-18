@@ -90,6 +90,10 @@ section#updates {
         cursor: pointer;
         position: relative;
 
+        height: 302px;
+        width: 540px;
+        overflow: hidden;
+
         &:before {
           position: absolute;
 

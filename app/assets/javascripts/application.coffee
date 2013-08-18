@@ -38,17 +38,27 @@
     if $('.vimeo').length
       self.initVimeo()
 
+    if $('.video').length
+      self.initVideoPage()
+
     setTimeout () ->
         $('#play-overlay').fadeIn(4000)
       , 250
+
+    $('.disable-on-click').bind 'click', (e) ->
+      e.preventDefault()
+      $(this).addClass('disabled').html('One moment...')
+      e.preventDefault()
+
 
     # Language bar ignore button
     $('#language-bar .ignore').on 'click', (e) ->
       e.preventDefault()
       $('#language-bar').removeClass 'open'
 
-
-    # Play overlay for Vimeo
+    #
+    # Frontpage Video DEMO
+    #
     $('#play-overlay').bind 'click', (e) ->
       e.preventDefault()
       $video = $('video')
@@ -171,12 +181,6 @@
     self = this
 
     self.initProductThumbnails()
-
-    # Add to cart button should disable on click
-    $('.disable-on-click').bind 'click', (e) ->
-      e.preventDefault()
-      $(this).addClass('disabled').html('One moment...')
-      e.preventDefault()
 
     self.initProductColorPicker()
 
@@ -327,5 +331,42 @@
 
       $(".member-nav-wrapper").css 'left', newLocation
       lastItemIndex = currentItemIndex
+
+  initVideoPage: () ->
+    $('.load-videos').on 'click', (e) ->
+      self = this
+
+      e.preventDefault()
+      $button = $(this)
+
+      $videos = $('#videos')
+      offset = $videos.children().length
+      limit = 4
+      query = '/a2/feeds/videos.json?limit='+limit+'&offset='+offset
+
+      console.log query
+
+      $.get query, (videos) ->
+        if videos.length
+          for video in videos
+            videoTpl = '
+              <div class="large-6 columns">
+                <div class="update-item vimeo" data-vimeo-id="'+video.item_id+'">
+                  <div class="update-meta">
+                    <i class="ss-icon ss-standard">video</i>
+                    <p>'+video.title+'</p>
+                    <div class="time-ago">'+video.realative_date+' ago</div>
+                   </div>
+                <div class="img-wrapper">
+                  <img src="'+video.image_url+'">
+                </div>
+                <div class="video-player"></div>
+              </div>
+            '
+            $videos.append videoTpl
+
+        else
+          $button.remove()
+
 
 $(document).ready(salomon.initialize())
