@@ -397,5 +397,8 @@
   &.open + .searchbar + #nav-container { top: 40px; }
   &.open + .searchbar + #nav-container + section { margin-top: 140px; }
   &.open + .searchbar + #nav-container.sticky + section { margin-top: 100px; }
+  & + .searchbar + #nav-container.sticky + section#breadcrumbs { margin-top: 0; top: 60px; }
   & + .searchbar + #nav-container.sticky + section { margin-top: 60px; }
+  & + .searchbar + #nav-container.sticky + section#breadcrumbs + section { margin-top: 60px; }
+
 }
