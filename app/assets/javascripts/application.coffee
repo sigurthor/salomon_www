@@ -134,6 +134,11 @@
       $filters.removeClass('active').filter("[data-filter=\"all\"]").addClass 'active'
       dimensions = {}
       $("#product-list").mixitup "filter", 'all'
+      $("html, body").animate({ scrollTop: $('#filterbar').offset().top }, 500)
+
+    $('.modify-filters').bind 'click', (e) ->
+      e.preventDefault()
+      $("html, body").animate({ scrollTop: $('#filterbar').offset().top }, 500)
 
 
   initStoreLocator: () ->
