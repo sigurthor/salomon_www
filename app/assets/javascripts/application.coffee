@@ -13,6 +13,7 @@
     $(document).foundation 'topbar'
     $(document).foundation 'forms'
     $(document).foundation 'dropdown', activeClass: 'open'
+    $(document).foundation 'section'
 
     if $('#map-canvas').length
       self.initMap()

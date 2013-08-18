@@ -89,16 +89,6 @@
         %li 5 other riders
 
 %section.panel#tech
-
-  .row
-    - @product.product_variants.each do |v|
-      %h2= v.size
-      %ul
-      -v.tech_specifications.each do |s|
-        %li
-          %h4{style: 'color:#fff;text-align:center;'}= "#{s.tech_definition_name}: #{s.value}"
-
-
   .row
     %h2 Technology
     .large-12.columns
@@ -111,42 +101,25 @@
 
   .row.sizes
     %h2 Sizing information
-    %ul.size-list
-      %h4 Size:
-      %li 150
-      %li 154
-      %li 156
-      %li 159
-    .large-3.columns
-      %ul.tech-stats
-        %li
-          %span Contact length
-          %span 1145
-        %li
-          %span Effective edge
-          %span 1175
-        %li
-          %span Max stance
-          %span 636
-        %li
-          %span Waist width
-          %span 248
-        %li
-          %span Tail length
-          %span 190
-        %li
-          %span Nose length
-          %span 205
-        %li
-          %span Set back
-          %span 15
-        %li
-          %span Sidecut radius
-          %span 7.8
-    .large-8.columns.large-offset-1
-      .technical-drawing
-        .technical-value
-          636
-        = image_tag('board.png')
-        .technical-demonstration
-          .technical-indicator
+
+    %section-container-tabs(data-section="tabs")
+      - @product.product_variants.each do |variant|
+        %section
+          .title(data-section-title)
+            %a{:href=>'#'}=variant.size
+          .content(data-section-content)
+            .row
+              .large-4.columns
+                %ul.tech-stats
+                  -variant.tech_specifications.each do |spec|
+                    %li
+                      %span=spec.tech_definition_name
+                      %span=spec.value
+              .large-8.columns
+                .technical-drawing
+                  .technical-value
+                    636
+                  = image_tag('board.png')
+                  .technical-demonstration
+                    .technical-indicator
+
