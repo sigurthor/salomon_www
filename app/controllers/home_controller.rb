@@ -1,5 +1,6 @@
 class HomeController < ApplicationController
   def index
+    @vimeo = A2::VimeoFeed.first
   end
 
   def contact
