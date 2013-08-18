@@ -24,6 +24,9 @@
     if $('.product-details').length
       self.initProductPage()
 
+    if $('.team-member').length
+      self.clickableTeamMembers()
+
     if $('.member-nav-wrapper').length
       self.initTeamNav()
 
@@ -223,6 +226,9 @@
       $self.unbind()
 
 
+  clickableTeamMembers: () ->
+    $(".team-member").click ->
+      window.location = $(this).find("a").attr("href");
 
   initTeamNav: () ->
     totalRiders = $('ul.team-nav li').size()
