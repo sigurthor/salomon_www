@@ -17,7 +17,7 @@
     %ul.team-nav
       - @team_member.category.team_members.each do |tm|
         %li.has-overlay
-          %img{:src => 'http://placekitten.com/g/140/140'}
+          = cl_image_tag tm.thumb_image, :width => 140, :height => 140, :crop => 'fill'
           .team-member-info
             %h3
               = tm.fullname
@@ -26,7 +26,7 @@
 
 %section#member
   .row
-    .member-profile{:style => 'background-image: url("http://placekitten.com/g/1200/600")' }
+    .member-profile{:style => 'background-image: url(cl_image_path @team_member.main_image, :crop => "fill")'}
       .play-video
         %span Play video
         %i{:class => 'ss-icon ss-standard'} play
