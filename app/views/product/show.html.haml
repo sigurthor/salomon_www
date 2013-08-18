@@ -89,6 +89,16 @@
         %li 5 other riders
 
 %section.panel#tech
+
+  .row
+    - @product.product_variants.each do |v|
+      %h2= v.size
+      %ul
+      -v.tech_specifications.each do |s|
+        %li
+          %h4{style: 'color:#fff;text-align:center;'}= "#{s.tech_definition_name}: #{s.value}"
+
+
   .row
     %h2 Technology
     .large-12.columns

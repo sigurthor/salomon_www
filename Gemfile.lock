@@ -1,6 +1,6 @@
 GIT
   remote: https://8822694c4779c052130037718ba51b09d8ae7839:x-oauth-basic@github.com/sigurthor/a2_backend.git
-  revision: 69220c513f9d01a1a0e0d57b3c90bb94b8aa6acb
+  revision: d6cff648fc48bbbe570af2afce1c4c8fae03300a
   branch: master
   specs:
     a2 (0.0.6)
@@ -254,7 +254,7 @@ GEM
     remotipart (1.2.1)
     rest-client (1.6.7)
       mime-types (>= 1.16)
-    roo (1.12.0)
+    roo (1.12.1)
       nokogiri
       rubyzip
       spreadsheet (> 0.6.4)
