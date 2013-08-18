@@ -62,17 +62,30 @@ section#filterbar {
 
 
   .button {
+    width: 60px;
+    height: 30px;
+
+    text-align: center;
     vertical-align: middle;
     background-color: #00637F;
-    padding-top: 8px;
-    padding-bottom: 10px;
-    height: 30px;
+    padding: 8px 0 10px 0;
+
+    font-size: 14px;
 
     @include transition(all 0.1s ease-in-out);
 
     &:hover {
       height: 40px;
       padding-top: 12px;
+    }
+
+    &.long {
+      padding-top: 3px;
+      font-size: 12px;
+
+      &:hover {
+        padding-top: 8px;
+      }
     }
   }
 

@@ -35,7 +35,7 @@
               %a.button{} All
             - filter.product_features.each do |feature|
               %li(data-filter="filter-#{feature.feature_code}" data-dimension="feature-#{filter.feature_type_code}")
-                %a.button{}=feature.name
+                %a.button{set_text_length_class(feature.name)}=feature.name
       .group
         %h4 Sort by
         %ul
