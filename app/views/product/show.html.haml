@@ -54,7 +54,12 @@
             %a.button.disable-on-click Add to cart
 
       .product-model
-        = "MODEL2 #{@product.model}"
+        %span= "MODEL2 #{@product.model}"
+        %span
+          12 reviews
+        %span.ss-icon.ss-standard
+          %i.blue star star star
+          star
 
       %p.product-description=@product.description
 %section.panel.gray

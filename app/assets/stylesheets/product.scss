@@ -79,11 +79,21 @@ ul {
     }
   }
 
-  p.product-model {
+  .product-model {
+    padding: 8px;
+    margin-bottom: 25px;
+
+    background-color: #E9E9EA;
+
     color: #9B9B9B;
     font-size: 12px;
-    margin-bottom: 25px;
     font-family: $font-boldcnd20;
+
+    span { margin-right: 15px; }
+    i { font-style: normal; }
+    i.blue { color: $color-lightblue;}
+
+    .ss-icon { vertical-align: middle; }
   }
 
   ul.product-meta {
