@@ -118,6 +118,10 @@
           re = new RegExp("(\\s|^)" + filter)
           filterString = filterString.replace(re, "")
 
+          unless $t.siblings('.active').length
+            $t.siblings("[data-filter=\"all\"]").click()
+
+
       dimensions[dimension] = filterString
 
       dimensionsArr = $.map dimensions, (k, v) ->
