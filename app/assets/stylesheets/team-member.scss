@@ -1,5 +1,4 @@
 .team-member {
-  cursor: pointer;
   section#member-nav {
     width: 100%;
     margin-top: 100px;
@@ -105,7 +104,6 @@
     padding: 40px;
     color: #fff;
     height: 663px;
-    background-image: url(image-path('fixme-team-member.jpg'));
     background-size: cover;
 
     h2 {

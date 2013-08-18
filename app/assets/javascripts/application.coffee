@@ -235,7 +235,7 @@
 
 
   clickableTeamMembers: () ->
-    $(".team-member").click ->
+    $("body.team .team-member").click ->
       window.location = $(this).find("a").attr("href");
 
   initTeamNav: () ->
