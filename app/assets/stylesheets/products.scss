@@ -6,6 +6,15 @@ i {
 
 #product-list {
 
+
+  .notfound {
+    display: none;
+  }
+  &.fail {
+    .lastproduct { display: none; }
+    .notfound { display: block; }
+  }
+
   .mix_all {
     opacity: 0;
     display: none;
@@ -82,6 +91,8 @@ i {
       }
 
     }
+
+
 
     &.last {
       position: relative;

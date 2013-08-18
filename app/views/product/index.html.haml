@@ -66,7 +66,17 @@
                       %span=feature.name
 
         .large-3.columns.end
-          .product.last
+          .product.last.notfound
+            %h2 Sorry - No products match this filter criteria
+            //.message Donec sed odio dui. Maecenas faucibus mollis interdum. Fusce dapibus, tellus ac cursus commodo.
+            %ul.links
+              %li
+                %a.clear-filters{:href=>'#'} Clear filters
+              %li
+                %a Back to front page
+
+        .large-3.columns.end
+          .product.last.lastproduct
             %h2
               You've reached
               %br

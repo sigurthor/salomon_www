@@ -89,7 +89,7 @@
       effects: ["fade", "blur"]
       listEffects: ["fade", "rotateX"]
 
-    $filters = $(".filter-list").find("li")
+    $filters = $(".filter-list li")
     dimensions = {}
 
     $filters.on "click", (e) ->
@@ -106,10 +106,7 @@
       if filter is "all"
         unless $t.hasClass("active")
           $t.addClass("active").siblings().removeClass "active"
-          filterString = "all"
-        else
-          $t.removeClass "active"
-          filterString = ""
+        filterString = "all"
       else
         $t.siblings("[data-filter=\"all\"]").removeClass "active"
         filterString = filterString.replace("all", "")
@@ -121,7 +118,7 @@
           re = new RegExp("(\\s|^)" + filter)
           filterString = filterString.replace(re, "")
 
-      if $t.filter('.active').length == 0
+      if $t.parent().find('.active').length == 0
         $t.siblings("[data-filter=\"all\"]").addClass 'active'
         filterString = 'all'
 
@@ -132,6 +129,11 @@
 
       $("#product-list").mixitup "filter", dimensionsArr
 
+    $('.clear-filters').bind 'click', (e) ->
+      e.preventDefault()
+      $filters.removeClass('active').filter("[data-filter=\"all\"]").addClass 'active'
+      dimensions = {}
+      $("#product-list").mixitup "filter", 'all'
 
 
   initStoreLocator: () ->
@@ -140,10 +142,11 @@
       $('#map-search-overlay').addClass 'compact'
 
   initProductList: () ->
-    $('#product-list .product').bind 'click', ->
+    $('#product-list .mix').bind 'click', ->
       $el = $(this)
       href = $el.find('h2 a').attr('href')
-      window.location = href
+      if href
+        window.location = href
 
 
   initProductPage: ->
