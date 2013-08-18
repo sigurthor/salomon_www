@@ -1,4 +1,19 @@
 section#product-feature {
+  position: relative;
+
+  padding-top: 120px;
+  padding-bottom: 0;
+
+  border-top: 3px $color-darkblue solid;
+
+  img.boredom {
+    position: absolute;
+    top: -3px;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+  }
+
   h2 {
     font-family: $font-boldcnd20obl;
     font-size: 24px;
@@ -11,6 +26,7 @@ section#product-feature {
     font-size: 96px;
     color: $color-lightblue;
     margin-top: 30px;
+    margin-bottom: 40px;
     line-height: 48px;
   }
   p {

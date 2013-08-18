@@ -4,16 +4,15 @@
   .row
     - @team_categories.each do |c|
       %h2= c.name
-      .team-members
-        .row
-          - c.team_members.each do |tm|
-            %div{set_column_number(c.name)}
-              .team-member
-                .team-member-info
-                  %h2
-                    = link_to tm.name, team_member_path(:team_member => tm.slug)
-                  .team-member-country
-                    = tm.country
-                %img{:src=>'http://placekitten.com/g/280/280'}
-                / = image_tag tm.thumb_image #For dynamic images
+      %ul{set_column_number(c.name)}
+        - c.team_members.each do |tm|
+          %li
+            .team-member
+              .team-member-info
+                %h2
+                  = link_to tm.name, team_member_path(:team_member => tm.slug)
+                .team-member-country
+                  = tm.country
+              %img{:src=>'http://placekitten.com/g/280/280'}
+              / = image_tag tm.thumb_image #For dynamic images
 
