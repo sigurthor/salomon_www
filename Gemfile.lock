@@ -1,6 +1,6 @@
 GIT
   remote: https://8822694c4779c052130037718ba51b09d8ae7839:x-oauth-basic@github.com/sigurthor/a2_backend.git
-  revision: 17993f8f951bd16a1c86d78a35c2aca799f03f13
+  revision: 8c9a926088963c3fe69755c04cf2307c426f13c6
   branch: master
   specs:
     a2 (0.0.6)
@@ -113,7 +113,7 @@ GEM
     delayed_job_active_record (4.0.0)
       activerecord (>= 3.0, < 4.1)
       delayed_job (>= 3.0, < 4.1)
-    devise (3.0.2)
+    devise (3.0.3)
       bcrypt-ruby (~> 3.0)
       orm_adapter (~> 0.1)
       railties (>= 3.2.6, < 5)
