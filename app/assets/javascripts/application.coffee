@@ -118,9 +118,9 @@
           re = new RegExp("(\\s|^)" + filter)
           filterString = filterString.replace(re, "")
 
-          unless $t.siblings('.active').length
-            $t.siblings("[data-filter=\"all\"]").click()
-
+      if $t.filter('.active').length == 0
+        $t.siblings("[data-filter=\"all\"]").addClass 'active'
+        filterString = 'all'
 
       dimensions[dimension] = filterString
 
