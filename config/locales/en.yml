@@ -5,3 +5,5 @@ en:
   region: "Global(en)"
   currency: "Eur"
   display_currency: ""
+  nav:
+    stores: "Stores"

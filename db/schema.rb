@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130815135428) do
+ActiveRecord::Schema.define(:version => 20130817204656) do
 
   create_table "a2_brands", :id => false, :force => true do |t|
     t.string   "id"
@@ -78,6 +78,20 @@ ActiveRecord::Schema.define(:version => 20130815135428) do
 
   add_index "a2_delayed_jobs", ["priority", "run_at"], :name => "delayed_jobs_priority"
 
+  create_table "a2_feeds", :force => true do |t|
+    t.string   "source"
+    t.string   "type"
+    t.datetime "date"
+    t.string   "item_id"
+    t.string   "tags"
+    t.string   "url"
+    t.text     "json"
+    t.string   "image_url"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+    t.string   "title"
+  end
+
   create_table "a2_genders", :force => true do |t|
     t.string   "gender"
     t.string   "slug"
@@ -104,6 +118,17 @@ ActiveRecord::Schema.define(:version => 20130815135428) do
     t.datetime "created_at",      :null => false
     t.datetime "updated_at",      :null => false
     t.string   "parameters"
+  end
+
+  create_table "a2_online_stores", :force => true do |t|
+    t.string   "name"
+    t.string   "img"
+    t.string   "url"
+    t.integer  "category_id"
+    t.boolean  "visible"
+    t.integer  "position"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
   end
 
   create_table "a2_product_color_variants", :force => true do |t|

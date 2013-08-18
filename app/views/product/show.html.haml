@@ -82,59 +82,17 @@
         %li Takaharu Nakai
         %li 5 other riders
 
-
 %section.panel#tech
   .row
     %h2 Technology
-    .large-6.columns
+    .large-12.columns
       .tech-info
         %ul.tech-list
-          %li
-            %i.ss-icon.ss-standard plus
-            %span Terrain
-            %span All mountain
-          %li
-            %i.ss-icon.ss-standard plus
-            %span Terrain
-            %span All mountain
-          %li
-            %i.ss-icon.ss-standard plus
-            %span Terrain
-            %span All mountain
-          %li
-            %i.ss-icon.ss-standard plus
-            %span Terrain
-            %span All mountain
-          %li
-            %i.ss-icon.ss-standard plus
-            %span Terrain
-            %span All mountain
-          %li
-            %i.ss-icon.ss-standard plus
-            %span Terrain
-            %span All mountain
-    .large-6.columns
-      %ul.tech-list
-        %li
-          %i.ss-icon.ss-standard plus
-          %span Terrain
-          %span All mountain
-        %li
-          %i.ss-icon.ss-standard plus
-          %span Terrain
-          %span All mountain
-        %li
-          %i.ss-icon.ss-standard plus
-          %span Terrain
-          %span All mountain
-        %li
-          %i.ss-icon.ss-standard plus
-          %span Terrain
-          %span All mountain
-        %li
-          %i.ss-icon.ss-standard plus
-          %span Terrain
-          %span All mountain
+          -@product.product_features.each do |feature|
+            %li
+              %span=feature.product_feature_type_name
+              %span=feature.name
+
   .row.sizes
     %h2 Sizing information
     %ul.size-list

@@ -1,6 +1,6 @@
 GIT
   remote: https://8822694c4779c052130037718ba51b09d8ae7839:x-oauth-basic@github.com/sigurthor/a2_backend.git
-  revision: db0e7c89fc601cfed6a79336be7319f162ca0c08
+  revision: 8c9a926088963c3fe69755c04cf2307c426f13c6
   branch: master
   specs:
     a2 (0.0.6)
@@ -69,7 +69,7 @@ GEM
     ancestry (2.0.0)
       activerecord (>= 3.0.0)
     arel (3.0.2)
-    atomic (1.1.10)
+    atomic (1.1.13)
     aws-sdk (1.15.0)
       json (~> 1.4)
       nokogiri (< 1.6.0)
@@ -113,7 +113,7 @@ GEM
     delayed_job_active_record (4.0.0)
       activerecord (>= 3.0, < 4.1)
       delayed_job (>= 3.0, < 4.1)
-    devise (3.0.2)
+    devise (3.0.3)
       bcrypt-ruby (~> 3.0)
       orm_adapter (~> 0.1)
       railties (>= 3.2.6, < 5)
@@ -190,6 +190,7 @@ GEM
     net-scp (1.0.4)
       net-ssh (>= 1.99.1)
     net-ssh (2.6.8)
+    newrelic_rpm (3.6.6.147)
     nokogiri (1.5.10)
     nori (2.3.0)
     orm_adapter (0.4.0)
@@ -324,6 +325,7 @@ DEPENDENCIES
   compass-rails
   jquery-rails
   mysql2
+  newrelic_rpm
   rails (= 3.2.14)
   sass-rails (~> 3.2.3)
   uglifier (>= 1.0.3)

@@ -27,6 +27,8 @@
     if $('.member-nav-wrapper').length
       self.initTeamNav()
 
+    if $('.vimeo').length
+      self.initVimeo()
 
     setTimeout () ->
         $('#play-overlay').fadeIn(4000)
@@ -78,12 +80,56 @@
     google.maps.event.addDomListener(window, 'load', mapInit)
 
   initFilters: () ->
-    $('#product-list').mixitup
-      effects: ['fade', 'blur']
-      easing: 'WindBack'
-      transitionSpeed: 400
-      #multiFilter: true
-      #showOnLoad: 'men women'
+
+    $("#product-list").mixitup
+      layoutMode: "grid"
+      effects: ["fade", "blur"]
+      listEffects: ["fade", "rotateX"]
+
+    $filters = $(".filter-list").find("li")
+    dimensions = {}
+
+    $filters.on "click", (e) ->
+      e.preventDefault()
+
+      $t = $(this)
+      dimension = $t.attr("data-dimension")
+      filter = $t.attr("data-filter")
+
+      unless dimensions.hasOwnProperty dimension
+        dimensions[dimension] = "all"
+
+      filterString = dimensions[dimension]
+      if filter is "all"
+        unless $t.hasClass("active")
+          $t.addClass("active").siblings().removeClass "active"
+          filterString = "all"
+        else
+          $t.removeClass "active"
+          filterString = ""
+      else
+        $t.siblings("[data-filter=\"all\"]").removeClass "active"
+        filterString = filterString.replace("all", "")
+        unless $t.hasClass("active")
+          $t.addClass "active"
+          filterString = (if filterString is "" then filter else filterString + " " + filter)
+        else
+          $t.removeClass "active"
+          re = new RegExp("(\\s|^)" + filter)
+          filterString = filterString.replace(re, "")
+
+          unless $t.siblings('.active').length
+            $t.siblings("[data-filter=\"all\"]").click()
+
+
+      dimensions[dimension] = filterString
+
+      dimensionsArr = $.map dimensions, (k, v) ->
+        return [k]
+
+      $("#product-list").mixitup "filter", dimensionsArr
+
+
 
   initStoreLocator: () ->
     $('#map-search-overlay .button.search').bind 'click', (e) ->
@@ -156,6 +202,27 @@
       $thumbList.append imgTpl
 
     self.initProductThumbnails()
+
+  initVimeo: () ->
+    $('.vimeo').bind 'click', (e) ->
+      $self = $(this)
+      e.preventDefault();
+      $self.find('.img-wrapper').hide()
+
+      vimeoId = $self.data 'vimeo-id'
+
+      player = '
+        <iframe
+          src="http://player.vimeo.com/video/'+vimeoId+'?color=00a4d1&amp;autoplay=1"
+          width="540" height="304" frameborder="0"
+          webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>'
+
+      $self.find('.video-player').show()
+      $self.find('.video-player').html(player)
+
+      $self.unbind()
+
+
 
   initTeamNav: () ->
     totalRiders = $('ul.team-nav li').size()

@@ -267,6 +267,11 @@ section#tech {
   }
 
   ul.tech-list {
+    -webkit-column-count: 2;
+       -moz-column-count: 2;
+        -ms-column-count: 2;
+            column-count: 2;
+
     list-style: none;
     li + li {
       margin-top: 4px;

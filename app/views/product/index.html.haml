@@ -3,58 +3,46 @@
 
 - content_for :navclass do
   sticky
-  /version1
+  /version12
 - cache [I18n.locale ,@category] do
-  %section#breadcrumbs
-    %ul
-      %li Your Location
-      %li
-        %a{:href=>'#'} Boots
-      %li
-        %a{:href=>'#'} Launch
 
   %section#filterbar
-    %form.custom
-      .row
-        .large-3.columns
-          %h4 Rider
-          %ul
-            %li.filter(data-filter="gender-M")
-              %label(for="men-checkbox")
-                %input#men-checkbox.hidden-field{:type=>'checkbox'}
-                %span.custom.checkbox
-                Men
-            %li.filter(data-filter="gender-W")
-              %label(for="women-checkbox")
-                %input#women-checkbox.hidden-field{:type=>'checkbox'}
-                %span.custom.checkbox
-                Women
-            %li.filter(data-filter="gender-Y")
-              %label(for="youth-checkbox")
-                %input#youth-checkbox.hidden-field{:type=>'checkbox'}
-                %span.custom.checkbox
-                Youth
+    .row.filter-text
+      .large-12.columns
+        .row
+          .large-8.large-offset-2
+            %h1 Salomon Snowboards
+            %p Donec ullamcorper nulla non metus auctor fringilla. Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Cras mattis consectetur purus sit amet fermentum. Sed posuere consectetur est at lobortis. Donec ullamcorper nulla non metus auctor fringilla.
 
-        - @feature_types.each_with_index do |filter, index|
-          - if filter.product_features.size < 5
-            - filterCssClass = 'large-3'
-          - elsif filter.product_features.size < 9
-            - filterCssClass = 'large-6'
-          - else
-            - filterCssClass = 'large-9'
-          - if @feature_types.size - 1 == index
-            - filterCssClass << ' end'
+    .filters
+      .group
+        %h4 Rider
+        %ul.filter-list
+          %li.active(data-filter="all" data-dimension="gender")
+            %a.button{:href=>'#'} All
+          %li(data-filter="gender-M" data-dimension="gender")
+            %a.button{:href=>'#'} Men
+          %li(data-filter="gender-W" data-dimension="gender")
+            %a.button{:href=>'#'} Women
+          %li(data-filter="gender-U" data-dimension="gender")
+            %a.button{:href=>'#'} Youth
 
-          .columns{:class => filterCssClass}
-            %h4=filter.name
-            %ul
-              - filter.product_features.each do |feature|
-                %li.filter(data-filter="filter-#{feature.feature_code}")
-                  %label(for="checkbox-#{feature.feature_code}")
-                    %input.hidden-field{:type=>'checkbox', :id => "checkbox-#{feature.feature_code}"}
-                    %span.custom.checkbox
-                    =feature.name
-
+      - @feature_types.each_with_index do |filter, index|
+        .group
+          %h4=filter.name
+          %ul.filter-list
+            %li.active(data-filter="all" data-dimension="feature-#{filter.feature_type_code}")
+              %a.button{} All
+            - filter.product_features.each do |feature|
+              %li(data-filter="filter-#{feature.feature_code}" data-dimension="feature-#{filter.feature_type_code}")
+                %a.button{}=feature.name
+      .group
+        %h4 Sort by
+        %ul
+          %li.sort(data-sort="data-name" data-order="desc" )
+            %a.button{:href=>'#'} A-Z
+          %li.sort(data-sort="data-price" data-order="desc" )
+            %a.button{:href=>'#'} Price
 
   %section#main
     .row
@@ -62,19 +50,20 @@
         -@products.each do |product|
           - filterClasses = product.product_features.map { |p| "filter-#{p.feature_code}" }.join ' '
           - filterClasses << " gender-#{product.gender}"
-          .large-3.columns.mix{:class=>filterClasses}
+          .large-3.columns.mix{:class=>filterClasses, :data => {:name => "#{product.name}", :price => "#{product.price}"}}
             .product
               .main-info.img-zoom-hover
-                = cl_image_tag product.master_image,  :width => 200, :crop => :fit
                 %h2
                   = link_to product.name, product_show_path(:category => params[:category], :product => product.slug)
                 .price= t :display_currency, price: product.price
+                = cl_image_tag product.master_image,  :width => 200, :crop => :fill
+                //%img{:src => 'http://placehold.it/188x380'}
               .more-info
                 -product.product_features.each do |feature|
-                  .feature
                   - if feature.product_feature_type_show_in_category_overview
-                    %h5=feature.product_feature_type_name
-                    %span=feature.name
+                    .feature
+                      %h5=feature.product_feature_type_name
+                      %span=feature.name
 
         .large-3.columns.end
           .product.last
@@ -84,8 +73,7 @@
               the last
               %br
               product
-
-            .message Donec sed odio dui. Maecenas faucibus mollis interdum. Fusce dapibus, tellus ac cursus commodo.
+            //.message Donec sed odio dui. Maecenas faucibus mollis interdum. Fusce dapibus, tellus ac cursus commodo.
             %ul.links
               %li
                 %a Modify filters
