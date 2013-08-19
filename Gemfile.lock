@@ -1,6 +1,6 @@
 GIT
   remote: https://8822694c4779c052130037718ba51b09d8ae7839:x-oauth-basic@github.com/sigurthor/a2_backend.git
-  revision: 33c8930421c8a40d435784af2bdf335ebcd5122f
+  revision: c61eb5a33bad7d685272252427ad081c85129ed8
   branch: master
   specs:
     a2 (0.0.6)
@@ -30,7 +30,7 @@ GIT
       workless
 
 GEM
-  remote: https://rubygems.org/
+  remote: http://rubygems.org/
   specs:
     actionmailer (3.2.14)
       actionpack (= 3.2.14)

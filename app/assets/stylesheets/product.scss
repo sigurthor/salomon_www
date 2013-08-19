@@ -23,6 +23,11 @@ ul {
     margin-bottom: 40px;
   }
 
+  .product-main-image {
+    text-align: center;
+
+  }
+
   .product-thumbnails {
     margin-top: 1em;
 
@@ -95,82 +100,128 @@ ul {
 
     .ss-icon { vertical-align: middle; }
   }
+}
 
-  ul.product-meta {
-    @include clearfix();
+.product-meta {
+  @include clearfix();
 
-    clear: both;
-    margin-bottom: 25px;
+  clear: both;
+  margin-bottom: 10px;
 
-    list-style: none;
+  h5 {
+    float: left;
+    display: inline-block;
+    width: 80px;
 
-    & > li {
-      display: inline;
-      float: left;
+    font-family: $font-boldcnd20;
+    font-size: 18px;
+    line-height: 44px;
+    text-transform: uppercase;
+  }
+
+  .dropdown { float: left; }
+  input, .button { display: inline-block; float: left; }
+
+  input[type="text"] {
+    width: 60px;
+    height: 40px;
+    margin-right: 10px;
+  }
+
+  ul.product-thumbs {
+    float: left;
+    display: inline-block;
+  }
+}
+
+#product-list ul.product-thumbs {
+  max-width: 190px;
+  margin: 0 auto;
+  text-align: center;
+  margin-bottom: 10px;
+
+  li {
+    width: 20px;
+    height: 20px;
+
+    a {
+      width: 20px;
+      height: 20px;
+
     }
 
-    & > li:first-child {
-      width: 80px;
+    img {
+      width: 20px;
+      height: 20px;
 
-      font-family: $font-boldcnd20;
-      font-size: 18px;
-      line-height: 44px;
-      text-transform: uppercase;
     }
 
-    input[type="text"] {
-      width: 60px;
-      height: 40px;
-      margin-right: 10px;
+    &.selected img {
+      border: 1px #9B9B9B solid;
+    }
+
+    &:before {
+      display: none;
     }
   }
 
-  ul.product-color {
 
-    li:nth-child(n+2) {
-      margin-right: 10px;
+}
 
-      img {
-        width: 45px;
-        height: 45px;
-      }
+ul.product-thumbs {
+  @include clearfix();
 
-      &:hover {
-        @include scale(50/44);
-      }
+  list-style: none;
 
-      &.selected {
-        @include scale(50/44);
+  li {
+    display: inline-block;
 
-        &:before {
-          display: block;
-          position: absolute;
+    margin-right: 10px;
 
-          top: 2px;
-          left: 2px;
+    img {
+      width: 45px;
+      height: 45px;
+    }
 
-          width: 20px;
-          height: 20px;
+    &:hover {
+      @include scale(50/44);
+    }
 
-          background-color: $color-lightblue;
+    &.selected {
+      @include scale(50/44);
 
-          color: white;
-          font-family: "SSStandard";
-          font-size: 12px;
-          line-height: 26px;
-          text-align: center;
-
-          content: "\2713";
-        }
-      }
-
-      a {
+      &:before {
         display: block;
-        width: 44px;
-        height: 44px;
+        position: absolute;
 
-        @include transition(all 0.1s ease-in-out);
+        top: 2px;
+        left: 2px;
+
+        width: 20px;
+        height: 20px;
+
+        background-color: $color-lightblue;
+
+        color: white;
+        font-family: "SSStandard";
+        font-size: 12px;
+        line-height: 26px;
+        text-align: center;
+
+        content: "\2713";
       }
+    }
+
+    a {
+      display: inline-block;
+      width: 44px;
+
+      text-align: center;
+      font-size: 14px;
+      font-family: $font-boldcnd20;
+      color: $color-darkblue;
+
+      @include transition(all 0.1s ease-in-out);
     }
   }
 }
