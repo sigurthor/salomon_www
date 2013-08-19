@@ -311,9 +311,11 @@
 
   initTeamNav: () ->
 
-    updateCurrentProfile = (name, description, image_url) ->
+    updateCurrentProfile = (name, description, quote_author, quote_title, image_url) ->
       $('.member-profile h2').html(name)
       $('.member-profile .profile-text p').html(description)
+      $('.quote author').html(quote_author)
+      $('.quote title').html(quote_title)
       $('.member-profile').css 'background-image', image_url
 
     totalRiders = $('ul.team-nav li').size()
@@ -378,6 +380,8 @@
         lastItem.addClass 'has-overlay'
       $(this).removeClass 'has-overlay'
 
+      $('section#member').addClass 'loading-member'
+
       currentItemIndex = $(this).index()
       lastItem = $(this)
 
@@ -405,7 +409,8 @@
               console.log 'clicked name: ' + name
               console.log 'db name: ' + member.name
               if member.name.trim() == name.trim()
-                updateCurrentProfile(member.name, member.description, member.main_image.url)
+                updateCurrentProfile(member.name, member.description, member.quote_author, member.quote_title, member.main_image.url)
+                $('section#member').removeClass 'loading-member'
 
   initVideoPage: () ->
     $('.load-videos').on 'click', (e) ->
