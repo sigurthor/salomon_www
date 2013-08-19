@@ -30,11 +30,12 @@
     if $('.product-details').length
       self.initProductPage()
 
-    if $('.team-member').length
+    if $('body.team').length
       self.clickableTeamMembers()
 
-    if $('.member-nav-wrapper').length
+    if $('body.team-member').length
       self.initTeamNav()
+      self.teamNavSwitchCategory()
 
     if $('.vimeo').length
       self.initVimeo()
@@ -256,7 +257,52 @@
     $("body.team .team-member").click ->
       window.location = $(this).find("a").attr("href");
 
+  teamNavSwitchCategory: () ->
+    riderList = $('ul.team-nav')
+    addRider = (name, country, image_url) ->
+      riderList.append('
+        <li class="has-overlay">
+          <img src="' + image_url + '" width="140" height="140">
+          <div class="team-member-info">
+            <h3>' + name + '</h3>
+            <div class="team-member-country">' + country + '</div>
+          </div>
+        </li>
+          ')
+      updateItemsTotalWidth()
+
+    updateItemsTotalWidth = ->
+      totalRiders = $('ul.team-nav li').size()
+      slideWidth = 160 # A single rider slide (140px) width plus margin (20px)
+      itemsTotalWidth = (totalRiders * slideWidth) - 20  # No margin after last element
+      $('ul.team-nav').css 'width', itemsTotalWidth
+      $('.member-nav-wrapper').css 'width', itemsTotalWidth
+      $('.member-nav-wrapper').css 'margin-left', (-Math.abs(itemsTotalWidth / 2) + 'px').toString()
+
+    $('.category-switches span').click ->
+      riderList.empty()
+      category = $(this).attr('id').replace('-category', '')
+      url = '/team/' + category + '.json'
+      $('.member-nav-wrapper').css 'left', '50%'
+      $.ajax
+        type: "GET"
+        url: url
+        data:
+          get_param: "value"
+        dataType: "json"
+        success: (container) ->
+          for team in container
+            for member in team.team_members
+              addRider(member.name, member.country, member.thumb_image.url)
+
+
   initTeamNav: () ->
+
+    updateCurrentProfile = (name, description, image_url) ->
+      $('.member-profile h2').html(name)
+      $('.member-profile .profile-text p').html(description)
+      $('.member-profile').css 'background-image', image_url
+
     totalRiders = $('ul.team-nav li').size()
     windowTotalWidth = $(window).width()
     slideWidth = 160 # A single rider slide (140px) width plus margin (20px)
@@ -312,7 +358,9 @@
     lastLocation = 32
 
     # Rider list
-    $('ul.team-nav li').click ->
+    # .on rather than .click for targetting dynamic elements,
+    # i.e. category change by user.
+    $('ul.team-nav').on "click", "li", ->
       if lastItem != null
         lastItem.addClass 'has-overlay'
       $(this).removeClass 'has-overlay'
@@ -322,16 +370,29 @@
 
       offset = (itemsTotalWidth - windowTotalWidth) / 2
 
-      console.log 'difference: ' + newLocation - lastLocation
-
       newLocation = 85 + itemsTotalWidth - ((currentItemIndex + 1) * slideWidth) - offset
       lastLocation = newLocation
 
-      console.log newLocation
-      console.log lastLocation
-
       $(".member-nav-wrapper").css 'left', newLocation
       lastItemIndex = currentItemIndex
+
+      # Change current profile info
+      url = '/team.json'
+      console.log 'update'
+      name = $(this).find('h3').html()
+      $.ajax
+        type: "GET"
+        url: url
+        data:
+          get_param: "value"
+        dataType: "json"
+        success: (container) ->
+          for team in container
+            for member in team.team_members
+              console.log 'clicked name: ' + name
+              console.log 'db name: ' + member.name
+              if member.name.trim() == name.trim()
+                updateCurrentProfile(member.name, member.description, member.main_image.url)
 
   initVideoPage: () ->
     $('.load-videos').on 'click', (e) ->
