@@ -25,6 +25,7 @@ i {
     margin-bottom: 2em;
 
     min-height: 410px;
+    &.snowboard { min-height: 510px; }
 
     font-family: 'TradeGothicW01-BoldCn20 675334';
     color: $base;
