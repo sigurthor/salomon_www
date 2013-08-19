@@ -23,6 +23,11 @@ ul {
     margin-bottom: 40px;
   }
 
+  .product-main-image {
+    text-align: center;
+
+  }
+
   .product-thumbnails {
     margin-top: 1em;
 
@@ -208,9 +213,13 @@ ul.product-thumbs {
     }
 
     a {
-      display: block;
+      display: inline-block;
       width: 44px;
-      height: 44px;
+
+      text-align: center;
+      font-size: 14px;
+      font-family: $font-boldcnd20;
+      color: $color-darkblue;
 
       @include transition(all 0.1s ease-in-out);
     }
