@@ -421,9 +421,8 @@
                 $('section#member').removeClass 'loading-member'
 
   initVideoPage: () ->
+    self = this
     $('.load-videos').on 'click', (e) ->
-      self = this
-
       e.preventDefault()
       $button = $(this)
 
@@ -431,8 +430,6 @@
       offset = $videos.children().length
       limit = 4
       query = '/a2/feeds/videos.json?limit='+limit+'&offset='+offset
-
-      console.log query
 
       $.get query, (videos) ->
         if videos.length
@@ -452,6 +449,7 @@
               </div>
             '
             $videos.append videoTpl
+          self.initVimeo()
 
         else
           $button.remove()
