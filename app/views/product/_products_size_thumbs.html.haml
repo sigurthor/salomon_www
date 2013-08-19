@@ -1,0 +1,5 @@
+.variants
+  %ul.product-thumbs.product-sizes
+    - variants.each_with_index do |size, colorIndex|
+      %li
+        %a.button{:href=>'#', :data => {:fullsize => cl_image_path(size.image, :width =>200, :height => 320, :crop => 'fill')}}=size.size

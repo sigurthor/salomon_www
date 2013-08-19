@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130819135139) do
+ActiveRecord::Schema.define(:version => 20130819154216) do
 
   create_table "a2_brands", :id => false, :force => true do |t|
     t.string   "id"
@@ -310,6 +310,15 @@ ActiveRecord::Schema.define(:version => 20130819135139) do
   add_index "a2_products", ["model"], :name => "index_a2_products_on_model", :unique => true
   add_index "a2_products", ["slug"], :name => "index_a2_products_on_slug", :unique => true
 
+  create_table "a2_related_products", :force => true do |t|
+    t.integer  "product_id"
+    t.integer  "related_product_id"
+    t.datetime "created_at",         :null => false
+    t.datetime "updated_at",         :null => false
+  end
+
+  add_index "a2_related_products", ["product_id", "related_product_id"], :name => "product_related", :unique => true
+
   create_table "a2_shops", :force => true do |t|
     t.string   "name"
     t.string   "domain"
@@ -350,6 +359,8 @@ ActiveRecord::Schema.define(:version => 20130819135139) do
     t.boolean  "visible",          :default => true
     t.datetime "created_at",                         :null => false
     t.datetime "updated_at",                         :null => false
+    t.string   "quoter_name"
+    t.string   "quoter_title"
   end
 
   create_table "a2_tech_definitions", :force => true do |t|
