@@ -2,10 +2,9 @@
   sticky
 
 %script{:src => "https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false"}
-
 %section#storelocator
   #map-canvas
-  #map-search-overlay.compact
+  #map-search-overlay
     .overlay-inner
       %h1 Find a Store
 
@@ -24,277 +23,24 @@
             |
           %a{} Online Retailers
 
-
-      %ul#results
-        %li
-          %h4 Ellis brigham
-          %p TOWER HOUSE, 3-11 SOUTHAMPTON STREET
-          %p LONDON WC2E 7HA
-          %p 0207 3951010
+      // %ul#results
+      //  %li
+      //    %h4 Ellis brigham
+      //    %p TOWER HOUSE, 3-11 SOUTHAMPTON STREET
+      //    %p LONDON WC2E 7HA
+      //    %p 0207 3951010
 
 
 
   %section.online-retailers
     %h2 Online retailers
-
-    - @online_store_categories.each do |c|
-      %h3= c.name
-      %ul
-        - c.online_stores.each do |s|
-          %li= s.name
-
-
     .row
-      .large-2.columns
-        .retailer
-          %p
-            %a{:href=>''}
-              %img{:src=>'img/retailers/backcountry.png'}
-          %p
-            %a{:href=>''} Visit Website
-      .large-2.columns
-        .retailer
-          %p
-            %a{:href=>''}
-              %img{:src=>'img/retailers/hawaiisurf.png'}
-          %p
-            %a{:href=>''} Visit Website
-      .large-2.columns
-        .retailer
-          %p
-            %a{:href=>''}
-              %img{:src=>'img/retailers/hotzone.png'}
-          %p
-            %a{:href=>''} Visit Website
-      .large-2.columns
-        .retailer
-          %p
-            %a{:href=>''}
-              %img{:src=>'img/retailers/moreboards.png'}
-          %p
-            %a{:href=>''} Visit Website
-      .large-2.columns
-        .retailer
-          %p
-            %a{:href=>''}
-              %img{:src=>'img/retailers/planetsports.png'}
-          %p
-            %a{:href=>''} Visit Website
-      .large-2.columns
-        .retailer
-          %p
-            %a{:href=>''}
-              %img{:src=>'img/retailers/rei.png'}
-          %p
-            %a{:href=>''} Visit Website
-      .large-2.columns
-        .retailer
-          %p
-            %a{:href=>''}
-              %img{:src=>'img/retailers/backcountry.png'}
-          %p
-            %a{:href=>''} Visit Website
-      .large-2.columns
-        .retailer
-          %p
-            %a{:href=>''}
-              %img{:src=>'img/retailers/hawaiisurf.png'}
-          %p
-            %a{:href=>''} Visit Website
-      .large-2.columns
-        .retailer
-          %p
-            %a{:href=>''}
-              %img{:src=>'img/retailers/hotzone.png'}
-          %p
-            %a{:href=>''} Visit Website
-      .large-2.columns
-        .retailer
-          %p
-            %a{:href=>''}
-              %img{:src=>'img/retailers/rei.png'}
-          %p
-            %a{:href=>''} Visit Website
-      .large-2.columns
-        .retailer
-          %p
-            %a{:href=>''}
-              %img{:src=>'img/retailers/planetsports.png'}
-          %p
-            %a{:href=>''} Visit Website
-      .large-2.columns
-        .retailer
-          %p
-            %a{:href=>''}
-              %img{:src=>'img/retailers/backcountry.png'}
-          %p
-            %a{:href=>''} Visit Website
-      .large-2.columns
-        .retailer
-          %p
-            %a{:href=>''}
-              %img{:src=>'img/retailers/hawaiisurf.png'}
-          %p
-            %a{:href=>''} Visit Website
-      .large-2.columns
-        .retailer
-          %p
-            %a{:href=>''}
-              %img{:src=>'img/retailers/hotzone.png'}
-          %p
-            %a{:href=>''} Visit Website
-      .large-2.columns
-        .retailer
-          %p
-            %a{:href=>''}
-              %img{:src=>'img/retailers/moreboards.png'}
-          %p
-            %a{:href=>''} Visit Website
-      .large-2.columns
-        .retailer
-          %p
-            %a{:href=>''}
-              %img{:src=>'img/retailers/planetsports.png'}
-          %p
-            %a{:href=>''} Visit Website
-      .large-2.columns
-        .retailer
-          %p
-            %a{:href=>''}
-              %img{:src=>'img/retailers/rei.png'}
-          %p
-            %a{:href=>''} Visit Website
-      .large-2.columns
-        .retailer
-          %p
-            %a{:href=>''}
-              %img{:src=>'img/retailers/backcountry.png'}
-          %p
-            %a{:href=>''} Visit Website
-      .large-2.columns
-        .retailer
-          %p
-            %a{:href=>''}
-              %img{:src=>'img/retailers/hawaiisurf.png'}
-          %p
-            %a{:href=>''} Visit Website
-      .large-2.columns
-        .retailer
-          %p
-            %a{:href=>''}
-              %img{:src=>'img/retailers/hotzone.png'}
-          %p
-            %a{:href=>''} Visit Website
-      .large-2.columns
-        .retailer
-          %p
-            %a{:href=>''}
-              %img{:src=>'img/retailers/rei.png'}
-          %p
-            %a{:href=>''} Visit Website
-      .large-2.columns
-        .retailer
-          %p
-            %a{:href=>''}
-              %img{:src=>'img/retailers/planetsports.png'}
-          %p
-            %a{:href=>''} Visit Website
-
-      .large-2.columns
-        .retailer
-          %p
-            %a{:href=>''}
-              %img{:src=>'img/retailers/backcountry.png'}
-          %p
-            %a{:href=>''} Visit Website
-      .large-2.columns
-        .retailer
-          %p
-            %a{:href=>''}
-              %img{:src=>'img/retailers/hawaiisurf.png'}
-          %p
-            %a{:href=>''} Visit Website
-      .large-2.columns
-        .retailer
-          %p
-            %a{:href=>''}
-              %img{:src=>'img/retailers/hotzone.png'}
-          %p
-            %a{:href=>''} Visit Website
-      .large-2.columns
-        .retailer
-          %p
-            %a{:href=>''}
-              %img{:src=>'img/retailers/moreboards.png'}
-          %p
-            %a{:href=>''} Visit Website
-      .large-2.columns
-        .retailer
-          %p
-            %a{:href=>''}
-              %img{:src=>'img/retailers/planetsports.png'}
-          %p
-            %a{:href=>''} Visit Website
-      .large-2.columns
-        .retailer
-          %p
-            %a{:href=>''}
-              %img{:src=>'img/retailers/rei.png'}
-          %p
-            %a{:href=>''} Visit Website
-      .large-2.columns
-        .retailer
-          %p
-            %a{:href=>''}
-              %img{:src=>'img/retailers/backcountry.png'}
-          %p
-            %a{:href=>''} Visit Website
-      .large-2.columns
-        .retailer
-          %p
-            %a{:href=>''}
-              %img{:src=>'img/retailers/hawaiisurf.png'}
-          %p
-            %a{:href=>''} Visit Website
-      .large-2.columns
-        .retailer
-          %p
-            %a{:href=>''}
-              %img{:src=>'img/retailers/hotzone.png'}
-          %p
-            %a{:href=>''} Visit Website
-      .large-2.columns
-        .retailer
-          %p
-            %a{:href=>''}
-              %img{:src=>'img/retailers/rei.png'}
-          %p
-            %a{:href=>''} Visit Website
-      .large-2.columns
-        .retailer
-          %p
-            %a{:href=>''}
-              %img{:src=>'img/retailers/planetsports.png'}
-          %p
-            %a{:href=>''} Visit Website
-      .large-2.columns
-        .retailer
-          %p
-            %a{:href=>''}
-              %img{:src=>'img/retailers/hotzone.png'}
-          %p
-            %a{:href=>''} Visit Website
-      .large-2.columns
-        .retailer
-          %p
-            %a{:href=>''}
-              %img{:src=>'img/retailers/rei.png'}
-          %p
-            %a{:href=>''} Visit Website
-      .large-2.columns
-        .retailer
-          %p
-            %a{:href=>''}
-              %img{:src=>'img/retailers/planetsports.png'}
-          %p
-            %a{:href=>''} Visit Website
+      - @online_store_categories.each do |category|
+        - category.online_stores.each do |store|
+          .large-2.columns
+            .retailer
+              %p
+                %a{:href=>"#{store.url}"}
+                  =cl_image_tag store.img, :width => '160', :crop => 'fit'
+              %p
+                %a{:href=>"#{store.url}"} Visit Website
