@@ -20,11 +20,11 @@
         %ul.filter-list
           %li.active(data-filter="all" data-dimension="gender")
             %a.button{:href=>'#'} All
-          %li(data-filter="gender-M" data-dimension="gender")
+          %li(data-filter="gender-M gender-U" data-dimension="gender")
             %a.button{:href=>'#'} Men
-          %li(data-filter="gender-W" data-dimension="gender")
+          %li(data-filter="gender-W gender-U" data-dimension="gender")
             %a.button{:href=>'#'} Women
-          %li(data-filter="gender-U" data-dimension="gender")
+          %li(data-filter="gender-K" data-dimension="gender")
             %a.button{:href=>'#'} Youth
 
       - @feature_types.each_with_index do |filter, index|
