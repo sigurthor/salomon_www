@@ -18,7 +18,7 @@ footer {
   }
 
   .language-selector form.custom .custom.dropdown.small {
-    max-width: 190px;
+    min-width: 100%;
 
     .current {
       font-family:'Trade Gothic W01 Light';
@@ -65,5 +65,20 @@ footer {
     }
 
     font-size: 14px;
+  }
+  .newsletter {
+    input[type="text"] {
+      float: left;
+      width: 230px;
+      height: 40px;
+      margin-right: 10px;
+    }
+    input.button {
+      float: left;
+      width: 40px;
+      height: 40px;
+      margin: 0 auto;
+      padding: 0;
+    }
   }
 }
