@@ -59,6 +59,9 @@
                 = cl_image_tag product.master_image,  :width => 200, :crop => :fill
                 //%img{:src => 'http://placehold.it/188x380'}
               .more-info
+                .feature
+                  %h5 Gender
+                  %span=product.gender
                 -product.product_features.each do |feature|
                   - if feature.product_feature_type_show_in_category_overview
                     .feature
