@@ -32,7 +32,7 @@ i {
 
     cursor: pointer;
 
-    img {
+    & > img {
       max-width: emCalc(180);
       margin-bottom: 22px;
       max-height: 300px;

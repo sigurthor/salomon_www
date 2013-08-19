@@ -22,36 +22,23 @@
     .large-6.columns
       %h1= @product.name
       %h2=  t :display_currency, price: @product.price
+
       %form.custom
-        :javascript
-          var imageSet = new Array();
-        %ul.product-meta.product-color
-          %li Color
-          - @product.product_color_variants.each_with_index do |color, colorIndex|
-            %li{:class => (colorIndex == 0?'selected':'')}
-              :javascript
-                imageSet[#{colorIndex}] = new Array();
-              = link_to cl_image_tag(color.image, :width => 100, :height => 100, :crop => :fill), '#', :class => 'imageset', :data => {:imagesetindex => "#{colorIndex}"}
-              - color.product_images.each_with_index do |variant, imgIndex|
-                :javascript
-                  imageSet[#{colorIndex}][#{imgIndex}] = '#{cl_image_path(variant.img, :width=>'580', :crop => 'fit')}';
+        = render :partial => 'product_color_thumbs', :locals => { :variants => @product.product_color_variants }
 
-        %ul.product-meta
-          %li Size
-          %li
-            %select.dropdown.small
-              %option 8.5
-              %option 9
-              %option 9.5
-              %option 10
-              %option 11
+        .product-meta
+          %h5 Size
+          %select.dropdown.small
+            %option 8.5
+            %option 9
+            %option 9.5
+            %option 10
+            %option 11
 
-        %ul.product-meta
-          %li Quantity
-          %li
-            %input{:type=>'text', :value=>'1'}
-          %li
-            %a.button.disable-on-click Add to cart
+        .product-meta
+          %h5 Quantity
+          %input{:type=>'text', :value=>'1'}
+          %a.button.disable-on-click Add to cart
 
       .product-model
         %span= "MODEL2 #{@product.model}"
@@ -101,7 +88,6 @@
 
   .row.sizes
     %h2 Sizing information
-
     %section-container-tabs(data-section="tabs")
       - @product.product_variants.each do |variant|
         %section
@@ -122,4 +108,3 @@
                   = image_tag('board.png')
                   .technical-demonstration
                     .technical-indicator
-

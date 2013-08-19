@@ -171,12 +171,14 @@
       $('#map-search-overlay').addClass 'compact'
 
   initProductList: () ->
-    $('#product-list .mix').bind 'click', ->
-      $el = $(this)
-      href = $el.find('h2 a').attr('href')
-      if href
-        window.location = href
-
+    $products = $('#product-list .product').each (index, product) ->
+      $product = $(product)
+      $product.find('.product-thumbs li a').on 'click', (e) ->
+        $anchor = $(this)
+        e.preventDefault()
+        fullSizeImg = $(this).data 'fullsize'
+        $product.find('.product-image').attr('src', fullSizeImg)
+        $anchor.parent().addClass('selected').siblings().removeClass('selected')
 
   initProductPage: ->
     self = this

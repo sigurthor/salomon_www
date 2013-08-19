@@ -39,7 +39,7 @@
       .group
         %h4 Sort by
         %ul
-          %li.sort(data-sort="data-name" data-order="desc" )
+          %li.sort.active(data-sort="data-name" data-order="desc" )
             %a.button{:href=>'#'} A-Z
           %li.sort(data-sort="data-price" data-order="desc" )
             %a.button{:href=>'#'} Price
@@ -52,12 +52,13 @@
           - filterClasses << " gender-#{product.gender}"
           .large-3.columns.mix{:class=>filterClasses, :data => {:name => "#{product.name}", :price => "#{product.price}"}}
             .product
-              .main-info.img-zoom-hover
+              .main-info
                 %h2
                   = link_to product.name, product_show_path(:category => params[:category], :product => product.slug)
                 .price= t :display_currency, price: product.price
-                = cl_image_tag product.master_image,  :width => 200, :crop => :fill
-                //%img{:src => 'http://placehold.it/188x380'}
+                = cl_image_tag product.master_image,  :width => 200, :crop => :fill, :class => 'product-image'
+                = render :partial => 'products_color_thumbs', :locals => { :variants => product.product_color_variants }
+
               .more-info
                 .feature
                   %h5 Gender

@@ -1,0 +1,5 @@
+.variants
+  %ul.product-thumbs
+    - variants.each_with_index do |color, colorIndex|
+      %li{:class => (colorIndex == 0?'selected':'')}
+        = link_to(cl_image_tag( color.image, :width => 50, :height => 50, :crop => :fill), '#', :class => 'imageset', :data => {:fullsize => cl_image_path(color.image, :width =>200, :crop => 'fill')})
