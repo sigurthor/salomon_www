@@ -1,0 +1,6 @@
+.product-meta
+  %h5 Sizes
+  %ul.product-thumbs.board-sizes
+    - variants.each_with_index do |size, colorIndex|
+      %li
+        = link_to cl_image_tag(size.image, :width => 100, :height => 100, :crop => :fill) + size.size, '#', :class => 'imageset', :data => {:fullsize => cl_image_path(size.image, :width=>'580', :height => '500', :crop => 'fit')}

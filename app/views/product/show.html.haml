@@ -11,7 +11,8 @@
 %section#main.product-details
   .row
     .large-6.columns
-      = cl_image_tag(@product.master_image, :class=>'product-main-image', :width=>'580', :crop => 'fit')
+      .product-main-image
+        = cl_image_tag(@product.master_image, :width=>'580', :height => '500', :crop => 'fit')
       .product-thumbnails
         %ul
           - @product.product_color_variants[0].product_images.each_with_index do |thumb, i|
@@ -24,16 +25,19 @@
       %h2=  t :display_currency, price: @product.price
 
       %form.custom
-        = render :partial => 'product_color_thumbs', :locals => { :variants => @product.product_color_variants }
+        - if @product.is_snowboard?
+          = render :partial => 'product_size_thumbs', :locals => { :variants => @product.product_variants }
+        - else
+          = render :partial => 'product_color_thumbs', :locals => { :variants => @product.product_color_variants }
 
-        .product-meta
-          %h5 Size
-          %select.dropdown.small
-            %option 8.5
-            %option 9
-            %option 9.5
-            %option 10
-            %option 11
+          .product-meta
+            %h5 Size
+            %select.dropdown.small
+              %option 8.5
+              %option 9
+              %option 9.5
+              %option 10
+              %option 11
 
         .product-meta
           %h5 Quantity
@@ -86,25 +90,27 @@
               %span=feature.product_feature_type_name
               %span=feature.name
 
-  .row.sizes
-    %h2 Sizing information
-    %section-container-tabs(data-section="tabs")
-      - @product.product_variants.each do |variant|
-        %section
-          .title(data-section-title)
-            %a{:href=>'#'}=variant.size
-          .content(data-section-content)
-            .row
-              .large-4.columns
-                %ul.tech-stats
-                  -variant.tech_specifications.each do |spec|
-                    %li
-                      %span=spec.tech_definition_name
-                      %span=spec.value
-              .large-8.columns
-                .technical-drawing
-                  .technical-value
-                    636
-                  = image_tag('board.png')
-                  .technical-demonstration
-                    .technical-indicator
+
+  - if @product.is_snowboard?
+    .row.sizes
+      %h2 Sizing information
+      %section-container-tabs(data-section="tabs")
+        - @product.product_variants.each do |variant|
+          %section
+            .title(data-section-title)
+              %a{:href=>'#'}=variant.size
+            .content(data-section-content)
+              .row
+                .large-4.columns
+                  %ul.tech-stats
+                    -variant.tech_specifications.each do |spec|
+                      %li
+                        %span=spec.tech_definition_name
+                        %span=spec.value
+                .large-8.columns
+                  .technical-drawing
+                    .technical-value
+                      636
+                    = image_tag('board.png')
+                    .technical-demonstration
+                      .technical-indicator

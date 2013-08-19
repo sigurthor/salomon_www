@@ -186,6 +186,7 @@
     self.initProductThumbnails()
 
     self.initProductColorPicker()
+    self.initProductSizePicker()
 
   initProductThumbnails: ->
     $thumbs = $('.product-thumbnails li')
@@ -196,27 +197,37 @@
         e.preventDefault()
         $thumbs.removeClass('active')
         $(this).addClass('active')
-        $('.product-main-image').attr('src', newImg)
+        $('.product-main-image img').attr('src', newImg)
 
   initProductColorPicker: ->
     self = this
-
     $('.imageset').each ->
       $el = $(this)
       imageSetIndex = $el.data 'imagesetindex'
-      set = imageSet[parseInt(imageSetIndex)]
 
-      $el.bind 'click', (e) ->
-        e.preventDefault()
-        self.updateImageset(set)
-        $el.parent().parent().find('li').removeClass 'selected'
-        $el.parent().addClass 'selected'
+      if typeof imageSet != 'undefined'
+        set = imageSet[parseInt(imageSetIndex)]
+        $el.bind 'click', (e) ->
+          e.preventDefault()
+          self.updateImageset(set)
+          $el.parent().parent().find('li').removeClass 'selected'
+          $el.parent().addClass 'selected'
+
+  initProductSizePicker: ->
+    $('.board-sizes li a').on 'click', (e) ->
+      $el = $(this)
+      e.preventDefault()
+      imageSrc = $el.data 'fullsize'
+      $('.product-main-image img').attr('src', imageSrc)
+
+      $el.parent().addClass('selected').siblings().removeClass('selected')
+
 
   updateImageset: (set) ->
     self = this
 
     # First image goes into the main spot...
-    $('.product-main-image').attr('src', set[0]);
+    $('.product-main-image img').attr('src', set[0]);
 
     $thumbList = $('.product-thumbnails ul')
     $thumbList.html('')
