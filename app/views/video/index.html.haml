@@ -1,6 +1,9 @@
 - content_for :navclass do
   sticky
 
+- content_for :bodyclass do
+  video
+
 #page-header
   .row
     .large-8.large-offset-2.columns
@@ -8,8 +11,8 @@
       %p Donec ullamcorper nulla non metus auctor fringilla. Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Cras mattis consectetur purus sit amet fermentum. Sed posuere consectetur est at lobortis. Donec ullamcorper nulla non metus auctor fringilla.
 
 %section#updates
-  .row
-    - @videos.first(10).each do |v|
+  #videos.row
+    - @videos.first(4).each do |v|
       .large-6.columns
         .update-item.vimeo(data-vimeo-id="#{v.item_id}")
           .update-meta
@@ -19,3 +22,7 @@
           .img-wrapper
             %img{:src=>"#{v.image_url}"}
           .video-player
+
+  .row
+    .large-4.large-offset-4.columns
+      %a.button.load-videos{:href=>'#'} Load more videos

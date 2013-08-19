@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130817204656) do
+ActiveRecord::Schema.define(:version => 20130819091944) do
 
   create_table "a2_brands", :id => false, :force => true do |t|
     t.string   "id"
@@ -118,6 +118,15 @@ ActiveRecord::Schema.define(:version => 20130817204656) do
     t.datetime "created_at",      :null => false
     t.datetime "updated_at",      :null => false
     t.string   "parameters"
+  end
+
+  create_table "a2_news_letter_subscribers", :force => true do |t|
+    t.string   "email"
+    t.string   "country"
+    t.string   "city"
+    t.string   "ip_address"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
   end
 
   create_table "a2_online_stores", :force => true do |t|
@@ -256,7 +265,7 @@ ActiveRecord::Schema.define(:version => 20130817204656) do
     t.string   "color_1_code"
     t.string   "color_1_name"
     t.string   "size"
-    t.integer  "ean"
+    t.string   "ean"
     t.datetime "created_at",          :null => false
     t.datetime "updated_at",          :null => false
     t.string   "brand"
@@ -333,6 +342,17 @@ ActiveRecord::Schema.define(:version => 20130817204656) do
     t.datetime "updated_at",                         :null => false
   end
 
+  create_table "a2_tech_definitions", :force => true do |t|
+    t.string   "name"
+    t.integer  "position"
+    t.integer  "prolouge_techdefnu"
+    t.boolean  "show_in_porduct_detail"
+    t.datetime "created_at",             :null => false
+    t.datetime "updated_at",             :null => false
+  end
+
+  add_index "a2_tech_definitions", ["prolouge_techdefnu"], :name => "index_a2_tech_definitions_on_prolouge_techdefnu", :unique => true
+
   create_table "a2_tech_feature_translations", :force => true do |t|
     t.integer  "a2_tech_feature_id"
     t.string   "locale"
@@ -351,6 +371,18 @@ ActiveRecord::Schema.define(:version => 20130817204656) do
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end
+
+  create_table "a2_tech_specifications", :force => true do |t|
+    t.integer  "prolouge_tech_definitaion_id"
+    t.integer  "product_variant_id"
+    t.integer  "tech_definition_id"
+    t.string   "value"
+    t.string   "unit"
+    t.datetime "created_at",                   :null => false
+    t.datetime "updated_at",                   :null => false
+  end
+
+  add_index "a2_tech_specifications", ["product_variant_id", "tech_definition_id"], :name => "product_tech_def", :unique => true
 
   create_table "a2_user_translations", :force => true do |t|
     t.integer  "a2_user_id"

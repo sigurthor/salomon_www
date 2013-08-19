@@ -9,6 +9,10 @@ SalomonWww::Application.routes.draw do
 
   scope :path => "(:locale)", :shallow_path => "(:locale)", :locale => /en-US|de-CH|de-DE|en-UK|fr-CH|fr-FR|ru-RU/ do
     match '/' => 'home#index', :as => 'home'
+    match 'contact' => 'home#contact', :as => 'contact'
+    match 'terms' => 'home#terms', :as => 'terms'
+    match 'privacy_policy' => 'home#privacy_policy', :as => 'privacy_policy'
+    match 'warranty' => 'home#warranty', :as => 'warranty'
     match 'stores' => 'store#index', :as => 'store'
     match 'videos' => 'video#index', :as => 'video'
     match 'team' => 'team#index', :as => 'team'

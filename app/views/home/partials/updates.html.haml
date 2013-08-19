@@ -7,8 +7,8 @@
       .update-item.vimeo
         .update-meta
           %i.ss-icon.ss-standard video
-          %p At Home with Chris Grenier
-          .time-ago 4 days ago
+          %p= vimeo.title
+          .time-ago= vimeo.relative_date
         .img-wrapper
           = image_tag('frontpage/fixme-updates-1.png')
       %a.button.vimeo{:href=>'#'} More videos on Vimeo

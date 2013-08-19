@@ -16,6 +16,7 @@
 //= require foundation/foundation.topbar
 //= require foundation/foundation.dropdown
 //= require foundation/foundation.forms
+//= require foundation/foundation.section
 //= require jquery.mixitup
 //= require retina
 //= require_tree .

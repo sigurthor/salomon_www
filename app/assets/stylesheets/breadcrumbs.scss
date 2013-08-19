@@ -25,6 +25,7 @@ section#breadcrumbs {
 
       font-family: "Trade Gothic W01 Bold";
       font-size: 18px;
+      color: white;
 
       &:nth-child(n+3) {
         &:before {
@@ -47,8 +48,4 @@ section#breadcrumbs {
     }
 
   }
-}
-
-.sticky + #breadcrumbs {
-  top: 60px;
 }

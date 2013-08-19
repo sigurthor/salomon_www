@@ -3,21 +3,21 @@
 %section#breadcrumbs
   %ul
     %li Your Location
-    %li
-      %a{:href=>'#'} Boots
-    %li
-      %a{:href=>'#'} Launch
+    %li Gear
+    %li=link_to @product.categories[0].name,products_url(:category => @product.categories[0])
+    %li=link_to @product.name, product_show_path(:product => @product.slug)
+
 
 %section#main.product-details
   .row
     .large-6.columns
-      = cl_image_tag(@product.master_image, class: 'product-main-image')
+      = cl_image_tag(@product.master_image, :class=>'product-main-image', :width=>'580', :crop => 'fit')
       .product-thumbnails
         %ul
           - @product.product_color_variants[0].product_images.each_with_index do |thumb, i|
             %li{:class => (i == 0?'active':'')}
               .img-wrapper
-                = link_to cl_image_tag(thumb.img, :data=>{:fullsize=>cl_image_path(thumb.img)}), '#'
+                = link_to cl_image_tag(thumb.img, :data=>{:fullsize=>cl_image_path(thumb.img, :width=>'80', :crop => 'fit')}), '#'
               %a{:href=>'#'} View #{i+1}
     .large-6.columns
       %h1= @product.name
@@ -34,7 +34,7 @@
               = link_to cl_image_tag(color.image, :width => 100, :height => 100, :crop => :fill), '#', :class => 'imageset', :data => {:imagesetindex => "#{colorIndex}"}
               - color.product_images.each_with_index do |variant, imgIndex|
                 :javascript
-                  imageSet[#{colorIndex}][#{imgIndex}] = '#{cl_image_path(variant.img)}';
+                  imageSet[#{colorIndex}][#{imgIndex}] = '#{cl_image_path(variant.img, :width=>'580', :crop => 'fit')}';
 
         %ul.product-meta
           %li Size
@@ -53,7 +53,13 @@
           %li
             %a.button.disable-on-click Add to cart
 
-      %p.product-model= "MODEL2 #{@product.model}"
+      .product-model
+        %span= "MODEL2 #{@product.model}"
+        %span
+          12 reviews
+        %span.ss-icon.ss-standard
+          %i.blue star star star
+          star
 
       %p.product-description=@product.description
 %section.panel.gray
@@ -95,42 +101,25 @@
 
   .row.sizes
     %h2 Sizing information
-    %ul.size-list
-      %h4 Size:
-      %li 150
-      %li 154
-      %li 156
-      %li 159
-    .large-3.columns
-      %ul.tech-stats
-        %li
-          %span Contact length
-          %span 1145
-        %li
-          %span Effective edge
-          %span 1175
-        %li
-          %span Max stance
-          %span 636
-        %li
-          %span Waist width
-          %span 248
-        %li
-          %span Tail length
-          %span 190
-        %li
-          %span Nose length
-          %span 205
-        %li
-          %span Set back
-          %span 15
-        %li
-          %span Sidecut radius
-          %span 7.8
-    .large-8.columns.large-offset-1
-      .technical-drawing
-        .technical-value
-          636
-        = image_tag('board.png')
-        .technical-demonstration
-          .technical-indicator
+
+    %section-container-tabs(data-section="tabs")
+      - @product.product_variants.each do |variant|
+        %section
+          .title(data-section-title)
+            %a{:href=>'#'}=variant.size
+          .content(data-section-content)
+            .row
+              .large-4.columns
+                %ul.tech-stats
+                  -variant.tech_specifications.each do |spec|
+                    %li
+                      %span=spec.tech_definition_name
+                      %span=spec.value
+              .large-8.columns
+                .technical-drawing
+                  .technical-value
+                    636
+                  = image_tag('board.png')
+                  .technical-demonstration
+                    .technical-indicator
+
