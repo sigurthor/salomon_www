@@ -27,9 +27,7 @@
 %section#member
   .row
     .member-profile{:style => 'background-image: url("' + cl_image_path(@team_member.main_image, :crop => "fill") + '");'}
-      .play-video
-        %span Play video
-        %i{:class => 'ss-icon ss-standard'} play
+
       .profile-text
         %h2= @team_member.name
         %p
