@@ -108,19 +108,25 @@
     google.maps.event.addDomListener(window, 'load', mapInit)
 
   initFilters: () ->
+    $filters = $(".filter-list li")
+
+    executionUnblock = ->
+      $filters.removeData 'executing'
 
     $("#product-list").mixitup
       layoutMode: "grid"
       effects: ["fade", "blur"]
-      listEffects: ["fade", "rotateX"]
+      transitionSpeed: 400
+      onMixEnd: executionUnblock
 
-    $filters = $(".filter-list li")
     dimensions = {}
 
     $filters.on "click", (e) ->
       e.preventDefault()
-
       $t = $(this)
+      return if $t.data 'executing'
+      $filters.data 'executing', true
+
       dimension = $t.attr("data-dimension")
       filter = $t.attr("data-filter")
 
@@ -153,6 +159,7 @@
         return [k]
 
       $("#product-list").mixitup "filter", dimensionsArr
+
 
     $('.clear-filters').bind 'click', (e) ->
       e.preventDefault()
