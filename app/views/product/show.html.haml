@@ -1,5 +1,9 @@
 - content_for(:navclass) do
   sticky
+
+- content_for(:page_title) do
+  #{@product.name} #{@product.categories[0].name_singular}
+
 %section#breadcrumbs
   %ul
     %li Your Location

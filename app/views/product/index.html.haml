@@ -1,10 +1,14 @@
-- content_for :bodyclass do
-  subpage
-
-- content_for :navclass do
-  sticky
-  /version123999224
+/version123999224
 - cache [I18n.locale ,@category] do
+
+  - content_for :bodyclass do
+    subpage
+
+  - content_for :navclass do
+    sticky
+
+  - content_for :page_title do
+    #{@category.name}
 
   %section#filterbar
     .row.filter-text
