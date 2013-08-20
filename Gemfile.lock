@@ -1,6 +1,6 @@
 GIT
   remote: https://8822694c4779c052130037718ba51b09d8ae7839:x-oauth-basic@github.com/sigurthor/a2_backend.git
-  revision: 4f3bfe3b2579af82fc10de6ee42d842bde336c54
+  revision: 43302255c7036f9705dbb666b497bf5cc0414b05
   branch: master
   specs:
     a2 (0.0.6)
@@ -136,7 +136,8 @@ GEM
     font-awesome-rails (3.2.1.3)
       railties (>= 3.2, < 5.0)
     formatador (0.2.4)
-    friendly_id (4.0.10)
+    friendly_id (4.0.10.1)
+      activerecord (>= 3.0, < 4.0)
     fssm (0.2.10)
     gli (2.7.0)
     globalize3 (0.3.0)
