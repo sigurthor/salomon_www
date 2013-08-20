@@ -3,7 +3,7 @@
 
 - content_for :navclass do
   sticky
-  /version123999
+  /version123999224
 - cache [I18n.locale ,@category] do
 
   %section#filterbar
@@ -66,7 +66,7 @@
               .more-info
                 .feature
                   %h5 Gender
-                  %span=product.gender
+                  %span= t "gender.#{product.gender}", :count => 2
                 -product.product_features.each do |feature|
                   - if feature.product_feature_type_show_in_category_overview
                     .feature
