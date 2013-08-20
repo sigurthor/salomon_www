@@ -4,6 +4,9 @@
 - content_for(:page_title) do
   #{@product.name} #{@product.categories[0].name_singular}
 
+- content_for(:page_description) do
+  #{@product.description}
+
 %section#breadcrumbs
   %ul
     %li Your Location
