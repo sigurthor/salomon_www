@@ -3,7 +3,7 @@
 
 - content_for :navclass do
   sticky
-  /version123999
+  /version123999224
 - cache [I18n.locale ,@category] do
 
   %section#filterbar
@@ -31,11 +31,11 @@
         .group
           %h4=filter.name
           %ul.filter-list
-            %li.active(data-filter="all" data-dimension="feature-#{filter.feature_type_code}")
+            %li.active(data-filter="all" data-dimension="feature-#{filter.id}")
               %a.button{} All
             - filter.product_features.each do |feature|
-              %li(data-filter="filter-#{feature.feature_code}" data-dimension="feature-#{filter.feature_type_code}")
-                %a.button{set_text_length_class(feature.name)}=feature.name
+              %li(data-filter="filter-#{feature.id}" data-dimension="feature-#{filter.id}")
+                %a.button{set_text_length_class(feature.name, 10)}=feature.name
       .group
         %h4 Sort by
         %ul
@@ -48,12 +48,12 @@
     .row
       #product-list
         -@products.each do |product|
-          - filterClasses = product.product_features.map { |p| "filter-#{p.feature_code}" }.join ' '
+          - filterClasses = product.product_features.map { |p| "filter-#{p.id}" }.join ' '
           - filterClasses << " gender-#{product.gender}"
           .large-3.columns.mix{:class=>filterClasses, :data => {:name => "#{product.name}", :price => "#{product.price}"}}
             .product{:class => (product.is_snowboard? ? 'snowboard':'')}
               .main-info
-                %h2
+                %h2{set_text_length_class(product.name, 16)}
                   = link_to product.name, product_show_path(:category => params[:category], :product => product.slug)
                 .price= t :display_currency, price: product.price
                 - if product.is_snowboard?
@@ -66,7 +66,7 @@
               .more-info
                 .feature
                   %h5 Gender
-                  %span=product.gender
+                  %span= t "gender.#{product.gender}", :count => 2
                 -product.product_features.each do |feature|
                   - if feature.product_feature_type_show_in_category_overview
                     .feature

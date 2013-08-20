@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130819154216) do
+ActiveRecord::Schema.define(:version => 20130820111109) do
 
   create_table "a2_brands", :id => false, :force => true do |t|
     t.string   "id"
@@ -30,12 +30,13 @@ ActiveRecord::Schema.define(:version => 20130819154216) do
     t.integer  "position"
     t.boolean  "visible"
     t.string   "ancestry"
-    t.datetime "created_at",  :null => false
-    t.datetime "updated_at",  :null => false
+    t.datetime "created_at",    :null => false
+    t.datetime "updated_at",    :null => false
     t.string   "type"
     t.string   "brand"
     t.integer  "magento_id"
     t.string   "filters"
+    t.string   "name_singular"
   end
 
   add_index "a2_categories", ["ancestry"], :name => "index_a2_categories_on_ancestry"

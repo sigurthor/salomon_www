@@ -7,3 +7,10 @@ en:
   display_currency: ""
   nav:
     stores: "Stores"
+  gender:
+    M:
+      one: 'men'
+      other: "men's"
+    W:
+      one: 'women'
+      other: "womens's"

@@ -1,4 +1,10 @@
 @salomon =
+  preloadImages: (images) ->
+    imgObject = new Array()
+    for img, index in images
+      imgObject[index] = new Image()
+      imgObject[index].src = img
+
   initialize: () ->
     self = this
 
@@ -81,6 +87,10 @@
           $videoEl.muted = false
           $video.fadeIn(2500)
         , 2000
+
+    self.preloadImages [
+      '/assets/layout/salomon_snowboards-logo-white@2x.png' # Preload logo for hover state
+    ]
 
   initNavbar: () ->
     $nav = $('#nav-container')
