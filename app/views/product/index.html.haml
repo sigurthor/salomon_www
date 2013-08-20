@@ -31,10 +31,10 @@
         .group
           %h4=filter.name
           %ul.filter-list
-            %li.active(data-filter="all" data-dimension="feature-#{filter.feature_type_code}")
+            %li.active(data-filter="all" data-dimension="feature-#{filter.id}")
               %a.button{} All
             - filter.product_features.each do |feature|
-              %li(data-filter="filter-#{feature.feature_code}" data-dimension="feature-#{filter.feature_type_code}")
+              %li(data-filter="filter-#{feature.id}" data-dimension="feature-#{filter.id}")
                 %a.button{set_text_length_class(feature.name, 10)}=feature.name
       .group
         %h4 Sort by
@@ -48,7 +48,7 @@
     .row
       #product-list
         -@products.each do |product|
-          - filterClasses = product.product_features.map { |p| "filter-#{p.feature_code}" }.join ' '
+          - filterClasses = product.product_features.map { |p| "filter-#{p.id}" }.join ' '
           - filterClasses << " gender-#{product.gender}"
           .large-3.columns.mix{:class=>filterClasses, :data => {:name => "#{product.name}", :price => "#{product.price}"}}
             .product{:class => (product.is_snowboard? ? 'snowboard':'')}
