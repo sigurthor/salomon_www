@@ -412,7 +412,6 @@
 
       offset = (itemsTotalWidth - windowTotalWidth) / 2
 
-      console.log itemsTotalWidth
       newLocation = 85 + itemsTotalWidth - ((currentItemIndex + 1) * slideWidth) - offset
       lastLocation = newLocation
 
@@ -432,7 +431,6 @@
           for team in container
             for member in team.team_members
               if member.name.trim() == name.trim()
-                console.log member.main_image.url
                 updateCurrentProfile(member.name, member.description, member.quote_author, member.quote_title, member.country, member.city, member.main_image.url)
                 $('section#member').removeClass 'loading-member'
 
