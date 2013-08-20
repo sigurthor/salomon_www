@@ -13,17 +13,19 @@
       / Left Nav Section
       %ul.left
         %li.has-dropdown
-          %a{:href => "#"} Gear
+          %a{:href => "#"}
+            = t 'nav.gear'
           %ul.dropdown
             - gear_categories.each do |c|
               %li=link_to c.name,products_url(:category => c.slug)
-        %li= link_to 'Team', team_path
+        %li= link_to t('nav.team'), team_path
         %li
-          %a= link_to 'Videos', video_path
+          %a= link_to t('nav.videos'), video_path
         %li
-          %a{:href => "http://ssnowdev.tumblr.com/"} Blog
+          %a{:href => "http://ssnowdev.tumblr.com/"}
+            =t('nav.blog')
         %li
-          %a= link_to( 'Stores', store_path)
+          %a= link_to t('nav.stores') , store_path
 
       %ul.right
         //%li

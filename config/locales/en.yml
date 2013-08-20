@@ -6,6 +6,10 @@ en:
   currency: "Eur"
   display_currency: ""
   nav:
+    gear: "Gear"
+    team: "Team"
+    videos: "Videos"
+    blog:  "blog"
     stores: "Stores"
   gender:
     M:
