@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130820111109) do
+ActiveRecord::Schema.define(:version => 20130820193534) do
 
   create_table "a2_brands", :id => false, :force => true do |t|
     t.string   "id"
@@ -140,6 +140,31 @@ ActiveRecord::Schema.define(:version => 20130820111109) do
     t.datetime "created_at",  :null => false
     t.datetime "updated_at",  :null => false
   end
+
+  create_table "a2_page_translations", :force => true do |t|
+    t.integer  "a2_page_id"
+    t.string   "locale"
+    t.string   "title"
+    t.string   "title_browser"
+    t.string   "slug"
+    t.text     "description"
+    t.datetime "created_at",    :null => false
+    t.datetime "updated_at",    :null => false
+  end
+
+  add_index "a2_page_translations", ["a2_page_id"], :name => "index_a2_page_translations_on_a2_page_id"
+  add_index "a2_page_translations", ["locale"], :name => "index_a2_page_translations_on_locale"
+
+  create_table "a2_pages", :force => true do |t|
+    t.string   "img"
+    t.string   "pid"
+    t.integer  "category_id"
+    t.string   "layout"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+  end
+
+  add_index "a2_pages", ["pid"], :name => "index_a2_pages_on_pid", :unique => true
 
   create_table "a2_product_color_variants", :force => true do |t|
     t.string   "sap"
@@ -283,6 +308,7 @@ ActiveRecord::Schema.define(:version => 20130820111109) do
     t.integer  "weight"
     t.string   "dimensions"
     t.integer  "shopify_id"
+    t.integer  "product_image_id"
   end
 
   add_index "a2_product_variants", ["size_code"], :name => "index_a2_product_variants_on_size_code", :unique => true
