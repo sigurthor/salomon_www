@@ -262,6 +262,9 @@
       font-size: 128px;
     }
     p {
+      &.long {
+        font-size: 30px;
+      }
       font-family: $font-obl;
       font-size: 40px;
       line-height: 60px;

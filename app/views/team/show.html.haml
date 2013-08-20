@@ -33,7 +33,7 @@
 
       .profile-text
         %h2= @team_member.name
-        %p
+        %p{set_text_length_class(@team_member.description, 230)}
           = @team_member.description
 
       .quote

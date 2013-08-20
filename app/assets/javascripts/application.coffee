@@ -452,6 +452,12 @@
               if member.name.trim() == name.trim()
                 updateCurrentProfile(member.name, member.description, member.quote_author, member.quote_title, member.country, member.city, member.main_image.url)
                 $('section#member').removeClass 'loading-member'
+                riderDescriptionLength = $('.profile-text').text().length
+                # It is unknown whether the newly selected profile description
+                # text is long so we remove the class
+                $('.profile-text p').removeClass 'long'
+                if riderDescriptionLength > 230
+                  $('.profile-text p').addClass 'long'
 
   initVideoPage: () ->
     self = this
