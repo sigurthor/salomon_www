@@ -286,15 +286,16 @@
         			distance = $(klass).offset().top;
       			},105);
       		});
+          /*
           $window.scroll(function() {
             if ($window.scrollTop() > (distance)) {
               $(klass).addClass("fixed");
-              //$('body').css('padding-top',offst);
+              $('body').css('padding-top',offst);
             } else if ($window.scrollTop() <= distance) {
               $(klass).removeClass("fixed");
-              //$('body').css('padding-top','0');
+              $('body').css('padding-top','0');
             }
-        });
+        });*/
       }
     },
 
