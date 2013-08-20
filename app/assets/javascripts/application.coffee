@@ -42,7 +42,6 @@
 
     if $('body.team-member').length
       self.initTeamNav()
-      self.teamNavSwitchCategory()
 
     if $('.vimeo').length
       self.initVimeo()
@@ -413,6 +412,10 @@
           $('section#member-nav').removeClass 'loading-category'
 
 
+    slug = $('.member-profile h2').html().toUpperCase().trim()
+    jQuery(document).ready ($) ->
+      $('ul.team-nav li:contains("' + slug + '")').click()
+    console.log slug
     # Rider list
     # .on rather than .click for targetting dynamic elements,
     # i.e. category change by user.

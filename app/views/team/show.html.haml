@@ -19,12 +19,13 @@
     %ul.team-nav
       - @team_member.category.team_members.each do |tm|
         %li.has-overlay
-          = cl_image_tag tm.thumb_image, :width => 140, :height => 140, :crop => 'fill'
-          .team-member-info
-            %h3
-              = tm.fullname
-            .team-member-country
-              = tm.country
+          .nav-team-member.img-zoom-hover
+            = cl_image_tag tm.thumb_image, :width => 140, :height => 140, :crop => 'fill'
+            .team-member-info
+              %h3
+                = tm.fullname
+              .team-member-country
+                = tm.country
 
 %section#member
   .row

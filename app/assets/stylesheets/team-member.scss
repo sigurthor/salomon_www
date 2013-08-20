@@ -32,6 +32,12 @@
     background: $color-darkblue;
     overflow: hidden;
 
+    .nav-team-member {
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+    }
+
     &.loading-category {
       &:before {
         position: absolute;
@@ -104,10 +110,18 @@
     }
 
     li.has-overlay {
-      cursor: pointer;
-      .team-member-info {
+     .team-member-info {
         display: block;
       }
+      &:hover {
+        .team-member-info {
+          display: none;
+        }
+      }
+    }
+
+    li.has-overlay .nav-team-member {
+      cursor: pointer;
       &:after {
         position: absolute;
         top: 0;
@@ -118,6 +132,10 @@
         opacity: .5;
         background-color: $color-darkblue;
         z-index: 1;
+        @include transition(opacity 0.2s ease-in-out);
+      }
+      &:hover:after {
+        opacity: 0;
       }
     }
 
@@ -125,7 +143,6 @@
       float: left;
       position: relative;
       display: inline-block;
-      padding-bottom: 20px;
       .team-member-info {
         display: none;
         position: absolute;
