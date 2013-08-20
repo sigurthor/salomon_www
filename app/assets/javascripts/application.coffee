@@ -124,11 +124,24 @@
     executionUnblock = ->
       $filters.removeData 'executing'
 
+    readFilterHash = ->
+      urlFilters = window.location.hash.replace('#', '').split('|')
+      $('#product-list').mixitup('filter', urlFilters)
+      for filter in urlFilters
+        if filter != 'all'
+          $el = $filters.filter('[data-filter="'+filter+'"]')
+          $el.siblings().filter('[data-filter="all"]').removeClass 'active'
+          $el.addClass('active')
+
+
     $("#product-list").mixitup
       layoutMode: "grid"
       effects: ["fade", "blur"]
       transitionSpeed: 400
       onMixEnd: executionUnblock
+      onMixLoad: readFilterHash
+
+
 
     dimensions = {}
 
@@ -165,9 +178,12 @@
         filterString = 'all'
 
       dimensions[dimension] = filterString
-
       dimensionsArr = $.map dimensions, (k, v) ->
         return [k]
+
+      if history.pushState
+        filterString = dimensionsArr.join('|').replace(/\s/g, '|')
+        history.pushState null, null, '#' + filterString
 
       $("#product-list").mixitup "filter", dimensionsArr
 
