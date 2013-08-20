@@ -366,6 +366,7 @@
 
     lastCategory = $('span#pros-category')
     $('.category-switches span').click ->
+      $('section#member-nav').addClass 'loading-category'
       riderList.empty()
       category = $(this).attr('id').replace('-category', '')
       url = '/team/' + category + '.json'
@@ -383,6 +384,7 @@
           for team in container
             for member in team.team_members
               addRider(member.name, member.country, member.thumb_image.url)
+          $('section#member-nav').removeClass 'loading-category'
 
 
     # Rider list
