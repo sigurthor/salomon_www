@@ -124,11 +124,24 @@
     executionUnblock = ->
       $filters.removeData 'executing'
 
+    readFilterHash = ->
+      urlFilters = window.location.hash.replace('#', '').split('|')
+      $('#product-list').mixitup('filter', urlFilters)
+      for filter in urlFilters
+        if filter != 'all'
+          $el = $filters.filter('[data-filter="'+filter+'"]')
+          $el.siblings().filter('[data-filter="all"]').removeClass 'active'
+          $el.addClass('active')
+
+
     $("#product-list").mixitup
       layoutMode: "grid"
       effects: ["fade", "blur"]
       transitionSpeed: 400
       onMixEnd: executionUnblock
+      onMixLoad: readFilterHash
+
+
 
     dimensions = {}
 
@@ -165,9 +178,12 @@
         filterString = 'all'
 
       dimensions[dimension] = filterString
-
       dimensionsArr = $.map dimensions, (k, v) ->
         return [k]
+
+      if history.pushState
+        filterString = dimensionsArr.join('|').replace(/\s/g, '|')
+        history.pushState null, null, '#' + filterString
 
       $("#product-list").mixitup "filter", dimensionsArr
 
@@ -288,45 +304,6 @@
     $("li .team-member").click ->
       window.location = $(this).find("a").attr("href");
 
-  teamNavSwitchCategory: () ->
-    riderList = $('ul.team-nav')
-    addRider = (name, country, image_url) ->
-      riderList.append('
-        <li class="has-overlay">
-          <img src="' + image_url + '" width="140" height="140">
-          <div class="team-member-info">
-            <h3>' + name + '</h3>
-            <div class="team-member-country">' + country + '</div>
-          </div>
-        </li>
-          ')
-      updateItemsTotalWidth()
-
-    updateItemsTotalWidth = ->
-      totalRiders = $('ul.team-nav li').size()
-      slideWidth = 160 # A single rider slide (140px) width plus margin (20px)
-      itemsTotalWidth = (totalRiders * slideWidth) - 20  # No margin after last element
-      $('ul.team-nav').css 'width', itemsTotalWidth
-      $('.member-nav-wrapper').css 'width', itemsTotalWidth
-      $('.member-nav-wrapper').css 'margin-left', (-Math.abs(itemsTotalWidth / 2) + 'px').toString()
-
-    $('.category-switches span').click ->
-      riderList.empty()
-      category = $(this).attr('id').replace('-category', '')
-      url = '/team/' + category + '.json'
-      $('.member-nav-wrapper').css 'left', '50%'
-      $.ajax
-        type: "GET"
-        url: url
-        data:
-          get_param: "value"
-        dataType: "json"
-        success: (container) ->
-          for team in container
-            for member in team.team_members
-              addRider(member.name, member.country, member.thumb_image.url)
-
-
   initTeamNav: () ->
 
     updateCurrentProfile = (name, description, quote_author, quote_title, country, city, image_url) ->
@@ -334,9 +311,9 @@
       $('.member-profile .profile-text p').html(description)
       $('.quote author').html(quote_author)
       $('.quote title').html(quote_title)
-      $('.country').html(country)
-      $('.hometown').html(city)
-      $('.member-profile').css 'background-image', image_url
+      $('.country.detail-value').html(country)
+      $('.hometown.detail-value').html(city)
+      $('.member-profile').css 'background-image', 'url(' + image_url + ')'
 
     totalRiders = $('ul.team-nav li').size()
     windowTotalWidth = $(window).width()
@@ -392,6 +369,50 @@
     lastDirection = 'middle'
     lastLocation = 32
 
+    riderList = $('ul.team-nav')
+    addRider = (name, country, image_url) ->
+      riderList.append('
+        <li class="has-overlay">
+          <img src="' + image_url + '" width="140" height="140">
+          <div class="team-member-info">
+            <h3>' + name + '</h3>
+            <div class="team-member-country">' + country + '</div>
+          </div>
+        </li>
+          ')
+      updateItemsTotalWidth()
+
+    updateItemsTotalWidth = ->
+      totalRiders = $('ul.team-nav li').size()
+      slideWidth = 160 # A single rider slide (140px) width plus margin (20px)
+      itemsTotalWidth = (totalRiders * slideWidth) - 20  # No margin after last element
+      $('ul.team-nav').css 'width', itemsTotalWidth
+      $('.member-nav-wrapper').css 'width', itemsTotalWidth
+      $('.member-nav-wrapper').css 'margin-left', (-Math.abs(itemsTotalWidth / 2) + 'px').toString()
+
+    lastCategory = $('span#pros-category')
+    $('.category-switches span').click ->
+      $('section#member-nav').addClass 'loading-category'
+      riderList.empty()
+      category = $(this).attr('id').replace('-category', '')
+      url = '/team/' + category + '.json'
+      $('.member-nav-wrapper').css 'left', '50%'
+      lastCategory.removeClass('current-category')
+      $(this).addClass('current-category')
+      lastCategory = $(this)
+      $.ajax
+        type: "GET"
+        url: url
+        data:
+          get_param: "value"
+        dataType: "json"
+        success: (container) ->
+          for team in container
+            for member in team.team_members
+              addRider(member.name, member.country, member.thumb_image.url)
+          $('section#member-nav').removeClass 'loading-category'
+
+
     # Rider list
     # .on rather than .click for targetting dynamic elements,
     # i.e. category change by user.
@@ -407,6 +428,7 @@
 
       offset = (itemsTotalWidth - windowTotalWidth) / 2
 
+      console.log itemsTotalWidth
       newLocation = 85 + itemsTotalWidth - ((currentItemIndex + 1) * slideWidth) - offset
       lastLocation = newLocation
 
@@ -415,7 +437,6 @@
 
       # Change current profile info
       url = '/team.json'
-      console.log 'update'
       name = $(this).find('h3').html()
       $.ajax
         type: "GET"
@@ -427,7 +448,7 @@
           for team in container
             for member in team.team_members
               if member.name.trim() == name.trim()
-                console.log member.quote_title
+                console.log member.main_image.url
                 updateCurrentProfile(member.name, member.description, member.quote_author, member.quote_title, member.country, member.city, member.main_image.url)
                 $('section#member').removeClass 'loading-member'
 
