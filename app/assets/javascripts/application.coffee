@@ -4,6 +4,7 @@
 
     if $('.frontpage').length
       self.initNavbar()
+      self.clickableTeamMembers()
 
       setTimeout () ->
           $('#language-bar').addClass 'open'
@@ -274,7 +275,7 @@
 
 
   clickableTeamMembers: () ->
-    $("body.team .team-member").click ->
+    $("li .team-member").click ->
       window.location = $(this).find("a").attr("href");
 
   teamNavSwitchCategory: () ->
