@@ -1,5 +1,12 @@
 - content_for(:navclass) do
   sticky
+
+- content_for(:page_title) do
+  #{@product.name} #{@product.categories[0].name_singular}
+
+- content_for(:page_description) do
+  #{@product.description}
+
 %section#breadcrumbs
   %ul
     %li Your Location
@@ -22,6 +29,7 @@
               %a{:href=>'#'} View #{i+1}
     .large-6.columns
       %h1= @product.name
+      %span= t("gender.#{@product.gender}", :count => 2) + " " + @product.categories[0].name_singular
       %h2=  t :display_currency, price: @product.price
 
       %form.custom

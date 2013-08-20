@@ -48,7 +48,7 @@ body {
 
   &.team-member:hover img { @include scale(1.2); }
   &.main-info:hover img { @include scale(1.025); }
-
+  &.nav-team-member:hover img { @include scale(1.1); }
 }
 
 #page-header {
