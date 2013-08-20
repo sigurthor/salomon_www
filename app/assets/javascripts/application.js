@@ -19,4 +19,4 @@
 //= require foundation/foundation.section
 //= require jquery.mixitup
 //= require retina
-//= require_tree .
+//= require application.coffee
