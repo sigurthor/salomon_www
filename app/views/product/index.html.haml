@@ -35,7 +35,7 @@
               %a.button{} All
             - filter.product_features.each do |feature|
               %li(data-filter="filter-#{feature.feature_code}" data-dimension="feature-#{filter.feature_type_code}")
-                %a.button{set_text_length_class(feature.name)}=feature.name
+                %a.button{set_text_length_class(feature.name, 10)}=feature.name
       .group
         %h4 Sort by
         %ul
@@ -53,7 +53,7 @@
           .large-3.columns.mix{:class=>filterClasses, :data => {:name => "#{product.name}", :price => "#{product.price}"}}
             .product{:class => (product.is_snowboard? ? 'snowboard':'')}
               .main-info
-                %h2
+                %h2{set_text_length_class(product.name, 16)}
                   = link_to product.name, product_show_path(:category => params[:category], :product => product.slug)
                 .price= t :display_currency, price: product.price
                 - if product.is_snowboard?
