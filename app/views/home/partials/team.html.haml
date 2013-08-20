@@ -3,15 +3,15 @@
     %h2 The team
 
     .team-members
-      .row
+      %ul.large-block-grid-4
         - team_members.each do |tm|
-          .large-3.columns
+          %li
             .team-member.img-zoom-hover
               .team-member-info
-                %h2= tm.name
-                .team-member-country Japan
-              %img{:src=>'http://placekitten.com/g/285/285'}
-
+                %h2
+                  =link_to(tm.name, team_member_path(:team_member => tm.slug))
+                .team-member-country= tm.country
+              = cl_image_tag(tm.thumb_image.url, :width => 285, :height => 285, :crop => 'fit')
 
         .large-3.columns
           .see-more

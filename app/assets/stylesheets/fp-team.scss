@@ -1,4 +1,9 @@
 section#the-team {
+
+  .team-members li {
+    cursor: pointer;
+  }
+
   img {
     display: inline-block;
   }
@@ -37,6 +42,9 @@ section#the-team {
       margin: 0 20px;
       z-index: 9999;
       h2 {
+          a {
+            color: #fff;
+          }
         font-family: $font-heading;
         font-size: 46px;
         color: #fff;
