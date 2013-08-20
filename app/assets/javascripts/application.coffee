@@ -364,11 +364,15 @@
       $('.member-nav-wrapper').css 'width', itemsTotalWidth
       $('.member-nav-wrapper').css 'margin-left', (-Math.abs(itemsTotalWidth / 2) + 'px').toString()
 
+    lastCategory = $('span#pros-category')
     $('.category-switches span').click ->
       riderList.empty()
       category = $(this).attr('id').replace('-category', '')
       url = '/team/' + category + '.json'
       $('.member-nav-wrapper').css 'left', '50%'
+      lastCategory.removeClass('current-category')
+      $(this).addClass('current-category')
+      lastCategory = $(this)
       $.ajax
         type: "GET"
         url: url

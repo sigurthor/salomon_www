@@ -32,6 +32,7 @@
     overflow: hidden;
 
     .category-switches {
+      .current-category { color: #00637F; }
       h2 {
         font-family: $font-heading;
         font-size: 48px;
