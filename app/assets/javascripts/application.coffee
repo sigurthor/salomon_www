@@ -129,7 +129,7 @@
       $('#product-list').mixitup('filter', urlFilters)
       for filter in urlFilters
         if filter != 'all'
-          $el = $filters.filter('[data-filter="'+filter+'"]')
+          $el = $filters.filter('[data-filter*="'+filter+'"]')
           $el.siblings().filter('[data-filter="all"]').removeClass 'active'
           $el.addClass('active')
 
