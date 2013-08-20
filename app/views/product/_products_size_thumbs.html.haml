@@ -2,4 +2,4 @@
   %ul.product-thumbs.product-sizes
     - variants.each_with_index do |size, colorIndex|
       %li
-        %a.button{:href=>'#', :data => {:fullsize => cl_image_path(size.image, :width =>200, :height => 320, :crop => 'fill')}}=size.size
+        %a.button{:href=>'#', :data => {:fullsize => prepend_snowboard_crop(cl_image_path(size.product_image.img,  :width => 180, :height=>386, :crop => :fill, :class => 'product-image'))}}=size.size

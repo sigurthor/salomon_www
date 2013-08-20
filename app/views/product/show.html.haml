@@ -19,7 +19,10 @@
   .row
     .large-6.columns
       .product-main-image
-        = cl_image_tag(@product.master_image, :width=>'580', :height => '500', :crop => 'fit')
+        - if @product.is_snowboard?
+          = prepend_snowboard_crop(cl_image_tag(@product.master_image, :width=>'280', :height => '600', :crop => 'fit'))
+        - else
+          = cl_image_tag(@product.master_image, :width=>'580', :height => '500', :crop => 'fit')
       .product-thumbnails
         %ul
           - @product.product_color_variants[0].product_images.each_with_index do |thumb, i|
@@ -53,7 +56,7 @@
           %a.button.disable-on-click Add to cart
 
       .product-model
-        %span= "MODEL2 #{@product.model}"
+        %span= "MODEL #{@product.article_code}"
         %span
           12 reviews
         %span.ss-icon.ss-standard

@@ -59,7 +59,7 @@
                   = link_to product.name, product_show_path(:category => params[:category], :product => product.slug)
                 .price= t :display_currency, price: product.price
                 - if product.is_snowboard?
-                  = link_to  cl_image_tag(product.master_image,  :width => 200, :height=>320, :crop => :fill, :class => 'product-image'), product_show_path(:category => params[:category], :product => product.slug)
+                  = link_to prepend_snowboard_crop(cl_image_tag(product.master_image,  :width => 180, :height=>386, :crop => :fill, :class => 'product-image')), product_show_path(:category => params[:category], :product => product.slug)
                   = render :partial => 'products_size_thumbs', :locals => { :variants => product.product_variants }
                 - else
                   = link_to cl_image_tag(product.master_image,  :width => 200, :crop => :fill, :class => 'product-image'), product_show_path(:category => params[:category], :product => product.slug)
