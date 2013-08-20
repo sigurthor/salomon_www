@@ -123,15 +123,35 @@
     executionUnblock = ->
       $filters.removeData 'executing'
 
-    readFilterHash = ->
-      urlFilters = window.location.hash.replace('#', '').split('|')
-      $('#product-list').mixitup('filter', urlFilters)
-      for filter in urlFilters
-        if filter != 'all'
-          $el = $filters.filter('[data-filter*="'+filter+'"]')
-          $el.siblings().filter('[data-filter="all"]').removeClass 'active'
-          $el.addClass('active')
 
+    dimensions = {}
+
+    readFilterHash = ->
+      urlHash = window.location.hash
+      if urlHash
+        urlDimensions = urlHash.replace('#', '').split '|'
+        filterArray = new Array()
+        for dimension in urlDimensions
+          matchName = /^(.+):/
+
+          dimensionName = dimension.match(matchName)[0].replace(':', '')
+          dimension = dimension.replace(matchName, '')
+
+          filters = dimension.split '-'
+          dimensionString = ''
+          for filter, index in filters
+            filter = 'filter-'+filter unless filter == 'all'
+            dimensionString = dimensionString + ' ' + filter
+          filterArray.push dimensionString
+
+          dimensions[dimensionName] = dimensionString
+
+        $('#product-list').mixitup('filter', filterArray)
+        for filter in filterArray.join(' ').split(' ')
+          if filter != 'all' && filter != 'filter-U'
+            $el = $filters.filter('[data-filter*="'+filter+'"]')
+            $el.siblings().filter('[data-filter="all"]').removeClass 'active'
+            $el.addClass('active')
 
     $("#product-list").mixitup
       layoutMode: "grid"
@@ -139,10 +159,6 @@
       transitionSpeed: 400
       onMixEnd: executionUnblock
       onMixLoad: readFilterHash
-
-
-
-    dimensions = {}
 
     $filters.on "click", (e) ->
       e.preventDefault()
@@ -181,8 +197,11 @@
         return [k]
 
       if history.pushState
-        filterString = dimensionsArr.join('|').replace(/\s/g, '|')
-        history.pushState null, null, '#' + filterString
+        historyString = ''
+        for key, dim of dimensions
+          historyString = historyString + key + ':' + dim.trim().replace(/\s/g, '-').replace(/filter-/g, '') + '|'
+        historyString = historyString.replace(/(^\|)|(\|$)/g, '')
+        history.pushState null, null, '#' + historyString
 
       $("#product-list").mixitup "filter", dimensionsArr
 
@@ -255,7 +274,6 @@
       $('.product-main-image img').attr('src', imageSrc)
 
       $el.parent().addClass('selected').siblings().removeClass('selected')
-
 
   updateImageset: (set) ->
     self = this

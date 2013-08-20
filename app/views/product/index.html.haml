@@ -1,10 +1,14 @@
-- content_for :bodyclass do
-  subpage
-
-- content_for :navclass do
-  sticky
-  /version123999224
+/version123999224
 - cache [I18n.locale ,@category] do
+
+  - content_for :bodyclass do
+    subpage
+
+  - content_for :navclass do
+    sticky
+
+  - content_for :page_title do
+    #{@category.name}
 
   %section#filterbar
     .row.filter-text
@@ -20,11 +24,11 @@
         %ul.filter-list
           %li.active(data-filter="all" data-dimension="gender")
             %a.button{:href=>'#'} All
-          %li(data-filter="gender-M gender-U" data-dimension="gender")
+          %li(data-filter="filter-M filter-U" data-dimension="gender")
             %a.button{:href=>'#'} Men
-          %li(data-filter="gender-W gender-U" data-dimension="gender")
+          %li(data-filter="filter-W filter-U" data-dimension="gender")
             %a.button{:href=>'#'} Women
-          %li(data-filter="gender-K" data-dimension="gender")
+          %li(data-filter="filter-K" data-dimension="gender")
             %a.button{:href=>'#'} Youth
 
       - @feature_types.each_with_index do |filter, index|
@@ -49,7 +53,7 @@
       #product-list
         -@products.each do |product|
           - filterClasses = product.product_features.map { |p| "filter-#{p.id}" }.join ' '
-          - filterClasses << " gender-#{product.gender}"
+          - filterClasses << " filter-#{product.gender}"
           .large-3.columns.mix{:class=>filterClasses, :data => {:name => "#{product.name}", :price => "#{product.price}"}}
             .product{:class => (product.is_snowboard? ? 'snowboard':'')}
               .main-info
@@ -65,8 +69,7 @@
 
               .more-info
                 .feature
-                  %h5 Gender
-                  %span= t "gender.#{product.gender}", :count => 2
+                  %span= t("gender.#{product.gender}", :count => 2) + " " + product.categories[0].name_singular
                 -product.product_features.each do |feature|
                   - if feature.product_feature_type_show_in_category_overview
                     .feature
