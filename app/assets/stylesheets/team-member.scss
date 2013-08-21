@@ -109,17 +109,6 @@
       margin-left: 20px;
     }
 
-    li.has-overlay {
-     .team-member-info {
-        display: block;
-      }
-      &:hover {
-        .team-member-info {
-          display: none;
-        }
-      }
-    }
-
     li.has-overlay .nav-team-member {
       cursor: pointer;
       &:after {
@@ -140,11 +129,14 @@
     }
 
     li {
+
+      &.currently-selected-team-member {
+        .team-member-info { display: none; }
+      }
       float: left;
       position: relative;
       display: inline-block;
       .team-member-info {
-        display: none;
         position: absolute;
         top: 5px;
         left: 5px;

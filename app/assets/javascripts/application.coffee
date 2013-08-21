@@ -461,7 +461,9 @@
     $('ul.team-nav').on "click", "li", ->
       if lastItem != null
         lastItem.addClass 'has-overlay'
+        lastItem.removeClass 'currently-selected-team-member'
       $(this).removeClass 'has-overlay'
+      $(this).addClass 'currently-selected-team-member'
 
       $('section#member').addClass 'loading-member'
 
