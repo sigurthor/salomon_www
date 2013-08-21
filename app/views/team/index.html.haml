@@ -8,7 +8,7 @@
       %ul{set_column_number(c.name)}
         - c.team_members.each do |tm|
           %li
-            .team-member
+            .team-member.img-zoom-hover
               .team-member-info
                 %h2
                   = link_to tm.name, team_member_path(:team_member => tm.slug)
