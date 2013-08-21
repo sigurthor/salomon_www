@@ -298,17 +298,26 @@
     self.initProductThumbnails()
 
   initVimeo: () ->
+    console.log 'theres video here'
     $('.vimeo').bind 'click', (e) ->
+      console.log 'video clicked'
       $self = $(this)
       e.preventDefault();
       $self.find('.img-wrapper').hide()
 
       vimeoId = $self.data 'vimeo-id'
 
+      vimeoWidth = 540
+      vimeoHeight = 304
+
+      if ($self.data 'vimeo-width') != undefined
+        vimeoWidth = $self.data 'vimeo-width'
+        vimeoHeight = $self.data 'vimeo-height'
+
       player = '
         <iframe
           src="http://player.vimeo.com/video/'+vimeoId+'?color=00a4d1&amp;autoplay=1"
-          width="540" height="304" frameborder="0"
+          width="' + vimeoWidth + '" height="' + vimeoHeight + '" frameborder="0"
           webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>'
 
       $self.find('.video-player').show()
@@ -395,10 +404,12 @@
     addRider = (name, country, image_url) ->
       riderList.append('
         <li class="has-overlay">
-          <img src="' + image_url + '" width="140" height="140">
-          <div class="team-member-info">
-            <h3>' + name + '</h3>
-            <div class="team-member-country">' + country + '</div>
+          <div class="nav-team-member img-zoom-hover">
+            <img src="' + image_url + '" width="140" height="140">
+            <div class="team-member-info">
+              <h3>' + name + '</h3>
+              <div class="team-member-country">' + country + '</div>
+            </div>
           </div>
         </li>
           ')
