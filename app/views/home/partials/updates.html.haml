@@ -10,7 +10,7 @@
           %p= vimeo.title
           .time-ago= vimeo.relative_date
         .img-wrapper
-          = image_tag('frontpage/fixme-updates-1.png')
+          %img{:src=>"#{vimeo.image_url}"}
         .video-player
       %a.button.vimeo{:href=>'#'} More videos on Vimeo
 
