@@ -404,10 +404,12 @@
     addRider = (name, country, image_url) ->
       riderList.append('
         <li class="has-overlay">
-          <img src="' + image_url + '" width="140" height="140">
-          <div class="team-member-info">
-            <h3>' + name + '</h3>
-            <div class="team-member-country">' + country + '</div>
+          <div class="nav-team-member img-zoom-hover">
+            <img src="' + image_url + '" width="140" height="140">
+            <div class="team-member-info">
+              <h3>' + name + '</h3>
+              <div class="team-member-country">' + country + '</div>
+            </div>
           </div>
         </li>
           ')
