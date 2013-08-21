@@ -360,6 +360,11 @@
 
     # Hover nav
     $('.hover-buttons > div').mouseenter ->
+      viewportOffset = $('.member-nav-wrapper').css 'left'
+      viewportOffset = parseInt(viewportOffset.replace('px', ''))
+
+      if (itemsTotalWidth + viewportOffset - 40) < windowTotalWidth
+        return false
       if $(this).hasClass('hover-nav-left')
         hoverNavDirection = '75%'
       else

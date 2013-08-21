@@ -4,7 +4,7 @@ class HomeController < ApplicationController
 
     team_categories = A2::TeamCategory.find_by_slug('salomon').descendants
     @team_categories_info =  team_categories.map {|c| {name: c.name,count: c.team_members.count}}
-    @pro_team_members = team_categories.map {|c| c.team_members.limit(7) if c.slug == 'pros'}.first  #todo hafa ekki slug í kóða
+    @pro_team_members = team_categories.map {|c| c.team_members if c.slug == 'pros'}.first  #todo hafa ekki slug í kóða
 
   end
 
