@@ -1,9 +1,11 @@
 %section.panel#tech
   .row
     %h2 Technology
-    .large-12.columns
-      .tech-info
-        = render :partial => 'tech_feature_list', :locals => { :list =>product.features_by_type }
+    - list1, list2 = product.features_by_type.in_groups_of(product.features_by_type.count/2)
+    .large-6.columns
+      = render :partial => 'tech_feature_list', :locals => { :list =>list1 }
+    .large-6.columns
+      = render :partial => 'tech_feature_list', :locals => { :list =>list2 }
 
   - if product.is_snowboard?
     .row.sizes
