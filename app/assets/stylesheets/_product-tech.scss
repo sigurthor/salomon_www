@@ -1,0 +1,95 @@
+ul.tech-list {
+  list-style: none;
+
+  & > li {
+    display: inline-block;
+    width: 100%;
+
+    margin-bottom: 4px;
+    margin-right: 1%;
+
+    padding: 10px;
+
+    background-color: #023A4A;
+
+    font-size: 24px;
+    text-transform: uppercase;
+
+    a.expand {
+      font-family: "SSStandard";
+      display: inline-block;
+      width: 40px;
+      height: 40px;
+
+      border-radius: 50%;
+      background-color: #fff;
+
+      font-size: 16px;
+      color: $color-darkblue;
+      line-height: 45px;
+      text-align: center;
+    }
+
+    span:first-of-type {
+      font-family: $font-boldobl;
+      color: #fff;
+    }
+
+    span:last-of-type {
+      font-family: $font-boldcnd20;
+      color: $color-lightblue;
+    }
+
+    &.expanded {
+      background-color: white;
+
+      a.expand {
+        background-color: $color-darkblue;
+        color: white;
+      }
+
+      span:first-of-type {
+        color: $color-darkblue;
+      }
+
+      ul.more {
+        display: block;
+      }
+    }
+
+
+  }
+
+  ul.more {
+    display: none;
+
+    margin: 10px;
+    background-color: white;
+
+    li {
+      display: inline-block;
+      width: 100%;
+
+      padding: 20px;
+      border: 1px #E9E9EA solid;
+      margin-bottom: 20px;
+
+      &:last-of-type {
+        margin-bottom: 0;
+      }
+
+      h5 {
+        font-size: 18px;
+        margin-bottom: 20px;
+      }
+
+      p {
+        font-size: 16px;
+        line-height: 26px;
+        font-family: $font-light;
+        text-transform: none;
+      }
+    }
+
+  }
+}
