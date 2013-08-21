@@ -174,7 +174,6 @@
     padding: 40px;
     color: #fff;
     height: 663px;
-    cursor: pointer;
     background-size: cover;
 
     .video-player {
@@ -184,19 +183,8 @@
       z-index: 9999999999;
     }
 
-    &:before {
-      content: "Play video";
-      position: absolute;
-      top: 80px;
-      right: 180px;
-      font-family: $font-boldcnd20;
-      font-size: 24px;
-      text-transform: uppercase;
-      z-index: 999;
-    }
-
     &:after {
-      content: "\25B6";
+      content: "";
       position: absolute;
       top: 0;
       left: 0;
@@ -212,9 +200,26 @@
       @include transition(all 0.25s ease-in-out);
     }
 
-    &:hover:after {
-      font-size: 105px;
-      background: rgba(0, 50, 64, 0);
+    &.video {
+      &:before {
+        content: "Play video";
+        position: absolute;
+        top: 80px;
+        right: 180px;
+        font-family: $font-boldcnd20;
+        font-size: 24px;
+        text-transform: uppercase;
+        z-index: 999;
+      }
+
+      &:after {
+        content: "\25B6";
+      }
+
+      &:hover:after {
+        font-size: 105px;
+        background: rgba(0, 50, 64, 0);
+      }
     }
 
     h2 {
