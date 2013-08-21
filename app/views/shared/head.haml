@@ -1,9 +1,9 @@
 %head
+  %meta{:content => "IE=edge,chrome=1", "http-equiv" => "X-UA-Compatible"}
   %meta{:charset => "utf-8"}
-  //%meta{:content => "IE=edge", "http-equiv" => "X-UA-Compatible"}
   %title=content_for?(:page_title) ? yield(:page_title) + ' - Salomon Snowboards' : 'Salomon Snowboards - Shop snowboarding gear, apparel and clothing'
   %meta{:content => "#{yield(:page_description)}", :name => "description"}
-  %meta{:content => "width=device-width, initial-scale=1", :name => "viewport"}
+  //-%meta{:content => "width=device-width, initial-scale=1", :name => "viewport"}
 
   %link{:href => "#{image_path('ico/favicon.ico')}", :rel => "shortcut icon"}/
   %link{:href => "#{image_path('ico/apple-touch-icon-144-precomposed.png')}", :rel => "apple-touch-icon-precomposed", :sizes => "144x144"}
@@ -17,3 +17,6 @@
   %script{:src => '//fast.fonts.com/jsapi/2c87326e-1a7d-43bb-9560-24035a52a807.js'}
   = stylesheet_link_tag 'application'
   = javascript_include_tag 'custom.modernizr'
+
+  /[if lt IE 9]
+    = javascript_include_tag 'html5shiv'

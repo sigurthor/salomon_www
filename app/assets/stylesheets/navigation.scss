@@ -123,7 +123,7 @@
       & > li > a {
         font-size: 24px;
         text-transform: uppercase;
-        font-family: "TradeGothicW01-BoldCn20 675337";
+        font-family: $font-boldcnd20obl;
       }
     }
   }
@@ -131,7 +131,7 @@
   ul.right {
     margin-right: 10px;
 
-    font-family: "Trade Gothic W01 Cn 18";
+    font-family: $font-boldcnd18;
     text-transform: uppercase;
 
     li > a {
@@ -411,11 +411,6 @@
 
   @include transition(top 0.25s ease-in-out);
 
-  &.open + .searchbar + #nav-container { top: 40px; }
-  &.open + .searchbar + #nav-container + section { margin-top: 140px; }
-  &.open + .searchbar + #nav-container.sticky + section { margin-top: 100px; }
-  & + .searchbar + #nav-container.sticky + section#breadcrumbs { margin-top: 0; top: 60px; }
-  & + .searchbar + #nav-container.sticky + section { margin-top: 60px; }
-  & + .searchbar + #nav-container.sticky + section#breadcrumbs + section { margin-top: 60px; }
+
 
 }

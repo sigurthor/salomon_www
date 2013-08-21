@@ -11,4 +11,9 @@ module TeamHelper
     @permalink = team_member_path(:team_member => team_member.slug).to_s
     @permalink
   end
+
+  def member_detail_is_empty(team_member_detail)
+    team_member_detail.blank?
+  end
+
 end

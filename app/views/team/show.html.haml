@@ -1,5 +1,6 @@
 - content_for(:bodyclass) do
   team-member
+
 %section#member-nav
   .loading-category
   .category-switches
@@ -29,8 +30,8 @@
 
 %section#member
   .row
-    .member-profile{:style => 'background-image: url("' + cl_image_path(@team_member.main_image, :crop => "fill") + '");'}
-
+    .member-profile.vimeo{:style => 'background-image: url("' + cl_image_path(@team_member.main_image, :crop => "fill") + '");'}(data-vimeo-id="#{@profile_video}" data-vimeo-width="1200" data-vimeo-height="663")
+      .video-player
       .profile-text
         %h2= @team_member.name
         %p{set_text_length_class(@team_member.description, 230)}
@@ -54,29 +55,31 @@
                 %a{:href => '#'}
                   %i{:class => 'ss-icon ss-social'} twitter
                   %span @Louifparadis
-        .large-4.columns
-          .large-3.columns
-            .country.detail-label Country
-            .hometown.detail-label Hometown
-            .sponsors.detail-label Sponsors
-          .large-6.columns.offset-3
-            .country.detail-value
-              = @team_member.country
-            .hometown.detail-value
-              = @team_member.city
-            .sponsors.detail-value
+        .large-8.columns
+          =@team_member.city
+          %ul.member-info-list
+            - unless member_detail_is_empty(@team_member.country)
+              %li
+                %span Country
+                %span= @team_member.country
+            %li
+              %span Years riding
+              %span 190
+            - unless member_detail_is_empty(@team_member.city)
+              %li
+                %span Hometown
+                %span= @team_member.city
+            %li
+              %span Stance
+              %span Goofy
+            %li
+              %span Sponsors
               %ul
                 %li Salomon
                 %li Bonfire
-        .large-4.columns
-          .large-6.columns
-            .years.detail-label Years riding
-            .stance.detail-label Stance
-            .favourite.detail-label Favourite gear
-          .large-6.columns
-            .years.detail-value 190
-            .stance.detail-value Goofy
-            .favourite.detail-value Lorem ipsum
+            %li
+              %span Favorite gear
+              %span Lorem ipsum
 
 %section#member-gallery
   .row

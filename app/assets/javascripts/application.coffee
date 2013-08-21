@@ -240,6 +240,22 @@
 
     self.initProductColorPicker()
     self.initProductSizePicker()
+    self.initTechListExpand()
+
+  initTechListExpand: ->
+    self = this
+
+    $('ul.tech-list li a.expand').on 'click', (e) ->
+      $button = $(this)
+      $li = $button.parent()
+      e.preventDefault()
+
+      if $li.hasClass 'expanded'
+        $li.removeClass 'expanded'
+        $button.html('&#x002B;')
+      else
+        $li.addClass 'expanded'
+        $button.html('&#x2421;')
 
   initProductThumbnails: ->
     $thumbs = $('.product-thumbnails li')
@@ -298,23 +314,37 @@
     self.initProductThumbnails()
 
   initVimeo: () ->
+    vimeoId = $('.vimeo').data 'vimeo-id'
+    if vimeoId != ''
+      $profile = $('.member-profile')
+      $profile.addClass('video')
+      $profile.css 'cursor', 'pointer'
     $('.vimeo').bind 'click', (e) ->
+      console.log 'video clicked'
       $self = $(this)
       e.preventDefault();
       $self.find('.img-wrapper').hide()
 
       vimeoId = $self.data 'vimeo-id'
 
-      player = '
-        <iframe
-          src="http://player.vimeo.com/video/'+vimeoId+'?color=00a4d1&amp;autoplay=1"
-          width="540" height="304" frameborder="0"
-          webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>'
+      if vimeoId != ''
+        vimeoWidth = 540
+        vimeoHeight = 304
 
-      $self.find('.video-player').show()
-      $self.find('.video-player').html(player)
+        if ($self.data 'vimeo-width') != undefined
+          vimeoWidth = $self.data 'vimeo-width'
+          vimeoHeight = $self.data 'vimeo-height'
 
-      $self.unbind()
+        player = '
+          <iframe
+            src="http://player.vimeo.com/video/'+vimeoId+'?color=00a4d1&amp;autoplay=1"
+            width="' + vimeoWidth + '" height="' + vimeoHeight + '" frameborder="0"
+            webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>'
+
+        $self.find('.video-player').show()
+        $self.find('.video-player').html(player)
+
+        $self.unbind()
 
 
   clickableTeamMembers: () ->
@@ -360,6 +390,11 @@
 
     # Hover nav
     $('.hover-buttons > div').mouseenter ->
+      viewportOffset = $('.member-nav-wrapper').css 'left'
+      viewportOffset = parseInt(viewportOffset.replace('px', ''))
+
+      if (itemsTotalWidth + viewportOffset - 40) < windowTotalWidth
+        return false
       if $(this).hasClass('hover-nav-left')
         hoverNavDirection = '75%'
       else
@@ -390,10 +425,12 @@
     addRider = (name, country, image_url) ->
       riderList.append('
         <li class="has-overlay">
-          <img src="' + image_url + '" width="140" height="140">
-          <div class="team-member-info">
-            <h3>' + name + '</h3>
-            <div class="team-member-country">' + country + '</div>
+          <div class="nav-team-member img-zoom-hover">
+            <img src="' + image_url + '" width="140" height="140">
+            <div class="team-member-info">
+              <h3>' + name + '</h3>
+              <div class="team-member-country">' + country + '</div>
+            </div>
           </div>
         </li>
           ')
@@ -440,7 +477,9 @@
     $('ul.team-nav').on "click", "li", ->
       if lastItem != null
         lastItem.addClass 'has-overlay'
+        lastItem.removeClass 'currently-selected-team-member'
       $(this).removeClass 'has-overlay'
+      $(this).addClass 'currently-selected-team-member'
 
       $('section#member').addClass 'loading-member'
 

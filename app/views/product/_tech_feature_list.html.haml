@@ -1,0 +1,13 @@
+%ul.tech-list
+  -list.each do |feature_name, features|
+    %li
+      %a.expand{:href=>'#'} &#x002B;
+      %span=feature_name
+      %span=truncate((features.map(&:name)).join(", "), length: 35)
+      //-%pre=features.to_yaml
+      %ul.more
+        - features.each do |feature|
+          - if feature.description
+            %li
+              %h5=feature.name
+              %p=feature.description

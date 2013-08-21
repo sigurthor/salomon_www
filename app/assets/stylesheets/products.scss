@@ -19,7 +19,6 @@ i {
   }
 
   .product {
-    padding-top: 1em;
     margin-bottom: 2em;
 
     min-height: 450px;
@@ -45,7 +44,7 @@ i {
         color: $color-lightblue;
 
         font-size: 36px;
-        margin: 0 0 6px 0;
+        margin: 10px 0 20px 0;
         line-height: 1;
 
         &.long {

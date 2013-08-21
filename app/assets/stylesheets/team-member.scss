@@ -109,17 +109,6 @@
       margin-left: 20px;
     }
 
-    li.has-overlay {
-     .team-member-info {
-        display: block;
-      }
-      &:hover {
-        .team-member-info {
-          display: none;
-        }
-      }
-    }
-
     li.has-overlay .nav-team-member {
       cursor: pointer;
       &:after {
@@ -140,11 +129,14 @@
     }
 
     li {
+
+      &.currently-selected-team-member {
+        .team-member-info { display: none; }
+      }
       float: left;
       position: relative;
       display: inline-block;
       .team-member-info {
-        display: none;
         position: absolute;
         top: 5px;
         left: 5px;
@@ -174,22 +166,17 @@
     padding: 40px;
     color: #fff;
     height: 663px;
-    cursor: pointer;
     background-size: cover;
 
-    &:before {
-      content: "Play video";
+    .video-player {
       position: absolute;
-      top: 80px;
-      right: 180px;
-      font-family: $font-boldcnd20;
-      font-size: 24px;
-      text-transform: uppercase;
-      z-index: 999;
+      top: 0;
+      left: 0;
+      z-index: 9999999999;
     }
 
     &:after {
-      content: "\25B6";
+      content: "";
       position: absolute;
       top: 0;
       left: 0;
@@ -205,9 +192,26 @@
       @include transition(all 0.25s ease-in-out);
     }
 
-    &:hover:after {
-      font-size: 105px;
-      background: rgba(0, 50, 64, 0);
+    &.video {
+      &:before {
+        content: "Play video";
+        position: absolute;
+        top: 80px;
+        right: 180px;
+        font-family: $font-boldcnd20;
+        font-size: 24px;
+        text-transform: uppercase;
+        z-index: 999;
+      }
+
+      &:after {
+        content: "\25B6";
+      }
+
+      &:hover:after {
+        font-size: 105px;
+        background: rgba(0, 50, 64, 0);
+      }
     }
 
     h2 {
@@ -325,24 +329,35 @@
       .facebook + .twitter { margin-top: 10px; }
     }
 
-    .detail-label, .detail-value {
-      line-height: 30px;
-    }
+    .member-info-list {
+      columns: 2;
+      & > li {
+        float: left;
+        display: inline-block;
+        width: 45%;
+        line-height: 30px;
+      }
 
-    .detail-label {
-      font-family: $font-boldcnd20;
-      font-size: 18px;
-    }
+      span:first-child {
+        float: left;
+        width: 170px;
+        display: inline-block;
+        font-family: $font-boldcnd20;
+        font-size: 18px;
+      }
 
-    .detail-value {
-      font-family: $font-boldcnd18;
-      font-size: 18px;
-    }
+      span:last-child, ul {
+        float: left;
+        font-family: $font-boldcnd18;
+        font-size: 18px;
+      }
 
-    ul {
-      list-style: none;
-      margin: 0;
-    }
+      ul {
+        list-style: none;
+        margin: 0;
+      }
+  }
+
   section#member-gallery {
     padding: 40px 0 80px;;
     background-color: #E9E9EA;
