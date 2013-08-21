@@ -6,5 +6,5 @@ SalomonWww::Application.configure do
   #Expands the lines which load the assets
   config.active_record.auto_explain_threshold_in_seconds = nil
   config.assets.debug = false
-  config.action_controller.perform_caching = false
+  #config.action_controller.perform_caching = false
 end
