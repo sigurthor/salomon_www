@@ -177,6 +177,13 @@
     cursor: pointer;
     background-size: cover;
 
+    .video-player {
+      position: absolute;
+      top: 0;
+      left: 0;
+      z-index: 9999999999;
+    }
+
     &:before {
       content: "Play video";
       position: absolute;
