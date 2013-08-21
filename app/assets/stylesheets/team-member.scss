@@ -329,24 +329,35 @@
       .facebook + .twitter { margin-top: 10px; }
     }
 
-    .detail-label, .detail-value {
-      line-height: 30px;
-    }
+    .member-info-list {
+      columns: 2;
+      & > li {
+        float: left;
+        display: inline-block;
+        width: 45%;
+        line-height: 30px;
+      }
 
-    .detail-label {
-      font-family: $font-boldcnd20;
-      font-size: 18px;
-    }
+      span:first-child {
+        float: left;
+        width: 170px;
+        display: inline-block;
+        font-family: $font-boldcnd20;
+        font-size: 18px;
+      }
 
-    .detail-value {
-      font-family: $font-boldcnd18;
-      font-size: 18px;
-    }
+      span:last-child, ul {
+        float: left;
+        font-family: $font-boldcnd18;
+        font-size: 18px;
+      }
 
-    ul {
-      list-style: none;
-      margin: 0;
-    }
+      ul {
+        list-style: none;
+        margin: 0;
+      }
+  }
+
   section#member-gallery {
     padding: 40px 0 80px;;
     background-color: #E9E9EA;
