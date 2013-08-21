@@ -41,19 +41,16 @@
         - else
           = render :partial => 'product_color_thumbs', :locals => { :variants => @product.product_color_variants }
 
-          .product-meta
-            %h5 Size
-            %select.dropdown.small
-              %option 8.5
-              %option 9
-              %option 9.5
-              %option 10
-              %option 11
-
-        .product-meta
-          %h5 Quantity
-          %input{:type=>'text', :value=>'1'}
-          %a.button.disable-on-click Add to cart
+          /
+            .product-meta
+              %h5 Size
+              %select.dropdown.small
+                %option 8.5
+                %option 9
+                %option 9.5
+                %option 10
+                %option 11
+        %a.button Buy now
 
       .product-model
         %span= "MODEL #{@product.article_code}"
@@ -64,31 +61,6 @@
           star
 
       %p.product-description=@product.description
-%section.panel.gray
-  .row
-    .large-8.columns
-      %h2 Gallery
-      .large-3.columns
-        %img{:src=>'http://placehold.it/180x180'}
-      .large-3.columns
-        %img{:src=>'http://placehold.it/180x180'}
-      .large-3.columns
-        %img{:src=>'http://placehold.it/180x180'}
-      .large-3.columns
-        %img{:src=>'http://placehold.it/180x180'}
-        .more-images
-          %a{:href => '#'}
-            %div
-              %span 7 more images
-    .large-3.columns.large-offset-1
-      %h2 Riders
-      %ul.riders
-        %li Takaharu Nakai
-        %li Takaharu Nakai
-        %li Takaharu Nakai
-        %li Takaharu Nakai
-        %li Takaharu Nakai
-        %li 5 other riders
 
 %section.panel#tech
   .row
@@ -100,7 +72,6 @@
             %li
               %span=feature.product_feature_type_name
               %span=feature.name
-
 
   - if @product.is_snowboard?
     .row.sizes
