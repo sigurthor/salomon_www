@@ -243,6 +243,20 @@
     self.initProductColorPicker()
     self.initProductSizePicker()
     self.initTechListExpand()
+    self.initTechSizeInfo()
+
+  initTechSizeInfo: ->
+    self = this
+    $tabs = $('ul.tabs li a')
+    $tabs.on 'click', (e) ->
+      e.preventDefault()
+      $clicked = $(this)
+      $clicked.parent().addClass('selected').siblings().removeClass('selected')
+      variant = $clicked.data('variant')
+      $tabContent = $('.tab-content')
+      $tabContent.hide().filter('[data-variant="'+variant+'"]').show()
+
+
 
   initTechListExpand: ->
     self = this
