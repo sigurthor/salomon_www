@@ -75,12 +75,14 @@ body {
   text-align: center;
 
   h1 {
+    margin-bottom: 30px;
+    margin-top: 40px;
+
     color: white;
     font-family: $font-heading;
     font-size: 64px;
     line-height: 72px;
-    margin-bottom: 30px;
-    margin-top: 40px;
+    text-transform: uppercase;
   }
 
   p {

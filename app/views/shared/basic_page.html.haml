@@ -1,4 +1,13 @@
-%section{:style => 'padding-top:100px'}
+- content_for(:navclass) do
+  sticky
+
+- content_for(:page_title) do
+  #{page.title}
+
+#page-header
   %h1= page.title
-  %h1= raw page.description
-  %h1= raw page.html
+
+%section.main
+  .row
+    .large-8.large-offset-2
+      %p= raw page.html
