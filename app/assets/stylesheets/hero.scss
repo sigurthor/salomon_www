@@ -8,6 +8,7 @@ section#hero {
   h2 {
     font-family: $font-heading;
     color: #fff;
+    text-transform: uppercase;
     div {
       &:first-child {
         font-size: 48px;
@@ -29,6 +30,7 @@ section#hero {
     color: #fff;
     margin-top: -30px;
     margin-bottom: 40px;
+    text-transform: uppercase;
   }
 
   .hero-text {
