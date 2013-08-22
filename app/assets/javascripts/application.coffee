@@ -1,3 +1,5 @@
+//= require visible
+
 @salomon =
   preloadImages: (images) ->
     imgObject = new Array()
@@ -241,6 +243,20 @@
     self.initProductColorPicker()
     self.initProductSizePicker()
     self.initTechListExpand()
+    self.initTechSizeInfo()
+
+  initTechSizeInfo: ->
+    self = this
+    $tabs = $('ul.tabs li a')
+    $tabs.on 'click', (e) ->
+      e.preventDefault()
+      $clicked = $(this)
+      $clicked.parent().addClass('selected').siblings().removeClass('selected')
+      variant = $clicked.data('variant')
+      $tabContent = $('.tab-content')
+      $tabContent.hide().filter('[data-variant="'+variant+'"]').show()
+
+
 
   initTechListExpand: ->
     self = this
@@ -390,15 +406,25 @@
 
     # Hover nav
     $('.hover-buttons > div').mouseenter ->
+      console.log $('.team-nav li:first-child').offset().left
+      console.log $('.team-nav li:last-child').offset().left
+
+      if($(this).hasClass('hover-nav-left'))
+        if $('.team-nav li:first-child').offset().left >= 20
+          $('.member-nav-wrapper').css('left', $('.member-nav-wrapper').css('left'))
+          return false
+
+
       viewportOffset = $('.member-nav-wrapper').css 'left'
       viewportOffset = parseInt(viewportOffset.replace('px', ''))
 
-      if (itemsTotalWidth + viewportOffset - 40) < windowTotalWidth
-        return false
+
       if $(this).hasClass('hover-nav-left')
-        hoverNavDirection = '75%'
+        hoverNavDirection = Math.abs(parseInt($('.member-nav-wrapper').css('margin-left'))) + 20
+        console.log 'left'
       else
-        hoverNavDirection = '25%'
+        hoverNavDirection = $(window).width() - (itemsTotalWidth / 2) - 20
+        console.log 'right' + hoverNavDirection
 
       $('.member-nav-wrapper').css({
           left             : hoverNavDirection,

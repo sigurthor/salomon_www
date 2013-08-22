@@ -1,0 +1,15 @@
+#sizing-info.row
+  %h2 Sizing information
+  %section
+    %ul.tabs
+      - variants.each_with_index do |variant, index|
+        %li{:class => (index == 0?'selected':'')}
+          %a.button{:href=>'#', :data=>{:variant=>variant.size}}=variant.size
+
+  - variants.each_with_index do |variant, index|
+    .tab-content{:class => (index == 0?'active':''), :data=>{:variant=>variant.size}}
+      %ul.tech-stats
+        -variant.tech_specifications.each do |spec|
+          %li
+            %span=spec.tech_definition_name
+            %span=spec.value

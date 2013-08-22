@@ -365,24 +365,6 @@ section#tech {
   }
 
   @import "product-tech";
-
-  ul.tech-stats {
-    font-family: $font-boldcnd20;
-    font-size: 18px;
-    color: #fff;
-    line-height: 30px;
-    text-transform: uppercase;
-    list-style: none;
-    li {
-      span {
-        cursor: pointer;
-        &:first-child {
-          display: inline-block;
-          width: 190px;
-        }
-      }
-    }
-  }
 }
 
 .technical-drawing {

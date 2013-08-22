@@ -1,5 +1,27 @@
 section#the-team {
 
+  h2 {
+    font-family: $font-boldcnd20obl;
+    text-transform: uppercase;
+  }
+
+  a.button {
+    display:block;
+    width: 100%;
+
+    margin-top: 20px;
+    padding: 20px 0 40px 16px;
+
+    background-color: $color-darkblue;
+
+    font-size: 18px;
+    line-height: 15px;
+
+    &:hover {
+      background-color: $color-lightblue;
+    }
+  }
+
   .team-members li {
     cursor: pointer;
   }
