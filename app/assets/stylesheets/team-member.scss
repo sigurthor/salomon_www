@@ -61,11 +61,10 @@
     .category-switches {
       .current-category { color: #00637F;}
       h2 {
-        font-family: $font-heading;
+        @include font-heading();
         font-size: 48px;
         color: #fff;
         text-align: center;
-        text-transform: uppercase;
       }
       span {
         cursor: pointer;
@@ -142,12 +141,11 @@
         top: 5px;
         left: 5px;
         h3 {
-          font-family: $font-heading;
+          @include font-heading();
           font-size: 32px;
           color: #fff;
           line-height: 32px;
           margin: 0;
-          text-transform: uppercase;
         }
         .team-member-country {
           font-family: $font-boldobl;
@@ -264,9 +262,8 @@
 
   .profile-text {
     h2 {
-      font-family: $font-heading;
+      @include font-heading();
       font-size: 128px;
-      text-transform: uppercase;
     }
     p {
       &.long {
@@ -297,10 +294,9 @@
     margin-top: 20px;
 
     h2 {
-      margin-top: 0;
-      font-family: $font-heading;
+      @include font-heading();
       font-size: 48px;
-      text-transform: uppercase;
+      margin-top: 0;
     }
   }
 
@@ -372,22 +368,20 @@
     background-color: #E9E9EA;
 
     h2 {
-      margin: 0;
-      font-family: $font-heading;
+      @include font-heading();
       font-size: 48px;
       color: $color-lightblue;
       text-align: center;
-      text-transform: uppercase;
+      margin: 0;
     }
   }
 
   section#gear-used {
 
     h2 {
-      font-family: $font-heading;
+      @include font-heading();
       font-size: 48px;
       text-align: center;
-      text-transform: uppercase;
     }
 
     .gear-item {
@@ -396,10 +390,10 @@
       vertical-align: middle;
       text-transform: uppercase;
       h3 {
-        margin: 0;
-        font-family: $font-heading;
+        @include font-heading();
         font-size: 36px;
         color: $color-lightblue;
+        margin: 0;
       }
       .price {
         font-family: $font-boldcnd20;

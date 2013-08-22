@@ -5,13 +5,12 @@ body.team {
     background-color: $color-darkblue;
 
     & > .row > h2 {
-      font-family: $font-heading;
+      @include font-heading();
       font-size: 72px;
       color: #fff;
       letter-spacing: -1px;
       line-height: 50px;
       text-align: center;
-      text-transform: uppercase;
     }
   }
 
@@ -51,12 +50,11 @@ body.team {
       margin: 0 20px;
       z-index: 9999;
       h2 {
-        font-family: $font-heading;
+        @include font-heading();
         font-size: 46px;
         color: #fff;
         margin: 17px 0 10px;
         line-height: 46px;
-        text-transform: uppercase;
       }
       .team-member-country {
         font-family: $font-obl;

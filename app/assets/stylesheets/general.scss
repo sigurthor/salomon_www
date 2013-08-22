@@ -77,11 +77,10 @@ body {
   h1 {
     margin-bottom: 30px;
     margin-top: 40px;
-    color: white;
-    font-family: $font-heading;
+    @include font-heading();
     font-size: 64px;
+    color: #fff;
     line-height: 72px;
-    text-transform: uppercase;
   }
 
   p {

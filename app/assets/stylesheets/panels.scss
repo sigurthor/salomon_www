@@ -10,8 +10,7 @@ section.panel {
   }
 
   h2 {
-    font-family: $font-heading;
-    text-transform: uppercase;
+    @include font-heading();
   }
 }
 

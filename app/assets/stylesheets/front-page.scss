@@ -20,12 +20,11 @@
     padding: 70px 0;
 
     & > .row > h2 {
-      font-family: $font-heading;
+      @include font-heading();
       font-size: 62px;
       color: $color-lightblue;
       margin-bottom: 40px;
       text-align: center;
-      text-transform: uppercase;
     }
   }
 }

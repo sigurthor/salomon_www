@@ -3,11 +3,10 @@ section#newsletter {
   background: $color-darkblue;
 
   h3 {
-    font-family: $font-heading;
+    @include font-heading();
     font-size: 72px;
     color: #fff;
     line-height: 72px;
-    text-transform: uppercase;
     margin-bottom: 20px;
   }
   p {

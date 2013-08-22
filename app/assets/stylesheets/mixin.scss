@@ -84,3 +84,8 @@
   -moz-columns: $amount;
   columns: $amount;
 }
+
+@mixin font-heading() {
+  font-family: $font-boldcnd20obl;
+  text-transform: uppercase;
+}

@@ -22,13 +22,12 @@ section#product-feature {
     text-transform: uppercase;
   }
   h3 {
-    font-family: $font-heading;
+    @include font-heading();
     font-size: 96px;
     color: $color-lightblue;
     margin-top: 30px;
     margin-bottom: 40px;
     line-height: 48px;
-    text-transform: uppercase;
   }
   p {
     font-family: $font-light;

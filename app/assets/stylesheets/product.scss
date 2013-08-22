@@ -6,12 +6,11 @@ ul {
 
 .product-details {
   h1 {
-    font-family: $font-heading;
+    @include font-heading();
     font-size: 72px;
     color: $color-lightblue;
     margin-bottom: 0;
     line-height: 1;
-    text-transform: uppercase;
   }
 
   h1 + span {
@@ -349,15 +348,14 @@ section#tech {
 
 
   ul.size-list {
-    font-family: $font-heading;
+    @include font-heading();
     font-size: 48px;
     color: #fff;
     margin: 0 auto;
     text-align: center;
-    text-transform: uppercase;
     h4 {
       display: inline-block;
-      font-family: $font-heading;
+      @include font-heading();
       font-size: 36px;
       color: #fff;
     }

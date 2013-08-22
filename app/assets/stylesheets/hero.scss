@@ -6,9 +6,8 @@ section#hero {
   background: url(image-path('hero/bg1.jpg')) top center no-repeat;
 
   h2 {
-    font-family: $font-heading;
+    @include font-heading();
     color: #fff;
-    text-transform: uppercase;
     div {
       &:first-child {
         font-size: 48px;
@@ -25,7 +24,7 @@ section#hero {
   }
 
   .price {
-    font-family: $font-heading;
+    @include font-heading();
     font-size: 36px;
     color: #fff;
     margin-top: -30px;
