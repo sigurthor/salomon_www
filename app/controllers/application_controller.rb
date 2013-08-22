@@ -20,6 +20,14 @@ class ApplicationController < ActionController::Base
       puts 'other'
       {:locale => I18n.locale}
     end
-
   end
+
+  helper_method :page
+
+  def page(pid = nil)
+    pid = pid ? pid :
+      current_uri = request.env['PATH_INFO']
+      @Page ||= A2::Page.find_or_create_by_pid(pid)
+  end
+
 end
