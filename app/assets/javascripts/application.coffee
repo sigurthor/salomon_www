@@ -334,7 +334,6 @@
       $profile.addClass('video')
       $profile.css 'cursor', 'pointer'
     $('.vimeo').bind 'click', (e) ->
-      console.log 'video clicked'
       $self = $(this)
       e.preventDefault();
       $self.find('.img-wrapper').hide()
@@ -366,6 +365,7 @@
       window.location = $(this).find("a").attr("href");
 
   initTeamNav: () ->
+    self = this
 
     updateCurrentProfile = (name, description, quote_author, quote_title, country, city, image_url) ->
       $('.member-profile h2').html(name)
@@ -553,6 +553,17 @@
                 $('.profile-text p').removeClass 'long'
                 if riderDescriptionLength > 230
                   $('.profile-text p').addClass 'long'
+                if !($('.video-player').is(':empty'))
+                  $('.video-player').empty()
+                $profile = $('.member-profile')
+                $profile.removeClass('video')
+                newVideoID = member.video
+                $profile.css 'cursor', 'auto'
+                if newVideoID != ''
+                  $profile.addClass('video')
+                  $('.member-profile').attr('data-vimeo-id', newVideoID)
+                  self.initVimeo()
+
 
   initVideoPage: () ->
     self = this
