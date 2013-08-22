@@ -1,369 +1,40 @@
-@salomon =
-  preloadImages: (images) ->
-    imgObject = new Array()
-    for img, index in images
-      imgObject[index] = new Image()
-      imgObject[index].src = img
+#= require 'app/salomon'
+#= require 'app/general.salomon'
+#= require 'app/navbar.salomon'
+#= require 'app/filters.salomon'
+#= require 'app/searchbar.salomon'
+#= require 'app/product.salomon'
+#= require 'app/storelocator.salomon'
+#= require 'app/imagepreload.salomon'
+#= require 'app/vimeo.salomon'
+#= require 'app/videopage.salomon'
+
+@salomon_old =
 
   initialize: () ->
     self = this
 
-    if $('.frontpage').length
-      self.initNavbar()
-      self.clickableTeamMembers()
-
-      setTimeout () ->
-          $('#language-bar').addClass 'open'
-        , 1500
-
-    self.initSearch()
     $(document).foundation 'topbar'
     $(document).foundation 'forms'
     $(document).foundation 'dropdown', activeClass: 'open'
     $(document).foundation 'section'
 
-    if $('#map-canvas').length
-      self.initMap()
+    salomon.navbar()
+    salomon.general()
+    salomon.filters()
+    salomon.searchbar()
+    salomon.product()
+    salomon.storelocator()
+    salomon.videopage()
+    salomon.vimeo()
 
-    if $('#product-list').length
-      self.initFilters()
-
-    if $('#map-search-overlay').length
-      self.initStoreLocator()
-
-    if $('#product-list').length
-      self.initProductList()
-
-    if $('.product-details').length
-      self.initProductPage()
-
-    if $('body.team').length
-      self.clickableTeamMembers()
+    if $('.frontpage').length
+      setTimeout () ->
+          $('#language-bar').addClass 'open'
+        , 1500
 
     if $('body.team-member').length
       self.initTeamNav()
-
-    if $('.vimeo').length
-      self.initVimeo()
-
-    if $('.video').length
-      self.initVideoPage()
-
-    setTimeout () ->
-        $('#play-overlay').fadeIn(4000)
-      , 250
-
-    $('.disable-on-click').bind 'click', (e) ->
-      e.preventDefault()
-      $(this).addClass('disabled').html('One moment...')
-      e.preventDefault()
-
-
-    # Language bar ignore button
-    $('#language-bar .ignore').on 'click', (e) ->
-      e.preventDefault()
-      $('#language-bar').removeClass 'open'
-
-    #
-    # Frontpage Video DEMO
-    #
-    $('#play-overlay').bind 'click', (e) ->
-      e.preventDefault()
-      $video = $('video')
-      $videoEl = $('video').get(0)
-      $videoEl.pause()
-
-      $('#nav-container').addClass 'sticky'
-      $('#play-overlay, video').fadeOut 1500, () ->
-        $video.find('source').get(0).src = 'http://vimeo.com/70501536/download?t=1376686407&v=177689239&s=d4646d19567293ddb7b9188f87f82379';
-        $videoEl.load()
-        $video.removeClass 'ambient'
-
-      $('#hero').css('height', '680px')
-
-      setTimeout () ->
-          $videoEl.play()
-          $videoEl.muted = false
-          $video.fadeIn(2500)
-        , 2000
-
-    self.preloadImages [
-      '/assets/layout/salomon_snowboards-logo-white@2x.png' # Preload logo for hover state
-    ]
-
-  initNavbar: () ->
-    $nav = $('#nav-container')
-    $(window).scroll ->
-      if $nav.offset().top > 5
-        unless $nav.hasClass 'sticky'
-          $nav.addClass 'sticky'
-      else
-        if $nav.hasClass 'sticky'
-          $nav.removeClass 'sticky'
-
-  initSearch: () ->
-    $('.searchbutton').bind "click", (e) ->
-      e.preventDefault()
-      $(this).toggleClass('active')
-      $('.searchbar').toggleClass('active')
-      $('input.search-input').focus()
-
-  initMap: () ->
-    mapInit = () ->
-      mapOptions =
-        zoom: 8
-        center: new google.maps.LatLng(-34.397, 150.644)
-        mapTypeId: google.maps.MapTypeId.ROADMAP
-      map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions)
-    google.maps.event.addDomListener(window, 'load', mapInit)
-
-  initFilters: () ->
-    $filters = $(".filter-list li")
-
-    executionUnblock = ->
-      $filters.removeData 'executing'
-
-
-    dimensions = {}
-
-    readFilterHash = ->
-      urlHash = window.location.hash
-      if urlHash
-        urlDimensions = urlHash.replace('#', '').split '|'
-        filterArray = new Array()
-        for dimension in urlDimensions
-          matchName = /^(.+):/
-
-          dimensionName = dimension.match(matchName)[0].replace(':', '')
-          dimension = dimension.replace(matchName, '')
-
-          filters = dimension.split '-'
-          dimensionString = ''
-          for filter, index in filters
-            filter = 'filter-'+filter unless filter == 'all'
-            dimensionString = dimensionString + ' ' + filter
-          filterArray.push dimensionString
-
-          dimensions[dimensionName] = dimensionString
-
-        $('#product-list').mixitup('filter', filterArray)
-        for filter in filterArray.join(' ').split(' ')
-          if filter != 'all' && filter != 'filter-U'
-            $el = $filters.filter('[data-filter*="'+filter+'"]')
-            $el.siblings().filter('[data-filter="all"]').removeClass 'active'
-            $el.addClass('active')
-
-    $("#product-list").mixitup
-      layoutMode: "grid"
-      effects: ["fade", "blur"]
-      transitionSpeed: 400
-      onMixEnd: executionUnblock
-      onMixLoad: readFilterHash
-
-    $filters.on "click", (e) ->
-      e.preventDefault()
-      $t = $(this)
-      return if $t.data 'executing'
-      $filters.data 'executing', true
-
-      dimension = $t.attr("data-dimension")
-      filter = $t.attr("data-filter")
-
-      unless dimensions.hasOwnProperty dimension
-        dimensions[dimension] = "all"
-
-      filterString = dimensions[dimension]
-      if filter is "all"
-        unless $t.hasClass("active")
-          $t.addClass("active").siblings().removeClass "active"
-        filterString = "all"
-      else
-        $t.siblings("[data-filter=\"all\"]").removeClass "active"
-        filterString = filterString.replace("all", "")
-        unless $t.hasClass("active")
-          $t.addClass "active"
-          filterString = (if filterString is "" then filter else filterString + " " + filter)
-        else
-          $t.removeClass "active"
-          re = new RegExp("(\\s|^)" + filter)
-          filterString = filterString.replace(re, "")
-
-      if $t.parent().find('.active').length == 0
-        $t.siblings("[data-filter=\"all\"]").addClass 'active'
-        filterString = 'all'
-
-      dimensions[dimension] = filterString
-      dimensionsArr = $.map dimensions, (k, v) ->
-        return [k]
-
-      if history.pushState
-        historyString = ''
-        for key, dim of dimensions
-          historyString = historyString + key + ':' + dim.trim().replace(/\s/g, '-').replace(/filter-/g, '') + '|'
-        historyString = historyString.replace(/(^\|)|(\|$)/g, '')
-        history.pushState null, null, '#' + historyString
-
-      $("#product-list").mixitup "filter", dimensionsArr
-
-
-    $('.clear-filters').bind 'click', (e) ->
-      e.preventDefault()
-      $filters.removeClass('active').filter("[data-filter=\"all\"]").addClass 'active'
-      dimensions = {}
-      $("#product-list").mixitup "filter", 'all'
-      $("html, body").animate({ scrollTop: $('#filterbar').offset().top }, 500)
-
-    $('.modify-filters').bind 'click', (e) ->
-      e.preventDefault()
-      $("html, body").animate({ scrollTop: $('#filterbar').offset().top }, 500)
-
-
-  initStoreLocator: () ->
-    $('#map-search-overlay .button.search').bind 'click', (e) ->
-      e.preventDefault()
-      $('#map-search-overlay').addClass 'compact'
-
-  initProductList: () ->
-    $products = $('#product-list .product').each (index, product) ->
-      $product = $(product)
-      $product.find('.product-thumbs li a').on 'click', (e) ->
-        $anchor = $(this)
-        e.preventDefault()
-        fullSizeImg = $(this).data 'fullsize'
-        $product.find('.product-image').attr('src', fullSizeImg)
-        $anchor.parent().addClass('selected').siblings().removeClass('selected')
-
-  initProductPage: ->
-    self = this
-
-    self.initProductThumbnails()
-
-    self.initProductColorPicker()
-    self.initProductSizePicker()
-    self.initTechListExpand()
-    self.initTechSizeInfo()
-
-  initTechSizeInfo: ->
-    self = this
-    $tabs = $('ul.tabs li a')
-    $tabs.on 'click', (e) ->
-      e.preventDefault()
-      $clicked = $(this)
-      $clicked.parent().addClass('selected').siblings().removeClass('selected')
-      variant = $clicked.data('variant')
-      $tabContent = $('.tab-content')
-      $tabContent.hide().filter('[data-variant="'+variant+'"]').show()
-
-
-
-  initTechListExpand: ->
-    self = this
-
-    $('ul.tech-list li a.expand').on 'click', (e) ->
-      $button = $(this)
-      $li = $button.parent()
-      e.preventDefault()
-
-      if $li.hasClass 'expanded'
-        $li.removeClass 'expanded'
-        $button.html('&#x002B;')
-      else
-        $li.addClass 'expanded'
-        $button.html('&#x2421;')
-
-  initProductThumbnails: ->
-    $thumbs = $('.product-thumbnails li')
-    $thumbs.each () ->
-      $el = $(this)
-      newImg = $el.find('img').data('fullsize')
-      $el.bind 'click', (e) ->
-        e.preventDefault()
-        $thumbs.removeClass('active')
-        $(this).addClass('active')
-        $('.product-main-image img').attr('src', newImg)
-
-  initProductColorPicker: ->
-    self = this
-    $('.imageset').each ->
-      $el = $(this)
-      imageSetIndex = $el.data 'imagesetindex'
-
-      if typeof imageSet != 'undefined'
-        set = imageSet[parseInt(imageSetIndex)]
-        $el.bind 'click', (e) ->
-          e.preventDefault()
-          self.updateImageset(set)
-          $el.parent().parent().find('li').removeClass 'selected'
-          $el.parent().addClass 'selected'
-
-  initProductSizePicker: ->
-    $('.board-sizes li a').on 'click', (e) ->
-      $el = $(this)
-      e.preventDefault()
-      imageSrc = $el.data 'fullsize'
-      $('.product-main-image img').attr('src', imageSrc)
-
-      $el.parent().addClass('selected').siblings().removeClass('selected')
-
-  updateImageset: (set) ->
-    self = this
-
-    # First image goes into the main spot...
-    $('.product-main-image img').attr('src', set[0]);
-
-    $thumbList = $('.product-thumbnails ul')
-    $thumbList.html('')
-
-    for img, i in set
-      cssClass = ''
-      cssClass = 'active' if i == 0
-
-      imgTpl = '
-        <li class="'+cssClass+'">
-          <a href="#"><img src="'+img+'" data-fullsize="'+img+'" /></a>
-          <a href="#">View ' + (i+1) + '</a>
-        </li>'
-      $thumbList.append imgTpl
-
-    self.initProductThumbnails()
-
-  initVimeo: () ->
-    vimeoId = $('.vimeo').data 'vimeo-id'
-    if vimeoId != ''
-      $profile = $('.member-profile')
-      $profile.addClass('video')
-      $profile.css 'cursor', 'pointer'
-    $('.vimeo').bind 'click', (e) ->
-      console.log 'video clicked'
-      $self = $(this)
-      e.preventDefault();
-      $self.find('.img-wrapper').hide()
-
-      vimeoId = $self.data 'vimeo-id'
-
-      if vimeoId != ''
-        vimeoWidth = 540
-        vimeoHeight = 304
-
-        if ($self.data 'vimeo-width') != undefined
-          vimeoWidth = $self.data 'vimeo-width'
-          vimeoHeight = $self.data 'vimeo-height'
-
-        player = '
-          <iframe
-            src="http://player.vimeo.com/video/'+vimeoId+'?color=00a4d1&amp;autoplay=1"
-            width="' + vimeoWidth + '" height="' + vimeoHeight + '" frameborder="0"
-            webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>'
-
-        $self.find('.video-player').show()
-        $self.find('.video-player').html(player)
-
-        $self.unbind()
-
-
-  clickableTeamMembers: () ->
-    $("li .team-member").click ->
-      window.location = $(this).find("a").attr("href");
 
   initTeamNav: () ->
 
@@ -540,39 +211,4 @@
                 if riderDescriptionLength > 230
                   $('.profile-text p').addClass 'long'
 
-  initVideoPage: () ->
-    self = this
-    $('.load-videos').on 'click', (e) ->
-      e.preventDefault()
-      $button = $(this)
-
-      $videos = $('#videos')
-      offset = $videos.children().length
-      limit = 4
-      query = '/a2/feeds/videos.json?limit='+limit+'&offset='+offset
-
-      $.get query, (videos) ->
-        if videos.length
-          for video in videos
-            videoTpl = '
-              <div class="large-6 columns">
-                <div class="update-item vimeo" data-vimeo-id="'+video.item_id+'">
-                  <div class="update-meta">
-                    <i class="ss-icon ss-standard">video</i>
-                    <p>'+video.title+'</p>
-                    <div class="time-ago">'+video.realative_date+' ago</div>
-                   </div>
-                <div class="img-wrapper">
-                  <img src="'+video.image_url+'">
-                </div>
-                <div class="video-player"></div>
-              </div>
-            '
-            $videos.append videoTpl
-          self.initVimeo()
-
-        else
-          $button.remove()
-
-
-$(document).ready(salomon.initialize())
+$(document).ready(salomon_old.initialize())

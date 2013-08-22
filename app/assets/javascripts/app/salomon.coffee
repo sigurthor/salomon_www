@@ -1,0 +1,1 @@
+@salomon = window.salomon ? {}
