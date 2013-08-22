@@ -334,31 +334,36 @@
     }
 
     .member-info-list {
-      columns: 2;
+      @include columns(2);
       & > li {
-        float: left;
-        display: inline-block;
-        width: 45%;
+        font-size: 18px;
         line-height: 30px;
+        overflow: hidden;
       }
 
-      span:first-child {
+      span {
         float: left;
-        width: 170px;
         display: inline-block;
-        font-family: $font-boldcnd20;
-        font-size: 18px;
-      }
 
-      span:last-child, ul {
-        float: left;
-        font-family: $font-boldcnd18;
-        font-size: 18px;
+        &:first-child {
+          width: 240px;
+          font-family: $font-boldcnd20;
+        }
+
+        &:last-child {
+          font-family: $font-boldcnd18;
+        }
       }
 
       ul {
+        float: left;
+        display: inline-block;
+        font-family: $font-boldcnd18;
         list-style: none;
         margin: 0;
+        li {
+          overflow: hidden;
+        }
       }
   }
 

@@ -78,3 +78,9 @@
       -ms-animation: spin360 1.5s linear infinite;
           animation: spin360 1.5s linear infinite;
 }
+
+@mixin columns($amount) {
+  -webkit-columns: $amount;
+  -moz-columns: $amount;
+  columns: $amount;
+}
