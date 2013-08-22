@@ -1,5 +1,3 @@
-//= require visible
-
 @salomon =
   preloadImages: (images) ->
     imgObject = new Array()
@@ -392,6 +390,11 @@
 
     # Hover nav
     $('.hover-buttons > div').mouseenter ->
+      console.log itemsTotalWidth
+      console.log windowTotalWidth
+      if itemsTotalWidth < $(window).width()
+        console.log 'supepra'
+        return false
       console.log $('.team-nav li:first-child').offset().left
       console.log $('.team-nav li:last-child').offset().left
 
@@ -485,7 +488,7 @@
     console.log slug
     # Rider list
     # .on rather than .click for targetting dynamic elements,
-    # i.e. category change by user.
+    # i.e. after category change by user.
     $('ul.team-nav').on "click", "li", ->
       if lastItem != null
         lastItem.addClass 'has-overlay'
@@ -503,7 +506,16 @@
       newLocation = 85 + itemsTotalWidth - ((currentItemIndex + 1) * slideWidth) - offset
       lastLocation = newLocation
 
-      $(".member-nav-wrapper").css 'left', newLocation
+      if currentItemIndex < Math.floor(totalRiders / 2)
+        console.log 'limit: ' + (Math.abs(parseInt($('.member-nav-wrapper').css('margin-left'))) + 20)
+        console.log 'new loc: ' + newLocation
+        console.log (currentItemIndex)
+        newLocation = Math.min((Math.abs(parseInt($('.member-nav-wrapper').css('margin-left'))) + 20), newLocation)
+      else
+        newLocation = Math.max(($(window).width() - (itemsTotalWidth / 2) - 20), newLocation)
+
+      if itemsTotalWidth > $(window).width()
+        $(".member-nav-wrapper").css 'left', newLocation
       lastItemIndex = currentItemIndex
 
       # Change current profile info
