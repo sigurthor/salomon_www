@@ -1,5 +1,3 @@
-
-
 @salomon =
   preloadImages: (images) ->
     imgObject = new Array()
