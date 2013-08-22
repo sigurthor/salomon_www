@@ -1,0 +1,22 @@
+.row.sizes
+  %h2 Sizing information
+  %section-container-tabs(data-section="tabs")
+    - variants.each do |variant|
+      %section
+        .title(data-section-title)
+          %a{:href=>'#'}=variant.size
+        .content(data-section-content)
+          .row
+            .large-4.columns
+              %ul.tech-stats
+                -variant.tech_specifications.each do |spec|
+                  %li
+                    %span=spec.tech_definition_name
+                    %span=spec.value
+            .large-8.columns
+              .technical-drawing
+                .technical-value
+                  636
+                = image_tag('board.png')
+                .technical-demonstration
+                  .technical-indicator
