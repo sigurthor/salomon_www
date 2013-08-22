@@ -1,5 +1,3 @@
-//= require visible
-
 @salomon =
   preloadImages: (images) ->
     imgObject = new Array()
