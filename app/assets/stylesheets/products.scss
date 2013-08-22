@@ -5,17 +5,23 @@ i {
 }
 
 #product-list {
+
+  min-height: 800px;
+
   .notfound {
     display: none;
   }
+
+  .lastproduct { display: none; }
+
   &.fail {
-    .lastproduct { display: none; }
+    .lastproduct { display: none !important; }
     .notfound { display: block; }
   }
 
-  .mix_all {
-    opacity: 0;
+  .mix {
     display: none;
+    opacity: 0;
   }
 
   .product {
