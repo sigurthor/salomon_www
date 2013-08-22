@@ -10,9 +10,9 @@
           %p= vimeo.title
           .time-ago= vimeo.relative_date
         .img-wrapper
-          = image_tag('frontpage/fixme-updates-1.png')
+          %img{:src=>"#{vimeo.image_url}"}
         .video-player
-      %a.button.vimeo{:href=>'#'} More videos on Vimeo
+      %a.button.vimeo{:href=>'http://vimeo.com/salomonsnowboards'} More videos on Vimeo
 
     // Facebook column
     .large-3.columns
@@ -30,7 +30,7 @@
           .time-ago 4 days ago
         %img{:src=>'http://placekitten.com/100/100'}
         %p It’s all about just following your heart and simply doing what you love. Don’t listen to anyone who…
-      %a.button.facebook{:href=>'#'} More on Facebook
+      %a.button.facebook{:href=>'https://www.facebook.com/SalomonSnowboardFans'} More on Facebook
 
     // Instagram column
     .large-3.columns
@@ -40,4 +40,4 @@
           .time-ago 4 days ago
         = image_tag('frontpage/fixme-updates-2.jpg')
         %p Donec sed odio dui. Donec ullamcorper nulla non metus auctor fringilla. Vivamus sagittis lacus vel augue laoreet rutrum faucibus...
-      %a.button.instagram{:href=>'#'} More on Instagram
+      %a.button.instagram{:href=>'http://instagram.com/salomonsnowboards'} More on Instagram

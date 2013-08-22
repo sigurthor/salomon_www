@@ -1,0 +1,16 @@
+%section.panel#tech
+  .row
+    %h2 Technology
+    - slice_count = (product.features_by_type.count/2)
+    - feature_count = product.features_by_type.count
+    - if feature_count % 2 == 1
+      - slice_count += 1
+
+    - list1, list2 = product.features_by_type.in_groups_of(slice_count, false)
+    .large-6.columns
+      = render :partial => 'tech_feature_list', :locals => { :list =>list1 }
+    .large-6.columns
+      = render :partial => 'tech_feature_list', :locals => { :list =>list2 }
+
+  - if product.is_snowboard?
+    = render :partial => 'tech_sizing_info', :locals => { :variants => product.product_variants }

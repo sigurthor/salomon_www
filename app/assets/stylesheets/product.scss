@@ -364,42 +364,7 @@ section#tech {
     }
   }
 
-  ul.tech-list {
-    -webkit-column-count: 2;
-       -moz-column-count: 2;
-        -ms-column-count: 2;
-            column-count: 2;
-
-    list-style: none;
-    li + li {
-      margin-top: 4px;
-    }
-    li {
-      font-size: 24px;
-      height: 60px;
-      background-color: #023A4A;
-      i {
-        display: inline-block;
-        width: 40px;
-        height: 40px;
-        color: $color-darkblue;
-        line-height: 45px;
-        text-align: center;
-        border-radius: 50%;
-        background-color: #fff;
-      }
-      span:first-of-type {
-        font-family: $font-boldobl;
-        color: #fff;
-      }
-      span:last-of-type {
-        font-family: $font-boldcnd20;
-        color: $color-lightblue;
-      }
-      padding: 10px;
-      text-transform: uppercase;
-    }
-  }
+  @import "product-tech";
 
   ul.tech-stats {
     font-family: $font-boldcnd20;

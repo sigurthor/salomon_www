@@ -1,6 +1,6 @@
 GIT
   remote: https://8822694c4779c052130037718ba51b09d8ae7839:x-oauth-basic@github.com/sigurthor/a2_backend.git
-  revision: 302cca4a108eb4e350692ece3766d8fb65cfd043
+  revision: 16953e9440fda5cf787ecdbeaf40bcd83e54b653
   branch: master
   specs:
     a2 (0.0.6)
@@ -30,7 +30,7 @@ GIT
       workless
 
 GEM
-  remote: https://rubygems.org/
+  remote: http://rubygems.org/
   specs:
     actionmailer (3.2.14)
       actionpack (= 3.2.14)
@@ -258,6 +258,8 @@ GEM
       nokogiri
       rubyzip
       spreadsheet (> 0.6.4)
+    route_downcaser (0.2.0)
+    route_translator (3.1.0)
     ruby-hmac (0.4.0)
     ruby-ole (1.2.11.7)
     rubyntlm (0.3.4)
@@ -323,10 +325,13 @@ DEPENDENCIES
   cache_digests
   coffee-rails (~> 3.2.1)
   compass-rails
+  globalize3
   jquery-rails
   mysql2
   newrelic_rpm
   rails (= 3.2.14)
+  route_downcaser
+  route_translator
   sass-rails (~> 3.2.3)
   uglifier (>= 1.0.3)
   unicorn

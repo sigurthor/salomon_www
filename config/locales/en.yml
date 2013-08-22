@@ -4,7 +4,7 @@
 en:
   region: "Global(en)"
   currency: "Eur"
-  display_currency: ""
+  display_currency: "$%{price}"
   nav:
     gear: "Gear"
     team: "Team"

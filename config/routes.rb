@@ -7,7 +7,8 @@ SalomonWww::Application.routes.draw do
   end
 
 
-  scope :path => "(:locale)", :shallow_path => "(:locale)", :locale => /en-US|de-CH|de-DE|en-UK|fr-CH|fr-FR|ru-RU/ do
+  #scope :path => "(:locale)", :shallow_path => "(:locale)", :locale => /en-US|de-CH|de-DE|en-UK|fr-CH|fr-FR|ru-RU/ do
+  localized do
     match '/' => 'home#index', :as => 'home'
     match 'contact' => 'home#contact', :as => 'contact'
     match 'terms' => 'home#terms', :as => 'terms'

@@ -242,6 +242,22 @@
 
     self.initProductColorPicker()
     self.initProductSizePicker()
+    self.initTechListExpand()
+
+  initTechListExpand: ->
+    self = this
+
+    $('ul.tech-list li a.expand').on 'click', (e) ->
+      $button = $(this)
+      $li = $button.parent()
+      e.preventDefault()
+
+      if $li.hasClass 'expanded'
+        $li.removeClass 'expanded'
+        $button.html('&#x002B;')
+      else
+        $li.addClass 'expanded'
+        $button.html('&#x2421;')
 
   initProductThumbnails: ->
     $thumbs = $('.product-thumbnails li')
