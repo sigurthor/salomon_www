@@ -4,9 +4,7 @@ init = () ->
   executionUnblock = ->
     $filters.removeData 'executing'
 
-
   dimensions = {}
-
   readFilterHash = ->
     urlHash = window.location.hash
     if urlHash
@@ -33,6 +31,7 @@ init = () ->
           $el = $filters.filter('[data-filter*="'+filter+'"]')
           $el.siblings().filter('[data-filter="all"]').removeClass 'active'
           $el.addClass('active')
+    $('.lastproduct').show()
 
   $("#product-list").mixitup
     layoutMode: "grid"
