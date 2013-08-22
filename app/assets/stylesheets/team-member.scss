@@ -59,17 +59,25 @@
     }
 
     .category-switches {
-      .current-category { color: #00637F;}
+      .current-category {
+        padding: 15px 20px;
+        background-color: $color-lightblue;
+      }
       h2 {
-        @include font-heading();
-        font-size: 48px;
         color: #fff;
         text-align: center;
       }
       span {
+        font-family: $font-boldcnd20;
+        font-size: 14px;
+        color: #fff;
+        padding: 10px 20px;
+        background-color: #00637F;
+        text-transform: uppercase;
         cursor: pointer;
+        @include transition(all 0.25s ease-in-out);
         &:hover {
-          color: #00637F;
+          padding: 15px 20px;
         }
       }
     }
