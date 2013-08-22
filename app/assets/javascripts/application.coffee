@@ -1,4 +1,4 @@
-//= require visible
+
 
 @salomon =
   preloadImages: (images) ->
