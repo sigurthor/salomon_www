@@ -129,13 +129,13 @@
     }
 
     li {
-
       &.currently-selected-team-member {
         .team-member-info { display: none; }
       }
       float: left;
       position: relative;
       display: inline-block;
+      overflow: hidden;
       .team-member-info {
         position: absolute;
         top: 5px;
