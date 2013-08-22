@@ -65,6 +65,7 @@
         font-size: 48px;
         color: #fff;
         text-align: center;
+        text-transform: uppercase;
       }
       span {
         cursor: pointer;
@@ -146,6 +147,7 @@
           color: #fff;
           line-height: 32px;
           margin: 0;
+          text-transform: uppercase;
         }
         .team-member-country {
           font-family: $font-boldobl;
@@ -264,6 +266,7 @@
     h2 {
       font-family: $font-heading;
       font-size: 128px;
+      text-transform: uppercase;
     }
     p {
       &.long {
@@ -297,6 +300,7 @@
       margin-top: 0;
       font-family: $font-heading;
       font-size: 48px;
+      text-transform: uppercase;
     }
   }
 
@@ -368,6 +372,7 @@
       font-size: 48px;
       color: $color-lightblue;
       text-align: center;
+      text-transform: uppercase;
     }
   }
 
@@ -377,12 +382,14 @@
       font-family: $font-heading;
       font-size: 48px;
       text-align: center;
+      text-transform: uppercase;
     }
 
     .gear-item {
       text-align: center;
       line-height: 400px;
       vertical-align: middle;
+      text-transform: uppercase;
       h3 {
         margin: 0;
         font-family: $font-heading;

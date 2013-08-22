@@ -42,10 +42,10 @@ i {
       h2 {
         font-family: $font-heading;
         color: $color-lightblue;
-
         font-size: 36px;
         margin: 10px 0;
         line-height: 1;
+        text-transform: uppercase;
 
         &.long {
           font-size: 28px;
@@ -108,6 +108,7 @@ i {
         font-size: 24px;
         color: $color-lightblue;
         line-height: 32px;
+        text-transform: uppercase;
       }
 
       .message {

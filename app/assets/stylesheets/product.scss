@@ -11,6 +11,7 @@ ul {
     color: $color-lightblue;
     margin-bottom: 0;
     line-height: 1;
+    text-transform: uppercase;
   }
 
   h1 + span {
@@ -353,6 +354,7 @@ section#tech {
     color: #fff;
     margin: 0 auto;
     text-align: center;
+    text-transform: uppercase;
     h4 {
       display: inline-block;
       font-family: $font-heading;
