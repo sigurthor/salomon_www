@@ -40,19 +40,14 @@ init = () ->
 
   # Hover nav
   $('.hover-buttons > div').mouseenter ->
+    console.log 'hoverin'
     console.log itemsTotalWidth
     console.log windowTotalWidth
     if itemsTotalWidth < $(window).width()
       console.log 'supepra'
-    return false
+      return false
     console.log $('.team-nav li:first-child').offset().left
     console.log $('.team-nav li:last-child').offset().left
-
-    if($(this).hasClass('hover-nav-left'))
-      if $('.team-nav li:first-child').offset().left >= 20
-        $('.member-nav-wrapper').css('left', $('.member-nav-wrapper').css('left'))
-      return false
-
 
     viewportOffset = $('.member-nav-wrapper').css 'left'
     viewportOffset = parseInt(viewportOffset.replace('px', ''))
