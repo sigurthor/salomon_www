@@ -38,6 +38,6 @@
         .update-meta
           %i.ss-icon.ss-social instagram
           .time-ago= instagram.relative_date
-        = image_tag('frontpage/fixme-updates-2.jpg')
-        %p= instagram.title
+        = link_to image_tag(instagram.image_url, :width=>240, :height=>240), instagram.url, target: '_new'
+        %p= truncate(instagram.title, length: 100, separator: ' ')
       %a.button.instagram{:href=>'http://instagram.com/salomonsnowboards', :target=>'_new'} More on Instagram
