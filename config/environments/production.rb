@@ -1,6 +1,10 @@
 SalomonWww::Application.configure do
   # Settings specified here will take precedence over those in config/application.rb
 
+  #instagram
+  config.instagram_client_id = "35c4114674ef40ac8fbb05c5b5c8a4ad"
+  config.instagram_client_secret = "affc75a216e44cfcae33eb202a932ea7"
+
   # Code is not reloaded between requests
   config.cache_classes = true
 
