@@ -43,7 +43,12 @@ initProductThumbnails = ->
       e.preventDefault()
       $thumbs.removeClass('active')
       $(this).addClass('active')
-      $('.product-main-image img').attr('src', newImg)
+
+      $mainImg = $('.product-main-image')
+      $imgTag = $mainImg.find('img')
+      if $imgTag.attr('src') != newImg
+        $mainImg.find('.img-wrapper').removeClass 'loaded'
+        $mainImg.find('img').attr('src', newImg)
 
 initProductColorPicker = ->
   self = this
@@ -64,17 +69,21 @@ initProductSizePicker = ->
     $el = $(this)
     e.preventDefault()
     imageSrc = $el.data 'fullsize'
-    $('.product-main-image img').attr('src', imageSrc)
+    $mainImg = $('.product-main-image')
+    $imgTag = $mainImg.find('img')
+    if $imgTag.attr('src') != imageSrc
+      $mainImg.find('.img-wrapper').removeClass 'loaded'
+      $mainImg.find('img').attr('src', imageSrc)
 
     $el.parent().addClass('selected').siblings().removeClass('selected')
 
 updateImageset = (set) ->
   self = this
   $mainImg = $('.product-main-image')
-  $mainImg.removeClass 'loaded'
+  $mainImg.find('.img-wrapper').removeClass 'loaded'
 
   # First image goes into the main spot...
-  $mainImg.find('img').attr('onload', 'form5image.hasLoaded(this)').attr('src', set[0]);
+  $mainImg.find('img').attr('src', set[0]);
 
   $thumbList = $('.product-thumbnails ul')
   $thumbList.html('')
