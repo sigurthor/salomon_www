@@ -62,7 +62,9 @@ init = () ->
       filterString = filterString.replace("all", "")
       unless $t.hasClass("active")
         $t.addClass "active"
-        filterString = (if filterString is "" then filter else filterString + " " + filter)
+        filterString = filter
+        $t.siblings().removeClass 'active'
+        #filterString = (if filterString is "" then filter else filterString + " " + filter)
       else
         $t.removeClass "active"
         re = new RegExp("(\\s|^)" + filter)
