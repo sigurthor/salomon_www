@@ -37,14 +37,6 @@
             - filter.product_features.each do |feature|
               %li(data-filter="filter-#{feature.id}" data-dimension="feature-#{filter.id}")
                 %a.button{set_text_length_class(feature.name, 10)}=feature.name
-      .group
-        %h4 Sort by
-        %ul
-          %li.sort.active(data-sort="data-name" data-order="desc" )
-            %a.button{:href=>'#'} A-Z
-          %li.sort(data-sort="data-price" data-order="desc" )
-            %a.button{:href=>'#'} Price
-
   %section#main
     .row
       #product-list
@@ -56,13 +48,15 @@
               .main-info
 
                 - if product.is_snowboard?
-                  = link_to prepend_snowboard_crop(cl_image_tag(product.master_image,  :width => 180, :height=>386, :crop => :fill, :class => 'product-image')), product_show_path(:category => params[:category], :product => product.slug)
+                  - img_loader do
+                    = link_to prepend_snowboard_crop(cl_image_tag(product.master_image,  :width => 180, :height=>386, :crop => :fill, :class => 'product-image', :onload => 'form5image.hasLoaded(this)')), product_show_path(:category => params[:category], :product => product.slug)
                   %h2{set_text_length_class(product.name, 16)}
                     = link_to product.name, product_show_path(:category => params[:category], :product => product.slug)
                   .price= t :display_currency, price: product.price
-                  //-= render :partial => 'products_size_thumbs', :locals => { :variants => product.product_variants }
+                  = render :partial => 'products_size_thumbs', :locals => { :variants => product.product_variants }
                 - else
-                  = link_to cl_image_tag(product.master_image,  :width => 200, :crop => :fill, :class => 'product-image'), product_show_path(:category => params[:category], :product => product.slug)
+                  - img_loader do
+                    = link_to cl_image_tag(product.master_image,  :width => 200, :crop => :fill, :class => 'product-image', :onload => 'form5image.hasLoaded(this)'), product_show_path(:category => params[:category], :product => product.slug)
                   %h2{set_text_length_class(product.name, 16)}
                     = link_to product.name, product_show_path(:category => params[:category], :product => product.slug)
                   .price= t :display_currency, price: product.price

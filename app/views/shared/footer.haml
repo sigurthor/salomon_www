@@ -28,29 +28,22 @@
         %h5 Salomon
         %ul
           %li
-            %a{} Blog
+            %a{:href=>'http://ssnowdev.tumblr.com/'} Blog
+          %li= link_to t('nav.team'), team_path
           %li
-            %a{} Team
-          %li
-            %a{} Store locator
-          %li
-            %a{} FAQ
+            %a{:href=>'/faq'} FAQ
 
     .large-2.columns
       %nav
         %h5 Customer service
         %ul
           %li
-            %a{}
             = link_to 'Warranty',warranty_path
           %li
-            %a{}
             = link_to 'Contact', contact_path
           %li
-            %a{}
             = link_to 'Terms', terms_path
           %li
-            %a{}
             = link_to 'Privacy policy',privacy_policy_path
 
 

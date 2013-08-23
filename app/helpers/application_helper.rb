@@ -6,4 +6,18 @@ module ApplicationHelper
   def prepend_snowboard_crop(image_url)
      image_url.gsub!('upload/','upload/c_crop,g_north_west,w_954,h_5000/').html_safe
   end
+
+  def img_loader
+    haml_tag :div, :class => 'img-wrapper' do
+      haml_tag :div, :class => 'loader' do
+        haml_tag :div, :class => 'half left' do
+          haml_tag :div, :class => 'band'
+        end
+        haml_tag :div, :class => 'half right' do
+          haml_tag :div, :class => 'band'
+        end
+      end
+      yield
+    end
+  end
 end
