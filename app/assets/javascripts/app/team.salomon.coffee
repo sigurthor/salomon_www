@@ -40,19 +40,14 @@ init = () ->
 
   # Hover nav
   $('.hover-buttons > div').mouseenter ->
+    console.log 'hoverin'
     console.log itemsTotalWidth
     console.log windowTotalWidth
     if itemsTotalWidth < $(window).width()
       console.log 'supepra'
-    return false
+      return false
     console.log $('.team-nav li:first-child').offset().left
     console.log $('.team-nav li:last-child').offset().left
-
-    if($(this).hasClass('hover-nav-left'))
-      if $('.team-nav li:first-child').offset().left >= 20
-        $('.member-nav-wrapper').css('left', $('.member-nav-wrapper').css('left'))
-      return false
-
 
     viewportOffset = $('.member-nav-wrapper').css 'left'
     viewportOffset = parseInt(viewportOffset.replace('px', ''))
@@ -109,14 +104,13 @@ init = () ->
     $('.member-nav-wrapper').css 'width', itemsTotalWidth
     $('.member-nav-wrapper').css 'margin-left', (-Math.abs(itemsTotalWidth / 2) + 'px').toString()
 
-  lastCategory = $('span#pros-category')
   $('.category-switches span').click ->
     $('section#member-nav').addClass 'loading-category'
     riderList.empty()
     category = $(this).attr('id').replace('-category', '')
     url = '/team/' + category + '.json'
     $('.member-nav-wrapper').css 'left', '50%'
-    lastCategory.removeClass('current-category')
+    $('.current-category').removeClass('current-category')
     $(this).addClass('current-category')
     lastCategory = $(this)
     $.ajax
@@ -169,6 +163,7 @@ init = () ->
     lastItemIndex = currentItemIndex
 
     # Change current profile info
+    category = null
     url = '/team.json'
     name = $(this).find('h3').html()
     $.ajax
@@ -181,6 +176,10 @@ init = () ->
         for team in container
           for member in team.team_members
             if member.name.trim() == name.trim()
+              category = '#' + team.name.toLowerCase().trim()
+              category += '-category'
+              console.log category
+              $(category).addClass('current-category')
               updateCurrentProfile(member.name, member.description, member.quote_author, member.quote_title, member.country, member.city, member.main_image.url)
               $('section#member').removeClass 'loading-member'
               riderDescriptionLength = $('.profile-text').text().length

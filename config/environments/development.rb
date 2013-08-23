@@ -2,6 +2,10 @@ SalomonWww::Application.configure do
   puts "development"
   # Settings specified here will take precedence over those in config/application.rb
 
+  #instagram
+  config.instagram_client_id = "121032100e7642858df743408fbee60a"
+  config.instagram_client_secret = "7e193a086ff4460aaff364dcd4ba9d16"
+
   # In the development environment your application's code is reloaded on
   # every request. This slows down response time but is perfect for development
   # since you don't have to restart the web server when you make code changes.

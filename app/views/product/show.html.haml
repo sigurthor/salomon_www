@@ -2,19 +2,23 @@
   sticky
 
 - content_for(:page_title) do
-  #{@product.name} #{@product.categories[0].name_singular}
+  - cache ['page_title',I18n.locale ,@product] do
+    #{@product.name} #{@product.categories[0].name_singular}
 
 - content_for(:page_description) do
-  #{@product.description}
+  - cache ['page_description',I18n.locale ,@product] do
+    #{@product.description}
 
-%section#breadcrumbs
-  %ul
-    %li Your Location
-    %li Gear
-    %li=link_to @product.categories[0].name,products_url(:category => @product.categories[0])
-    %li=link_to @product.name, product_show_path(:product => @product.slug)
+- cache [I18n.locale ,@product] do
+  %section#breadcrumbs
+    %ul
+      %li Your Location
+      %li Gear
+      %li=link_to @product.categories[0].name,products_url(:category => @product.categories[0])
+      %li=link_to @product.name, product_show_path(:product => @product.slug)
 
 
+<<<<<<< HEAD
 %section#main.product-details
   .row
     .large-6.columns
@@ -35,33 +39,32 @@
       %h1= @product.name
       %span= t("gender.#{@product.gender}", :count => 2) + " " + @product.categories[0].name_singular
       %h2=  t :display_currency, price: @product.price
+        %form.custom
+          - if @product.is_snowboard?
+            = render :partial => 'product_size_thumbs', :locals => { :variants => @product.product_variants }
+          - else
+            = render :partial => 'product_color_thumbs', :locals => { :variants => @product.product_color_variants }
 
-      %form.custom
-        - if @product.is_snowboard?
-          = render :partial => 'product_size_thumbs', :locals => { :variants => @product.product_variants }
-        - else
-          = render :partial => 'product_color_thumbs', :locals => { :variants => @product.product_color_variants }
+            /
+              .product-meta
+                %h5 Size
+                %select.dropdown.small
+                  %option 8.5
+                  %option 9
+                  %option 9.5
+                  %option 10
+                  %option 11
+          %a.button Buy now
 
-          /
-            .product-meta
-              %h5 Size
-              %select.dropdown.small
-                %option 8.5
-                %option 9
-                %option 9.5
-                %option 10
-                %option 11
-        %a.button Buy now
+        .product-model
+          %span= "MODEL #{@product.article_code}"
+          %span
+            12 reviews
+          %span.ss-icon.ss-standard
+            %i.blue star star star
+            star
 
-      .product-model
-        %span= "MODEL #{@product.article_code}"
-        %span
-          12 reviews
-        %span.ss-icon.ss-standard
-          %i.blue star star star
-          star
+        %p.product-description=@product.description
 
-      %p.product-description=@product.description
-
-- # Template Dependency: product/tech_panel
-= render :partial => 'tech_panel', :locals => { :product => @product }
+  - # Template Dependency: product/tech_panel
+  = render :partial => 'tech_panel', :locals => { :product => @product }

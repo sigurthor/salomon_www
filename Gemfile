@@ -8,6 +8,8 @@ gem 'newrelic_rpm'
 gem 'globalize3'
 gem 'route_translator'
 gem 'route_downcaser'
+gem 'instagram'
+
 
 group :assets, :frontend_development do
   gem 'sass-rails', '~> 3.2.3'

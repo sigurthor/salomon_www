@@ -11,7 +11,16 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130822133217) do
+ActiveRecord::Schema.define(:version => 20130823102109) do
+
+  create_table "a2_access_tokens", :force => true do |t|
+    t.string   "provider"
+    t.string   "token"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  add_index "a2_access_tokens", ["provider"], :name => "index_a2_access_tokens_on_provider", :unique => true
 
   create_table "a2_brands", :id => false, :force => true do |t|
     t.string   "id"
@@ -89,9 +98,11 @@ ActiveRecord::Schema.define(:version => 20130822133217) do
     t.string   "url"
     t.text     "json"
     t.string   "image_url"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.datetime "created_at",       :null => false
+    t.datetime "updated_at",       :null => false
     t.string   "title"
+    t.string   "account_username"
+    t.string   "account_id"
   end
 
   create_table "a2_genders", :force => true do |t|
@@ -185,6 +196,7 @@ ActiveRecord::Schema.define(:version => 20130822133217) do
     t.string   "brand"
   end
 
+  add_index "a2_product_color_variants", ["model"], :name => "index_a2_product_color_variants_on_model"
   add_index "a2_product_color_variants", ["sap"], :name => "index_a2_product_color_variants_on_sap", :unique => true
 
   create_table "a2_product_families", :force => true do |t|
@@ -236,6 +248,8 @@ ActiveRecord::Schema.define(:version => 20130822133217) do
     t.integer  "variant_code"
   end
 
+  add_index "a2_product_images", ["sap"], :name => "index_a2_product_images_on_sap"
+
   create_table "a2_product_lines", :force => true do |t|
     t.string   "product_line_code"
     t.string   "product_line_name"
@@ -257,6 +271,8 @@ ActiveRecord::Schema.define(:version => 20130822133217) do
     t.datetime "updated_at",          :null => false
     t.string   "product_model"
   end
+
+  add_index "a2_product_product_categories", ["product_category_id", "product_id"], :name => "product_category", :unique => true
 
   create_table "a2_product_product_features", :force => true do |t|
     t.integer  "prolog_code"
@@ -318,6 +334,7 @@ ActiveRecord::Schema.define(:version => 20130822133217) do
     t.integer  "product_image_id"
   end
 
+  add_index "a2_product_variants", ["article_code"], :name => "index_a2_product_variants_on_article_code"
   add_index "a2_product_variants", ["size_code"], :name => "index_a2_product_variants_on_size_code", :unique => true
 
   create_table "a2_products", :force => true do |t|
