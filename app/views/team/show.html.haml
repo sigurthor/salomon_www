@@ -47,14 +47,16 @@
           .large-6.columns
             %h2 Details
             .social-details
-              .facebook
-                %a{:href => '#'}
-                  %i{:class => 'ss-icon ss-social'} facebook
-                  %spans /Louifparadis
-              .twitter
-                %a{:href => '#'}
-                  %i{:class => 'ss-icon ss-social'} twitter
-                  %span @Louifparadis
+              - unless member_detail_is_empty(@team_member.facebook)
+                .facebook
+                  %a{:href => "http://facebook.com/#{@team_member.facebook}", :target => '_new'}
+                    %i{:class => 'ss-icon ss-social'} facebook
+                    %spans /#{@team_member.facebook}
+              - unless member_detail_is_empty(@team_member.twitter)
+                .twitter
+                  %a{:href => "http://twitter.com/#{@team_member.twitter}", :target => '_new'}
+                    %i{:class => 'ss-icon ss-social'} twitter
+                    %span @#{@team_member.twitter}
         .large-8.columns
           =@team_member.city
           %ul.member-info-list
@@ -62,56 +64,43 @@
               %li
                 %span Country
                 %span= @team_member.country
-            %li
-              %span Years riding
-              %span 190
             - unless member_detail_is_empty(@team_member.city)
               %li
                 %span Hometown
                 %span= @team_member.city
-            %li
-              %span Stance
-              %span Goofy
-            %li
-              %span Sponsors
-              %ul
-                %li Salomon
-                %li Bonfire
-            %li
-              %span Favorite gear
-              %span Lorem ipsum
 
-%section#member-gallery
-  .row
-    %h2 Gallery
-    .large-2.columns
-      %img{:src => 'http://placekitten.com/g/180/180'}
-    .large-2.columns
-      %img{:src => 'http://placekitten.com/g/180/180'}
-    .large-2.columns
-      %img{:src => 'http://placekitten.com/g/180/180'}
-    .large-2.columns
-      %img{:src => 'http://placekitten.com/g/180/180'}
-    .large-2.columns
-      %img{:src => 'http://placekitten.com/g/180/180'}
-    .large-2.columns
-      %img{:src => 'http://placekitten.com/g/180/180'}
+/
+  %section#member-gallery
+    .row
+      %h2 Gallery
+      .large-2.columns
+        %img{:src => 'http://placekitten.com/g/180/180'}
+      .large-2.columns
+        %img{:src => 'http://placekitten.com/g/180/180'}
+      .large-2.columns
+        %img{:src => 'http://placekitten.com/g/180/180'}
+      .large-2.columns
+        %img{:src => 'http://placekitten.com/g/180/180'}
+      .large-2.columns
+        %img{:src => 'http://placekitten.com/g/180/180'}
+      .large-2.columns
+        %img{:src => 'http://placekitten.com/g/180/180'}
 
-%section#gear-used
-  .row
-    %h2 Gear Used
-    .large-3.columns.large-offset-1
-      .gear-item
-        = image_tag('fixme-gear-used-board.png')
-        %h3 Drift Rocker
-        .price $89.95
-    .large-4.columns
-      .gear-item
-        = image_tag('fixme-gear-used-robot-boot.png')
-        %h3 Drift Rocker
-        .price $89.95
-    .large-4.columns.end
-      .gear-item
-        = image_tag('fixme-gear-used-robot-boot.png')
-        %h3 Drift Rocker
-        .price $89.95
+  %section#gear-used
+    .row
+      %h2 Gear Used
+      .large-3.columns.large-offset-1
+        .gear-item
+          = image_tag('fixme-gear-used-board.png')
+          %h3 Drift Rocker
+          .price $89.95
+      .large-4.columns
+        .gear-item
+          = image_tag('fixme-gear-used-robot-boot.png')
+          %h3 Drift Rocker
+          .price $89.95
+      .large-4.columns.end
+        .gear-item
+          = image_tag('fixme-gear-used-robot-boot.png')
+          %h3 Drift Rocker
+          .price $89.95
