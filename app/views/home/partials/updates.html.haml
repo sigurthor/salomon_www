@@ -37,7 +37,7 @@
       .update-item.instagram
         .update-meta
           %i.ss-icon.ss-social instagram
-          .time-ago 4 days ago
+          .time-ago= instagram.relative_date
         = image_tag('frontpage/fixme-updates-2.jpg')
-        %p Donec sed odio dui. Donec ullamcorper nulla non metus auctor fringilla. Vivamus sagittis lacus vel augue laoreet rutrum faucibus...
+        %p= instagram.title
       %a.button.instagram{:href=>'http://instagram.com/salomonsnowboards'} More on Instagram
