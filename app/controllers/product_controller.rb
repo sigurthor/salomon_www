@@ -11,6 +11,6 @@ class ProductController < BaseController
 
   def show
     page "#{params[:category]}-product"
-    @product = A2::Product.includes({product_color_variants: :product_images},{product_features: :product_feature_type},{product_variants: :product_image},{product_variants: {tech_specifications: :tech_definition}}).where(:slug => params[:product]).limit(1).first
+    @product = A2::Product.find_by_slug(params[:product])
   end
 end
