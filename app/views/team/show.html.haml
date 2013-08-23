@@ -51,23 +51,28 @@
                 .facebook
                   %a{:href => "http://facebook.com/#{@team_member.facebook}", :target => '_new'}
                     %i{:class => 'ss-icon ss-social'} facebook
-                    %spans /#{@team_member.facebook}
+                    %span /#{@team_member.facebook}
               - unless member_detail_is_empty(@team_member.twitter)
                 .twitter
                   %a{:href => "http://twitter.com/#{@team_member.twitter}", :target => '_new'}
                     %i{:class => 'ss-icon ss-social'} twitter
                     %span @#{@team_member.twitter}
+              - unless member_detail_is_empty(@team_member.instragram)
+                .twitter
+                  %a{:href => "http://instagram.com/#{@team_member.instragram}", :target => '_new'}
+                    %i{:class => 'ss-icon ss-social'} instagram
+                    %span @#{@team_member.instragram}
         .large-8.columns
           =@team_member.city
           %ul.member-info-list
             - unless member_detail_is_empty(@team_member.country)
-              %li
+              %li.country
                 %span Country
-                %span= @team_member.country
-            - unless member_detail_is_empty(@team_member.city)
-              %li
-                %span Hometown
-                %span= @team_member.city
+                %span.detail-value= @team_member.country
+            / - unless member_detail_is_empty(@team_member.city)
+            /   %li
+            /     %span Hometown
+            /     %span= @team_member.city
 
 /
   %section#member-gallery

@@ -3,14 +3,38 @@ salomon.team = ->
     init()
 
 init = () ->
-  updateCurrentProfile = (name, description, quote_author, quote_title, country, city, image_url) ->
+  updateCurrentProfile = (name, description, quote_author, quote_title, country, city, facebook, twitter, instagram, image_url) ->
+
+    $('.facebook').show()
+    $('.twitter').show()
+    $('.instagram').show()
+
     $('.member-profile h2').html(name)
     $('.member-profile .profile-text p').html(description)
-    $('.quote author').html(quote_author)
-    $('.quote title').html(quote_title)
-    $('.country.detail-value').html(country)
-    $('.hometown.detail-value').html(city)
+    $('.quote .author').html(quote_author)
+    $('.quote .title').html(quote_title)
+    $('.country .detail-value').html(country)
+    $('.hometown .detail-value').html(city)
     $('.member-profile').css 'background-image', 'url(' + image_url + ')'
+
+    if facebook
+      $('.facebook span').html('/' + facebook)
+      $('.facebook a').attr('href', 'http://facebook.com/' + facebook)
+    else
+      $('.facebook').hide()
+
+    if twitter
+      $('.twitter span').html('@' + twitter)
+      $('.twitter a').attr('href', 'http://twitter.com/' + twitter)
+    else
+      $('.twitter').hide()
+
+    if instagram
+      $('.instagram span').html('@' + instagram)
+      $('.instagram a').attr('href', 'http://instagram.com/' + instagram)
+    else
+      $('.instagram').hide()
+
 
   totalRiders = $('ul.team-nav li').size()
   windowTotalWidth = $(window).width()
@@ -166,6 +190,7 @@ init = () ->
     category = null
     url = '/team.json'
     name = $(this).find('h3').html()
+
     $.ajax
       type: "GET"
       url: url
@@ -180,7 +205,7 @@ init = () ->
               category += '-category'
               console.log category
               $(category).addClass('current-category')
-              updateCurrentProfile(member.name, member.description, member.quote_author, member.quote_title, member.country, member.city, member.main_image.url)
+              updateCurrentProfile(member.name, member.description, member.quote_author, member.quote_title, member.country, member.city, member.facebook, member.twitter, member.instragram, member.main_image.url)
               $('section#member').removeClass 'loading-member'
               riderDescriptionLength = $('.profile-text').text().length
               # It is unknown whether the newly selected profile description
@@ -198,3 +223,6 @@ init = () ->
                 $profile.addClass('video')
                 $('.member-profile').attr('data-vimeo-id', newVideoID)
                 salomon.vimeo()
+              if history.pushState
+                url = '/team/rider-?team_member=' + name.replace(' ', '-').toLowerCase()
+                history.pushState null, null, url
