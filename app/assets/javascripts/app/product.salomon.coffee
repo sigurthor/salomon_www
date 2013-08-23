@@ -85,7 +85,7 @@ updateImageset = (set) ->
 
     imgTpl = '
             <li class="'+cssClass+'">
-              <a href="#"><img src="'+ximg+'" data-fullsize="'+img+'" /></a>
+              <a href="#"><img src="'+img+'" data-fullsize="'+img+'" /></a>
               <a href="#">View ' + (i+1) + '</a>
             </li>'
     $thumbList.append imgTpl
