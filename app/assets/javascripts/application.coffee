@@ -5,7 +5,6 @@
 #= require 'app/searchbar.salomon'
 #= require 'app/product.salomon'
 #= require 'app/storelocator.salomon'
-#= require 'app/imagepreload.salomon'
 #= require 'app/vimeo.salomon'
 #= require 'app/videopage.salomon'
 #= require 'app/team.salomon'

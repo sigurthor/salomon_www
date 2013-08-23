@@ -22,8 +22,8 @@
             %i.ss-icon.ss-standard video
             %p=v.title
             .time-ago 4 days ago
-          .img-wrapper
-            %img{:src=>"#{v.image_url}"}
+          - img_loader do
+            %img{:src=>"#{v.image_url}", :onload=>'form5image.hasLoaded(this)'}
           .video-player
 
   .row

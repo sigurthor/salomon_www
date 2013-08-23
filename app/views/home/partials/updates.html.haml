@@ -9,8 +9,8 @@
           %i.ss-icon.ss-standard video
           %p= vimeo.title
           .time-ago= vimeo.relative_date
-        .img-wrapper
-          %img{:src=>"#{vimeo.image_url}"}
+        - img_loader do
+          %img{:src=>"#{vimeo.image_url}", :onload => 'form5image.hasLoaded(this)'}
         .video-player
       %a.button.vimeo{:href=>'http://vimeo.com/salomonsnowboards'} More videos on Vimeo
 
