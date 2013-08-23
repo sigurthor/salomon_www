@@ -1,6 +1,6 @@
 GIT
   remote: https://8822694c4779c052130037718ba51b09d8ae7839:x-oauth-basic@github.com/sigurthor/a2_backend.git
-  revision: fa955ff0e5cf8c14403c52f69af542cffc5f36f6
+  revision: 43c65064cbf25c56fa90d1192f94cb391c85ce47
   branch: master
   specs:
     a2 (0.0.6)
@@ -64,6 +64,7 @@ GEM
       multi_json (~> 1.0)
     acts-as-taggable-on (2.4.1)
       rails (>= 3, < 5)
+    addressable (2.3.5)
     akami (1.2.0)
       gyoku (>= 0.4.0)
       nokogiri (>= 1.4.0)
@@ -182,6 +183,10 @@ GEM
       actionpack (>= 3.0.0)
       activesupport (>= 3.0.0)
     kgio (2.8.0)
+    koala (1.7.0rc1)
+      addressable
+      faraday
+      multi_json
     localeapp (0.6.10)
       gli
       i18n
@@ -339,6 +344,7 @@ DEPENDENCIES
   globalize3
   instagram
   jquery-rails
+  koala (~> 1.7.0rc1)
   mysql2
   newrelic_rpm
   rails (= 3.2.14)
