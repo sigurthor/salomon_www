@@ -70,9 +70,11 @@ initProductSizePicker = ->
 
 updateImageset = (set) ->
   self = this
+  $mainImg = $('.product-main-image')
+  $mainImg.removeClass 'loaded'
 
   # First image goes into the main spot...
-  $('.product-main-image img').attr('src', set[0]);
+  $mainImg.find('img').attr('onload', 'form5image.hasLoaded(this)').attr('src', set[0]);
 
   $thumbList = $('.product-thumbnails ul')
   $thumbList.html('')
@@ -83,7 +85,7 @@ updateImageset = (set) ->
 
     imgTpl = '
             <li class="'+cssClass+'">
-              <a href="#"><img src="'+img+'" data-fullsize="'+img+'" /></a>
+              <a href="#"><img src="'+ximg+'" data-fullsize="'+img+'" /></a>
               <a href="#">View ' + (i+1) + '</a>
             </li>'
     $thumbList.append imgTpl
