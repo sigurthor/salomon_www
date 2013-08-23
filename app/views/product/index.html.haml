@@ -37,14 +37,6 @@
             - filter.product_features.each do |feature|
               %li(data-filter="filter-#{feature.id}" data-dimension="feature-#{filter.id}")
                 %a.button{set_text_length_class(feature.name, 10)}=feature.name
-      .group
-        %h4 Sort by
-        %ul
-          %li.sort.active(data-sort="data-name" data-order="desc" )
-            %a.button{:href=>'#'} A-Z
-          %li.sort(data-sort="data-price" data-order="desc" )
-            %a.button{:href=>'#'} Price
-
   %section#main
     .row
       #product-list
