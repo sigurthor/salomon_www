@@ -221,7 +221,7 @@ init = () ->
               $profile.css 'cursor', 'auto'
               if newVideoID != ''
                 $profile.addClass('video')
-                $('.member-profile').attr('data-vimeo-id', newVideoID)
+                $('.member-profile').data('vimeo-id', newVideoID)
                 salomon.vimeo()
               if history.pushState
                 url = '/team/rider-?team_member=' + name.replace(' ', '-').toLowerCase()
