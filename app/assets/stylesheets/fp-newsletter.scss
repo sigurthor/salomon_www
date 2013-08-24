@@ -4,9 +4,9 @@ section#newsletter {
 
   h3 {
     @include font-heading();
-    font-size: 72px;
+    font-size: 64px;
     color: #fff;
-    line-height: 72px;
+    line-height: 64px;
     margin-bottom: 20px;
   }
   p {
@@ -15,6 +15,9 @@ section#newsletter {
     line-height: 26px;
     color: #fff;
     margin-bottom: 40px;
+  }
+  form {
+    margin-top: 4em;
   }
   ul {
     font-family: $font-boldcnd20obl;
@@ -71,7 +74,7 @@ section#newsletter {
     float: left;
     display: inline-block;
     &:nth-child(2) {
-      margin-left: 24px;
+      margin-left: 20px;
     }
   }
 
