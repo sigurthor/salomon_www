@@ -1,5 +1,9 @@
 - content_for(:bodyclass) do
   team
+
+- content_for(:navclass) do
+  sticky
+
 %section#the-pros
   .row
     - @team_categories.each do |c|
