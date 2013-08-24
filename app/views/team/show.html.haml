@@ -47,24 +47,23 @@
     .member-details
       .row
         .large-4.columns
-          .large-6.columns
-            %h2 Details
-            .social-details
-              - unless member_detail_is_empty(@team_member.facebook)
-                .facebook
-                  %a{:href => "http://facebook.com/#{@team_member.facebook}", :target => '_new'}
-                    %i{:class => 'ss-icon ss-social'} facebook
-                    %span /#{@team_member.facebook}
-              - unless member_detail_is_empty(@team_member.twitter)
-                .twitter
-                  %a{:href => "http://twitter.com/#{@team_member.twitter}", :target => '_new'}
-                    %i{:class => 'ss-icon ss-social'} twitter
-                    %span @#{@team_member.twitter}
-              - unless member_detail_is_empty(@team_member.instragram)
-                .twitter
-                  %a{:href => "http://instagram.com/#{@team_member.instragram}", :target => '_new'}
-                    %i{:class => 'ss-icon ss-social'} instagram
-                    %span @#{@team_member.instragram}
+          %h2 Details
+          .social-details
+            - unless member_detail_is_empty(@team_member.facebook)
+              .facebook
+                %a{:href => "http://facebook.com/#{@team_member.facebook}", :target => '_new'}
+                  %i{:class => 'ss-icon ss-social'} facebook
+                  %span /#{@team_member.facebook}
+            - unless member_detail_is_empty(@team_member.twitter)
+              .twitter
+                %a{:href => "http://twitter.com/#{@team_member.twitter}", :target => '_new'}
+                  %i{:class => 'ss-icon ss-social'} twitter
+                  %span @#{@team_member.twitter}
+            - unless member_detail_is_empty(@team_member.instragram)
+              .twitter
+                %a{:href => "http://instagram.com/#{@team_member.instragram}", :target => '_new'}
+                  %i{:class => 'ss-icon ss-social'} instagram
+                  %span @#{@team_member.instragram}
         .large-8.columns
           =@team_member.city
           %ul.member-info-list
@@ -72,10 +71,10 @@
               %li.country
                 %span Country
                 %span.detail-value= @team_member.country
-            / - unless member_detail_is_empty(@team_member.city)
-            /   %li
-            /     %span Hometown
-            /     %span= @team_member.city
+
+            %li.city
+              %span Home Mountain
+              %span.detail-value= @team_member.city
 
 /
   %section#member-gallery
@@ -94,21 +93,15 @@
       .large-2.columns
         %img{:src => 'http://placekitten.com/g/180/180'}
 
-  %section#gear-used
-    .row
-      %h2 Gear Used
-      .large-3.columns.large-offset-1
+%section#gear-used
+  .row
+    %h2 Gear Used
+    - @team_member.products.each do |product|
+      .large-3.columns
         .gear-item
-          = image_tag('fixme-gear-used-board.png')
-          %h3 Drift Rocker
-          .price $89.95
-      .large-4.columns
-        .gear-item
-          = image_tag('fixme-gear-used-robot-boot.png')
-          %h3 Drift Rocker
-          .price $89.95
-      .large-4.columns.end
-        .gear-item
-          = image_tag('fixme-gear-used-robot-boot.png')
-          %h3 Drift Rocker
-          .price $89.95
+          - if product.is_snowboard?
+            = link_to prepend_snowboard_crop(cl_image_tag(product.master_image, :width=>'200', :height => '380', :crop => 'fit', :onload => 'form5image.hasLoaded(this)')), product_show_path(:category => product.categories[0], :product => product.slug)
+          - else
+            = link_to cl_image_tag(product.master_image, :width=>'200', :height => '380', :crop => 'fit', :onload => 'form5image.hasLoaded(this)'), product_show_path(:category => product.categories[0], :product => product.slug)
+          %h3=link_to product.name, product_show_path(:category => product.categories[0], :product => product.slug)
+          .price=t :display_currency, price: product.price
