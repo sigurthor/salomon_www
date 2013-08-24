@@ -21,7 +21,7 @@ salomon.videopage = () ->
                               <div class="time-ago">'+video.realative_date+' ago</div>
                              </div>
                           <div class="img-wrapper">
-                            <img src="'+video.image_url+'">
+                            <img src="'+video.image_url+'" onload="form5image.hasLoaded(this)">
                           </div>
                           <div class="video-player"></div>
                         </div>
