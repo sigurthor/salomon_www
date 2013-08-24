@@ -17,8 +17,7 @@
 
   // Exclude navigation section tag
   section:not(:first-of-type) {
-    padding: 70px 0;
-
+    padding: 40px 0;
     & > .row > h2 {
       @include font-heading();
       font-size: 62px;
