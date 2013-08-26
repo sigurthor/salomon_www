@@ -68,6 +68,7 @@
         text-align: center;
       }
       span {
+        & + span { margin-left: 5px; }
         font-family: $font-boldcnd20;
         font-size: 14px;
         color: #fff;

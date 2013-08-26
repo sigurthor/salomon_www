@@ -8,8 +8,10 @@
   .loading-category
   .category-switches
     %h2
-      %span#pros-category Pros
-      %span#ams-category Ams
+      %span#pros-category{is_current_category('Pros')}
+        Pros
+      %span#ams-category{is_current_category('AMS')}
+        Ams
   .navigation-buttons
     .click-buttons
       %a.left-arrow{:href => '#'}

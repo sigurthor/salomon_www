@@ -16,4 +16,12 @@ module TeamHelper
     team_member_detail.blank?
   end
 
+  def is_current_category(category_name)
+    if @team_member.category.name == category_name
+      {:class => 'current-category'}
+    else
+      {:class => ''}
+    end
+  end
+
 end
