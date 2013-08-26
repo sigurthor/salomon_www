@@ -317,6 +317,21 @@
       color: #9B9B9B;
       line-height: 30px;
 
+      div {
+        a { display: inline-block !important; }
+        &:hover {
+          a {
+            color: $color-lightblue;
+            overflow: hidden;
+          }
+
+          i {
+            color: #fff;
+            background-color: $color-lightblue;
+          }
+        }
+      }
+
       a {
         color: #9B9B9B;
       }
