@@ -19,8 +19,7 @@
             - gear_categories.each do |c|
               %li=link_to c.name,products_url(:category => c.slug)
         %li= link_to t('nav.team'), team_path
-        %li
-          %a= link_to t('nav.videos'), video_path
+        %li= link_to t('nav.videos'), video_path
         %li
           %a{:href => "http://ssnowdev.tumblr.com/"}
             =t('nav.blog')
@@ -33,16 +32,16 @@
         //-%li.basket
         //-  %a{:href => '#'} My Account <i class="ss-icon ss-standard">cart</i> 0
         %li.social.has-dropdown
-          %a.ss-icon.ss-social{:href=>'https://www.facebook.com/SalomonSnowboardFans', :target=>'_new'} &#xF610;
+          %a.ss-icon.ss-social{:href=>'https://www.facebook.com/SalomonSnowboardFans', :target=>'_blank'} &#xF610;
           .dropdown.facebook
             .dropdown-inner
               .fb-like-box{"data-header" => "true", "data-href" => "https://www.facebook.com/SalomonSnowboardFans", "data-show-border" => "true", "data-show-faces" => "false", "data-stream" => "false", "data-width" => "292"}
 
         %li.social
-          %a.ss-icon.ss-social{:href=>'http://instagram.com/salomonsnowboards', :target=>'_new'} &#xF641;
+          %a.ss-icon.ss-social{:href=>'http://instagram.com/salomonsnowboards', :target=>'_blank'} &#xF641;
 
         %li.social.has-dropdown
-          %a.ss-icon.ss-social{:href=>'https://twitter.com/Salomonsnow', :target=>'_new'} &#xF611;
+          %a.ss-icon.ss-social{:href=>'https://twitter.com/Salomonsnow', :target=>'_blank'} &#xF611;
           .dropdown.twitter
             .dropdown-inner
               %a.twitter-follow-button{"data-show-count" => "false", "data-size" => "large", :href => "https://twitter.com/Salomonsnow"} Follow @Salomonsnow
@@ -50,7 +49,7 @@
                 !function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');
 
         %li.social.has-dropdown
-          %a.ss-icon.ss-social{:href=>'http://pinterest.com/salomonsnow/', :target=>'_new'} &#xF650;
+          %a.ss-icon.ss-social{:href=>'http://pinterest.com/salomonsnow/', :target=>'_blank'} &#xF650;
           .dropdown.pinterest
             .dropdown-inner
               %a{"data-pin-do" => "buttonFollow", :href => "http://pinterest.com/salomonsnow/"} Salomon Snowboards
