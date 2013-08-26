@@ -12,7 +12,7 @@
         - img_loader do
           %img{:src=>"#{vimeo.image_url}", :onload => 'form5image.hasLoaded(this)'}
         .video-player
-      %a.button.vimeo{:href=>'http://vimeo.com/salomonsnowboards', :target=>'_new'} More videos on Vimeo
+      %a.button.vimeo{:href=>'http://vimeo.com/salomonsnowboards', :target=>'_blank'} More videos on Vimeo
 
     // Facebook column
     .large-3.columns
@@ -30,7 +30,7 @@
           .time-ago 4 days ago
         %img{:src=>'http://placekitten.com/100/100'}
         %p It’s all about just following your heart and simply doing what you love. Don’t listen to anyone who…
-      %a.button.facebook{:href=>'https://www.facebook.com/SalomonSnowboardFans', :target=>'_new'} More on Facebook
+      %a.button.facebook{:href=>'https://www.facebook.com/SalomonSnowboardFans', :target=>'_blank'} More on Facebook
 
     // Instagram column
     .large-3.columns
@@ -38,6 +38,6 @@
         .update-meta
           %i.ss-icon.ss-social instagram
           .time-ago= instagram.relative_date
-        = link_to image_tag(instagram.image_url, :width=>240, :height=>240), instagram.url, target: '_new'
+        = link_to image_tag(instagram.image_url, :width=>240, :height=>240), instagram.url, target: '_blank'
         %p= truncate(instagram.title, length: 100, separator: ' ')
-      %a.button.instagram{:href=>'http://instagram.com/salomonsnowboards', :target=>'_new'} More on Instagram
+      %a.button.instagram{:href=>'http://instagram.com/salomonsnowboards', :target=>'_blank'} More on Instagram
