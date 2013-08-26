@@ -32,8 +32,12 @@ module TeamHelper
     end
   end
 
-  def get_profile_video_bg
-    {:style => 'background-image: url("/assets/images/fixme-missing-profile-video.jpg");'}
+  def get_profile_video_bg(video_bg)
+    unless video_bg.blank?
+      {:style => 'background-image: url("' + cl_image_path(@team_member.main_image, :crop => "fill") + '");'}
+    else
+      {:style => 'background-image: url("/assets/fixme-missing-profile-video.jpg");'}
+    end
   end
 
 end

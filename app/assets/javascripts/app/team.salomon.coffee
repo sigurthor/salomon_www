@@ -4,8 +4,8 @@ salomon.team = ->
 
 init = () ->
   updateCurrentProfile = (name, description, quote_author, quote_title, country, city, facebook, twitter, instagram, products, image_url) ->
-    console.log products
-    $('#gear-used .large-3').remove()
+    $('#gear-used .large-3').each ->
+      $(this).remove()
     for product in products
       $('#gear-used .row').append('
         <div class="large-3 columns">
@@ -28,7 +28,11 @@ init = () ->
     $('.quote .title').html(quote_title)
     $('.country .detail-value').html(country)
     $('.city .detail-value').html(city)
-    $('.member-profile').css 'background-image', 'url(' + image_url + ')'
+
+    if image_url
+      $('.member-profile').css 'background-image', 'url(' + image_url + ')'
+    else
+      $('.member-profile').css 'background-image', 'url(' + '"/assets/fixme-missing-profile-video.jpg"' + ')'
 
     if facebook
       $('.member-details .facebook').show()
