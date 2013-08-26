@@ -24,4 +24,12 @@ module TeamHelper
     end
   end
 
+  def social_link_available(social_link)
+    unless social_link
+      {:style => 'display: none;'}
+    else
+      {:style => 'display: block;'}
+    end
+  end
+
 end
