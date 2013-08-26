@@ -1,6 +1,6 @@
 GIT
   remote: https://8822694c4779c052130037718ba51b09d8ae7839:x-oauth-basic@github.com/sigurthor/a2_backend.git
-  revision: 449ed614cf3ea7ce98f996d70f925fb5af3076ac
+  revision: d7906e6c4325a6d8ce4da4e90eb6fc353e4d75e1
   branch: master
   specs:
     a2 (0.0.6)
@@ -77,7 +77,7 @@ GEM
       nokogiri (< 1.6.0)
       uuidtools (~> 2.1)
     aws_cf_signer (0.1.2)
-    bcrypt-ruby (3.1.1)
+    bcrypt-ruby (3.1.2)
     bootstrap-sass (2.3.2.1)
       sass (~> 3.2)
     builder (3.0.4)
