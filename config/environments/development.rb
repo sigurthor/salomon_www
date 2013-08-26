@@ -2,7 +2,13 @@ SalomonWww::Application.configure do
   puts "development"
   # Settings specified here will take precedence over those in config/application.rb
 
+  #faceboook
+  config.facebook_callback_url = 'http://localhost:4224/a2/auth/facebook/callback/'
+  config.facebook_app_id = "505158699573060"
+  config.facebook_app_secret = "d855b3d938519bb8c5fc0f62594b5120"
+
   #instagram
+  config.instagram_callback_url = 'http://localhost:4224/a2/auth/instagram/callback/'
   config.instagram_client_id = "121032100e7642858df743408fbee60a"
   config.instagram_client_secret = "7e193a086ff4460aaff364dcd4ba9d16"
 

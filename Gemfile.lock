@@ -64,6 +64,7 @@ GEM
       multi_json (~> 1.0)
     acts-as-taggable-on (2.4.1)
       rails (>= 3, < 5)
+    addressable (2.3.5)
     akami (1.2.0)
       gyoku (>= 0.4.0)
       nokogiri (>= 1.4.0)
@@ -182,6 +183,10 @@ GEM
       actionpack (>= 3.0.0)
       activesupport (>= 3.0.0)
     kgio (2.8.0)
+    koala (1.7.0rc1)
+      addressable
+      faraday
+      multi_json
     localeapp (0.6.10)
       gli
       i18n
@@ -339,6 +344,7 @@ DEPENDENCIES
   globalize3
   instagram
   jquery-rails
+  koala (~> 1.7.0rc1)
   mysql2
   newrelic_rpm
   rails (= 3.2.14)

@@ -11,16 +11,17 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130823102109) do
+ActiveRecord::Schema.define(:version => 20130823152155) do
 
   create_table "a2_access_tokens", :force => true do |t|
     t.string   "provider"
     t.string   "token"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+    t.string   "rails_env"
   end
 
-  add_index "a2_access_tokens", ["provider"], :name => "index_a2_access_tokens_on_provider", :unique => true
+  add_index "a2_access_tokens", ["provider", "rails_env"], :name => "index_a2_access_tokens_on_provider_and_rails_env", :unique => true
 
   create_table "a2_brands", :id => false, :force => true do |t|
     t.string   "id"

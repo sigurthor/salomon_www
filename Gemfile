@@ -9,6 +9,7 @@ gem 'globalize3'
 gem 'route_translator'
 gem 'route_downcaser'
 gem 'instagram'
+gem 'koala', '~> 1.7.0rc1'
 
 
 group :assets, :frontend_development do
