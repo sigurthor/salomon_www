@@ -4,6 +4,7 @@ ul {
   list-style: none;
 }
 
+
 .product-details {
   h1 {
     @include font-heading();
@@ -116,6 +117,23 @@ ul {
       text-align: right;
     }
   }
+
+  section#product-list {
+    h2 {
+      @include font-heading();
+      font-size: 72px;
+      text-align: center;
+    }
+
+    .row {
+      text-align: center;
+    }
+    .columns {
+      display: inline-block;
+      float: none;
+    }
+  }
+
 }
 
 .product-meta {
