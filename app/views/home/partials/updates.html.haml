@@ -16,21 +16,15 @@
 
     // Facebook column
     .large-3.columns
-      .update-item.facebook
-        .update-meta
-          %i.ss-icon.ss-social facebook
-          .time-ago 4 days ago
+      - facebook.each do |fb|
+        .update-item.facebook
+          .update-meta
+            %i.ss-icon.ss-social facebook
+            .time-ago= fb.relative_date
 
-        %img{:src=>'http://placekitten.com/100/100'}
-        %p It’s all about just following your heart and simply doing what you love. Don’t listen to anyone who…
+          %img{:src=>'http://placekitten.com/100/100'}
+          %p= fb.title
 
-      .update-item.facebook
-        .update-meta
-          %i.ss-icon.ss-social facebook
-          .time-ago 4 days ago
-        %img{:src=>'http://placekitten.com/100/100'}
-        %p It’s all about just following your heart and simply doing what you love. Don’t listen to anyone who…
-      %a.button.facebook{:href=>'https://www.facebook.com/SalomonSnowboardFans', :target=>'_blank'} More on Facebook
 
     // Instagram column
     .large-3.columns
