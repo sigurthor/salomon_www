@@ -35,7 +35,7 @@
 
 %section#member
   .row
-    .member-profile.vimeo{:style => 'background-image: url("' + cl_image_path(@team_member.main_image, :crop => "fill") + '");'}(data-vimeo-id="#{@profile_video}" data-vimeo-width="1200" data-vimeo-height="663")
+    .member-profile.vimeo{get_profile_video_bg(@team_member.main_image)}(data-vimeo-id="#{@profile_video}" data-vimeo-width="1200" data-vimeo-height="663")
       .video-player
       .profile-text
         %h2= @team_member.name

@@ -4,14 +4,14 @@ salomon.team = ->
 
 init = () ->
   updateCurrentProfile = (name, description, quote_author, quote_title, country, city, facebook, twitter, instagram, products, image_url) ->
-    console.log products
-    $('#gear-used .large-3').remove()
+    $('#gear-used .large-3').each ->
+      $(this).remove()
     for product in products
       $('#gear-used .row').append('
         <div class="large-3 columns">
           <div class="gear-item">
             <a href="/gear/snowboards/' + product.slug + '">
-              <img src="http://res.cloudinary.com/seh/image/upload/c_crop,g_north_west,w_954,h_5000/c_fit,h_380,w_200/v1377028771/SB351401_153.jpg>
+              <img src="http://res.cloudinary.com/seh/image/upload/c_crop,g_north_west,w_954,h_5000/c_fit,h_380,w_200/v1377028771/SB351401_153.jpg">
             </a>
             <a href="/gear/snowboards/' + product.slug + '>
               <h3>' + product.name + '</h3>
@@ -28,7 +28,11 @@ init = () ->
     $('.quote .title').html(quote_title)
     $('.country .detail-value').html(country)
     $('.city .detail-value').html(city)
-    $('.member-profile').css 'background-image', 'url(' + image_url + ')'
+
+    if image_url
+      $('.member-profile').css 'background-image', 'url(' + image_url + ')'
+    else
+      $('.member-profile').css 'background-image', 'url(' + '"/assets/fixme-missing-profile-video.jpg"' + ')'
 
     if facebook
       $('.member-details .facebook').show()
