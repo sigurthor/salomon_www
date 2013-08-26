@@ -7,6 +7,7 @@ SalomonWww::Application.routes.draw do
   end
 
 
+
   #scope :path => "(:locale)", :shallow_path => "(:locale)", :locale => /en-US|de-CH|de-DE|en-UK|fr-CH|fr-FR|ru-RU/ do
   localized do
     match '/' => 'home#index', :as => 'home'
@@ -25,7 +26,7 @@ SalomonWww::Application.routes.draw do
 
 
 
-  mount A2::Engine => "/a2"
+  #mount A2::Engine => ""
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
