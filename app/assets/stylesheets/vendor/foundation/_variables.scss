@@ -316,8 +316,10 @@ $form-label-font-color: $color-darkblue;
 // $form-label-bottom-margin: emCalc(3);
 
 $input-font-family: $font-boldcnd20;
-$input-font-color: #003240;
-$input-font-size: emCalc(20);
+$input-font-color: #9B9B9B;
+$input-font-size: emCalc(14);
+$input-text-transform: uppercase;
+$input-text-rendering: optimizeLegibility;
 $input-bg-color: #E9E9EA;
 // $input-focus-bg-color: darken(#fff, 2%);
 $input-border-color: #D4D4D4;
