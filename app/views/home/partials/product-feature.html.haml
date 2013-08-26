@@ -4,8 +4,9 @@
     .large-6.columns.large
       = image_tag('fixme-new-product.jpg')
     .large-6.columns.large
-      %h2 Lorem Ipsum
-      %h3 Boards
+      =image_tag 'layout/New.png', :class=>'new-logo'
+      %h2 QUIVER KILLER
+      %h3 ASSASSIN
       %p
         A cross between our most progressive powder and freestyle board constructions, featuring ABC Green Roll, EQ Rad, Rock Out Camber, and Popster Booster, in one ride-anything package. The Assassin is built with an arsenal of technology for destruction of anything in its path. One board to rule them all.
-      =link_to "Shop Boards",products_url(:category => 'boards'), :class => 'button'
+      =link_to "More information", '/gear/snowboards/assassin' , :class => 'button'

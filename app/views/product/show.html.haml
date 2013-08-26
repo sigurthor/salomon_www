@@ -35,7 +35,7 @@
               %a{:href=>'#'} View #{i+1}
     .large-6.columns
       %h1= @product.name
-      %span= t("gender.#{@product.gender}", :count => 2) + " " + @product.categories[0].name_singular
+      %span!= t("gender.#{@product.gender}", :count => 2) + " " + @product.categories[0].name_singular + " &mdash; " + @product.tag_line
       %h2=  t :display_currency, price: @product.price
       %form.custom
         - if @product.is_snowboard?
@@ -56,11 +56,18 @@
 
       .product-model
         %span= "MODEL #{@product.article_code}"
-        %span
-          12 reviews
-        %span.ss-icon.ss-standard
-          %i.blue star star star
-          star
+
+        .social
+          %span.st_facebook{:displaytext => ""}
+          %span.st_twitter{:displaytext => ""}
+          %span.st_pinterest{:displaytext => ""}
+          %span.st_email{:displaytext => ""}
+
+      :javascript
+        var switchTo5x=true;
+      %script{:src => "http://w.sharethis.com/button/buttons.js", :type => "text/javascript"}
+      :javascript
+        stLight.options({publisher: "189e17d4-21f7-4409-bfe6-d6939f7c6693", doNotHash: true, doNotCopy: true, hashAddressBar: false});
 
       %p.product-description=@product.description
 

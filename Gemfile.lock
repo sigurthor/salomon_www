@@ -1,6 +1,6 @@
 GIT
   remote: https://8822694c4779c052130037718ba51b09d8ae7839:x-oauth-basic@github.com/sigurthor/a2_backend.git
-  revision: 43c65064cbf25c56fa90d1192f94cb391c85ce47
+  revision: 5dec8ca95f8fce5766269649467b489b17306255
   branch: master
   specs:
     a2 (0.0.6)
@@ -298,7 +298,7 @@ GEM
       wasabi (~> 3.2.0)
     session (3.1.0)
       fattr
-    spreadsheet (0.8.8)
+    spreadsheet (0.8.9)
       ruby-ole (>= 1.0)
     sprockets (2.2.2)
       hike (~> 1.2)

@@ -8,6 +8,7 @@
 #= require 'app/vimeo.salomon'
 #= require 'app/videopage.salomon'
 #= require 'app/team.salomon'
+#= require 'app/newsletter.salomon'
 
 $(document).ready ->
   $(document).foundation 'topbar'
@@ -24,3 +25,4 @@ $(document).ready ->
   salomon.videopage()
   salomon.vimeo()
   salomon.team()
+  salomon.newsletter()

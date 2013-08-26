@@ -3,14 +3,38 @@ salomon.team = ->
     init()
 
 init = () ->
-  updateCurrentProfile = (name, description, quote_author, quote_title, country, city, image_url) ->
+  updateCurrentProfile = (name, description, quote_author, quote_title, country, city, facebook, twitter, instagram, image_url) ->
+
+    $('.member-details .facebook').show()
+    $('.member-details .twitter').show()
+    $('.member-details .instagram').show()
+
     $('.member-profile h2').html(name)
     $('.member-profile .profile-text p').html(description)
-    $('.quote author').html(quote_author)
-    $('.quote title').html(quote_title)
-    $('.country.detail-value').html(country)
-    $('.hometown.detail-value').html(city)
+    $('.quote .author').html(quote_author)
+    $('.quote .title').html(quote_title)
+    $('.country .detail-value').html(country)
+    $('.city .detail-value').html(city)
     $('.member-profile').css 'background-image', 'url(' + image_url + ')'
+
+    if facebook
+      $('.member-details .facebook span').html('/' + facebook)
+      $('.member-details .facebook a').attr('href', 'http://facebook.com/' + facebook)
+    else
+      $('.member-details .facebook').hide()
+
+    if twitter
+      $('.member-details .twitter span').html('@' + twitter)
+      $('.member-details .twitter a').attr('href', 'http://twitter.com/' + twitter)
+    else
+      $('.member-details .twitter').hide()
+
+    if instagram
+      $('.member-details .instagram span').html('@' + instagram)
+      $('.member-details .instagram a').attr('href', 'http://instagram.com/' + instagram)
+    else
+      $('.member-details .instagram').hide()
+
 
   totalRiders = $('ul.team-nav li').size()
   windowTotalWidth = $(window).width()
@@ -32,22 +56,18 @@ init = () ->
     viewportWidth = itemsTotalWidth
 
   # Click nav (arrows)
-  $('.navigation-buttons a').click ->
+  # What is the purpose of this code?
+  $('.navigation-buttons a').on 'click', ->
     if $(this).hasClass('left-arrow')
       $('.team-nav li:nth-child(' + (currentItemIndex) + ')').click()
     else
       $('.team-nav li:nth-child(' + (currentItemIndex + 2) + ')').click()
 
+
   # Hover nav
   $('.hover-buttons > div').mouseenter ->
-    console.log 'hoverin'
-    console.log itemsTotalWidth
-    console.log windowTotalWidth
     if itemsTotalWidth < $(window).width()
-      console.log 'supepra'
       return false
-    console.log $('.team-nav li:first-child').offset().left
-    console.log $('.team-nav li:last-child').offset().left
 
     viewportOffset = $('.member-nav-wrapper').css 'left'
     viewportOffset = parseInt(viewportOffset.replace('px', ''))
@@ -55,10 +75,8 @@ init = () ->
 
     if $(this).hasClass('hover-nav-left')
       hoverNavDirection = Math.abs(parseInt($('.member-nav-wrapper').css('margin-left'))) + 20
-      console.log 'left'
     else
       hoverNavDirection = $(window).width() - (itemsTotalWidth / 2) - 20
-      console.log 'right' + hoverNavDirection
 
     $('.member-nav-wrapper').css({
       left             : hoverNavDirection,
@@ -104,7 +122,7 @@ init = () ->
     $('.member-nav-wrapper').css 'width', itemsTotalWidth
     $('.member-nav-wrapper').css 'margin-left', (-Math.abs(itemsTotalWidth / 2) + 'px').toString()
 
-  $('.category-switches span').click ->
+  $('.category-switches span').on 'click', ->
     $('section#member-nav').addClass 'loading-category'
     riderList.empty()
     category = $(this).attr('id').replace('-category', '')
@@ -126,24 +144,24 @@ init = () ->
         $('section#member-nav').removeClass 'loading-category'
 
 
+  #
+  # Make currently selected profile active. Couldn't this be done in the server template?
+  #
   slug = $('.member-profile h2').html().toUpperCase().trim()
-  jQuery(document).ready ($) ->
-    $('ul.team-nav li:contains("' + slug + '")').click()
-  console.log slug
-  # Rider list
-  # .on rather than .click for targetting dynamic elements,
-  # i.e. after category change by user.
-  $('ul.team-nav').on "click", "li", ->
-    if lastItem != null
-      lastItem.addClass 'has-overlay'
-      lastItem.removeClass 'currently-selected-team-member'
-    $(this).removeClass 'has-overlay'
-    $(this).addClass 'currently-selected-team-member'
+  $(document).ready ->
+    requestedMember = $('ul.team-nav li:contains("' + slug + '")').addClass('currently-selected-member').removeClass('has-overlay').get(0)
+    updatePosition(requestedMember)
 
-    $('section#member').addClass 'loading-member'
+  #
+  # Updates the position of a selected team member and toggles active state
+  #
+  updatePosition = (elm) ->
+    $elm = $(elm)
 
-    currentItemIndex = $(this).index()
-    lastItem = $(this)
+    $elm.removeClass('has-overlay').siblings().addClass('has-overlay')
+    $elm.addClass('currently-selected-team-member').siblings().removeClass('currently-selected-team-member')
+    currentItemIndex = $elm.index()
+    lastItem = $elm
 
     offset = (itemsTotalWidth - windowTotalWidth) / 2
 
@@ -151,9 +169,6 @@ init = () ->
     lastLocation = newLocation
 
     if currentItemIndex < Math.floor(totalRiders / 2)
-      console.log 'limit: ' + (Math.abs(parseInt($('.member-nav-wrapper').css('margin-left'))) + 20)
-      console.log 'new loc: ' + newLocation
-      console.log (currentItemIndex)
       newLocation = Math.min((Math.abs(parseInt($('.member-nav-wrapper').css('margin-left'))) + 20), newLocation)
     else
       newLocation = Math.max(($(window).width() - (itemsTotalWidth / 2) - 20), newLocation)
@@ -162,10 +177,20 @@ init = () ->
       $(".member-nav-wrapper").css 'left', newLocation
     lastItemIndex = currentItemIndex
 
+
+  # Rider list
+  # .on rather than .click for targetting dynamic elements,
+  # i.e. after category change by user.
+  $('ul.team-nav').on "click", "li", ->
+    $('section#member').addClass 'loading-member'
+
+    updatePosition(this)
+
     # Change current profile info
     category = null
     url = '/team.json'
     name = $(this).find('h3').html()
+
     $.ajax
       type: "GET"
       url: url
@@ -178,9 +203,8 @@ init = () ->
             if member.name.trim() == name.trim()
               category = '#' + team.name.toLowerCase().trim()
               category += '-category'
-              console.log category
               $(category).addClass('current-category')
-              updateCurrentProfile(member.name, member.description, member.quote_author, member.quote_title, member.country, member.city, member.main_image.url)
+              updateCurrentProfile(member.name, member.description, member.quote_author, member.quote_title, member.country, member.city, member.facebook, member.twitter, member.instragram, member.main_image.url)
               $('section#member').removeClass 'loading-member'
               riderDescriptionLength = $('.profile-text').text().length
               # It is unknown whether the newly selected profile description
@@ -196,5 +220,11 @@ init = () ->
               $profile.css 'cursor', 'auto'
               if newVideoID != ''
                 $profile.addClass('video')
-                $('.member-profile').attr('data-vimeo-id', newVideoID)
+                $('.member-profile').data('vimeo-id', newVideoID)
                 salomon.vimeo()
+              if history.pushState
+                url = '/team/rider-?team_member=' + name.replace(' ', '-').toLowerCase()
+                history.pushState null, null, url
+
+              # Until we get this in the json answer, remove it
+              $('#gear-used').remove()

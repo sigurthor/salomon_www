@@ -102,11 +102,19 @@ ul {
     font-size: 12px;
     font-family: $font-boldcnd20;
 
-    span { margin-right: 15px; }
     i { font-style: normal; }
     i.blue { color: $color-lightblue;}
 
     .ss-icon { vertical-align: middle; }
+
+
+    .social {
+      position: relative;
+      top: -2px;
+      float: right;
+      width: 140px;
+      text-align: right;
+    }
   }
 }
 

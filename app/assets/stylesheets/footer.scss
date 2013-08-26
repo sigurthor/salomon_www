@@ -1,6 +1,23 @@
 footer {
+  margin-top: 60px;
 
-  margin-top: 80px;
+  .footer-slogan {
+    margin-bottom: 60px;
+    border-top: 2px $color-darkblue solid;
+
+    img {
+      position:absolute;
+      left: 0;
+      right: 0;
+      top: -30px;
+      margin: 0 auto;
+      width: 221px;
+      height: 60px;
+      background-color: white;
+      padding: 0 20px;
+    }
+
+  }
 
   .footer-logo {
     width: 136px;
