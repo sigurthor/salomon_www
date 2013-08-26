@@ -5,10 +5,6 @@ salomon.team = ->
 init = () ->
   updateCurrentProfile = (name, description, quote_author, quote_title, country, city, facebook, twitter, instagram, image_url) ->
 
-    $('.member-details .facebook').show()
-    $('.member-details .twitter').show()
-    $('.member-details .instagram').show()
-
     $('.member-profile h2').html(name)
     $('.member-profile .profile-text p').html(description)
     $('.quote .author').html(quote_author)
@@ -18,18 +14,21 @@ init = () ->
     $('.member-profile').css 'background-image', 'url(' + image_url + ')'
 
     if facebook
+      $('.member-details .facebook').show()
       $('.member-details .facebook span').html('/' + facebook)
       $('.member-details .facebook a').attr('href', 'http://facebook.com/' + facebook)
     else
       $('.member-details .facebook').hide()
 
     if twitter
+      $('.member-details .twitter').show()
       $('.member-details .twitter span').html('@' + twitter)
       $('.member-details .twitter a').attr('href', 'http://twitter.com/' + twitter)
     else
       $('.member-details .twitter').hide()
 
     if instagram
+      $('.member-details .instagram').show()
       $('.member-details .instagram span').html('@' + instagram)
       $('.member-details .instagram a').attr('href', 'http://instagram.com/' + instagram)
     else
