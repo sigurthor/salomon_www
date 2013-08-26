@@ -1,3 +1,6 @@
+- content_for(:bodyclass) do
+  product
+
 - content_for(:navclass) do
   sticky
 
@@ -73,3 +76,5 @@
 
   - # Template Dependency: product/tech_panel
   = render :partial => 'tech_panel', :locals => { :product => @product }
+
+  = render :partial => 'related_gear', :locals => { :products => @product.products }

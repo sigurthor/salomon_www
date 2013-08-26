@@ -3,8 +3,25 @@ salomon.team = ->
     init()
 
 init = () ->
-  updateCurrentProfile = (name, description, quote_author, quote_title, country, city, facebook, twitter, instagram, image_url) ->
-
+  updateCurrentProfile = (name, description, quote_author, quote_title, country, city, facebook, twitter, instagram, products, image_url) ->
+    console.log products
+    $('#gear-used .large-3').remove()
+    for product in products
+      $('#gear-used .row').append('
+        <div class="large-3 columns">
+          <div class="gear-item">
+            <a href="/gear/snowboards/' + product.slug + '">
+              <img src="http://res.cloudinary.com/seh/image/upload/c_crop,g_north_west,w_954,h_5000/c_fit,h_380,w_200/v1377028771/SB351401_153.jpg>
+            </a>
+            <a href="/gear/snowboards/' + product.slug + '>
+              <h3>' + product.name + '</h3>
+            </a>
+            <div class="price">
+              $299
+            </div>
+          </div>
+        </div>
+      ')
     $('.member-profile h2').html(name)
     $('.member-profile .profile-text p').html(description)
     $('.quote .author').html(quote_author)
@@ -203,7 +220,7 @@ init = () ->
               category = '#' + team.name.toLowerCase().trim()
               category += '-category'
               $(category).addClass('current-category')
-              updateCurrentProfile(member.name, member.description, member.quote_author, member.quote_title, member.country, member.city, member.facebook, member.twitter, member.instragram, member.main_image.url)
+              updateCurrentProfile(member.name, member.description, member.quote_author, member.quote_title, member.country, member.city, member.facebook, member.twitter, member.instragram, member.products, member.main_image.url)
               $('section#member').removeClass 'loading-member'
               riderDescriptionLength = $('.profile-text').text().length
               # It is unknown whether the newly selected profile description
@@ -224,6 +241,3 @@ init = () ->
               if history.pushState
                 url = '/team/rider-?team_member=' + name.replace(' ', '-').toLowerCase()
                 history.pushState null, null, url
-
-              # Until we get this in the json answer, remove it
-              $('#gear-used').remove()

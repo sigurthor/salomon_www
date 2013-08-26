@@ -16,14 +16,15 @@
 
     // Facebook column
     .large-3.columns
-      - facebook.each do |fb|
-        .update-item.facebook
-          .update-meta
-            %i.ss-icon.ss-social facebook
-            .time-ago= fb.relative_date
+      - if facebook
+        - facebook.each do |fb|
+          .update-item.facebook
+            .update-meta
+              %i.ss-icon.ss-social facebook
+              .time-ago= fb.relative_date
 
-          %img{:src=>'http://placekitten.com/100/100'}
-          %p= fb.title
+            %img{:src=>'http://placekitten.com/100/100'}
+            %p= fb.title
 
 
     // Instagram column
