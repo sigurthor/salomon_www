@@ -7,6 +7,7 @@ class HomeController < ApplicationController
     @team_categories_info =  team_categories.map {|c| {name: c.name,count: c.team_members.count}}
     @pro_team_members = team_categories.map {|c| c.team_members if c.slug == 'pros'}.first  #todo hafa ekki slug í kóða
     @instagram = A2::InstagramFeed.find_by_account_username('salomonsnowboards')
+    @facebook = A2::FacebookFeed.where(:picture != nil).limit(2)
 
   end
 

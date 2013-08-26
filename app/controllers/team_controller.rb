@@ -9,7 +9,7 @@ class TeamController < BaseController
 
     respond_to do |format|
       format.html
-      format.json { render :json => @team_categories.to_json(:include => :team_members) }
+      format.json { render :json => @team_categories.to_json(:include => {:team_members => {:include => :products}}) }
     end
 
   end
