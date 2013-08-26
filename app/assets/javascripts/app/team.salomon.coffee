@@ -11,7 +11,7 @@ init = () ->
         <div class="large-3 columns">
           <div class="gear-item">
             <a href="/gear/snowboards/' + product.slug + '">
-              <img src="http://res.cloudinary.com/seh/image/upload/c_crop,g_north_west,w_954,h_5000/c_fit,h_380,w_200/v1377028771/SB351401_153.jpg>
+              <img src="http://res.cloudinary.com/seh/image/upload/c_crop,g_north_west,w_954,h_5000/c_fit,h_380,w_200/v1377028771/SB351401_153.jpg">
             </a>
             <a href="/gear/snowboards/' + product.slug + '>
               <h3>' + product.name + '</h3>
