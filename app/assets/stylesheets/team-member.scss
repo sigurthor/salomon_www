@@ -180,7 +180,7 @@
       position: absolute;
       top: 0;
       left: 0;
-      z-index: 9999999999;
+      z-index: 9999;
     }
 
     &:after {
@@ -316,6 +316,21 @@
       font-size: 18px;
       color: #9B9B9B;
       line-height: 30px;
+
+      div {
+        a { display: inline-block !important; }
+        &:hover {
+          a {
+            color: $color-lightblue;
+            overflow: hidden;
+          }
+
+          i {
+            color: #fff;
+            background-color: $color-lightblue;
+          }
+        }
+      }
 
       a {
         color: #9B9B9B;

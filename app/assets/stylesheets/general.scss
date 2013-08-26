@@ -123,3 +123,39 @@ input {
     padding: 40px 20px;
   }
 }
+
+.footer-email-subscription {
+  &:before {
+    content: '';
+    position: absolute;
+    right: 25px;
+    bottom: 10px;
+    width: 0px;
+    height: 0px;
+    border-style: solid;
+    border-width: 0 8px 9px 8px;
+    border-color: transparent transparent #e9e9ea transparent;
+    opacity: 0;
+    @include transition(all 0.25s ease-in-out);
+  }
+  &:after {
+    content: 'Please enter a valid email.';
+    position: absolute;
+    left: 10px;
+    bottom: -35px;
+    width: 280px;
+    height: 45px;
+    font-family: $font-light;
+    color: $color-darkblue;
+    text-align: center;
+    line-height: 45px;
+    background-color: #e9e9ea;
+    opacity: 0;
+    @include transition(all 0.25s ease-in-out);
+  }
+  &.input-error {
+    &:before, &:after {
+      opacity: 1;
+    }
+  }
+}
