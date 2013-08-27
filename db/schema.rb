@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130823152155) do
+ActiveRecord::Schema.define(:version => 20130827112705) do
 
   create_table "a2_access_tokens", :force => true do |t|
     t.string   "provider"
@@ -73,6 +73,17 @@ ActiveRecord::Schema.define(:version => 20130823152155) do
   end
 
   add_index "a2_colors", ["code", "brand"], :name => "brand_colors", :unique => true
+
+  create_table "a2_countries", :force => true do |t|
+    t.string   "name"
+    t.string   "iso_code"
+    t.string   "currency"
+    t.string   "store_url"
+    t.string   "locale"
+    t.integer  "region_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
 
   create_table "a2_delayed_jobs", :force => true do |t|
     t.integer  "priority",   :default => 0
@@ -184,6 +195,16 @@ ActiveRecord::Schema.define(:version => 20130823152155) do
   end
 
   add_index "a2_pages", ["pid"], :name => "index_a2_pages_on_pid", :unique => true
+
+  create_table "a2_prices", :force => true do |t|
+    t.decimal  "price",              :precision => 8, :scale => 2
+    t.string   "product_variant_id"
+    t.integer  "country_id"
+    t.datetime "created_at",                                       :null => false
+    t.datetime "updated_at",                                       :null => false
+  end
+
+  add_index "a2_prices", ["product_variant_id", "country_id"], :name => "product_price", :unique => true
 
   create_table "a2_product_color_variants", :force => true do |t|
     t.string   "sap"
@@ -361,6 +382,12 @@ ActiveRecord::Schema.define(:version => 20130823152155) do
   add_index "a2_products", ["article_code"], :name => "index_a2_products_on_article_code", :unique => true
   add_index "a2_products", ["model"], :name => "index_a2_products_on_model", :unique => true
   add_index "a2_products", ["slug"], :name => "index_a2_products_on_slug", :unique => true
+
+  create_table "a2_regions", :force => true do |t|
+    t.string   "name"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
 
   create_table "a2_related_products", :force => true do |t|
     t.integer  "product_id"
