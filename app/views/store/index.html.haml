@@ -41,6 +41,6 @@
             .retailer
               %p
                 %a{:href=>"#{store.url}"}
-                  =cl_image_tag store.img, :width => '160', :crop => 'fit'
+                  =cl_image_tag store.img, :width => '160', :crop => 'fit', :alt => store.name
               %p
                 %a{:href=>"#{store.url}"} Visit Website
