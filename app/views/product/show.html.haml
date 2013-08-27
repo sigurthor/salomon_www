@@ -34,7 +34,7 @@
           - @product.product_color_variants[0].product_images.each_with_index do |thumb, i|
             %li{:class => (i == 0?'active':'')}
               .overlay-wrapper
-                = link_to cl_image_tag(thumb.img, :width=>'80', :height=>'80', :alt => @product.name :crop =>'fit', :data=>{:fullsize=>cl_image_path(thumb.img, :width=>'580', :height=>'500', :alt => @product.name, :crop => 'fit')}), '#'
+                = link_to cl_image_tag(thumb.img, :width=>'80', :height=>'80', :crop =>'fit', :data=>{:fullsize=>cl_image_path(thumb.img, :width=>'580', :height=>'500', :alt => @product.name, :crop => 'fit')}), '#'
               %a{:href=>'#'} View #{i+1}
     .large-6.columns
       %h1= @product.name
