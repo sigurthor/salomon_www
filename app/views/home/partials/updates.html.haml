@@ -16,15 +16,16 @@
 
     // Facebook column
     .large-3.columns
-      - if facebook
-        - facebook.each do |fb|
-          .update-item.facebook
-            .update-meta
-              %i.ss-icon.ss-social facebook
-              .time-ago= fb.relative_date
-
-            %img{:src=>'http://placekitten.com/100/100', :alt => fb.title}
-            %p= fb.title
+      - facebook.each do |fb|
+        .update-item.facebook
+          .update-meta
+            %i.ss-icon.ss-social facebook
+            .time-ago= fb.relative_date
+          %a{:href=>fb.url, :target=>'_blank'}
+            %img{:src=>fb.image_url :alt => fb.title}
+          %p
+            %a{:href=>fb.url, :target=>'_blank'}=truncate(fb.title, length: 65)
+      %a.button.facebook{:href=>'http://facebook.com/SalomonSnowboardFans', :target=>'_blank'} More updates on Facebook
 
 
     // Instagram column

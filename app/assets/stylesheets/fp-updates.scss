@@ -62,12 +62,16 @@ section#updates {
       line-height: 16px;
     }
 
+    a {
+      color: $color-darkblue;
+    }
+
     &:not(.facebook) {
       height: 385px;
     }
 
     &.facebook {
-      max-height: 182px;
+      height: 182px;
       overflow: hidden;
 
       img {
