@@ -1,6 +1,6 @@
 GIT
   remote: https://8822694c4779c052130037718ba51b09d8ae7839:x-oauth-basic@github.com/sigurthor/a2_backend.git
-  revision: ce9104ae977b0860625dbe3950bb6692defce44c
+  revision: a2f26bb4407213c9fa1e80934828b197b4705aef
   branch: master
   specs:
     a2 (0.0.6)
@@ -313,7 +313,7 @@ GEM
       polyglot
       polyglot (>= 0.3.1)
     tzinfo (0.3.37)
-    uglifier (2.1.2)
+    uglifier (2.2.0)
       execjs (>= 0.3.0)
       multi_json (~> 1.0, >= 1.0.2)
     unicorn (4.6.3)

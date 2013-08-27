@@ -22,9 +22,9 @@ initTechSizeInfo = ->
 initTechListExpand = ->
   self = this
 
-  $('ul.tech-list li a.expand').on 'click', (e) ->
-    $button = $(this)
-    $li = $button.parent()
+  $('ul.tech-list li').on 'click', (e) ->
+    $button = $(this).find('a.expand')
+    $li = $(this)
     e.preventDefault()
 
     if $li.hasClass 'expanded'
