@@ -5,7 +5,6 @@ salomon.vimeo = ->
     $profile.addClass('video')
     $profile.css 'cursor', 'pointer'
   $('.vimeo').bind 'click', (e) ->
-    console.log 'video clicked'
     $self = $(this)
     e.preventDefault();
     $self.find('.img-wrapper').hide()
