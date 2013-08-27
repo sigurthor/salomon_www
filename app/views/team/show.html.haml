@@ -4,34 +4,35 @@
 - content_for(:navclass) do
   sticky
 
-%section#member-nav
-  .loading-category
-  .category-switches
-    %h2
-      %span#pros-category{is_current_category('Pros')}
-        Pros
-      %span#ams-category{is_current_category('AMS')}
-        Ams
-  .navigation-buttons
-    .click-buttons
-      %a.left-arrow{:href => '#'}
-        %i{:class => 'ss-icon ss-standard'} navigateleft
-      %a.right-arrow{:href => '#'}
-        %i{:class => 'ss-icon ss-standard'} navigateright
-    .hover-buttons
-      .hover-nav-left
-      .hover-nav-right
-  .member-nav-wrapper{slider_viewport}
-    %ul.team-nav
-      - @team_member.category.team_members.each do |tm|
-        %li.has-overlay
-          .nav-team-member.img-zoom-hover
-            = cl_image_tag tm.thumb_image, :width => 140, :height => 140, :crop => 'fill', :alt => tm.name
-            .team-member-info
-              %h3
-                = tm.fullname
-              .team-member-country
-                = tm.country
+- unless params[:ajax]
+  %section#member-nav
+    .loading-category
+    .category-switches
+      %h2
+        %span#pros-category{is_current_category('Pros')}
+          Pros
+        %span#ams-category{is_current_category('AMS')}
+          Ams
+    .navigation-buttons
+      .click-buttons
+        %a.left-arrow{:href => '#'}
+          %i{:class => 'ss-icon ss-standard'} navigateleft
+        %a.right-arrow{:href => '#'}
+          %i{:class => 'ss-icon ss-standard'} navigateright
+      .hover-buttons
+        .hover-nav-left
+        .hover-nav-right
+    .member-nav-wrapper{slider_viewport}
+      %ul.team-nav
+        - @team_member.category.team_members.each do |tm|
+          %li.has-overlay
+            .nav-team-member.img-zoom-hover
+              = cl_image_tag tm.thumb_image, :width => 140, :height => 140, :crop => 'fill', :alt => tm.name
+              .team-member-info
+                %h3
+                  = tm.fullname
+                .team-member-country
+                  = tm.country
 
 %section#member
   .row
