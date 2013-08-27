@@ -7,14 +7,14 @@
           .main-info
             - if product.is_snowboard?
               - img_loader do
-                = link_to prepend_snowboard_crop(cl_image_tag(product.master_image,  :width => 180, :height=>386, :crop => :fill, :class => 'product-image', :onload => 'form5image.hasLoaded(this)')), product_show_path(:category => product.categories[0], :product => product.slug)
+                = link_to prepend_snowboard_crop(cl_image_tag(product.master_image,  :width => 180, :height=>386, :alt => product.name, :crop => :fill, :class => 'product-image', :onload => 'form5image.hasLoaded(this)')), product_show_path(:category => product.categories[0], :product => product.slug)
               %h2{set_text_length_class(product.name, 16)}
                 = link_to product.name, product_show_path(:category => product.categories[0], :product => product.slug)
               .price= t :display_currency, price: product.price
 
             - else
               - img_loader do
-                = link_to cl_image_tag(product.master_image,  :width => 200, :crop => :fill, :class => 'product-image', :onload => 'form5image.hasLoaded(this)'), product_show_path(:category => product.categories[0], :product => product.slug)
+                = link_to cl_image_tag(product.master_image,  :width => 200, :alt => product.name, :crop => :fill, :class => 'product-image', :onload => 'form5image.hasLoaded(this)'), product_show_path(:category => product.categories[0], :product => product.slug)
               %h2{set_text_length_class(product.name, 16)}
                 = link_to product.name, product_show_path(:category => product.categories[0], :product => product.slug)
               .price= t :display_currency, price: product.price

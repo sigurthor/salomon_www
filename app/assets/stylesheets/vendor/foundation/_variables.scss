@@ -305,7 +305,7 @@ $header-font-color: $color-darkblue;
 
 // We use this to set the base for lots of form spacing and positioning styles
 
-// $form-spacing: emCalc(16);
+$form-spacing: emCalc(30);
 
 // We use these to style the labels in different ways
 
@@ -316,8 +316,10 @@ $form-label-font-color: $color-darkblue;
 // $form-label-bottom-margin: emCalc(3);
 
 $input-font-family: $font-boldcnd20;
-$input-font-color: #003240;
-$input-font-size: emCalc(20);
+// $input-font-color: #9B9B9B;
+$input-font-size: emCalc(14);
+$input-text-transform: uppercase;
+$input-text-rendering: auto;
 $input-bg-color: #E9E9EA;
 // $input-focus-bg-color: darken(#fff, 2%);
 $input-border-color: #D4D4D4;
@@ -642,7 +644,7 @@ $custom-select-triangle-color: #fff;
 
 // We use these to control the style of the custom select dropdown element.
 
-// $custom-dropdown-height: 200px;
+// $height: 200px;
 $custom-dropdown-bg: #E9E9EA;
 // $custom-dropdown-border-color: darken(#fff, 20%);
 $custom-dropdown-border-width: 0;
@@ -653,7 +655,7 @@ $custom-dropdown-font-size: emCalc(20);
 // $custom-dropdown-font-color-selected: #000;
 $custom-dropdown-shadow: none;
 // $custom-dropdown-offset-top: auto;
-// $custom-dropdown-list-padding: emCalc(4);
+$custom-dropdown-list-padding: emCalc(4);
 // $custom-dropdown-default-float-padding: emCalc(6);
 // $custom-dropdown-opposite-padding: emCalc(38);
 // $custom-dropdown-list-item-min-height: emCalc(24);

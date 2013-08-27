@@ -131,6 +131,7 @@ $custom-dropdown-width-large: 434px !default;
     .custom.dropdown {
       display: block;
       position: relative;
+      cursor:pointer;
       top: 0;
       height: 40px;
       margin-bottom: 0;
@@ -148,7 +149,6 @@ $custom-dropdown-width-large: 434px !default;
       }
 
       .current {
-        cursor:default;
         white-space: nowrap;
         line-height: 40px;
         color: $input-font-color;
@@ -163,7 +163,7 @@ $custom-dropdown-width-large: 434px !default;
       .selector {
         background-color: $color-lightblue;
 
-        cursor:default;
+        cursor:pointer;
         position: absolute;
         width: 40px;
         height: 40px;
@@ -243,11 +243,12 @@ $custom-dropdown-width-large: 434px !default;
 
       li {
         color: $custom-dropdown-font-color;
-        font-size: 20px;
+        font-size: 14px;
         font-family: "TradeGothicW01-BoldCn20 675334";
-        cursor: $cursor-default-value;
-        padding-top: $custom-dropdown-list-padding;
-        padding-bottom: $custom-dropdown-list-padding;
+        text-transform: uppercase;
+        cursor: pointer;
+        padding-top: 10px;
+        padding-bottom: 10px;
         padding-#{$default-float}: $custom-dropdown-default-float-padding;
         padding-#{$opposite-direction}: $custom-dropdown-opposite-padding;
         min-height: $custom-dropdown-list-item-min-height;
@@ -258,16 +259,17 @@ $custom-dropdown-width-large: 434px !default;
 
         &.selected {
           background: $custom-dropdown-color-selected;
-          color: $custom-dropdown-font-color-selected;
+          color: #9b9b9b;
+          // color: $custom-dropdown-font-color-selected;
         }
         &:hover {
           background-color: darken($custom-dropdown-color-selected, 4%);
-          color: $custom-dropdown-font-color-selected;
+          // color: $custom-dropdown-font-color-selected;
         }
         &.selected:hover {
           background: $custom-dropdown-color-selected;
           cursor: $cursor-default-value;
-          color: $custom-dropdown-font-color-selected;
+          // color: $custom-dropdown-font-color-selected;
         }
       }
 

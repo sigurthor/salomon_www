@@ -92,10 +92,16 @@ $glowing-effect-color: $input-focus-border-color !default;
   color: $input-font-color;
   display: block;
   font-size: $input-font-size;
+  text-transform: $input-text-transform;
+  text-rendering: $input-text-rendering;
   margin: 0 0 $form-spacing 0;
   padding: $form-spacing / 2;
   height: emCalc(13) + ($form-spacing * 1.5);
   width: 100%;
+  &:-webkit-input-placeholder { font-family: $input-font-family; text-transform: $input-text-transform; text-rendering: $input-text-rendering; font-weight: normal; }
+  &:-moz-plaecholder { font-family: $input-font-family; text-transform: $input-text-transform; text-rendering: $input-text-rendering; font-weight: normal; }
+  &::-moz-placeholder { font-family: $input-font-family; text-transform: $input-text-transform; text-rendering: $input-text-rendering; font-weight: normal; }
+  &:-ms-input-placeholder { font-family: $input-font-family; text-transform: $input-text-transform; text-rendering: $input-text-rendering; font-weight: normal; }
   @include box-sizing(border-box);
   @if $input-include-glowing-effect {
       @include block-glowing-effect(focus, $glowing-effect-fade-time, $glowing-effect-color);

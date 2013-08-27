@@ -27,24 +27,27 @@ section#breadcrumbs {
       font-size: 18px;
       color: white;
 
-      &:nth-child(n+3) {
-        &:before {
-          font-family: "SSStandard";
-          font-size: 8px;
-          content: "\25BB";
-          margin: 0 1em;
-          color: #fff;
-        }
-      }
-
       &:first-child {
+        position: relative;
+        top: -1px;
         margin-right: 24px;
         font-family: "TradeGothicW01-BoldCn20 675337";
         color: #fff;
         font-size: 14px;
       }
 
-
+      &:nth-child(n+3) {
+        &:before {
+          position: relative;
+          top: -2px;
+          font-family: "SSStandard";
+          font-size: 8px;
+          content: "\25BB";
+          margin: 0 1em;
+          color: #fff;
+          line-height: 60px;
+        }
+      }
     }
 
   }

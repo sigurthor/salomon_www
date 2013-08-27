@@ -10,21 +10,22 @@
           %p= vimeo.title
           .time-ago= vimeo.relative_date
         - img_loader do
-          %img{:src=>"#{vimeo.image_url}", :onload => 'form5image.hasLoaded(this)'}
+          %img{:src=>"#{vimeo.image_url}", :onload => 'form5image.hasLoaded(this)', :alt => vimeo.title}
         .video-player
       %a.button.vimeo{:href=>'http://vimeo.com/salomonsnowboards', :target=>'_blank'} More videos on Vimeo
 
     // Facebook column
     .large-3.columns
-      - if facebook
-        - facebook.each do |fb|
-          .update-item.facebook
-            .update-meta
-              %i.ss-icon.ss-social facebook
-              .time-ago= fb.relative_date
-
-            %img{:src=>'http://placekitten.com/100/100'}
-            %p= fb.title
+      / - facebook.each do |fb|
+      /   .update-item.facebook
+      /     .update-meta
+      /       %i.ss-icon.ss-social facebook
+      /       .time-ago= fb.relative_date
+      /     %a{:href=>fb.url, :target=>'_blank'}
+      /       %img{:src=>fb.image_url :alt => fb.title}
+      /     %p
+      /       %a{:href=>fb.url, :target=>'_blank'}=truncate(fb.title, length: 65)
+      / %a.button.facebook{:href=>'http://facebook.com/SalomonSnowboardFans', :target=>'_blank'} More updates on Facebook
 
 
     // Instagram column
@@ -33,6 +34,6 @@
         .update-meta
           %i.ss-icon.ss-social instagram
           .time-ago= instagram.relative_date
-        = link_to image_tag(instagram.image_url, :width=>240, :height=>240), instagram.url, target: '_blank'
+        = link_to image_tag(instagram.image_url, :width=>240, :height=>240, :alt => instagram.title), instagram.url, target: '_blank'
         %p= truncate(instagram.title, length: 100, separator: ' ')
       %a.button.instagram{:href=>'http://instagram.com/salomonsnowboards', :target=>'_blank'} More on Instagram
