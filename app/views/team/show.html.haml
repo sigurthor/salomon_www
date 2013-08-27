@@ -26,7 +26,7 @@
       - @team_member.category.team_members.each do |tm|
         %li.has-overlay
           .nav-team-member.img-zoom-hover
-            = cl_image_tag tm.thumb_image, :width => 140, :height => 140, :crop => 'fill'
+            = cl_image_tag tm.thumb_image, :width => 140, :height => 140, :crop => 'fill', :alt => tm.name
             .team-member-info
               %h3
                 = tm.fullname
@@ -99,8 +99,8 @@
       .large-3.columns
         .gear-item
           - if product.is_snowboard?
-            = link_to prepend_snowboard_crop(cl_image_tag(product.master_image, :width=>'200', :height => '380', :crop => 'fit', :onload => 'form5image.hasLoaded(this)')), product_show_path(:category => product.categories[0], :product => product.slug)
+            = link_to prepend_snowboard_crop(cl_image_tag(product.master_image, :width=>'200', :height => '380', :alt => product.name, :crop => 'fit', :onload => 'form5image.hasLoaded(this)')), product_show_path(:category => product.categories[0], :product => product.slug)
           - else
-            = link_to cl_image_tag(product.master_image, :width=>'200', :height => '380', :crop => 'fit', :onload => 'form5image.hasLoaded(this)'), product_show_path(:category => product.categories[0], :product => product.slug)
+            = link_to cl_image_tag(product.master_image, :width=>'200', :height => '380', :alt => product.name, :crop => 'fit', :onload => 'form5image.hasLoaded(this)'), product_show_path(:category => product.categories[0], :product => product.slug)
           %h3=link_to product.name, product_show_path(:category => product.categories[0], :product => product.slug)
           .price=t :display_currency, price: product.price

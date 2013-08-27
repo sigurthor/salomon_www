@@ -6,7 +6,7 @@ salomon.videopage = () ->
 
     $videos = $('#videos')
     offset = $videos.children().length
-    limit = 4
+    limit = 8
     query = '/a2/feeds/videos.json?limit='+limit+'&offset='+offset
 
     $.get query, (videos) ->

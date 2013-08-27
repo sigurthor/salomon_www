@@ -39,5 +39,5 @@
                   = link_to tm.name, team_member_path(:team_member => tm.slug)
                 .team-member-country
                   = tm.country
-              = cl_image_tag tm.thumb_image, :width => 285, :height => 285, :crop => 'fit'
+              = cl_image_tag tm.thumb_image, :width => 285, :height => 285, :crop => 'fit', :alt => tm.name
 
