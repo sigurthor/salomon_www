@@ -57,9 +57,10 @@
         %h5 Switch language
         %form.custom
           %select.dropdown.small
-            %option English
-            %option Spanish
-            %option Chinese
+            - regions.each do |region|
+              %option= "- #{region.name}"
+              -region.countries.each do |country|
+                %option= "#{country.name}"
 
       .newsletter
         %h5 Signup for our newsletter

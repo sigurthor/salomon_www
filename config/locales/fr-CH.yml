@@ -1,5 +1,5 @@
 fr-CH:
   zone: 'eu'
   region: 'Suisse'
-  currecny: 'Eur'
-  display_currency: "%{price} €"
+  currecny: 'CHF'
+  display_currency: "%Fr.{price}"
