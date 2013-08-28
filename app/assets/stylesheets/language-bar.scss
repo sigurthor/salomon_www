@@ -4,6 +4,9 @@
   top: -100px;
   left: 0;
 
+  @include respond-to(mobile) { position: absolute; }
+  @include respond-to(medium) { position: absolute; }
+
   width: 100%;
 
   height: 40px;

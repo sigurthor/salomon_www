@@ -46,9 +46,17 @@ section#hero {
       cursor: pointer;
       position: relative;
       margin: 0 auto;
+
+
+      @include respond-to(medium) {
+        display: none;
+      }
     }
 
-    video.ambient { width: 100%; }
+    video.ambient {
+      min-width: 100%;
+      min-height: 480px;
+    }
 
     #play-overlay {
       position: absolute;
