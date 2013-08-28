@@ -30,4 +30,9 @@ class HomeController < ApplicationController
     page 'warranty'
     render 'shared/basic_page'
   end
+
+  def faq
+    page 'faq'
+    render 'shared/basic_page'
+  end
 end

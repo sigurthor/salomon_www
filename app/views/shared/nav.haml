@@ -1,5 +1,5 @@
 .searchbar
-  %input.search-input{:type => 'text', :placeholder => 'What are you searching for?'}
+  %input.search-input{:type => 'text', :placeholder => t('header.search_placeholder')}
   %input{:type => 'submit', :value => 'Submit'}
 
 #nav-container{:class=>yield(:navclass)}
@@ -13,16 +13,14 @@
       / Left Nav Section
       %ul.left
         %li.has-dropdown
-          %a{:href => "#"}
-            = t 'nav.gear'
+          %a{:href => "#"}  #{t 'pages.gear'}
           %ul.dropdown
             - gear_categories.each do |c|
               %li=link_to c.name,products_url(:category => c.slug)
-        %li= link_to t('nav.team'), team_path
-        %li= link_to t('nav.videos'), video_path
+        %li= link_to t('pages.team'), team_path
+        %li= link_to t('pages.videos'), video_path
         %li
-          %a{:href => "http://ssnowdev.tumblr.com/"}
-            =t('nav.blog')
+          %a{:href => "http://ssnowdev.tumblr.com/"} #{t 'pages.blog'}
         //-%li
         //-  %a= link_to t('nav.stores') , store_path
 
