@@ -11,7 +11,7 @@
               %ul
                 - region.countries.each do |country|
                   %li
-                    = link_to country.name, home_path(:locale => country.locale)
+                    = link_to country.name, locale_path(:locale => country.locale)
 
 
 
