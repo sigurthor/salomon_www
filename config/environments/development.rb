@@ -2,6 +2,9 @@ SalomonWww::Application.configure do
   puts "development"
   # Settings specified here will take precedence over those in config/application.rb
 
+  #webshop url
+  config.webshop_url = 'http://dev.shop.salomon.com/'
+
   #faceboook
   config.facebook_callback_url = 'http://localhost:4224/a2/auth/facebook/callback/'
   config.facebook_app_id = "505158699573060"
