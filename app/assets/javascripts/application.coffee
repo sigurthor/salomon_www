@@ -10,6 +10,7 @@
 #= require 'app/team.salomon'
 #= require 'app/newsletter.salomon'
 #= require 'app/herovideo.salomon'
+#= require 'app/language.salomon'
 
 $(document).ready ->
   $(document).foundation 'topbar'
@@ -28,3 +29,4 @@ $(document).ready ->
   salomon.team()
   salomon.newsletter()
   salomon.heroVideo()
+  salomon.languageBar()

@@ -9,11 +9,6 @@ salomon.general = () ->
     e.preventDefault()
 
 
-  # Language bar ignore button
-  $('#language-bar .ignore').on 'click', (e) ->
-    e.preventDefault()
-    $('#language-bar').removeClass 'open'
-
   $("li .team-member").click ->
     window.location = $(this).find("a").attr("href");
 

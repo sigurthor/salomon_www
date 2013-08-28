@@ -51,16 +51,15 @@
           %li
             = link_to 'Privacy policy',privacy_policy_path
 
-
     .large-3.columns
       .language-selector
         %h5 Switch language
         %form.custom
-          %select.dropdown.small
+          %select#language.dropdown.small
             - regions.each do |region|
-              %option= "- #{region.name}"
+              %option(value="" disabled="disabled")= "- #{region.name}"
               -region.countries.each do |country|
-                %option= "#{country.name}"
+                %option(value="#{country.locale}")= "#{country.name}"
 
       .newsletter
         %h5 Signup for our newsletter
