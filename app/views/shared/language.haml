@@ -1,8 +1,8 @@
 #language-bar
   %ul.right
-    %li Change country
+    %li #{t 'header.change_country'}
     %li.has-dropdown
-      %a(data-dropdown='lang-dropdown' data-options='is_hover:true') USA / English
+      %a(data-dropdown='lang-dropdown' data-options='is_hover:true') #{ t :region}
       .f-dropdown#lang-dropdown(data-dropdown-content)
         .inner
           - regions.each do |region|
@@ -16,5 +16,5 @@
 
 
     %li
-      %a.ignore{:href=>'#'} Ignore
-  %p Hi there, you seem to be visiting from #{t :region}. Do you want to change the location and language?
+      %a.ignore{:href=>'#'} #{t 'header.ignore'}
+  %p #{ t 'header.language_notification', :country => 'Iceland' }

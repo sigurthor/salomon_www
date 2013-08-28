@@ -5,6 +5,11 @@ en:
   region: "Global(en)"
   currency: "Eur"
   display_currency: "$%{price}"
+  header:
+    change_country: "Change country"
+    ignore: "ignore"
+    language_notification: "Hi there, you seem to be visiting from %{country}. Do you want to change the location and language?"
+
   nav:
     gear: "Gear"
     team: "Team"
