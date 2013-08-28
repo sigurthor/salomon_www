@@ -24,7 +24,6 @@ SalomonWww::Application.routes.draw do
     match 'gear/(:category)/(:product)' => 'product#show', :as => 'product_show'
   end
 
-  match '/(:locale)' => 'home#index', :as => 'locale'
 
 
   root :to => 'home#index'
