@@ -81,9 +81,9 @@ init = () ->
     $(this).addClass('current-category')
     nextCategory = ($(this).attr 'id').replace('-category', '')
     nextCategory = 'nav-' + nextCategory
-    $('.current-team-nav-category').fadeOut ->
+    $('.current-team-nav-category').hide ->
       $(this).removeClass 'current-team-nav-category'
-      $('#' + nextCategory).fadeIn ->
+      $('#' + nextCategory).show ->
         $(this).addClass 'current-team-nav-category'
         updateItemsTotalWidth()
 
