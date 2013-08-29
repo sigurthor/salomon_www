@@ -3,60 +3,7 @@ salomon.team = ->
     init()
 
 init = () ->
-  updateCurrentProfile = (name, description, quote_author, quote_title, country, city, facebook, twitter, instagram, products, image_url) ->
-    $('#gear-used .large-3').each ->
-      $(this).remove()
-    for product in products
-      $('#gear-used .row').append('
-        <div class="large-3 columns">
-          <div class="gear-item">
-            <a href="/gear/snowboards/' + product.slug + '">
-              <img src="http://res.cloudinary.com/seh/image/upload/c_crop,g_north_west,w_954,h_5000/c_fit,h_380,w_200/v1377028771/SB351401_153.jpg">
-            </a>
-            <a href="/gear/snowboards/' + product.slug + '>
-              <h3>' + product.name + '</h3>
-            </a>
-            <div class="price">
-              $299
-            </div>
-          </div>
-        </div>
-      ')
-    $('.member-profile h2').html(name)
-    $('.member-profile .profile-text p').html(description)
-    $('.quote .author').html(quote_author)
-    $('.quote .title').html(quote_title)
-    $('.country .detail-value').html(country)
-    $('.city .detail-value').html(city)
-
-    if image_url
-      $('.member-profile').css 'background-image', 'url(' + image_url + ')'
-    else
-      $('.member-profile').css 'background-image', 'url(' + '"/assets/fixme-missing-profile-video.jpg"' + ')'
-
-    if facebook
-      $('.member-details .facebook').show()
-      $('.member-details .facebook span').html('/' + facebook)
-      $('.member-details .facebook a').attr('href', 'http://facebook.com/' + facebook)
-    else
-      $('.member-details .facebook').hide()
-
-    if twitter
-      $('.member-details .twitter').show()
-      $('.member-details .twitter span').html('@' + twitter)
-      $('.member-details .twitter a').attr('href', 'http://twitter.com/' + twitter)
-    else
-      $('.member-details .twitter').hide()
-
-    if instagram
-      $('.member-details .instagram').show()
-      $('.member-details .instagram span').html('@' + instagram)
-      $('.member-details .instagram a').attr('href', 'http://instagram.com/' + instagram)
-    else
-      $('.member-details .instagram').hide()
-
-
-  totalRiders = $('ul.team-nav li').size()
+  totalRiders = $('ul.team-nav .current-team-nav-category li').size()
   windowTotalWidth = $(window).width()
   slideWidth = 160 # A single rider slide (140px) width plus margin (20px)
   itemsTotalWidth = (totalRiders * slideWidth) - 20  # No margin after last element
@@ -119,23 +66,10 @@ init = () ->
   lastDirection = 'middle'
   lastLocation = 32
 
-  riderList = $('ul.team-nav')
-  addRider = (name, country, image_url) ->
-    riderList.append('
-            <li class="has-overlay">
-              <div class="nav-team-member img-zoom-hover">
-                <img src="' + image_url + '" width="140" height="140">
-                <div class="team-member-info">
-                  <h3>' + name + '</h3>
-                  <div class="team-member-country">' + country + '</div>
-                </div>
-              </div>
-            </li>
-              ')
-    updateItemsTotalWidth()
+  riderList = $('ul.team-nav .current-team-nav-category')
 
   updateItemsTotalWidth = ->
-    totalRiders = $('ul.team-nav li').size()
+    totalRiders = $('ul.team-nav .current-team-nav-category li').size()
     slideWidth = 160 # A single rider slide (140px) width plus margin (20px)
     itemsTotalWidth = (totalRiders * slideWidth) - 20  # No margin after last element
     $('ul.team-nav').css 'width', itemsTotalWidth
@@ -143,26 +77,15 @@ init = () ->
     $('.member-nav-wrapper').css 'margin-left', (-Math.abs(itemsTotalWidth / 2) + 'px').toString()
 
   $('.category-switches span').on 'click', ->
-    $('section#member-nav').addClass 'loading-category'
-    riderList.empty()
-    category = $(this).attr('id').replace('-category', '')
-    url = '/team/' + category + '.json'
-    $('.member-nav-wrapper').css 'left', '50%'
     $('.current-category').removeClass('current-category')
     $(this).addClass('current-category')
-    lastCategory = $(this)
-    $.ajax
-      type: "GET"
-      url: url
-      data:
-        get_param: "value"
-      dataType: "json"
-      success: (container) ->
-        for team in container
-          for member in team.team_members
-            addRider(member.name, member.country, member.thumb_image.url)
-        $('section#member-nav').removeClass 'loading-category'
-
+    nextCategory = ($(this).attr 'id').replace('-category', '')
+    nextCategory = 'nav-' + nextCategory
+    $('.current-team-nav-category').fadeOut ->
+      $(this).removeClass 'current-team-nav-category'
+      $('#' + nextCategory).fadeIn ->
+        $(this).addClass 'current-team-nav-category'
+        updateItemsTotalWidth()
 
   #
   # Make currently selected profile active. Couldn't this be done in the server template?
@@ -199,49 +122,20 @@ init = () ->
 
 
   # Rider list
-  # .on rather than .click for targetting dynamic elements,
-  # i.e. after category change by user.
-  $('ul.team-nav').on "click", "li", ->
+  $('ul.team-nav li').click ->
+    name = $(this).find('h3').text()
+    name = name.trim().replace(' ', '-').toLowerCase()
+    url = '/team/rider-' + name + '?ajax=true'
     $('section#member').addClass 'loading-member'
-
-    updatePosition(this)
-
-    # Change current profile info
-    category = null
-    url = '/team.json'
-    name = $(this).find('h3').html()
-
+    $(this).removeClass('has-overlay').siblings().addClass('has-overlay')
+    $(this).addClass('currently-selected-team-member').siblings().removeClass('currently-selected-team-member')
     $.ajax
-      type: "GET"
-      url: url
+      type: 'GET'
+      url:  url
       data:
-        get_param: "value"
-      dataType: "json"
-      success: (container) ->
-        for team in container
-          for member in team.team_members
-            if member.name.trim() == name.trim()
-              category = '#' + team.name.toLowerCase().trim()
-              category += '-category'
-              $(category).addClass('current-category')
-              updateCurrentProfile(member.name, member.description, member.quote_author, member.quote_title, member.country, member.city, member.facebook, member.twitter, member.instragram, member.products, member.main_image.url)
-              $('section#member').removeClass 'loading-member'
-              riderDescriptionLength = $('.profile-text').text().length
-              # It is unknown whether the newly selected profile description
-              # text is long so we remove the class
-              $('.profile-text p').removeClass 'long'
-              if riderDescriptionLength > 230
-                $('.profile-text p').addClass 'long'
-              if !($('.video-player').is(':empty'))
-                $('.video-player').empty()
-              $profile = $('.member-profile')
-              $profile.removeClass('video')
-              newVideoID = member.video
-              $profile.css 'cursor', 'auto'
-              if newVideoID != ''
-                $profile.addClass('video')
-                $('.member-profile').data('vimeo-id', newVideoID)
-                salomon.vimeo()
-              if history.pushState
-                url = '/team/rider-?team_member=' + name.replace(' ', '-').toLowerCase()
-                history.pushState null, null, url
+        get_param: 'value'
+      dataType: 'html'
+      success: (page) ->
+        $('section#member-body').replaceWith(page)
+        if history.pushState
+          history.pushState null, null, url.replace('?ajax=true', '')

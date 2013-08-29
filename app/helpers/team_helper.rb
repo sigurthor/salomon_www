@@ -40,4 +40,18 @@ module TeamHelper
     end
   end
 
+  def is_current_team_nav_category(category)
+    if category.name == @team_member.category.name
+      {:class => 'current-team-nav-category', :id => 'nav-' + category.name.downcase}
+    else
+      {:id => 'nav-' + category.name.downcase}
+    end
+  end
+
+  def gear_heading
+    unless @team_member.products.empty?
+      render :text => 'Gear Used'
+    end
+  end
+
 end

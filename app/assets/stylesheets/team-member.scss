@@ -114,6 +114,14 @@
     display: inline-block;
     margin: 0;
     overflow: hidden;
+
+    & > div {
+      display: none;
+      &.current-team-nav-category {
+        display: block;
+      }
+    }
+
     li + li {
       margin-left: 20px;
     }

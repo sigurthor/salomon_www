@@ -24,84 +24,86 @@
         .hover-nav-right
     .member-nav-wrapper{slider_viewport}
       %ul.team-nav
-        - @team_member.category.team_members.each do |tm|
-          %li.has-overlay
-            .nav-team-member.img-zoom-hover
-              = cl_image_tag tm.thumb_image, :width => 140, :height => 140, :crop => 'fill', :alt => tm.name
-              .team-member-info
-                %h3
-                  = tm.fullname
-                .team-member-country
-                  = tm.country
-
-%section#member
-  .row
-    .member-profile.vimeo{get_profile_video_bg(@team_member.main_image)}(data-vimeo-id="#{@profile_video}" data-vimeo-width="1200" data-vimeo-height="663")
-      .video-player
-      .profile-text
-        %h2= @team_member.name
-        %p{set_text_length_class(@team_member.description, 230)}
-          = @team_member.description
-
-      .quote
-        .author= @team_member.quoter_name
-        .title= @team_member.quoter_title
-
-    .member-details
-      .row
-        .large-4.columns
-          %h2 Details
-          .social-details
-            .facebook{social_link_available(@team_member.facebook)}
-              %a{:href => "http://facebook.com/#{@team_member.facebook}", :target => '_blank'}
-                %i{:class => 'ss-icon ss-social'} facebook
-                %span /#{@team_member.facebook}
-            .twitter{social_link_available(@team_member.twitter)}
-              %a{:href => "http://twitter.com/#{@team_member.twitter}", :target => '_blank'}
-                %i{:class => 'ss-icon ss-social'} twitter
-                %span @#{@team_member.twitter}
-            .instagram{social_link_available(@team_member.instragram)}
-              %a{:href => "http://instagram.com/#{@team_member.instragram}", :target => '_blank'}
-                %i{:class => 'ss-icon ss-social'} instagram
-                %span @#{@team_member.instragram}
-        .large-8.columns
-          =@team_member.city
-          %ul.member-info-list
-            - unless member_detail_is_empty(@team_member.country)
-              %li.country
-                %span Country
-                %span.detail-value= @team_member.country
-
-            %li.city
-              %span Home Mountain
-              %span.detail-value= @team_member.city
-
-/
-  %section#member-gallery
+        - @team_categories.each do |cat|
+          %div{is_current_team_nav_category(cat)}
+            - cat.team_members.each do |tm|
+              %li.has-overlay
+                .nav-team-member.img-zoom-hover
+                  = cl_image_tag tm.thumb_image, :width => 140, :height => 140, :crop => 'fill', :alt => tm.name
+                  .team-member-info
+                    %h3
+                      = tm.fullname
+                    .team-member-country
+                      = tm.country
+%section#member-body
+  %section#member
     .row
-      %h2 Gallery
-      .large-2.columns
-        %img{:src => 'http://placekitten.com/g/180/180'}
-      .large-2.columns
-        %img{:src => 'http://placekitten.com/g/180/180'}
-      .large-2.columns
-        %img{:src => 'http://placekitten.com/g/180/180'}
-      .large-2.columns
-        %img{:src => 'http://placekitten.com/g/180/180'}
-      .large-2.columns
-        %img{:src => 'http://placekitten.com/g/180/180'}
-      .large-2.columns
-        %img{:src => 'http://placekitten.com/g/180/180'}
+      .member-profile.vimeo{get_profile_video_bg(@team_member.main_image)}(data-vimeo-id="#{@profile_video}" data-vimeo-width="1200" data-vimeo-height="663")
+        .video-player
+        .profile-text
+          %h2= @team_member.name
+          %p{set_text_length_class(@team_member.description, 230)}
+            = @team_member.description
 
-%section#gear-used
-  .row
-    %h2 Gear Used
-    - @team_member.products.each do |product|
-      .large-3.columns
-        .gear-item
-          - if product.is_snowboard?
-            = link_to prepend_snowboard_crop(cl_image_tag(product.master_image, :width=>'200', :height => '380', :alt => product.name, :crop => 'fit', :onload => 'form5image.hasLoaded(this)')), product_show_path(:category => product.categories[0], :product => product.slug)
-          - else
-            = link_to cl_image_tag(product.master_image, :width=>'200', :height => '380', :alt => product.name, :crop => 'fit', :onload => 'form5image.hasLoaded(this)'), product_show_path(:category => product.categories[0], :product => product.slug)
-          %h3=link_to product.name, product_show_path(:category => product.categories[0], :product => product.slug)
-          .price=t :display_currency, price: product.price
+        .quote
+          .author= @team_member.quoter_name
+          .title= @team_member.quoter_title
+
+      .member-details
+        .row
+          .large-4.columns
+            %h2 Details
+            .social-details
+              .facebook{social_link_available(@team_member.facebook)}
+                %a{:href => "http://facebook.com/#{@team_member.facebook}", :target => '_blank'}
+                  %i{:class => 'ss-icon ss-social'} facebook
+                  %span /#{@team_member.facebook}
+              .twitter{social_link_available(@team_member.twitter)}
+                %a{:href => "http://twitter.com/#{@team_member.twitter}", :target => '_blank'}
+                  %i{:class => 'ss-icon ss-social'} twitter
+                  %span @#{@team_member.twitter}
+              .instagram{social_link_available(@team_member.instragram)}
+                %a{:href => "http://instagram.com/#{@team_member.instragram}", :target => '_blank'}
+                  %i{:class => 'ss-icon ss-social'} instagram
+                  %span @#{@team_member.instragram}
+          .large-8.columns
+            =@team_member.city
+            %ul.member-info-list
+              - unless member_detail_is_empty(@team_member.country)
+                %li.country
+                  %span Country
+                  %span.detail-value= @team_member.country
+
+              %li.city
+                %span Home Mountain
+                %span.detail-value= @team_member.city
+
+  /
+    %section#member-gallery
+      .row
+        %h2 Gallery
+        .large-2.columns
+          %img{:src => 'http://placekitten.com/g/180/180'}
+        .large-2.columns
+          %img{:src => 'http://placekitten.com/g/180/180'}
+        .large-2.columns
+          %img{:src => 'http://placekitten.com/g/180/180'}
+        .large-2.columns
+          %img{:src => 'http://placekitten.com/g/180/180'}
+        .large-2.columns
+          %img{:src => 'http://placekitten.com/g/180/180'}
+        .large-2.columns
+          %img{:src => 'http://placekitten.com/g/180/180'}
+
+  %section#gear-used
+    .row
+      %h2=gear_heading
+      - @team_member.products.each do |product|
+        .large-3.columns
+          .gear-item
+            - if product.is_snowboard?
+              = link_to prepend_snowboard_crop(cl_image_tag(product.master_image, :width=>'200', :height => '380', :alt => product.name, :crop => 'fit', :onload => 'form5image.hasLoaded(this)')), product_show_path(:category => product.categories[0], :product => product.slug)
+            - else
+              = link_to cl_image_tag(product.master_image, :width=>'200', :height => '380', :alt => product.name, :crop => 'fit', :onload => 'form5image.hasLoaded(this)'), product_show_path(:category => product.categories[0], :product => product.slug)
+            %h3=link_to product.name, product_show_path(:category => product.categories[0], :product => product.slug)
+            .price=t :display_currency, price: product.price
