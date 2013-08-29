@@ -1,4 +1,7 @@
 salomon.general = () ->
+
+  $("#contactForm").validationEngine()
+
   setTimeout () ->
     $('#play-overlay').fadeIn(4000)
   , 250
