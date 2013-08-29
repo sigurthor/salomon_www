@@ -12,6 +12,7 @@ SalomonWww::Application.routes.draw do
   localized do
     match '/' => 'home#index', :as => 'home'
     match 'faq' => 'home#faq', :as => 'faq'
+    match 'contact/ok' => 'home#contact_ok', :as => 'contact_ok'
     match 'contact' => 'home#contact', :as => 'contact'
     match 'terms' => 'home#terms', :as => 'terms'
     match 'privacy_policy' => 'home#privacy_policy', :as => 'privacy_policy'

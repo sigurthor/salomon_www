@@ -1,6 +1,6 @@
 GIT
   remote: https://8822694c4779c052130037718ba51b09d8ae7839:x-oauth-basic@github.com/sigurthor/a2_backend.git
-  revision: 39ec0ab3735266bf0227f3fbc5a4075a2331f54c
+  revision: 971c5f90b3a35e5ed09961fc799095d2a8e8dfb5
   branch: master
   specs:
     a2 (0.0.6)
@@ -79,7 +79,7 @@ GEM
       uuidtools (~> 2.1)
     aws_cf_signer (0.1.2)
     bcrypt-ruby (3.1.2)
-    bootstrap-sass (2.3.2.1)
+    bootstrap-sass (2.3.2.2)
       sass (~> 3.2)
     builder (3.0.4)
     cache_digests (0.3.1)
@@ -281,7 +281,7 @@ GEM
     ruby-hmac (0.4.0)
     ruby-ole (1.2.11.7)
     rubyntlm (0.3.4)
-    rubyzip (0.9.9)
+    rubyzip (1.0.0)
     rush (0.6.8)
       session
     safe_yaml (0.9.5)

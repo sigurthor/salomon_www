@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130828111843) do
+ActiveRecord::Schema.define(:version => 20130829065110) do
 
   create_table "a2_access_tokens", :force => true do |t|
     t.string   "provider"
@@ -192,6 +192,7 @@ ActiveRecord::Schema.define(:version => 20130828111843) do
     t.string   "title_browser"
     t.string   "slug"
     t.text     "description"
+    t.string   "salomon_url"
   end
 
   add_index "a2_pages", ["pid"], :name => "index_a2_pages_on_pid", :unique => true
