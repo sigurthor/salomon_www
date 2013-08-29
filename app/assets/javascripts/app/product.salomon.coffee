@@ -63,6 +63,7 @@ initProductColorPicker = ->
         updateImageset(set)
         $el.parent().parent().find('li').removeClass 'selected'
         $el.parent().addClass 'selected'
+    $('ul.product-thumbs li:first-child').addClass('selected')
 
 initProductSizePicker = ->
   $('.board-sizes li a').on 'click', (e) ->
