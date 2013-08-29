@@ -1,6 +1,6 @@
 GIT
   remote: https://8822694c4779c052130037718ba51b09d8ae7839:x-oauth-basic@github.com/sigurthor/a2_backend.git
-  revision: 971c5f90b3a35e5ed09961fc799095d2a8e8dfb5
+  revision: c6027e97b5982b8fec0a4a99d931e4f5784e11d7
   branch: master
   specs:
     a2 (0.0.6)
@@ -73,7 +73,7 @@ GEM
       activerecord (>= 3.0.0)
     arel (3.0.2)
     atomic (1.1.13)
-    aws-sdk (1.15.0)
+    aws-sdk (1.16.0)
       json (~> 1.4)
       nokogiri (< 1.6.0)
       uuidtools (~> 2.1)
@@ -354,6 +354,7 @@ DEPENDENCIES
   instagram
   jquery-rails
   koala (~> 1.7.0rc1)
+  localeapp
   mysql2
   newrelic_rpm
   rails (= 3.2.14)
