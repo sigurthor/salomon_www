@@ -16,6 +16,11 @@ class HomeController < ApplicationController
     render 'shared/basic_page'
   end
 
+  def contact_ok
+    page 'contact_ok'
+    render 'shared/basic_page'
+  end
+
   def terms
     page 'terms'
     render 'shared/basic_page'
@@ -28,6 +33,11 @@ class HomeController < ApplicationController
 
   def warranty
     page 'warranty'
+    render 'shared/basic_page'
+  end
+
+  def faq
+    page 'faq'
     render 'shared/basic_page'
   end
 end

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130827112705) do
+ActiveRecord::Schema.define(:version => 20130829065110) do
 
   create_table "a2_access_tokens", :force => true do |t|
     t.string   "provider"
@@ -192,6 +192,7 @@ ActiveRecord::Schema.define(:version => 20130827112705) do
     t.string   "title_browser"
     t.string   "slug"
     t.text     "description"
+    t.string   "salomon_url"
   end
 
   add_index "a2_pages", ["pid"], :name => "index_a2_pages_on_pid", :unique => true
@@ -310,8 +311,9 @@ ActiveRecord::Schema.define(:version => 20130827112705) do
     t.string   "locale"
     t.text     "description"
     t.string   "tag_line"
-    t.datetime "created_at",    :null => false
-    t.datetime "updated_at",    :null => false
+    t.datetime "created_at",                                  :null => false
+    t.datetime "updated_at",                                  :null => false
+    t.decimal  "price",         :precision => 8, :scale => 2
   end
 
   add_index "a2_product_translations", ["a2_product_id"], :name => "index_a2_product_translations_on_a2_product_id"

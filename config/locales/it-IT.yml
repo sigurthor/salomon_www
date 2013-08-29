@@ -1,0 +1,5 @@
+it-IT:
+  zone: 'eu'
+  region: 'Austria'
+  currecny: 'EUR'
+  display_currency: "%{price} €"

@@ -9,11 +9,11 @@
       .footer-logo
       .copyright
         %div
-        ©2013 SALOMON SNOWBOARDS AND BONFIRE SNOWBOARDING. ALL RIGHT RESERVED.
+        #{ t 'footer.copyright' }
 
     .large-2.columns
       %nav
-        %h5 Stay in touch
+        %h5 #{t 'footer.headings.social'}
         %ul.social
           %li
             %a.ss-facebook{:href=>'https://www.facebook.com/SalomonSnowboardFans', :target=>'_blank'} Facebook
@@ -34,35 +34,30 @@
         %ul
           %li
             %a{:href=>'http://ssnowdev.tumblr.com/'} Blog
-          %li= link_to t('nav.team'), team_path
-          %li
-            %a{:href=>'/faq'} FAQ
+          %li= link_to t('pages.team'), team_path
+          %li= link_to t('pages.faq'), faq_path
 
     .large-2.columns
       %nav
-        %h5 Customer service
+        %h5 #{ t 'footer.headings.customer_service'}
         %ul
-          %li
-            = link_to 'Warranty',warranty_path
-          %li
-            = link_to 'Contact', contact_path
-          %li
-            = link_to 'Terms', terms_path
-          %li
-            = link_to 'Privacy policy',privacy_policy_path
-
+          %li= link_to t('pages.warranty'), warranty_path
+          %li= link_to t('pages.contact'), contact_path
+          %li= link_to t('pages.terms'), terms_path
+          %li= link_to t('pages.privacy_policy'), privacy_policy_path
 
     .large-3.columns
       .language-selector
-        %h5 Switch language
+        %h5 #{t 'footer.change_country' }
         %form.custom
-          %select.dropdown.small
-            %option English
-            %option Spanish
-            %option Chinese
+          %select#language.dropdown.small
+            - regions.each do |region|
+              %option(value="" disabled="disabled")= "- #{region.name}"
+              -region.countries.each do |country|
+                %option(value="#{country.locale}")= "#{country.name}"
 
       .newsletter
-        %h5 Signup for our newsletter
+        %h5 #{t 'footer.newsletter_signup' }
         %form.custom.footer-email-subscription
           %input#footer-email-input{:type=>'text', :placeholder => 'your@email.address'}
           %input.button{:type=>'submit', :value=>'Go'}

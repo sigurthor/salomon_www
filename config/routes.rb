@@ -11,6 +11,8 @@ SalomonWww::Application.routes.draw do
   #scope :path => "(:locale)", :shallow_path => "(:locale)", :locale => /en-US|de-CH|de-DE|en-UK|fr-CH|fr-FR|ru-RU/ do
   localized do
     match '/' => 'home#index', :as => 'home'
+    match 'faq' => 'home#faq', :as => 'faq'
+    match 'contact/ok' => 'home#contact_ok', :as => 'contact_ok'
     match 'contact' => 'home#contact', :as => 'contact'
     match 'terms' => 'home#terms', :as => 'terms'
     match 'privacy_policy' => 'home#privacy_policy', :as => 'privacy_policy'
@@ -23,7 +25,6 @@ SalomonWww::Application.routes.draw do
     match 'gear/(:category)' => 'product#index', :as => 'products'
     match 'gear/(:category)/(:product)' => 'product#show', :as => 'product_show'
   end
-
 
 
 

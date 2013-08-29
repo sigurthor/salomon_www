@@ -3,14 +3,14 @@
 - content_for(:page_description) do
   We challenge the status quo, push boundaries, and critically damage preconceived notions of what riding gear can be. Ride It For Real, Stay Loose and once and for all, Slay Boredom
 
-//= render :file => '/home/partials/hero-video'
-= render :file => '/home/partials/hero'
+= render :file => '/home/partials/hero-video'
+//= render :file => '/home/partials/hero'
 
 = render :file => '/home/partials/product-feature'
 
 = render :file => '/home/partials/updates', :locals => {vimeo: @vimeo, instagram: @instagram, facebook: @facebook }
 
-= render :file => '/home/partials/newsletter'
+//= render :file => '/home/partials/newsletter'
 
 = render :file => '/home/partials/team', :locals => {team_members: @pro_team_members, team_categories_info: @team_categories_info}
 

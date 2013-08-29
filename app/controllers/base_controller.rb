@@ -14,9 +14,9 @@ class BaseController < ApplicationController
     l['RU'] = 'ru-RU'
     l['US'] = 'en-US'
 
-    json = open "http://api.hostip.info/get_json.php?ip=85.220.86.243"
-    country = ActiveSupport::JSON.decode(json);
-    puts country['country_code']
+   # json = open "http://api.hostip.info/get_json.php?ip=85.220.86.243"
+   # country = ActiveSupport::JSON.decode(json);
+   # puts country['country_code']
 
   end
 end

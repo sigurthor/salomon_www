@@ -1,6 +1,9 @@
 SalomonWww::Application.configure do
   # Settings specified here will take precedence over those in config/application.rb
 
+  #webshop url
+  config.webshop_url = 'http://dev.shop.salomon.com/'
+
   #instagram
   config.instagram_client_id = "35c4114674ef40ac8fbb05c5b5c8a4ad"
   config.instagram_client_secret = "affc75a216e44cfcae33eb202a932ea7"

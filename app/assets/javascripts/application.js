@@ -18,5 +18,7 @@
 //= require foundation/foundation.forms
 //= require foundation/foundation.section
 //= require jquery.mixitup
+//= require jquery.validationEngine-en
+//= require jquery.validationEngine
 //= require retina
 //= require application.coffee
