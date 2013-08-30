@@ -1,6 +1,6 @@
 GIT
   remote: https://8822694c4779c052130037718ba51b09d8ae7839:x-oauth-basic@github.com/sigurthor/a2_backend.git
-  revision: 57cd480606ed1d68d9db797f819c32ca6daa7dc7
+  revision: 9aef95772d041842ad1df20d938738e309f32ed7
   branch: master
   specs:
     a2 (0.0.6)
@@ -214,7 +214,6 @@ GEM
     net-scp (1.0.4)
       net-ssh (>= 1.99.1)
     net-ssh (2.6.8)
-    newrelic_rpm (3.6.6.147)
     nokogiri (1.5.10)
     nori (2.3.0)
     orm_adapter (0.4.0)
@@ -363,7 +362,6 @@ DEPENDENCIES
   koala (~> 1.7.0rc1)
   localeapp
   mysql2
-  newrelic_rpm
   rails (= 3.2.14)
   route_downcaser
   route_translator
