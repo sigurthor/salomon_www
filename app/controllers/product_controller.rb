@@ -5,7 +5,7 @@ class ProductController < BaseController
     @category = A2::ProductCategory.fetch_by_slug(params[:category])
     page @category.slug
     @feature_types = A2::ProductFeatureType.includes(:product_features).where(:id => @category.filters.split(',')) unless @category.filters.blank?
-    @products = @category.cached_products
+    @products = Rails.cache.fetch(@category){ @category.products.include_all.all }
 
   end
 

@@ -9,7 +9,6 @@ class HomeController < ApplicationController
     @vimeo = A2::VimeoFeed.cached_latest[0]
     @instagram = A2::InstagramFeed.cached_latest_by_user('salomonsnowboards')[0]
     @facebook = A2::FacebookFeed.cached_latest_with_photo[0..1]
-    @facebook.each {|s| puts s.title}
 
   end
 

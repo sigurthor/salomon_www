@@ -25,9 +25,10 @@ class ApplicationController < ActionController::Base
   helper_method :page
 
   def page(pid = nil)
-    pid = pid ? pid :
-      current_uri = request.env['PATH_INFO']
-      @Page ||= A2::Page.fetch_by_pid(pid)
+    pid = pid ? pid : current_uri = request.env['PATH_INFO']
+    page = A2::Page.fetch_by_pid(pid)
+    page = A2::Page.create(:pid => pid) unless page
+    @Page ||=  Rails.cache.fetch(page) { A2::Page.includes(:translations).find(page.id) }
   end
 
 end
