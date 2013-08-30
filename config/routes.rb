@@ -28,6 +28,8 @@ SalomonWww::Application.routes.draw do
 
 
 
+  match "/404", :to => "error#not_found"
+
   root :to => 'home#index'
 
 end
