@@ -1,5 +1,2 @@
 fr-CH:
-  zone: 'eu'
-  region: 'Suisse'
-  currecny: 'CHF'
-  display_currency: "%Fr.{price}"
+  salomon:

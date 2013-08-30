@@ -2,48 +2,45 @@
 # See https://github.com/svenfuchs/rails-i18n/tree/master/rails%2Flocale for starting points.
 
 en:
-  region: Global(en)
-  currency: Eur
-  display_currency: $%{price}
+  salomon:
+    region: Global(en)
+    currency: Eur
+    display_currency: $%{price}
 
-  gender:
-      M:
-        one: men
-        other: men's
-      W:
-        one: women
-        other: womens's
+    gender:
+        M:
+          one: men
+          other: men's
+        W:
+          one: women
+          other: womens's
 
-  routes:
-    team: team
-    gear: gear
+    pages:
+        gear: Gear
+        team: Team
+        videos: Videos
+        blog:  Blog
+        stores: Stores
+        faq: FAQ
+        warranty: Warranty
+        contact: Contact
+        terms: Terms
+        privacy_policy: Privacy policy
 
-  pages:
-      gear: Gear
-      team: Team
-      videos: Videos
-      blog:  Blog
-      stores: Stores
-      faq: FAQ
-      warranty: Warranty
-      contact: Contact
-      terms: Terms
-      privacy_policy: Privacy policy
-
-  header:
-    change_country: Change country
-    ignore: ignore
-    language_notification: Hi there, you seem to be visiting from %{country}. Do you want to change the location and language?
-    search_placeholder: What are you searching for
+    header:
+      change_country: Change country
+      ignore: ignore
+      language_notification: Hi there, you seem to be visiting from %{country}. Do you want to change the location and language?
+      search_placeholder: What are you searching for
 
 
 
-  footer:
-    change_country: Change country
-    copyright: ©2013 SALOMON SNOWBOARDS AND BONFIRE SNOWBOARDING. ALL RIGHT RESERVED.
-    newsletter_signup: Signup for our newsletter
-    headings:
-      social: Stay in touch
-      customer_service: Customer service
+    footer:
+      change_country: Change country
+      copyright: ©2013 SALOMON SNOWBOARDS AND BONFIRE SNOWBOARDING. ALL RIGHT RESERVED.
+      newsletter_signup: Signup for our newsletter
+      headings:
+        social: Stay in touch
+        customer_service: Customer service
 
 
