@@ -103,10 +103,7 @@
       position: relative;
       left: 50%;
       overflow: hidden;
-      -webkit-transition: left .5s ease-in-out;
-      -moz-transition: left .5s ease-in-out;
-      -o-transition: left .5s ease-in-out;
-      transition: left .5s ease-in-out;
+      @include transition(left 0.5s ease-in-out);
     }
   }
 
@@ -119,10 +116,7 @@
       opacity: 0;
       height: 0;
       overflow: hidden;
-      -webkit-transition: opacity .5s ease-in-out;
-      -moz-transition: opacity .5s ease-in-out;
-      -o-transition: opacity .5s ease-in-out;
-      transition: opacity .5s ease-in-out;
+      @include transition(opacity 0.5s ease-in-out);
       &.current-team-nav-category {
         height: auto;
         opacity: 1;
