@@ -103,10 +103,10 @@
       position: relative;
       left: 50%;
       overflow: hidden;
-      -webkit-transition: all .5s ease-in-out;
-      -moz-transition: all .5s ease-in-out;
-      -o-transition: all .5s ease-in-out;
-      transition: all .5s ease-in-out;
+      -webkit-transition: left .5s ease-in-out;
+      -moz-transition: left .5s ease-in-out;
+      -o-transition: left .5s ease-in-out;
+      transition: left .5s ease-in-out;
     }
   }
 
@@ -116,9 +116,16 @@
     overflow: hidden;
 
     & > div {
-      display: none;
+      opacity: 0;
+      height: 0;
+      overflow: hidden;
+      -webkit-transition: opacity .5s ease-in-out;
+      -moz-transition: opacity .5s ease-in-out;
+      -o-transition: opacity .5s ease-in-out;
+      transition: opacity .5s ease-in-out;
       &.current-team-nav-category {
-        display: block;
+        height: auto;
+        opacity: 1;
       }
     }
 
@@ -420,6 +427,8 @@
     }
 
     .gear-item {
+      display: inline-block;
+      margin: 0 40px;
       text-align: center;
       line-height: 400px;
       vertical-align: middle;
@@ -457,6 +466,28 @@
     z-index: 9999;
   }
 
+
+.click-buttons {
+  div {
+    display: none;
+    position: absolute;
+    top: -5px;
+    font-family: $font-boldcnd20obl;
+    color: #fff;
+    &.prev-name { left: 35px; }
+    &.next-name { right: 35px; }
+  }
+  a:hover {
+    color: #fff !important;
+    white-space: nowrap;
+    &.left-arrow {
+      .prev-name { display: block; }
+    }
+    &.right-arrow {
+      .next-name { display: block; }
+    }
+  }
+}
 
   #gear-used {
     margin-top: 0;

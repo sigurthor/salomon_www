@@ -17,8 +17,10 @@
       .click-buttons
         %a.left-arrow{:href => '#'}
           %i{:class => 'ss-icon ss-standard'} navigateleft
+          .prev-name
         %a.right-arrow{:href => '#'}
           %i{:class => 'ss-icon ss-standard'} navigateright
+          .next-name
       .hover-buttons
         .hover-nav-left
         .hover-nav-right
@@ -99,11 +101,10 @@
     .row
       %h2=gear_heading
       - @team_member.products.each do |product|
-        .large-3.columns
-          .gear-item
-            - if product.is_snowboard?
-              = link_to prepend_snowboard_crop(cl_image_tag(product.master_image, :width=>'200', :height => '380', :alt => product.name, :crop => 'fit', :onload => 'form5image.hasLoaded(this)')), product_show_path(:category => product.categories[0], :product => product.slug)
-            - else
-              = link_to cl_image_tag(product.master_image, :width=>'200', :height => '380', :alt => product.name, :crop => 'fit', :onload => 'form5image.hasLoaded(this)'), product_show_path(:category => product.categories[0], :product => product.slug)
-            %h3=link_to product.name, product_show_path(:category => product.categories[0], :product => product.slug)
-            .price=t :display_currency, price: product.price
+        .gear-item
+          - if product.is_snowboard?
+            = link_to prepend_snowboard_crop(cl_image_tag(product.master_image, :width=>'200', :height => '380', :alt => product.name, :crop => 'fit', :onload => 'form5image.hasLoaded(this)')), product_show_path(:category => product.categories[0], :product => product.slug)
+          - else
+            = link_to cl_image_tag(product.master_image, :width=>'200', :height => '380', :alt => product.name, :crop => 'fit', :onload => 'form5image.hasLoaded(this)'), product_show_path(:category => product.categories[0], :product => product.slug)
+          %h3=link_to product.name, product_show_path(:category => product.categories[0], :product => product.slug)
+          .price=t :display_currency, price: product.price
