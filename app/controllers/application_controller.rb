@@ -27,7 +27,7 @@ class ApplicationController < ActionController::Base
   def page(pid = nil)
     pid = pid ? pid :
       current_uri = request.env['PATH_INFO']
-      @Page ||= A2::Page.find_or_create_by_pid(pid)
+      @Page ||= A2::Page.fetch_by_pid(pid)
   end
 
 end
