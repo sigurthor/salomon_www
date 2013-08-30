@@ -467,6 +467,28 @@
   }
 
 
+.click-buttons {
+  div {
+    display: none;
+    position: absolute;
+    top: -5px;
+    font-family: $font-boldcnd20obl;
+    color: #fff;
+    &.prev-name { left: 35px; }
+    &.next-name { right: 35px; }
+  }
+  a:hover {
+    color: #fff !important;
+    white-space: nowrap;
+    &.left-arrow {
+      .prev-name { display: block; }
+    }
+    &.right-arrow {
+      .next-name { display: block; }
+    }
+  }
+}
+
   #gear-used {
     margin-top: 0;
     .row {

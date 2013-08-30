@@ -39,14 +39,18 @@ init = () ->
   $(document).ready ->
     viewportWidth = itemsTotalWidth
 
-  # Click nav (arrows)
-  # What is the purpose of this code?
+  # Arrow nav (switch between riders one by one by clicking)
   $('.navigation-buttons a').on 'click', ->
     if $(this).hasClass('left-arrow')
       $('.team-nav li:nth-child(' + (currentItemIndex) + ')').click()
     else
       $('.team-nav li:nth-child(' + (currentItemIndex + 2) + ')').click()
 
+  $('.navigation-buttons a').mouseenter ->
+    if $(this).hasClass 'left-arrow'
+      $('.prev-name').html $('.currently-selected-team-member').prev().find('h3').text()
+    else
+      $('.next-name').html $('.currently-selected-team-member').next().find('h3').text()
 
   # Hover nav
   $('.hover-buttons > div').mouseenter ->
@@ -93,7 +97,7 @@ init = () ->
   #
   slug = $('.member-profile h2').html().toUpperCase().trim()
   $(document).ready ->
-    requestedMember = $('ul.team-nav li:contains("' + slug + '")').addClass('currently-selected-member').removeClass('has-overlay').get(0)
+    requestedMember = $('ul.team-nav li:contains("' + slug + '")').addClass('currently-selected-team-member').removeClass('has-overlay').get(0)
     updatePosition(requestedMember)
 
   #
@@ -140,3 +144,5 @@ init = () ->
         $('section#member-body').replaceWith(page)
         if history.pushState
           history.pushState null, null, url.replace('?ajax=true', '')
+        $('.prev-name').html $('.currently-selected-team-member').prev().find('h3').text()
+        $('.next-name').html $('.currently-selected-team-member').next().find('h3').text()
