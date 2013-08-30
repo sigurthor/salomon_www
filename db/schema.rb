@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130829065110) do
+ActiveRecord::Schema.define(:version => 20130829205414) do
 
   create_table "a2_access_tokens", :force => true do |t|
     t.string   "provider"
@@ -389,6 +389,7 @@ ActiveRecord::Schema.define(:version => 20130829065110) do
     t.string   "name"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+    t.boolean  "visible"
   end
 
   create_table "a2_related_products", :force => true do |t|

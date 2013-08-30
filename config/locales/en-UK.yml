@@ -1,5 +1,2 @@
 en-UK:
-  zone: 'eu'
-  region: 'United Kingdom'
-  currency: 'gbp'
-  display_currency: "£%{price}"
+  salomon:

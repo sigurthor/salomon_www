@@ -2,11 +2,6 @@
 # See https://github.com/svenfuchs/rails-i18n/tree/master/rails%2Flocale for starting points.
 
 en:
-
-  routes:
-    team: team
-    gear: gear
-
   salomon:
     region: Global(en)
     currency: Eur
@@ -19,8 +14,6 @@ en:
         W:
           one: women
           other: womens's
-
-
 
     pages:
         gear: Gear
