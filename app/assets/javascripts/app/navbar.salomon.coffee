@@ -1,7 +1,8 @@
 init = () ->
   $nav = $('#nav-container')
   $(window).scroll ->
-    if $nav.offset().top > 5
+    offset = $('#language-bar').hasClass('open') ? 45 : 5
+    if $nav.offset().top > offset
       unless $nav.hasClass 'sticky'
         $nav.addClass 'sticky'
     else
