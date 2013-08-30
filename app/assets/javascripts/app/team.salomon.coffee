@@ -15,6 +15,23 @@ init = () ->
   lastItemIndex = currentItemIndex
   lastItem = null
 
+  lastDirection = 'middle'
+  lastLocation = 32
+
+  riderList = $('ul.team-nav .current-team-nav-category')
+
+  updateItemsTotalWidth = ->
+    totalRiders = $('ul.team-nav .current-team-nav-category li').size()
+    slideWidth = 160 # A single rider slide (140px) width plus margin (20px)
+    itemsTotalWidth = (totalRiders * slideWidth) - 20  # No margin after last element
+    $('ul.team-nav').css 'width', itemsTotalWidth
+    $('.member-nav-wrapper').css 'width', itemsTotalWidth
+    $('.member-nav-wrapper').css 'margin-left', (-Math.abs(itemsTotalWidth / 2) + 'px').toString()
+
+  updateCategoryNav = (selectedCategory) ->
+    $('.current-category').removeClass('current-category')
+    $(selectedCategory).addClass('current-category')
+
 
   $(window).resize ->
     windowTotalWidth = $(window).width()
@@ -63,29 +80,13 @@ init = () ->
       transition       : 'all .5s ease-in-out'
     })
 
-  lastDirection = 'middle'
-  lastLocation = 32
-
-  riderList = $('ul.team-nav .current-team-nav-category')
-
-  updateItemsTotalWidth = ->
-    totalRiders = $('ul.team-nav .current-team-nav-category li').size()
-    slideWidth = 160 # A single rider slide (140px) width plus margin (20px)
-    itemsTotalWidth = (totalRiders * slideWidth) - 20  # No margin after last element
-    $('ul.team-nav').css 'width', itemsTotalWidth
-    $('.member-nav-wrapper').css 'width', itemsTotalWidth
-    $('.member-nav-wrapper').css 'margin-left', (-Math.abs(itemsTotalWidth / 2) + 'px').toString()
-
   $('.category-switches span').on 'click', ->
-    $('.current-category').removeClass('current-category')
-    $(this).addClass('current-category')
-    nextCategory = ($(this).attr 'id').replace('-category', '')
-    nextCategory = 'nav-' + nextCategory
-    $('.current-team-nav-category').hide ->
-      $(this).removeClass 'current-team-nav-category'
-      $('#' + nextCategory).show ->
-        $(this).addClass 'current-team-nav-category'
-        updateItemsTotalWidth()
+    updateCategoryNav($(this))
+
+    nextCategory = 'nav-' + ($(this).attr 'id').replace('-category', '')
+    $('.current-team-nav-category').removeClass('current-team-nav-category')
+    $('#' + nextCategory).addClass 'current-team-nav-category'
+    updateItemsTotalWidth()
 
   #
   # Make currently selected profile active. Couldn't this be done in the server template?

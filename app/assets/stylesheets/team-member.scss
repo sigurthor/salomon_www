@@ -103,10 +103,10 @@
       position: relative;
       left: 50%;
       overflow: hidden;
-      -webkit-transition: all .5s ease-in-out;
-      -moz-transition: all .5s ease-in-out;
-      -o-transition: all .5s ease-in-out;
-      transition: all .5s ease-in-out;
+      -webkit-transition: left .5s ease-in-out;
+      -moz-transition: left .5s ease-in-out;
+      -o-transition: left .5s ease-in-out;
+      transition: left .5s ease-in-out;
     }
   }
 
@@ -116,9 +116,16 @@
     overflow: hidden;
 
     & > div {
-      display: none;
+      opacity: 0;
+      height: 0;
+      overflow: hidden;
+      -webkit-transition: opacity .5s ease-in-out;
+      -moz-transition: opacity .5s ease-in-out;
+      -o-transition: opacity .5s ease-in-out;
+      transition: opacity .5s ease-in-out;
       &.current-team-nav-category {
-        display: block;
+        height: auto;
+        opacity: 1;
       }
     }
 
