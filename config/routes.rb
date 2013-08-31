@@ -1,5 +1,9 @@
 SalomonWww::Application.routes.draw do
 
+  match '/404', :to => 'error#not_found'
+  match '/422', :to => 'error#server_error'
+  match '/500', :to => 'error#server_error'
+
   get "video/index"
 
   namespace :admin do
@@ -28,7 +32,7 @@ SalomonWww::Application.routes.draw do
 
 
 
-  match "/404", :to => "error#not_found"
+
 
   root :to => 'home#index'
 
