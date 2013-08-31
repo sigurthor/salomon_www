@@ -2,6 +2,8 @@ SalomonWww::Application.configure do
   puts "development"
   # Settings specified here will take precedence over those in config/application.rb
 
+
+
   #webshop url
   config.webshop_url = 'http://dev.shop.salomon.com/'
 
