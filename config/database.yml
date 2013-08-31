@@ -9,26 +9,26 @@
 # And be sure to use new-style password hashing:
 #   http://dev.mysql.com/doc/refman/5.0/en/old-client.html
 development:
-  adapter: mysql2
-  encoding: utf8
-  reconnect: false
-  database: salomon_www_development
+  adapter: postgresql
+  host: localhost
+  encoding: unicode
+  database: salomon_www
   pool: 5
-  username: root
+  username: seh
   password:
-  socket: /tmp/mysql.sock
 
 
 frontend_development:
-
-  adapter: mysql2
-  encoding: utf8
-  reconnect: false
-  host: a2staging.cdsozjscpewg.us-east-1.rds.amazonaws.com
-  database: salomonstaging
+  adapter: postgresql
+  encoding: unicode
   pool: 5
-  username: salomonstaging
-  password: TpzsJ1Nz5C65mi
+  database: d1gj9pp8j48ih1
+  username: u22j1tr45sn7ru
+  password: pfmsspgpjnvbivl7qhpnkrh41
+  host: ec2-54-235-241-58.compute-1.amazonaws.com
+  port: 5892
+
+
 
 
 

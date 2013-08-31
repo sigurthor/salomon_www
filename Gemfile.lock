@@ -220,6 +220,7 @@ GEM
     paper_trail (2.7.2)
       activerecord (~> 3.0)
       railties (~> 3.0)
+    pg (0.16.0)
     polyglot (0.3.3)
     promise (0.3.0)
     rack (1.4.5)
@@ -361,7 +362,7 @@ DEPENDENCIES
   jquery-rails
   koala (~> 1.7.0rc1)
   localeapp
-  mysql2
+  pg
   rails (= 3.2.14)
   route_downcaser
   route_translator

@@ -24,7 +24,7 @@ class ApplicationController < ActionController::Base
   end
 
   def expire_http_cache
-    headers['Last-Modified'] = Time.now.httpdate if Rails.env.frontend_development?
+    headers['Last-Modified'] = Time.now.httpdate if Rails.env.frontend_development? || Rails.env.development?
   end
 
   helper_method :page
