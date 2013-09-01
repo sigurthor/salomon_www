@@ -23,10 +23,10 @@ frontend_development:
   encoding: unicode
   pool: 5
   database: d1gj9pp8j48ih1
-  username: u22j1tr45sn7ru
-  password: pfmsspgpjnvbivl7qhpnkrh41
-  host: ec2-54-235-241-58.compute-1.amazonaws.com
-  port: 5892
+  username: ud67gsddle474u
+  password: p5cmhr73pe5qoofiq9rvpg18epk
+  host: ec2-54-221-212-32.compute-1.amazonaws.com
+  port: 5732
 
 
 
