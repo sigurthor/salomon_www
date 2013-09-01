@@ -21,7 +21,7 @@ salomon.heroVideo = () ->
 
     videoHeight = Math.ceil(windowHeight - 150)
     videoWidth = Math.ceil(videoHeight / 9 * 16)
-    videoHeight += 5
+    videoHeight += 12
 
     if videoWidth > windowWidth
       videoWidth = windowWidth
