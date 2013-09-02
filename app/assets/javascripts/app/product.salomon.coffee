@@ -14,11 +14,13 @@ initTechSizeInfo = ->
   $tabs.on 'click', (e) ->
     e.preventDefault()
     $clicked = $(this)
-    $clicked.parent().addClass('selected').siblings().removeClass('selected')
+    $clicked.parent().addClass('selected loading').siblings().removeClass('selected')
     variant = $clicked.data('variant')
     $tabContent = $('.tab-content')
-    $tabContent.hide().filter('[data-variant="'+variant+'"]').show()
-
+    setTimeout (->
+      $('.selected').removeClass('loading')
+      $tabContent.hide().filter('[data-variant="'+variant+'"]').show()
+    ), 1000
 initTechListExpand = ->
   self = this
 

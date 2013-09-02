@@ -1,7 +1,7 @@
 /* Product related */
 
 .selected a {
-  cursor: default; /* Was unable to make this work inside a parent selector */
+  cursor: default;
 }
 
 ul {
@@ -394,6 +394,10 @@ section#tech {
     }
     li {
       display: inline;
+      &:after {
+        content: '';
+        @include spin;
+      }
     }
   }
 
