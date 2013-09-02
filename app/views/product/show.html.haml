@@ -48,6 +48,8 @@
 
         %a.button Buy now
 
+
+
       .product-model
         %span= "MODEL #{@product.article_code}"
 
@@ -64,6 +66,19 @@
         stLight.options({publisher: "189e17d4-21f7-4409-bfe6-d6939f7c6693", doNotHash: true, doNotCopy: true, hashAddressBar: false});
 
       %p.product-description=@product.description
+
+  %section.panel#assets
+    .row
+      %ul
+        - @product.videos.each do |video|
+          %li
+            %p= "video :: #{video.title} #{video.video_url}"
+            = cl_image_tag video.img, width: 200, height: 200
+        - @product.images.each do |image|
+          %li
+            %p= "image :: #{image.title}"
+            = cl_image_tag image.img, width: 200, height: 200
+
 
   - # Template Dependency: product/tech_panel
   = render :partial => 'tech_panel', :locals => { :product => @product }
