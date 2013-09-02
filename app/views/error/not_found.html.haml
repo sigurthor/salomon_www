@@ -1,10 +1,16 @@
 - content_for(:navclass) do
   sticky
 
-#page-header
+#page-header.lines
   .row
-    .large-8.large-offset-2.columns
-      %h1 404: Page not found
+    %h1
+      %span 404: Page not found
 
 .error-message
   %p Oops. You've reached the end of the internet,<br/>please go back the way you came.
+
+.button-wrap
+  %p You can navigate back to the homepage or contact us<br/>if you have any questions by clicking the links below
+  %p
+    %a.button.half{:href => '/'}> Front page
+    %a.button.half{:href => '/contact'} Contact us
