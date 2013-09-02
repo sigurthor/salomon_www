@@ -12,7 +12,13 @@ i {
     display: none;
   }
 
-  .lastproduct { display: none; }
+  .lastproduct {
+    opacity: 0;
+    @include transition(all 0.5s ease-in-out);
+    &.activated {
+      opacity: 1;
+    }
+  }
 
   &.fail {
     .lastproduct { display: none !important; }
