@@ -1,4 +1,5 @@
 init = () ->
+  $lastproduct = $('.lastproduct')
   $filters = $(".filter-list li")
 
   executionUnblock = ->
@@ -31,7 +32,15 @@ init = () ->
           $el = $filters.filter('[data-filter*="'+filter+'"]')
           $el.siblings().filter('[data-filter="all"]').removeClass 'active'
           $el.addClass('active')
-    $('.lastproduct').show()
+
+    lastProductReached = false
+    $(window).scroll ->
+      offset = $lastproduct.height() / 2
+      lastProductIsInView = ($lastproduct.offset().top -
+                            $('body').scrollTop()) <= $lastproduct.height() + offset
+      if lastProductIsInView and !lastProductReached
+        $lastproduct.addClass 'activated'
+        lastProductReached = true
 
   $("#product-list").mixitup
     layoutMode: "grid"
@@ -61,7 +70,10 @@ init = () ->
       $t.siblings("[data-filter=\"all\"]").removeClass "active"
       filterString = filterString.replace("all", "")
       unless $t.hasClass("active")
-        $t.addClass "active"
+        $t.addClass('active loading')
+        setTimeout () ->
+          $t.removeClass('loading')
+        , 1500
         filterString = filter
         $t.siblings().removeClass 'active'
         #filterString = (if filterString is "" then filter else filterString + " " + filter)

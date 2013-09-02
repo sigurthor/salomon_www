@@ -40,7 +40,7 @@ section#filterbar {
     list-style: none;
 
     li {
-      display: inline;
+      display: inline-block;
       padding: 10px 0;
     }
   }
@@ -87,10 +87,31 @@ section#filterbar {
     }
   }
 
-  .active .button {
-    height: 40px;
-    padding-top: 12px;
-    background-color: $color-lightblue;
-  }
+  .active {
+    position: relative;
+    &.loading {
+      &:after {
+        content: '';
+        position: absolute;
+        top: -17px; right: 0; bottom: 0; left: 0;
+        margin: auto;
+        height: 32px;
+        width: 24px;
 
+        font-family: "SSStandard";
+        font-size: 24px;
+        content: "\EB83";
+
+        color: #00637F;
+        z-index: 999999;
+        @include spin;
+      }
+      .button { color: $color-lightblue; }
+    }
+    .button {
+      height: 40px;
+      padding-top: 12px;
+      background-color: $color-lightblue;
+    }
+  }
 }
