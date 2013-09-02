@@ -32,6 +32,7 @@ init = () ->
           $el = $filters.filter('[data-filter*="'+filter+'"]')
           $el.siblings().filter('[data-filter="all"]').removeClass 'active'
           $el.addClass('active')
+
     lastProductReached = false
     $(window).scroll ->
       offset = $lastproduct.height() / 2
@@ -69,7 +70,10 @@ init = () ->
       $t.siblings("[data-filter=\"all\"]").removeClass "active"
       filterString = filterString.replace("all", "")
       unless $t.hasClass("active")
-        $t.addClass "active"
+        $t.addClass('active loading')
+        setTimeout () ->
+          $t.removeClass('loading')
+        , 1500
         filterString = filter
         $t.siblings().removeClass 'active'
         #filterString = (if filterString is "" then filter else filterString + " " + filter)
