@@ -80,6 +80,42 @@
     font-size: 64px;
     color: #fff;
     line-height: 72px;
+
+  }
+  &.lines {
+
+    h1 {
+      border-top: 4px solid #fff;
+      margin: 65px 0 0;
+      padding: 0;
+      height: 65px;
+      line-height: 130px;
+      font-size: 64px;
+      text-transform: uppercase;
+
+      >span {
+        display: inline-block;
+        position: relative;
+        top: -69px;
+        padding: 0 50px;
+        background: $color-darkblue;
+      }
+    }
+
+    @media only screen and (max-width: 610px) {
+      h1 {
+        border-top: 0;
+        margin-top: 0;
+        padding: 40px 0;
+        height: auto;
+        line-height: 72px;
+
+        >span {
+          padding: 0;
+          top: 0;
+        }
+      }
+    }
   }
 
   p {
@@ -158,12 +194,4 @@ input {
       opacity: 1;
     }
   }
-}
-
-.error-message {
-  margin-top: 60px;
-  padding: 140px 0 100px;
-  text-align: center;
-  font-size: 22px;
-  line-height: 24px;
 }
