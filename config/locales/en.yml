@@ -38,7 +38,8 @@ en:
     footer:
       change_country: Change country
       copyright: ©2013 SALOMON SNOWBOARDS AND BONFIRE SNOWBOARDING. ALL RIGHT RESERVED.
-      newsletter_signup: Sign up for our Newsletter - Subscribe, Stay Connected & Save
+      newsletter_signup_head: Sign up for our Newsletter
+      newsletter_signup_subhead: Subscribe, Stay Connected & Save
       headings:
         social: Stay in touch
         customer_service: Customer service
