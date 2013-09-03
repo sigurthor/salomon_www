@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130902143344) do
+ActiveRecord::Schema.define(:version => 20130903121946) do
 
   create_table "a2_access_tokens", :force => true do |t|
     t.string   "provider"
@@ -132,9 +132,10 @@ ActiveRecord::Schema.define(:version => 20130902143344) do
     t.string   "image_url"
     t.datetime "created_at",       :null => false
     t.datetime "updated_at",       :null => false
-    t.string   "title"
+    t.text     "title"
     t.string   "account_username"
     t.string   "account_id"
+    t.string   "img"
   end
 
   create_table "a2_genders", :force => true do |t|
