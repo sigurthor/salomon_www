@@ -1,15 +1,19 @@
 SalomonWww::Application.configure do
-  # Settings specified here will take precedence over those in config/application.rb
-
-  #heroku api key
-  config.heroku_api = '5df2c849bb04d21744311d6d4940455b3cd1ff50'
 
   #webshop url
-  config.webshop_url = 'http://dev.shop.salomon.com/'
+  config.webshop_url = 'http://shop.salomon.com/'
 
   #instagram
   config.instagram_client_id = "35c4114674ef40ac8fbb05c5b5c8a4ad"
   config.instagram_client_secret = "affc75a216e44cfcae33eb202a932ea7"
+
+  #faceboook
+  config.facebook_callback_url = "http://salomon-prod.herokuapp.com/a2/auth/facebook/callback/"
+  config.facebook_app_id = "505158699573060"
+  config.facebook_app_secret = "d855b3d938519bb8c5fc0f62594b5120"
+
+  #heroku api key
+  config.heroku_api = '5df2c849bb04d21744311d6d4940455b3cd1ff50'
 
   # Code is not reloaded between requests
   config.cache_classes = true
@@ -30,25 +34,6 @@ SalomonWww::Application.configure do
   # Generate digests for assets URLs
   config.assets.digest = true
 
-  # Defaults to nil and saved in location specified by config.assets.prefix
-  # config.assets.manifest = YOUR_PATH
-
-  # Specifies the header that your server uses for sending files
-  # config.action_dispatch.x_sendfile_header = "X-Sendfile" # for apache
-  # config.action_dispatch.x_sendfile_header = 'X-Accel-Redirect' # for nginx
-
-  # Force all access to the app over SSL, use Strict-Transport-Security, and use secure cookies.
-  # config.force_ssl = true
-
-  # See everything in the log (default is :info)
-  # config.log_level = :debug
-
-  # Prepend all log lines with the following tags
-  # config.log_tags = [ :subdomain, :uuid ]
-
-  # Use a different logger for distributed setups
-  # config.logger = ActiveSupport::TaggedLogging.new(SyslogLogger.new)
-
   # Use a different cache store in production
   config.cache_store = :dalli_store
 
@@ -58,20 +43,10 @@ SalomonWww::Application.configure do
   # Precompile additional assets (application.js, application.css, and all non-JS/CSS are already added)
   config.assets.precompile += %w( custom.modernizr.js html5shiv.js form5image.js respond.min.js )
 
-  # Disable delivery errors, bad email addresses will be ignored
-  # config.action_mailer.raise_delivery_errors = false
-
-  # Enable threaded mode
-  # config.threadsafe!
-
   # Enable locale fallbacks for I18n (makes lookups for any locale fall back to
   # the I18n.default_locale when a translation can not be found)
   config.i18n.fallbacks = true
 
   # Send deprecation notices to registered listeners
   config.active_support.deprecation = :notify
-
-  # Log the query plan for queries taking more than this (works
-  # with SQLite, MySQL, and PostgreSQL)
-  # config.active_record.auto_explain_threshold_in_seconds = 0.5
 end
