@@ -1,1 +1,1 @@
-Delayed::Worker.delay_jobs = !Rails.env.frontend_development? && !Rails.env.development?
+Delayed::Worker.delay_jobs =  !Rails.env.frontend_development? && !Rails.env.development?
