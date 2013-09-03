@@ -4,8 +4,8 @@ SalomonWww::Application.configure do
   config.webshop_url = 'http://shop.salomon.com/'
 
   #instagram
-  config.instagram_client_id = "35c4114674ef40ac8fbb05c5b5c8a4ad"
-  config.instagram_client_secret = "affc75a216e44cfcae33eb202a932ea7"
+  config.instagram_client_id = "cdb7302983ec4cce94d189806f9454d2"
+  config.instagram_client_secret = "6db1e69934f74db2a01ea750608c5da5"
 
   #faceboook
   config.facebook_callback_url = "http://salomon-prod.herokuapp.com/a2/auth/facebook/callback/"
