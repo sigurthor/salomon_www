@@ -37,6 +37,8 @@ section#hero {
   }
 
   &.has-video {
+    position: relative;
+
     height: 480px;
     background: url(image-path('layout/hero-video-fallback.jpg')) center center no-repeat;
     text-align: center;
