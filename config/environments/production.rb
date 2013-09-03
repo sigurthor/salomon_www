@@ -1,7 +1,7 @@
 SalomonWww::Application.configure do
 
   #webshop url
-  config.webshop_url = 'http://shop.salomon.com/'
+  config.webshop_url = 'http://dev.shop.salomon.com/'
 
   #instagram
   config.instagram_callback_url =  'http://salomon-prod.herokuapp.com/a2/auth/instagram/callback/'
