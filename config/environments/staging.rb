@@ -6,7 +6,7 @@ SalomonWww::Application.configure do
   config.webshop_url = 'http://dev.shop.salomon.com/'
 
   #instagram
-  config.instagram_callback_url =  'http://salomon-dev.herokuapp.com/a2/auth/instagram/callback/'
+  config.instagram_callback_url =  'http://salomon-dev.herokuapp.com/a2/auth/instagram/callback'
   config.instagram_client_id = '35c4114674ef40ac8fbb05c5b5c8a4ad'
   config.instagram_client_secret = 'affc75a216e44cfcae33eb202a932ea7'
 
