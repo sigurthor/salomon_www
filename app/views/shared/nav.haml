@@ -13,7 +13,7 @@
       / Left Nav Section
       %ul.left
         %li.has-dropdown
-          %a{:href => "#"}  #{t 'pages.gear', scope: :salomon}
+          %a.no-link{:href => "#_"}  #{t 'pages.gear', scope: :salomon}
           %ul.dropdown
             - gear_categories.each do |c|
               %li=link_to c.name,products_url(:category => c.slug)

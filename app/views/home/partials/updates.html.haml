@@ -11,7 +11,7 @@
           .time-ago= vimeo.relative_date
         - img_loader do
           %img{:src=>"#{vimeo.image_url}", :onload => 'form5image.hasLoaded(this)', :alt => vimeo.title}
-        .video-player
+        .video-player.flex-video.vimeo.widescreen
       %a.button.vimeo{:href=>'http://vimeo.com/salomonsnowboards', :target=>'_blank'} More videos on Vimeo
 
     // Facebook column

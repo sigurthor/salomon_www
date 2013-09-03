@@ -104,6 +104,10 @@
       color: $color-darkblue;
       line-height: 100px;
 
+      &.no-link {
+        cursor: default;
+      }
+
       &:hover {
         background: $color-lightblue;
         color: white;
