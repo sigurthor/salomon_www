@@ -47,14 +47,14 @@
           %li= link_to t('pages.privacy_policy', scope: :salomon), privacy_policy_path
 
     .large-3.columns
-      //-.language-selector
-      //-  %h5 #{t 'footer.change_country', scope: :salomon }
-      //-  %form.custom
-      //-    %select#language.dropdown.small
-      //-      - regions.each do |region|
-      //-        %option(value="" disabled="disabled")= "- #{region.name}"
-      //-        -region.fetch_a2_countries.each do |country|
-      //-          %option(value="#{country.locale}")= "#{country.name}"
+      -#.language-selector
+      -#  %h5 #{t 'footer.change_country', scope: :salomon }
+      -#  %form.custom
+      -#    %select#language.dropdown.small
+      -#      - regions.each do |region|
+      -#        %option(value="" disabled="disabled")= "- #{region.name}"
+      -#        -region.fetch_a2_countries.each do |country|
+      -#          %option(value="#{country.locale}")= "#{country.name}"
 
       .newsletter
         %h5 #{t 'footer.newsletter_signup_head', scope: :salomon }
