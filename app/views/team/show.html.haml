@@ -31,7 +31,7 @@
             - cat.team_members.each do |tm|
               %li.has-overlay
                 .nav-team-member.img-zoom-hover
-                  = cl_image_tag tm.thumb_image, :width => 140, :height => 140, :crop => 'fill', :alt => tm.name
+                  = cl_image_tag get_profile_image(tm.thumb_image), :width => 140, :height => 140, :crop => 'fill', :alt => tm.name
                   .team-member-info
                     %h3
                       = tm.fullname

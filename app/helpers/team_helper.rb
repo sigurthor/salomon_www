@@ -32,6 +32,10 @@ module TeamHelper
     end
   end
 
+  def get_profile_image(thumb_image)
+    !thumb_image.blank? ? thumb_image.identifier : 'v1378218989/salomon-profile-missing_nawqev.jpg'
+  end
+
   def get_profile_video_bg(video_bg)
     unless video_bg.blank?
       {:style => 'background-image: url("' + cl_image_path(@team_member.main_image, :crop => "fill") + '");'}
