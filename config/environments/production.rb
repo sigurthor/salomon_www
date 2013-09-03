@@ -41,7 +41,7 @@ SalomonWww::Application.configure do
   # config.action_controller.asset_host = "http://assets.example.com"
 
   # Precompile additional assets (application.js, application.css, and all non-JS/CSS are already added)
-  config.assets.precompile += %w( custom.modernizr.js html5shiv.js form5image.js respond.min.js ss-standard.js )
+  config.assets.precompile += %w( custom.modernizr.js html5shiv.js form5image.js respond.min.js ss-standard.js ss-icon.js )
 
   # Enable locale fallbacks for I18n (makes lookups for any locale fall back to
   # the I18n.default_locale when a translation can not be found)
