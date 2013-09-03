@@ -4,13 +4,14 @@ SalomonWww::Application.configure do
   config.webshop_url = 'http://shop.salomon.com/'
 
   #instagram
-  config.instagram_client_id = "cdb7302983ec4cce94d189806f9454d2"
-  config.instagram_client_secret = "6db1e69934f74db2a01ea750608c5da5"
+  config.instagram_callback_url =  'http://salomon-prod.herokuapp.com/a2/auth/instagram/callback/'
+  config.instagram_client_id = 'cdb7302983ec4cce94d189806f9454d2'
+  config.instagram_client_secret = '6db1e69934f74db2a01ea750608c5da5'
 
   #faceboook
-  config.facebook_callback_url = "http://salomon-prod.herokuapp.com/a2/auth/facebook/callback/"
-  config.facebook_app_id = "505158699573060"
-  config.facebook_app_secret = "d855b3d938519bb8c5fc0f62594b5120"
+  config.facebook_callback_url = 'http://salomon-prod.herokuapp.com/a2/auth/facebook/callback/'
+  config.facebook_app_id = '505158699573060'
+  config.facebook_app_secret = 'd855b3d938519bb8c5fc0f62594b5120'
 
   #heroku api key
   config.heroku_api = '5df2c849bb04d21744311d6d4940455b3cd1ff50'
