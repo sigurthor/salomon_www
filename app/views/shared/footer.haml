@@ -57,7 +57,8 @@
                 %option(value="#{country.locale}")= "#{country.name}"
 
       .newsletter
-        %h5 #{t 'footer.newsletter_signup', scope: :salomon }
+        %h5 #{t 'footer.newsletter_signup_head', scope: :salomon }
+        .newsletter-subhead #{t 'footer.newsletter_signup_subhead', scope: :salomon }
         %form.custom.footer-email-subscription
           %input#footer-email-input{:type=>'text', :placeholder => 'your@email.address'}
           %input.button{:type=>'submit', :value=>'Go'}
