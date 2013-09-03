@@ -27,6 +27,11 @@ class ApplicationController < ActionController::Base
     headers['Last-Modified'] = Time.now.httpdate if Rails.env.frontend_development? || Rails.env.development?
   end
 
+  def create_etag(strings)
+    strings << ENV["ETAG_VERSION_ID"]
+    strings.join('')
+  end
+
   helper_method :page
 
   def page(pid = nil)

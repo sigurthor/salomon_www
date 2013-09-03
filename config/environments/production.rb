@@ -1,6 +1,9 @@
 SalomonWww::Application.configure do
   # Settings specified here will take precedence over those in config/application.rb
 
+  #heroku api key
+  config.heroku_api = '5df2c849bb04d21744311d6d4940455b3cd1ff50'
+
   #webshop url
   config.webshop_url = 'http://dev.shop.salomon.com/'
 

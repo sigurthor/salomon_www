@@ -358,6 +358,7 @@ DEPENDENCIES
   coffee-rails (~> 3.2.1)
   compass-rails
   globalize3
+  heroku-api
   instagram
   jquery-rails
   koala (~> 1.7.0rc1)

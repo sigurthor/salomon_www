@@ -3,7 +3,7 @@ class HomeController < ApplicationController
     page 'home'
 
 
-    if (stale?(:etag => page))
+    if (stale?(:etag => create_etag([page.updated_at])))
       team_categories = A2::TeamCategory.cached_deceandans_of(6)
       @team_categories_info = team_categories.map { |c| {name: c.name, count: c.team_members.length} }
       @pro_team_members = team_categories.map { |c| c.team_members if c.slug == 'pros' }.first
