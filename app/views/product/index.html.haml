@@ -7,93 +7,93 @@
 - content_for :page_title do
   #{@category.name}
 
-- cache [I18n.locale , @category] do
-  %section#filterbar
-    .row.filter-text
-      .large-12.columns
-        .row
-          .large-8.large-offset-2
-            %h1=page.title
 
-    .filters
+%section#filterbar
+  .row.filter-text
+    .large-12.columns
+      .row
+        .large-8.large-offset-2
+          %h1=page.title
+
+  .filters
+    .group
+      %h4 Rider
+      %ul.filter-list
+        %li.active(data-filter="all" data-dimension="gender")
+          %a.button{:href=>'#'} All
+        %li(data-filter="filter-M filter-U" data-dimension="gender")
+          %a.button{:href=>'#'} Men
+        %li(data-filter="filter-W filter-U" data-dimension="gender")
+          %a.button{:href=>'#'} Women
+        %li(data-filter="filter-K" data-dimension="gender")
+          %a.button{:href=>'#'} Youth
+
+    - @feature_types.each_with_index do |filter, index|
       .group
-        %h4 Rider
+        %h4=filter.name
         %ul.filter-list
-          %li.active(data-filter="all" data-dimension="gender")
-            %a.button{:href=>'#'} All
-          %li(data-filter="filter-M filter-U" data-dimension="gender")
-            %a.button{:href=>'#'} Men
-          %li(data-filter="filter-W filter-U" data-dimension="gender")
-            %a.button{:href=>'#'} Women
-          %li(data-filter="filter-K" data-dimension="gender")
-            %a.button{:href=>'#'} Youth
+          %li.active(data-filter="all" data-dimension="feature-#{filter.id}")
+            %a.button{} All
+          - filter.product_features.each do |feature|
+            %li(data-filter="filter-#{feature.id}" data-dimension="feature-#{filter.id}")
+              %a.button{set_text_length_class(feature.name, 10)}=feature.name
+%section#main
+  .row
+    #product-list
+      -@products.each do |product|
+        - filterClasses = product.product_features.map { |p| "filter-#{p.id}" }.join ' '
+        - filterClasses << " filter-#{product.gender}"
+        .large-3.columns.mix{:class=>filterClasses, :data => {:name => "#{product.name}", :price => "#{product.price}"}}
+          .product{:class => (product.is_snowboard? ? 'snowboard':'')}
+            .main-info
 
-      - @feature_types.each_with_index do |filter, index|
-        .group
-          %h4=filter.name
-          %ul.filter-list
-            %li.active(data-filter="all" data-dimension="feature-#{filter.id}")
-              %a.button{} All
-            - filter.product_features.each do |feature|
-              %li(data-filter="filter-#{feature.id}" data-dimension="feature-#{filter.id}")
-                %a.button{set_text_length_class(feature.name, 10)}=feature.name
-  %section#main
-    .row
-      #product-list
-        -@products.each do |product|
-          - filterClasses = product.product_features.map { |p| "filter-#{p.id}" }.join ' '
-          - filterClasses << " filter-#{product.gender}"
-          .large-3.columns.mix{:class=>filterClasses, :data => {:name => "#{product.name}", :price => "#{product.price}"}}
-            .product{:class => (product.is_snowboard? ? 'snowboard':'')}
-              .main-info
+              - if product.is_snowboard?
+                - img_loader do
+                  = link_to prepend_snowboard_crop(cl_image_tag(product.master_image,  :width => 180, :height => 386, :alt => product.name, :crop => :fill, :class => 'product-image', :onload => 'form5image.hasLoaded(this)')), product_show_path(:category => params[:category], :product => product.slug)
+                %h2{set_text_length_class(product.name, 16)}
+                  = link_to product.name, product_show_path(:category => params[:category], :product => product.slug)
+                .price= t :display_currency, scope: :salomon , price: product.price
+                = render :partial => 'products_size_thumbs', :locals => { :variants => product.product_variants }
+              - else
+                - img_loader do
+                  = link_to cl_image_tag(product.master_image,  :width => 200, :alt => product.name, :crop => :fill, :class => 'product-image', :onload => 'form5image.hasLoaded(this)'), product_show_path(:category => params[:category], :product => product.slug)
+                %h2{set_text_length_class(product.name, 16)}
+                  = link_to product.name, product_show_path(:category => params[:category], :product => product.slug)
+                .price= t :display_currency, scope: :salomon, price: product.price
+                = render :partial => 'products_color_thumbs', :locals => { :variants => product.product_color_variants }
 
-                - if product.is_snowboard?
-                  - img_loader do
-                    = link_to prepend_snowboard_crop(cl_image_tag(product.master_image,  :width => 180, :height => 386, :alt => product.name, :crop => :fill, :class => 'product-image', :onload => 'form5image.hasLoaded(this)')), product_show_path(:category => params[:category], :product => product.slug)
-                  %h2{set_text_length_class(product.name, 16)}
-                    = link_to product.name, product_show_path(:category => params[:category], :product => product.slug)
-                  .price= t :display_currency, price: product.price
-                  = render :partial => 'products_size_thumbs', :locals => { :variants => product.product_variants }
-                - else
-                  - img_loader do
-                    = link_to cl_image_tag(product.master_image,  :width => 200, :alt => product.name, :crop => :fill, :class => 'product-image', :onload => 'form5image.hasLoaded(this)'), product_show_path(:category => params[:category], :product => product.slug)
-                  %h2{set_text_length_class(product.name, 16)}
-                    = link_to product.name, product_show_path(:category => params[:category], :product => product.slug)
-                  .price= t :display_currency, price: product.price
-                  = render :partial => 'products_color_thumbs', :locals => { :variants => product.product_color_variants }
+            .more-info
+              .feature
+                %span= t("gender.#{product.gender}",:scope => :salomon, :count => 2) + " " + product.categories[0].name_singular
+              -product.product_features.each do |feature|
+                - if feature.product_feature_type_show_in_category_overview
+                  .feature
+                    %h5=feature.product_feature_type_name
+                    %span=feature.name
 
-              .more-info
-                .feature
-                  %span= t("gender.#{product.gender}", :count => 2) + " " + product.categories[0].name_singular
-                -product.product_features.each do |feature|
-                  - if feature.product_feature_type_show_in_category_overview
-                    .feature
-                      %h5=feature.product_feature_type_name
-                      %span=feature.name
+      .large-3.columns.end
+        .product.last.notfound
+          %h2 Sorry - No products match this filter criteria
+          //.message Donec sed odio dui. Maecenas faucibus mollis interdum. Fusce dapibus, tellus ac cursus commodo.
+          %ul.links
+            %li
+              %a.clear-filters{:href=>'#'} Clear filters
+            %li
+              %a Back to front page
 
-        .large-3.columns.end
-          .product.last.notfound
-            %h2 Sorry - No products match this filter criteria
-            //.message Donec sed odio dui. Maecenas faucibus mollis interdum. Fusce dapibus, tellus ac cursus commodo.
-            %ul.links
-              %li
-                %a.clear-filters{:href=>'#'} Clear filters
-              %li
-                %a Back to front page
-
-        .large-3.columns.end
-          .product.last.lastproduct
-            %h2
-              You've reached
-              %br
-              the last
-              %br
-              product
-            //.message Donec sed odio dui. Maecenas faucibus mollis interdum. Fusce dapibus, tellus ac cursus commodo.
-            %ul.links
-              %li
-                %a.modify-filters{:href=>'#filterbar'} Modify filters
-              %li
-                %a.clear-filters{:href=>'#'} Clear filters
-              %li
-                =link_to 'Back to front page', home_path
+      .large-3.columns.end
+        .product.last.lastproduct
+          %h2
+            You've reached
+            %br
+            the last
+            %br
+            product
+          //.message Donec sed odio dui. Maecenas faucibus mollis interdum. Fusce dapibus, tellus ac cursus commodo.
+          %ul.links
+            %li
+              %a.modify-filters{:href=>'#filterbar'} Modify filters
+            %li
+              %a.clear-filters{:href=>'#'} Clear filters
+            %li
+              =link_to 'Back to front page', home_path

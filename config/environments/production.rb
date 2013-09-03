@@ -1,6 +1,12 @@
 SalomonWww::Application.configure do
   # Settings specified here will take precedence over those in config/application.rb
 
+  #heroku api key
+  config.heroku_api = '5df2c849bb04d21744311d6d4940455b3cd1ff50'
+
+  #webshop url
+  config.webshop_url = 'http://dev.shop.salomon.com/'
+
   #instagram
   config.instagram_client_id = "35c4114674ef40ac8fbb05c5b5c8a4ad"
   config.instagram_client_secret = "affc75a216e44cfcae33eb202a932ea7"
@@ -50,7 +56,7 @@ SalomonWww::Application.configure do
   # config.action_controller.asset_host = "http://assets.example.com"
 
   # Precompile additional assets (application.js, application.css, and all non-JS/CSS are already added)
-  config.assets.precompile += %w( custom.modernizr.js html5shiv.js form5image.js )
+  config.assets.precompile += %w( custom.modernizr.js html5shiv.js form5image.js respond.min.js )
 
   # Disable delivery errors, bad email addresses will be ignored
   # config.action_mailer.raise_delivery_errors = false

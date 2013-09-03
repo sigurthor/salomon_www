@@ -103,10 +103,7 @@
       position: relative;
       left: 50%;
       overflow: hidden;
-      -webkit-transition: all .5s ease-in-out;
-      -moz-transition: all .5s ease-in-out;
-      -o-transition: all .5s ease-in-out;
-      transition: all .5s ease-in-out;
+      @include transition(left 0.5s ease-in-out);
     }
   }
 
@@ -114,6 +111,18 @@
     display: inline-block;
     margin: 0;
     overflow: hidden;
+
+    & > div {
+      opacity: 0;
+      height: 0;
+      overflow: hidden;
+      @include transition(opacity 0.5s ease-in-out);
+      &.current-team-nav-category {
+        height: auto;
+        opacity: 1;
+      }
+    }
+
     li + li {
       margin-left: 20px;
     }
@@ -283,7 +292,7 @@
       }
       font-family: $font-obl;
       font-size: 40px;
-      line-height: 60px;
+      line-height: 50px;
     }
   }
 
@@ -412,6 +421,8 @@
     }
 
     .gear-item {
+      display: inline-block;
+      margin: 0 40px;
       text-align: center;
       line-height: 400px;
       vertical-align: middle;
@@ -450,6 +461,28 @@
   }
 
 
+.click-buttons {
+  div {
+    display: none;
+    position: absolute;
+    top: -5px;
+    font-family: $font-boldcnd20obl;
+    color: #fff;
+    &.prev-name { left: 35px; }
+    &.next-name { right: 35px; }
+  }
+  a:hover {
+    color: #fff !important;
+    white-space: nowrap;
+    &.left-arrow {
+      .prev-name { display: block; }
+    }
+    &.right-arrow {
+      .next-name { display: block; }
+    }
+  }
+}
+
   #gear-used {
     margin-top: 0;
     .row {
@@ -457,7 +490,6 @@
       .columns {
         display: inline-block;
         margin: 0 auto;
-        float: none;
       }
     }
   }

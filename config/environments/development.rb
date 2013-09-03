@@ -2,6 +2,11 @@ SalomonWww::Application.configure do
   puts "development"
   # Settings specified here will take precedence over those in config/application.rb
 
+
+
+  #webshop url
+  config.webshop_url = 'http://dev.shop.salomon.com/'
+
   #faceboook
   config.facebook_callback_url = 'http://localhost:4224/a2/auth/facebook/callback/'
   config.facebook_app_id = "505158699573060"
@@ -22,7 +27,7 @@ SalomonWww::Application.configure do
 
   # Show full error reports and disable caching
   config.consider_all_requests_local       = true
-  config.action_controller.perform_caching = true
+  config.action_controller.perform_caching = false
 
   # Don't care if the mailer can't send
   config.action_mailer.raise_delivery_errors = false

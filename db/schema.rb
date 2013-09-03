@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130827112705) do
+ActiveRecord::Schema.define(:version => 20130902143344) do
 
   create_table "a2_access_tokens", :force => true do |t|
     t.string   "provider"
@@ -22,6 +22,26 @@ ActiveRecord::Schema.define(:version => 20130827112705) do
   end
 
   add_index "a2_access_tokens", ["provider", "rails_env"], :name => "index_a2_access_tokens_on_provider_and_rails_env", :unique => true
+
+  create_table "a2_assetables", :force => true do |t|
+    t.integer  "asset_id"
+    t.integer  "assetable_id"
+    t.string   "assetable_type"
+    t.datetime "created_at",     :null => false
+    t.datetime "updated_at",     :null => false
+  end
+
+  create_table "a2_assets", :force => true do |t|
+    t.string   "title"
+    t.string   "description"
+    t.string   "img"
+    t.string   "video_id"
+    t.string   "video_url"
+    t.string   "video_image_url"
+    t.string   "type"
+    t.datetime "created_at",      :null => false
+    t.datetime "updated_at",      :null => false
+  end
 
   create_table "a2_brands", :id => false, :force => true do |t|
     t.string   "id"
@@ -192,6 +212,7 @@ ActiveRecord::Schema.define(:version => 20130827112705) do
     t.string   "title_browser"
     t.string   "slug"
     t.text     "description"
+    t.string   "salomon_url"
   end
 
   add_index "a2_pages", ["pid"], :name => "index_a2_pages_on_pid", :unique => true
@@ -205,6 +226,14 @@ ActiveRecord::Schema.define(:version => 20130827112705) do
   end
 
   add_index "a2_prices", ["product_variant_id", "country_id"], :name => "product_price", :unique => true
+
+  create_table "a2_product_assets", :force => true do |t|
+    t.integer  "asset_id"
+    t.integer  "product_id"
+    t.string   "type"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
 
   create_table "a2_product_color_variants", :force => true do |t|
     t.string   "sap"
@@ -310,8 +339,9 @@ ActiveRecord::Schema.define(:version => 20130827112705) do
     t.string   "locale"
     t.text     "description"
     t.string   "tag_line"
-    t.datetime "created_at",    :null => false
-    t.datetime "updated_at",    :null => false
+    t.datetime "created_at",                                  :null => false
+    t.datetime "updated_at",                                  :null => false
+    t.decimal  "price",         :precision => 8, :scale => 2
   end
 
   add_index "a2_product_translations", ["a2_product_id"], :name => "index_a2_product_translations_on_a2_product_id"
@@ -387,6 +417,7 @@ ActiveRecord::Schema.define(:version => 20130827112705) do
     t.string   "name"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+    t.boolean  "visible"
   end
 
   create_table "a2_related_products", :force => true do |t|
@@ -519,7 +550,7 @@ ActiveRecord::Schema.define(:version => 20130827112705) do
     t.string   "username"
     t.integer  "item"
     t.string   "table"
-    t.integer  "month",      :limit => 2
+    t.integer  "month"
     t.integer  "year",       :limit => 8
     t.datetime "created_at",              :null => false
     t.datetime "updated_at",              :null => false

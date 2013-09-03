@@ -3,7 +3,7 @@ module TeamHelper
     {:class => (category_name != 'Nationals' ? 'large-block-grid-4' : 'large-block-grid-2')}
   end
   def slider_viewport
-    @wrapper_width = ((@total_riders * 160) - 20)
+    @wrapper_width = ((@team_member.category.team_members.count * 160) - 20)
     @margin_left = (-(@wrapper_width / 2).abs)
     {:style => 'width: ' + @wrapper_width.to_s + 'px; margin-left: ' + @margin_left.to_s + 'px'}
   end
@@ -37,6 +37,20 @@ module TeamHelper
       {:style => 'background-image: url("' + cl_image_path(@team_member.main_image, :crop => "fill") + '");'}
     else
       {:style => 'background-image: url("/assets/fixme-missing-profile-video.jpg");'}
+    end
+  end
+
+  def is_current_team_nav_category(category)
+    if category.name == @team_member.category.name
+      {:class => 'current-team-nav-category', :id => 'nav-' + category.name.downcase}
+    else
+      {:id => 'nav-' + category.name.downcase}
+    end
+  end
+
+  def gear_heading
+    unless @team_member.products.empty?
+      render :text => 'Gear Used'
     end
   end
 

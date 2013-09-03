@@ -33,7 +33,7 @@ GIT
       workless
 
 GEM
-  remote: http://rubygems.org/
+  remote: https://rubygems.org/
   specs:
     actionmailer (3.2.14)
       actionpack (= 3.2.14)
@@ -214,13 +214,13 @@ GEM
     net-scp (1.0.4)
       net-ssh (>= 1.99.1)
     net-ssh (2.6.8)
-    newrelic_rpm (3.6.6.147)
     nokogiri (1.5.10)
     nori (2.3.0)
     orm_adapter (0.4.0)
     paper_trail (2.7.2)
       activerecord (~> 3.0)
       railties (~> 3.0)
+    pg (0.16.0)
     polyglot (0.3.3)
     promise (0.3.0)
     rack (1.4.5)
@@ -323,7 +323,7 @@ GEM
       polyglot
       polyglot (>= 0.3.1)
     tzinfo (0.3.37)
-    uglifier (2.1.2)
+    uglifier (2.2.1)
       execjs (>= 0.3.0)
       multi_json (~> 1.0, >= 1.0.2)
     unicorn (4.6.3)
@@ -358,11 +358,12 @@ DEPENDENCIES
   coffee-rails (~> 3.2.1)
   compass-rails
   globalize3
+  heroku-api
   instagram
   jquery-rails
   koala (~> 1.7.0rc1)
-  mysql2
-  newrelic_rpm
+  localeapp
+  pg
   rails (= 3.2.14)
   route_downcaser
   route_translator

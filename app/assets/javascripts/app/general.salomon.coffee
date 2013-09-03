@@ -1,4 +1,37 @@
 salomon.general = () ->
+
+  createCookie = (name, value, days) ->
+    if days
+      date = new Date()
+      date.setTime date.getTime() + (days * 24 * 60 * 60 * 1000)
+      expires = "; expires=" + date.toGMTString()
+    else
+      expires = ""
+    document.cookie = name + "=" + value + expires + "; path=/"
+  readCookie = (name) ->
+    nameEQ = name + "="
+    ca = document.cookie.split(";")
+    i = 0
+
+    while i < ca.length
+      c = ca[i]
+      c = c.substring(1, c.length)  while c.charAt(0) is " "
+      return c.substring(nameEQ.length, c.length)  if c.indexOf(nameEQ) is 0
+      i++
+    null
+  eraseCookie = (name) ->
+    createCookie name, "", -1
+
+  $('#language-bar .has-dropdown li, .ignore').click ->
+    inThreeMonths = 60 * 60 * 24 * 90
+    if $(this).hasClass('ignore')
+      createCookie('defaultCountry', 'Global(en)', inThreeMonths)
+      return
+    country = $(this).find('a').text()
+    createCookie('defaultCountry', country, inThreeMonths)
+
+  $("#contactForm").validationEngine()
+
   setTimeout () ->
     $('#play-overlay').fadeIn(4000)
   , 250
@@ -9,41 +42,14 @@ salomon.general = () ->
     e.preventDefault()
 
 
-  # Language bar ignore button
-  $('#language-bar .ignore').on 'click', (e) ->
-    e.preventDefault()
-    $('#language-bar').removeClass 'open'
-
-  #
-  # Frontpage Video DEMO
-  #
-  $('#play-overlay').bind 'click', (e) ->
-    e.preventDefault()
-    $video = $('video')
-    $videoEl = $('video').get(0)
-    $videoEl.pause()
-
-    $('#nav-container').addClass 'sticky'
-    $('#play-overlay, video').fadeOut 1500, () ->
-      $video.find('source').get(0).src = 'http://vimeo.com/70501536/download?t=1376686407&v=177689239&s=d4646d19567293ddb7b9188f87f82379';
-      $videoEl.load()
-      $video.removeClass 'ambient'
-
-    $('#hero').css('height', '680px')
-
-    setTimeout () ->
-      $videoEl.play()
-      $videoEl.muted = false
-      $video.fadeIn(2500)
-    , 2000
-
   $("li .team-member").click ->
     window.location = $(this).find("a").attr("href");
 
-  if $('.frontpage').length
-    setTimeout () ->
-      $('#language-bar').addClass 'open'
-    , 1500
+  if !readCookie 'defaultCountry'
+    if $('.frontpage').length
+      setTimeout () ->
+        $('#language-bar').addClass 'open'
+      , 1500
 
 
   # Footer e-mail subscription

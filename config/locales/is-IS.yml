@@ -1,8 +1,0 @@
-is-IS:
-        routes:
-          team: lid
-          gear: vorur
-        zone: 'eu'
-        region: 'Germany'
-        currecny: 'Eur'
-        display_currency: "%{price} €"

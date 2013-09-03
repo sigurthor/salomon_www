@@ -2,6 +2,7 @@ class ApplicationController < ActionController::Base
   protect_from_forgery
 
   before_filter :set_locale
+  after_filter :expire_http_cache
 
   def set_locale
 
@@ -22,12 +23,22 @@ class ApplicationController < ActionController::Base
     end
   end
 
+  def expire_http_cache
+    headers['Last-Modified'] = Time.now.httpdate if Rails.env.frontend_development? || Rails.env.development?
+  end
+
+  def create_etag(strings)
+    strings << ENV["ETAG_VERSION_ID"]
+    strings.join('')
+  end
+
   helper_method :page
 
   def page(pid = nil)
-    pid = pid ? pid :
-      current_uri = request.env['PATH_INFO']
-      @Page ||= A2::Page.find_or_create_by_pid(pid)
+    pid = pid ? pid : current_uri = request.env['PATH_INFO']
+    page = A2::Page.fetch_by_pid(pid)
+    page = A2::Page.create(:pid => pid) unless page
+    @Page ||= Rails.cache.fetch(page) { A2::Page.includes(:translations).find(page.id) }
   end
 
 end

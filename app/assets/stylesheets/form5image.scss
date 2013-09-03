@@ -1,13 +1,11 @@
 .img-wrapper {
   position: relative;
+  height: 100%;
 
   img {
     opacity: 0;
 
-    -webkit-transition: opacity 150ms;
-    -moz-transition: opacity 150ms;
-    -ms-transition: opacity 150ms;
-    transition: opacity 150ms;
+    @include transition(opacity 150ms ease-in-out);
   }
 
   &:before {

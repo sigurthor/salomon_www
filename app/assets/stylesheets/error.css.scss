@@ -1,0 +1,25 @@
+// Place all the styles related to the error controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.error-message {
+  margin-top: 60px;
+  padding: 140px 0 100px;
+  text-align: center;
+  font-size: 22px;
+  line-height: 24px;
+}
+
+.button-wrap  {
+  margin: 0 auto 40px;
+  width: 100%;
+  max-width: 350px;
+  font-size: 14px;
+  text-align: center;
+
+  .button.half {
+    display: inline-block;
+    width: 47%;
+    margin: 0 1%;
+  }
+}

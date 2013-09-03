@@ -1,5 +1,9 @@
 /* Product related */
 
+.selected a {
+  cursor: default;
+}
+
 ul {
   list-style: none;
 }
@@ -192,11 +196,13 @@ ul {
       }
     }
 
-    &.selected img {
-      width: 30px;
-      height: 30px;
-      padding: 2px;
-      border: 2px $color-lightblue solid;
+    &.selected {
+      img {
+        width: 30px;
+        height: 30px;
+        padding: 2px;
+        border: 2px $color-lightblue solid;
+      }
     }
 
     &:before {
@@ -388,6 +394,10 @@ section#tech {
     }
     li {
       display: inline;
+      &:after {
+        content: '';
+        @include spin;
+      }
     }
   }
 

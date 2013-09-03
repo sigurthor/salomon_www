@@ -14,17 +14,19 @@ initTechSizeInfo = ->
   $tabs.on 'click', (e) ->
     e.preventDefault()
     $clicked = $(this)
-    $clicked.parent().addClass('selected').siblings().removeClass('selected')
+    $clicked.parent().addClass('selected loading').siblings().removeClass('selected')
     variant = $clicked.data('variant')
     $tabContent = $('.tab-content')
-    $tabContent.hide().filter('[data-variant="'+variant+'"]').show()
-
+    setTimeout (->
+      $('.selected').removeClass('loading')
+      $tabContent.hide().filter('[data-variant="'+variant+'"]').show()
+    ), 1000
 initTechListExpand = ->
   self = this
 
-  $('ul.tech-list li a.expand').on 'click', (e) ->
-    $button = $(this)
-    $li = $button.parent()
+  $('ul.tech-list li').on 'click', (e) ->
+    $button = $(this).find('a.expand')
+    $li = $(this)
     e.preventDefault()
 
     if $li.hasClass 'expanded'
@@ -63,6 +65,7 @@ initProductColorPicker = ->
         updateImageset(set)
         $el.parent().parent().find('li').removeClass 'selected'
         $el.parent().addClass 'selected'
+    $('ul.product-thumbs li:first-child').addClass('selected')
 
 initProductSizePicker = ->
   $('.board-sizes li a').on 'click', (e) ->

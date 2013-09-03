@@ -1,5 +1,2 @@
 ru-RU:
-  zone: 'eu'
-  region: 'Россия'
-  currecny: 'Eur'
-  display_currency: "%{price} €"
+  salomon:

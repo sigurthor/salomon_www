@@ -2,19 +2,45 @@
 # See https://github.com/svenfuchs/rails-i18n/tree/master/rails%2Flocale for starting points.
 
 en:
-  region: "Global(en)"
-  currency: "Eur"
-  display_currency: "$%{price}"
-  nav:
-    gear: "Gear"
-    team: "Team"
-    videos: "Videos"
-    blog:  "blog"
-    stores: "Stores"
-  gender:
-    M:
-      one: 'men'
-      other: "men's"
-    W:
-      one: 'women'
-      other: "womens's"
+  salomon:
+    region: Global(en)
+    currency: Eur
+    display_currency: $%{price}
+
+    gender:
+        M:
+          one: men
+          other: men's
+        W:
+          one: women
+          other: womens's
+
+    pages:
+        gear: Gear
+        team: Team
+        videos: Videos
+        blog:  Blog
+        stores: Stores
+        faq: FAQ
+        warranty: Warranty
+        contact: Contact
+        terms: Terms
+        privacy_policy: Privacy policy
+
+    header:
+      change_country: Change country
+      ignore: ignore
+      language_notification: Hi there, you seem to be visiting from %{country}. Do you want to change the location and language?
+      search_placeholder: What are you searching for
+
+
+
+    footer:
+      change_country: Change country
+      copyright: ©2013 SALOMON SNOWBOARDS AND BONFIRE SNOWBOARDING. ALL RIGHT RESERVED.
+      newsletter_signup: Sign up for our Newsletter - Subscribe, Stay Connected & Save
+      headings:
+        social: Stay in touch
+        customer_service: Customer service
+
+

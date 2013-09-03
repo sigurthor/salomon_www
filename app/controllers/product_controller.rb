@@ -2,15 +2,31 @@ class ProductController < BaseController
 
 
   def index
-    @category = A2::ProductCategory.by_slug(params[:category]).first  #todo cache
+    @category = A2::ProductCategory.fetch_by_slug(params[:category])
     page @category.slug
-    @feature_types = A2::ProductFeatureType.includes(:product_features).where(:id => @category.filters.split(',')) unless @category.filters.blank?
-    @products = @category.products.includes({product_color_variants: :product_images},{product_features: :product_feature_type},{product_variants: :product_image})   #todo use scope
+
+    if stale?(:etag => create_etag([@category.updated_at, page.updated_at]))
+
+      @feature_types = A2::ProductFeatureType.includes(:product_features).where(:id => @category.filters.split(',')) unless @category.filters.blank?
+      @products = Rails.cache.fetch(@category) { @category.products.include_all.all }
+
+      respond_to do |f|
+        f.html
+      end
+    end
 
   end
 
   def show
+    @product = A2::Product.cached_product_by_slug(params[:product])
     page "#{params[:category]}-product"
-    @product = A2::Product.find_by_slug(params[:product])
+
+    if stale?(:etag => create_etag([@product.updated_at, page.updated_at]))
+      respond_to do |f|
+        f.html
+      end
+    end
   end
+
+
 end

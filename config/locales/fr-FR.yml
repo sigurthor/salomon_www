@@ -1,5 +1,2 @@
 fr-FR:
-  zone: 'eu'
-  region: 'France'
-  currecny: 'Eur'
-  display_currency: "%{price} €"
+  salomon:

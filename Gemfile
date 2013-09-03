@@ -1,15 +1,16 @@
-source 'http://rubygems.org'
+source 'https://rubygems.org'
 
 gem 'rails', '3.2.14'
-gem 'mysql2'
+gem 'pg'
 gem 'cache_digests'
 gem 'a2', :git => 'https://8822694c4779c052130037718ba51b09d8ae7839:x-oauth-basic@github.com/sigurthor/a2_backend.git', :branch => 'master' #399f70846458cef2cae13bec28cf3bfe20409749
-gem 'newrelic_rpm'
 gem 'globalize3'
 gem 'route_translator'
 gem 'route_downcaser'
 gem 'instagram'
 gem 'koala', '~> 1.7.0rc1'
+gem 'localeapp'
+gem 'heroku-api'
 
 
 group :assets, :frontend_development do
