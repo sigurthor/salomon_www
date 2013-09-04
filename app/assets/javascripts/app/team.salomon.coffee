@@ -133,7 +133,8 @@ init = () ->
     url = '/team/rider-' + name + '?ajax=true'
     $('section#member').addClass 'loading-member'
     $(this).removeClass('has-overlay').siblings().addClass('has-overlay')
-    $(this).addClass('currently-selected-team-member').siblings().removeClass('currently-selected-team-member')
+    $('.currently-selected-team-member').removeClass('currently-selected-team-member')
+    $(this).addClass('currently-selected-team-member').siblings()
     $.ajax
       type: 'GET'
       url:  url
@@ -144,5 +145,6 @@ init = () ->
         $('section#member-body').replaceWith(page)
         if history.pushState
           history.pushState null, null, url.replace('?ajax=true', '')
-        $('.prev-name').html $('.currently-selected-team-member').prev().find('h3').text()
-        $('.next-name').html $('.currently-selected-team-member').next().find('h3').text()
+        console.log $('.currently-selected-team-member').prev().find('h3').text()
+        $('.prev-name').html($('.currently-selected-team-member').prev().find('h3').text())
+        $('.next-name').html($('.currently-selected-team-member').next().find('h3').text())
