@@ -2,24 +2,15 @@
   .row
     .large-8.columns
       %h2 Gallery
-      .large-3.columns
-        %img{:src=>'http://placehold.it/180x180'}
-      .large-3.columns
-        %img{:src=>'http://placehold.it/180x180'}
-      .large-3.columns
-        %img{:src=>'http://placehold.it/180x180'}
-      .large-3.columns
-        %img{:src=>'http://placehold.it/180x180'}
-        .more-images
-          %a{:href => '#'}
-            %div
-              %span 7 more images
+      .large-block-grid-4
+        - product.images.first(4).each do |asset|
+          %li
+            %a{ :href => asset.img.url, :data => { :lightbox => asset.title } }
+              = cl_image_tag asset.img, :width => 180, :height => 180, :crop => 'fill', :onload => 'form5image.hasLoaded(this)', :alt => asset.title
+        =display_more_assets_link
     .large-3.columns.large-offset-1
       %h2 Riders
       %ul.riders
-        %li Takaharu Nakai
-        %li Takaharu Nakai
-        %li Takaharu Nakai
-        %li Takaharu Nakai
-        %li Takaharu Nakai
-        %li 5 other riders
+        - product.team_members.first(5).each do |tm|
+          %li= tm.name
+        =display_more_riders_link

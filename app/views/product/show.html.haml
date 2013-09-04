@@ -67,34 +67,7 @@
 
       %p.product-description=@product.description
 
-%section.panel.gray
-  .row
-    .large-8.columns
-      %h2 Gallery
-      - @product.assets.first(4).each do |asset|
-        .large-3.columns
-          %a{ :href => asset.img.url, :data => { :lightbox => asset.title } }
-            = cl_image_tag asset.img, width: 180, height: 180
-      =display_more_assets_link
-    .large-3.columns.large-offset-1
-      %h2 Riders
-      %ul.riders
-        - @product.team_members.first(5).each do |tm|
-          %li= tm.name
-        =display_more_riders_link
-
-  / %section.panel#assets
-  /   .row
-  /     %ul
-  /       - @product.videos.each do |video|
-  /         %li
-  /           %p= "video :: #{video.title} #{video.video_url}"
-  /           = cl_image_tag video.img, width: 200, height: 200
-  /       - @product.images.each do |image|
-  /         %li
-  /           %p= "image :: #{image.title}"
-  /           = cl_image_tag image.img, width: 200, height: 200
-
+  = render :partial => 'gallery_riders', :locals => { :product => @product }
 
   - # Template Dependency: product/tech_panel
   = render :partial => 'tech_panel', :locals => { :product => @product }
