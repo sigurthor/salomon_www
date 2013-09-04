@@ -2,7 +2,8 @@ class ProductController < BaseController
 
 
   def index
-    @category = A2::ProductCategory.fetch_by_slug(params[:category])
+
+    @category = A2::ProductCategory.fetch_by_slug(params[:category]) || not_found
     page @category.slug
 
     if stale?(:etag => create_etag([@category.updated_at, page.updated_at]))
@@ -18,7 +19,7 @@ class ProductController < BaseController
   end
 
   def show
-    @product = A2::Product.cached_product_by_slug(params[:product])
+    @product = A2::Product.cached_product_by_slug(params[:product]) || not_found
     page "#{params[:category]}-product"
 
     if stale?(:etag => create_etag([@product.updated_at, page.updated_at]))

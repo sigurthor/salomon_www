@@ -4,6 +4,10 @@ class ApplicationController < ActionController::Base
   before_filter :set_locale
   after_filter :expire_http_cache
 
+  rescue_from(ActionController::RoutingError) {
+    render '/error/not_found', :layout  => 'application'
+  }
+
   def set_locale
 
     l = params[:locale] if params[:locale]
@@ -11,6 +15,9 @@ class ApplicationController < ActionController::Base
     I18n.locale = l || I18n.default_locale
   end
 
+  def not_found
+    raise ActionController::RoutingError.new('Not Found')
+  end
 
   def default_url_options(options={})
     logger.debug "default_url_options is passed options: #{options.inspect}\n #{I18n.locale}2"
@@ -31,6 +38,7 @@ class ApplicationController < ActionController::Base
     strings << ENV["ETAG_VERSION_ID"]
     strings.join('')
   end
+
 
   helper_method :page
 
