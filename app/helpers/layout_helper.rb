@@ -1,7 +1,6 @@
 module LayoutHelper
   def gear_categories
-    @menu_items = A2::ProductCategory.fetch_by_visible(true)
-    #@menu_items ||= A2::ProductCategory.where(:visible => true).order(:position)
+    @menu_items = A2::ProductCategory.fetch_by_visible_and_type(true,'A2::ProductCategory')
   end
 
   def regions
