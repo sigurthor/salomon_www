@@ -4,7 +4,7 @@ class HomeController < ApplicationController
     puts "#{Cashier.tags} tags"
 
     c = A2::TeamCategory.fetch_by_slug_and_type('pros','A2::TeamCategory')
-    @pro_team_members = Rails.cache.fetch(c.updated_at) { c.team_members }
+    @pro_team_members = Rails.cache.fetch(c.updated_at) { c.team_members.all }
 
     @vimeo = A2::VimeoFeed.cached_latest
     @instagram = A2::InstagramFeed.cached_latest_by_user('salomonsnowboards')

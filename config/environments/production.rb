@@ -1,7 +1,5 @@
 SalomonWww::Application.configure do
 
-  #cashier
-  config.cashier.adapter = :cache_store
 
   #webshop url
   config.webshop_url = 'http://dev.shop.salomon.com/'

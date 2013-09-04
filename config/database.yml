@@ -12,7 +12,7 @@ development:
   adapter: postgresql
   host: localhost
   encoding: unicode
-  database: salomon_www
+  database: salomon_dev
   pool: 5
   username: seh
   password:

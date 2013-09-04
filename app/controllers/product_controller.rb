@@ -29,5 +29,9 @@ class ProductController < BaseController
     end
   end
 
+  def legacy
+
+  end
+
 
 end
