@@ -3,7 +3,8 @@
   %meta{:charset => "utf-8"}
   %title=content_for?(:page_title) ? yield(:page_title) + ' - Salomon Snowboards' : 'Salomon Snowboards – Snowboards, Snowboard Boots, Snowboard Bindings, & Backcountry Tools'
 
-  %meta{:name => "description", :content => "#{yield(:page_description)}"}
+  - if content_for?(:page_description)
+    %meta{:name => "description", :content => "#{yield(:page_description)}"}
   %meta{:name => 'keywords', :content=>'snowboarding, jackets, pants, accessories, apparel, freeride, freestyle, snowboard, boots, salomon, snowboards, snowboard boots, apparel, bindings, jib, park, snowboard bindings, all mountain, splitboards, backcountry snowboarding, backcountry snowboards'}
   %meta{:content => "width=1000", :name => "viewport"}
 
