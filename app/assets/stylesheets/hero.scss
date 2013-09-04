@@ -45,7 +45,7 @@ section#hero {
     overflow: hidden;
 
     video {
-      cursor: pointer;
+      /*cursor: pointer;*/
       position: relative;
       margin: 0 auto;
 
@@ -74,7 +74,7 @@ section#hero {
 
       z-index: 3001;
       display: none;
-      cursor: pointer;
+      /*cursor: pointer;*/
 
       .button {
         margin-top: 40px;
