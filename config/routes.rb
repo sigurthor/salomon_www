@@ -28,7 +28,7 @@ SalomonWww::Application.routes.draw do
     match 'gear/(:category)/(:product)' => 'product#show', :as => 'product_show'
   end
 
-
+  #match '/catalog/product/view/id/1153/s/pledge-white/category/18/' => 'product#legacy'
 
 
 
