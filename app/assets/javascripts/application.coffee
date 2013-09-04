@@ -2,7 +2,6 @@
 #= require 'app/general.salomon'
 #= require 'app/navbar.salomon'
 #= require 'app/filters.salomon'
-#= require 'app/searchbar.salomon'
 #= require 'app/product.salomon'
 #= require 'app/storelocator.salomon'
 #= require 'app/vimeo.salomon'
@@ -22,7 +21,7 @@ $(document).ready ->
   salomon.navbar()
   salomon.general()
   salomon.filters()
-  salomon.searchbar()
+  #salomon.searchbar()
   salomon.product()
   salomon.storelocator()
   salomon.videopage()

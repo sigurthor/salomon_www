@@ -3,9 +3,8 @@ class HomeController < ApplicationController
     page 'home'
     puts "#{Cashier.tags} tags"
 
-    tc = A2::TeamCategory.cached_deceandans_of('salomon')
-    @team_categories_info = tc.map { |c| {name: c.name, count: c.team_members.length} }
-    @pro_team_members = tc[tc.index { |c| c.slug == 'pros' }].team_members
+    c = A2::TeamCategory.fetch_by_slug_and_type('pros','A2::TeamCategory')
+    @pro_team_members = Rails.cache.fetch(c.updated_at) { c.team_members }
 
     @vimeo = A2::VimeoFeed.cached_latest
     @instagram = A2::InstagramFeed.cached_latest_by_user('salomonsnowboards')
