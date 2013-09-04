@@ -4,7 +4,7 @@ class TeamController < BaseController
     if(params[:category])
       @team_categories = [A2::TeamCategory.includes(:team_members).find_by_slug(params[:category])]
     else
-      @team_categories = A2::TeamCategory.cached_deceandans_of(6)
+      @team_categories = A2::TeamCategory.cached_deceandans_of('salomon')
     end
     respond_to do |format|
       format.html

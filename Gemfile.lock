@@ -1,10 +1,9 @@
 GIT
   remote: https://8822694c4779c052130037718ba51b09d8ae7839:x-oauth-basic@github.com/sigurthor/a2_backend.git
-  revision: fd7cfb2cf650190546ae5bc6f76ebf28497ba067
+  revision: 32b788f8a4bec3394f43a4bcba00f5747f8b055d
   branch: master
   specs:
     a2 (0.0.6)
-      activerecord-import
       acts-as-taggable-on
       ancestry
       aws-sdk
@@ -57,8 +56,6 @@ GEM
       activesupport (= 3.2.14)
       arel (~> 3.0.2)
       tzinfo (~> 0.3.29)
-    activerecord-import (0.4.1)
-      activerecord (>= 3.0)
     activeresource (3.2.14)
       activemodel (= 3.2.14)
       activesupport (= 3.2.14)
