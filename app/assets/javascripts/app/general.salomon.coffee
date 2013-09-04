@@ -38,10 +38,15 @@ salomon.general = () ->
     window.location = $(this).find("a").attr("href");
 
   setTimeout () ->
-    console.log($(".dropdown iframe"))
     $(".dropdown iframe").hover ->
       $(this).parents("li.social").trigger("hover");
   , 3500
+
+  if !readCookie 'defaultCountry'
+    if $('.frontpage').length
+      setTimeout () ->
+        $('#language-bar').addClass 'open'
+      , 1500
 
   # Footer e-mail subscription
 

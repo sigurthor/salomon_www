@@ -16,9 +16,3 @@ salomon.languageBar = () ->
       return
     country = $(this).find('a').text()
     createCookie('defaultCountry', country, inThreeMonths)
-
-  if !readCookie 'defaultCountry'
-    if $('.frontpage').length
-      setTimeout () ->
-        $('#language-bar').addClass 'open'
-      , 1500
