@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130903121946) do
+ActiveRecord::Schema.define(:version => 20130904025551) do
 
   create_table "a2_access_tokens", :force => true do |t|
     t.string   "provider"
@@ -408,6 +408,8 @@ ActiveRecord::Schema.define(:version => 20130903121946) do
     t.string   "season"
     t.string   "slug"
     t.integer  "shopify_id"
+    t.boolean  "hidden"
+    t.integer  "position"
   end
 
   add_index "a2_products", ["article_code"], :name => "index_a2_products_on_article_code", :unique => true
