@@ -8,6 +8,7 @@ SalomonWww::Application.configure do
 
   #webshop url
   config.webshop_url = 'http://dev.shop.salomon.com/'
+  config.salomon_url = 'http://dev.salomon.com/'
 
   #faceboook
   config.facebook_callback_url = 'http://localhost:4224/a2/auth/facebook/callback/'
@@ -18,6 +19,9 @@ SalomonWww::Application.configure do
   config.instagram_callback_url = 'http://localhost:4224/a2/auth/instagram/callback'
   config.instagram_client_id = "121032100e7642858df743408fbee60a"
   config.instagram_client_secret = "7e193a086ff4460aaff364dcd4ba9d16"
+
+  #cache store
+  config.cache_store = :dalli_store
 
   # In the development environment your application's code is reloaded on
   # every request. This slows down response time but is perfect for development

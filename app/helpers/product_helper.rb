@@ -30,4 +30,9 @@ module ProductHelper
     end
   end
 
+  def salomon_link(slug)
+    "#{Rails.application.config.salomon_url}us/product/#{slug}.html"
+  end
+
+
 end
