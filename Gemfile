@@ -12,6 +12,8 @@ gem 'koala', '~> 1.7.0rc1'
 gem 'localeapp'
 gem 'heroku-api'
 gem 'cashier'
+gem 'rubyzip', '0.9.9'
+gem 'carrierwave'
 
 
 group :assets, :frontend_development do

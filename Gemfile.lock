@@ -1,6 +1,6 @@
 GIT
   remote: https://8822694c4779c052130037718ba51b09d8ae7839:x-oauth-basic@github.com/sigurthor/a2_backend.git
-  revision: cb8292ee439728f39ee86cbfde9dc4f6df0b3f87
+  revision: 1696b577ca6e6ab851ac497e817a09883d9fa0b7
   branch: master
   specs:
     a2 (0.0.6)
@@ -290,7 +290,7 @@ GEM
     ruby-hmac (0.4.0)
     ruby-ole (1.2.11.7)
     rubyntlm (0.3.4)
-    rubyzip (1.0.0)
+    rubyzip (0.9.9)
     rush (0.6.8)
       session
     safe_yaml (0.9.5)
@@ -357,6 +357,7 @@ PLATFORMS
 DEPENDENCIES
   a2!
   cache_digests
+  carrierwave
   cashier
   coffee-rails (~> 3.2.1)
   compass-rails
@@ -370,6 +371,7 @@ DEPENDENCIES
   rails (= 3.2.14)
   route_downcaser
   route_translator
+  rubyzip (= 0.9.9)
   sass-rails (~> 3.2.3)
   uglifier (>= 1.0.3)
   unicorn
