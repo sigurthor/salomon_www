@@ -17,18 +17,11 @@ module TeamHelper
   end
 
   def is_current_category(category_name)
+    @id = category_name.downcase + '-category'
     if @team_member.category.name == category_name
-      {:class => 'current-category'}
+      {:id => @id, :class => 'current-category'}
     else
-      {:class => ''}
-    end
-  end
-
-  def social_link_available(social_link)
-    unless social_link
-      {:style => 'display: none;'}
-    else
-      {:style => 'display: block;'}
+      {:id => @id, :class => ''}
     end
   end
 
