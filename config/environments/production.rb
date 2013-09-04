@@ -1,5 +1,8 @@
 SalomonWww::Application.configure do
 
+  #cashier
+  config.cashier.adapter = :cache_store
+
   #webshop url
   config.webshop_url = 'http://dev.shop.salomon.com/'
 
@@ -12,6 +15,9 @@ SalomonWww::Application.configure do
   config.facebook_callback_url = 'http://salomon-prod.herokuapp.com/a2/auth/facebook/callback/'
   config.facebook_app_id = '505158699573060'
   config.facebook_app_secret = 'd855b3d938519bb8c5fc0f62594b5120'
+
+  #cashier
+  config.cashier.adapter = :cache_store
 
   #heroku api key
   config.heroku_api = '5df2c849bb04d21744311d6d4940455b3cd1ff50'

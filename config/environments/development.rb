@@ -3,6 +3,8 @@ SalomonWww::Application.configure do
   # Settings specified here will take precedence over those in config/application.rb
 
 
+  #cashier
+  config.cashier.adapter = :cache_store
 
   #webshop url
   config.webshop_url = 'http://dev.shop.salomon.com/'

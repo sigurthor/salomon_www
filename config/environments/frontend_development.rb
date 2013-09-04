@@ -3,7 +3,6 @@
   SalomonWww::Application.configure do
 
     config.cache_store = :dalli_store
-    config.cashier.adapter = :cache_store
     config.active_record.auto_explain_threshold_in_seconds = nil
     config.assets.debug = false
     config.action_controller.perform_caching = true
