@@ -25,14 +25,6 @@ module TeamHelper
     end
   end
 
-  def social_link_available(social_link)
-    unless social_link
-      {:style => 'display: none;'}
-    else
-      {:style => 'display: block;'}
-    end
-  end
-
   def get_profile_image(thumb_image)
     !thumb_image.blank? ? thumb_image.identifier : 'v1378218989/salomon-profile-missing_nawqev.jpg'
   end
