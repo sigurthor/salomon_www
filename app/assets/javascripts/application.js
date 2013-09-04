@@ -17,8 +17,9 @@
 //= require foundation/foundation.dropdown
 //= require foundation/foundation.forms
 //= require foundation/foundation.section
-//= require jquery.mixitup
+//= require jquery.mixitup.min
 //= require jquery.validationEngine-en
 //= require jquery.validationEngine
+//= require jquery.equalize.min
 //= require retina
 //= require application.coffee

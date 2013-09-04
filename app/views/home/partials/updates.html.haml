@@ -10,7 +10,7 @@
           %p= vimeo.title
           .time-ago= vimeo.relative_date
         - img_loader do
-          =cl_image_tag(vimeo.img, :width=>540, :height=>304, :crop=>'fill', :onload=>'form5image.hasLoaded(this)', :alt=>vimeo.title)
+          =cl_image_tag(vimeo.img, :width=>540, :height=>304, :crop=>'fill', :gravity=>'face', :onload=>'form5image.hasLoaded(this)', :alt=>vimeo.title)
         .video-player.flex-video.vimeo.widescreen
       %a.button.vimeo{:href=>'http://vimeo.com/salomonsnowboards', :target=>'_blank'} More videos on Vimeo
 
@@ -22,7 +22,7 @@
             %i.ss-icon.ss-social facebook
             .time-ago= fb.relative_date
           %a{:href=>fb.url, :target=>'_blank'}
-            =cl_image_tag(fb.img, :onload=>'form5image.hasLoaded(this)', :alt=>vimeo.title, :height=>100, :width=>100, :crop=>'fill')
+            =cl_image_tag(fb.img, :onload=>'form5image.hasLoaded(this)', :alt=>vimeo.title, :height=>100, :width=>100, :crop=>'fill', :gravity=>'face')
           %p
             %a{:href=>fb.url, :target=>'_blank'}=truncate(fb.title, length: 65)
       %a.button.facebook{:href=>'http://facebook.com/SalomonSnowboardFans', :target=>'_blank'} More updates on Facebook

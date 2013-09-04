@@ -8,3 +8,11 @@ salomon.languageBar = () ->
   $('select#language').on 'change', ->
     lang = $(this).val()
     window.location = '/' + lang
+
+  $('#language-bar .has-dropdown li, .ignore').click ->
+    inThreeMonths = 60 * 60 * 24 * 90
+    if $(this).hasClass('ignore')
+      createCookie('defaultCountry', 'Global(en)', inThreeMonths)
+      return
+    country = $(this).find('a').text()
+    createCookie('defaultCountry', country, inThreeMonths)

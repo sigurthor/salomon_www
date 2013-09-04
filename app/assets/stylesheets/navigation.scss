@@ -194,6 +194,7 @@
         border: 10px $color-lightblue solid;
         padding: 10px;
         background-color: white;
+        overflow: hidden;
       }
 
       &:before {
@@ -245,6 +246,13 @@
     width: 174px;
     margin-right: 0;
     float: left;
+
+    @include respond-to(medium) {
+      height: 99px;
+      width: 173px;
+      margin-top: 1px;
+      margin-left: 1px;
+    }
 
     &:hover {
       background-color: $color-lightblue;

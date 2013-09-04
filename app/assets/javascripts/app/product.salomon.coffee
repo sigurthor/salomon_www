@@ -1,4 +1,5 @@
 initProductList = () ->
+  $('#product-list').equalize()
   $products = $('#product-list .product').each (index, product) ->
     $product = $(product)
     $product.find('.product-thumbs li a').on 'click', (e) ->
