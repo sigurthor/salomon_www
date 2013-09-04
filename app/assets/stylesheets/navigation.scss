@@ -135,18 +135,12 @@
     }
   }
 
-  ul.right {
+  ul.social-wrap {
     margin-right: 10px;
-
-    font-family: $font-boldcnd18;
-    text-transform: uppercase;
+    position: relative;
 
     li > a {
       font-size: 16px;
-    }
-
-    li.basket {
-      margin-right: 10px;
     }
 
     li.social {
@@ -168,78 +162,113 @@
         text-align: center;
 
         @include transition(margin-top 0.25s ease-in-out);
-
-        &:hover {
-          background-color: $color-lightblue;
-        }
       }
-    }
 
-    iframe { display: none; }
-
-    li.open {
-      & > a {
+      &:hover > a {
         background-color: $color-lightblue;
-        color: white;
       }
 
-      iframe { display: block; }
-    }
-
-    .dropdown {
-      padding-top: 10px;
-      text-align: center;
-
-      .dropdown-inner {
-        border: 10px $color-lightblue solid;
-        padding: 10px;
-        background-color: white;
-        overflow: hidden;
+      .drop {
+        display: none;
       }
 
-      &:before {
-        @include css-triangle(10px, $color-lightblue, bottom);
-        position: absolute;
-        top: -10px;
+      &.dropable {
+        // position: relative;
 
-        z-index: 99;
-      }
+        &:after {
+          @include css-triangle(10px, $color-lightblue, bottom);
+          position: absolute;
+          top: 58px;
 
-      &.facebook {
-        left: -120px;
-        width: 270px;
-
-        &:before { left: 125px; }
-      }
-
-      &.twitter {
-        left: -89px;
-        width: 123px;
-
-        iframe {
-          width: 80px !important;
-          margin: 0 auto;
+          z-index: 99;
         }
 
-        &:before { left: 96px; }
-      }
+        &:after,
+        .drop {
+          display: none;
+          opacity: 0;
+          visibility: hidden;
+        }
 
-      &.pinterest {
-        width: 210px;
-        right: 10px;
+        .drop {
+          padding-top: 10px;
+          position: absolute;
+          top: 68px;
+          right: 10px;
 
-        .dropdown-inner {
-          a {
-            vertical-align: 10% !important;
+          .inner {
+            border: 10px $color-lightblue solid;
+            padding: 10px;
+            background-color: white;
+            overflow: hidden;
           }
         }
 
-        &:before { right: 8px; }
+        &.facebook {
+          .drop {
+            width: 270px;
+          }
+          &:after {
+            right: 149px;
+          }
+        }
 
+        &.twitter {
+          .drop {
+            width: 123px;
+
+            iframe {
+              display: block;
+              margin: 0 auto;
+              width: 80px !important;
+            }
+          }
+          &:after {
+            right: 61px;
+          }
+        }
+
+        &.pinterest {
+          .drop {
+            width: 180px;
+
+            .inner {
+              a {
+                vertical-align: 10% !important;
+              }
+            }
+          }
+          &:after {
+            right: 17px;
+          }
+        }
+
+        &.open,
+        &:hover {
+          &:after,
+          .drop {
+            display: block;
+            opacity: 1;
+            visibility: visible;
+          }
+        }
       }
-
     }
   }
+
+  &.sticky {
+    .social-wrap {
+      .dropable {
+        .drop {
+          top: 47px !important;
+        }
+        &:after {
+          top: 37px !important;
+        }
+      }
+    }
+  }
+
 
   ul.title-area {
     height: 100px;

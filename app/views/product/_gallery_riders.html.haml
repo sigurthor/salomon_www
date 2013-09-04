@@ -12,5 +12,5 @@
       %h2 Riders
       %ul.riders
         - product.team_members.first(5).each do |tm|
-          %li= tm.name
+          %li=link_to tm.name, tm
         =display_more_riders_link

@@ -305,32 +305,38 @@ ul.riders {
   li {
     font-family: $font-boldobl;
     font-size: 20px;
-    color: $color-darkblue;
     text-transform: uppercase;
-    &:before {
-      content: '\1F464';
-      display: inline-block;
-      width: 30px;
-      height: 30px;
-      font-family: $icon-font;
-      font-size: 16px;
+
+    a {
       color: $color-darkblue;
-      line-height: 34px;
-      text-align: center;
-      margin: 0 10px 0 0;
-      background-color: #fff;
+
+      &:before {
+        content: '\1F464';
+        display: inline-block;
+        width: 30px;
+        height: 30px;
+        font-family: $icon-font;
+        font-size: 16px;
+        color: $color-darkblue;
+        line-height: 34px;
+        text-align: center;
+        margin: 0 10px 0 0;
+        background-color: #fff;
+      }
+
+      &:hover {
+        &:before {
+          color: #fff;
+          background-color: $color-darkblue;
+        }
+      }
     }
     &.more-riders {
       &:before {
         content: '\1F465';
       }
     }
-    &:hover {
-      &:before {
-        color: #fff;
-        background-color: $color-darkblue;
-      }
-    }
+
   }
 }
 
