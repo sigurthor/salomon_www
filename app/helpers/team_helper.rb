@@ -17,10 +17,11 @@ module TeamHelper
   end
 
   def is_current_category(category_name)
+    @id = category_name.downcase + '-category'
     if @team_member.category.name == category_name
-      {:class => 'current-category'}
+      {:id => @id, :class => 'current-category'}
     else
-      {:class => ''}
+      {:id => @id, :class => ''}
     end
   end
 

@@ -9,10 +9,9 @@
     .loading-category
     .category-switches
       %h2
-        %span#pros-category{is_current_category('Pros')}
-          Pros
-        %span#ams-category{is_current_category('AMS')}
-          Ams
+        - @team_categories.each do |cat|
+          %span{is_current_category(cat.name)}
+            =cat.name
     .navigation-buttons
       .click-buttons
         %a.left-arrow{:href => '#'}
