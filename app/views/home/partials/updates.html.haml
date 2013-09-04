@@ -8,7 +8,7 @@
         .update-meta
           %i.ss-icon.ss-standard video
           %p= vimeo.title
-          .time-ago= vimeo.relative_date
+          .time-ago=vimeo.relative_date + " ago"
         - img_loader do
           =cl_image_tag(vimeo.img, :width=>540, :height=>304, :crop=>'fill', :gravity=>'face', :onload=>'form5image.hasLoaded(this)', :alt=>vimeo.title)
         .video-player.flex-video.vimeo.widescreen
@@ -20,7 +20,7 @@
         .update-item.facebook
           .update-meta
             %i.ss-icon.ss-social facebook
-            .time-ago= fb.relative_date
+            .time-ago= fb.relative_date + " ago"
           %a{:href=>fb.url, :target=>'_blank'}
             =cl_image_tag(fb.img, :onload=>'form5image.hasLoaded(this)', :alt=>vimeo.title, :height=>100, :width=>100, :crop=>'fill', :gravity=>'face')
           %p
@@ -33,7 +33,7 @@
       .update-item.instagram
         .update-meta
           %i.ss-icon.ss-social instagram
-          .time-ago= instagram.relative_date
+          .time-ago= instagram.relative_date + " ago"
         = link_to cl_image_tag(instagram.img, :width=>240, :height=>240, :crop=>'fill', :alt => instagram.title), instagram.url, target: '_blank'
         %p= truncate(instagram.title, length: 100, separator: ' ')
       %a.button.instagram{:href=>'http://instagram.com/salomonsnowboards', :target=>'_blank'} More on Instagram
