@@ -1,5 +1,8 @@
 section#filterbar {
 
+  position: relative;
+  top: 60px;
+
   @include clearfix();
   width: 100%;
 

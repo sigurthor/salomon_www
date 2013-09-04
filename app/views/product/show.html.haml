@@ -39,7 +39,7 @@
     .large-6.columns
       %h1= @product.name
       %span!= t("gender.#{@product.gender}", :count => 2) + " " + @product.categories[0].name_singular + " &mdash; " + @product.tag_line
-      %h2=  t :display_currency, price: @product.price
+      %h2=  t :display_currency, price: @product.price , scope: :salomon
       %form.custom
         - if @product.is_snowboard?
           = get_size_variants
@@ -67,18 +67,7 @@
 
       %p.product-description=@product.description
 
-  %section.panel#assets
-    .row
-      %ul
-        - @product.videos.each do |video|
-          %li
-            %p= "video :: #{video.title} #{video.video_url}"
-            = cl_image_tag video.img, width: 200, height: 200
-        - @product.images.each do |image|
-          %li
-            %p= "image :: #{image.title}"
-            = cl_image_tag image.img, width: 200, height: 200
-
+  = render :partial => 'gallery_riders', :locals => { :product => @product }
 
   - # Template Dependency: product/tech_panel
   = render :partial => 'tech_panel', :locals => { :product => @product }

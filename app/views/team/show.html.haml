@@ -9,10 +9,9 @@
     .loading-category
     .category-switches
       %h2
-        %span#pros-category{is_current_category('Pros')}
-          Pros
-        %span#ams-category{is_current_category('AMS')}
-          Ams
+        - @team_categories.each do |cat|
+          %span{is_current_category(cat.name)}
+            =cat.name
     .navigation-buttons
       .click-buttons
         %a.left-arrow{:href => '#'}
@@ -56,18 +55,21 @@
           .large-4.columns
             %h2 Details
             .social-details
-              .facebook{social_link_available(@team_member.facebook)}
-                %a{:href => "http://facebook.com/#{@team_member.facebook}", :target => '_blank'}
-                  %i{:class => 'ss-icon ss-social'} facebook
-                  %span /#{@team_member.facebook}
-              .twitter{social_link_available(@team_member.twitter)}
-                %a{:href => "http://twitter.com/#{@team_member.twitter}", :target => '_blank'}
-                  %i{:class => 'ss-icon ss-social'} twitter
-                  %span @#{@team_member.twitter}
-              .instagram{social_link_available(@team_member.instragram)}
-                %a{:href => "http://instagram.com/#{@team_member.instragram}", :target => '_blank'}
-                  %i{:class => 'ss-icon ss-social'} instagram
-                  %span @#{@team_member.instragram}
+              - unless @team_member.facebook.blank?
+                .facebook
+                  %a{:href => "http://facebook.com/#{@team_member.facebook}", :target => '_blank'}
+                    %i{:class => 'ss-icon ss-social'} facebook
+                    %span /#{@team_member.facebook}
+              - unless @team_member.twitter.blank?
+                .twitter
+                  %a{:href => "http://twitter.com/#{@team_member.twitter}", :target => '_blank'}
+                    %i{:class => 'ss-icon ss-social'} twitter
+                    %span @#{@team_member.twitter}
+              - unless @team_member.instragram.blank?
+                .instagram
+                  %a{:href => "http://instagram.com/#{@team_member.instragram}", :target => '_blank'}
+                    %i{:class => 'ss-icon ss-social'} instagram
+                    %span @#{@team_member.instragram}
           .large-8.columns
             =@team_member.city
             %ul.member-info-list
@@ -107,4 +109,4 @@
           - else
             = link_to cl_image_tag(product.master_image, :width=>'200', :height => '380', :alt => product.name, :crop => 'fit', :onload => 'form5image.hasLoaded(this)'), product_show_path(:category => product.categories[0], :product => product.slug)
           %h3=link_to product.name, product_show_path(:category => product.categories[0], :product => product.slug)
-          .price=t :display_currency, price: product.price
+          .price=t :display_currency, price: product.price, scope: :salomon

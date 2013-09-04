@@ -1,6 +1,6 @@
 module TeamHelper
   def set_column_number(category_name)
-    {:class => (category_name != 'Nationals' ? 'large-block-grid-4' : 'large-block-grid-2')}
+    {:class => (category_name != 'Nationals' ? 'large-block-grid-4' : 'large-block-grid-6')}
   end
   def slider_viewport
     @wrapper_width = ((@team_member.category.team_members.count * 160) - 20)
@@ -17,18 +17,11 @@ module TeamHelper
   end
 
   def is_current_category(category_name)
+    @id = category_name.downcase + '-category'
     if @team_member.category.name == category_name
-      {:class => 'current-category'}
+      {:id => @id, :class => 'current-category'}
     else
-      {:class => ''}
-    end
-  end
-
-  def social_link_available(social_link)
-    unless social_link
-      {:style => 'display: none;'}
-    else
-      {:style => 'display: block;'}
+      {:id => @id, :class => ''}
     end
   end
 
