@@ -1,6 +1,6 @@
 module TeamHelper
   def set_column_number(category_name)
-    {:class => (category_name != 'Nationals' ? 'large-block-grid-4' : 'large-block-grid-2')}
+    {:class => (category_name != 'Nationals' ? 'large-block-grid-4' : 'large-block-grid-6')}
   end
   def slider_viewport
     @wrapper_width = ((@team_member.category.team_members.count * 160) - 20)

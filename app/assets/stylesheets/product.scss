@@ -320,7 +320,7 @@ ul.riders {
       margin: 0 10px 0 0;
       background-color: #fff;
     }
-    &:last-child {
+    &.more-riders {
       &:before {
         content: '\1F465';
       }

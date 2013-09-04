@@ -10,6 +10,7 @@
 #= require 'app/newsletter.salomon'
 #= require 'app/herovideo.salomon'
 #= require 'app/language.salomon'
+#= require 'lightbox'
 
 $(document).ready ->
   $(document).foundation 'topbar'

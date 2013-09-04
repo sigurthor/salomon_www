@@ -67,18 +67,7 @@
 
       %p.product-description=@product.description
 
-  %section.panel#assets
-    .row
-      %ul
-        - @product.videos.each do |video|
-          %li
-            %p= "video :: #{video.title} #{video.video_url}"
-            = cl_image_tag video.img, width: 200, height: 200
-        - @product.images.each do |image|
-          %li
-            %p= "image :: #{image.title}"
-            = cl_image_tag image.img, width: 200, height: 200
-
+  = render :partial => 'gallery_riders', :locals => { :product => @product }
 
   - # Template Dependency: product/tech_panel
   = render :partial => 'tech_panel', :locals => { :product => @product }
