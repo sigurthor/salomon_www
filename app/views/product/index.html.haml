@@ -65,16 +65,14 @@
             .more-info
               .feature
                 %span= t("gender.#{product.gender}",:scope => :salomon, :count => 2) + " " + product.categories[0].name_singular
-              -product.product_features.each do |feature|
-                - if feature.product_feature_type_show_in_category_overview
-                  .feature
-                    %h5=feature.product_feature_type_name
-                    %span=feature.name
+              -product.features_by_type.each do |feature_name, feature|
+                .feature
+                  %h5=feature_name
+                  %span=feature.map(&:name).join(", ")
 
-      .large-3.columns.end
-        .product.last.notfound
+      .large-3.columns.end.notfound
+        .product.last
           %h2 Sorry - No products match this filter criteria
-          //.message Donec sed odio dui. Maecenas faucibus mollis interdum. Fusce dapibus, tellus ac cursus commodo.
           %ul.links
             %li
               %a.clear-filters{:href=>'#'} Clear filters
@@ -89,7 +87,6 @@
             the last
             %br
             product
-          //.message Donec sed odio dui. Maecenas faucibus mollis interdum. Fusce dapibus, tellus ac cursus commodo.
           %ul.links
             %li
               %a.modify-filters{:href=>'#filterbar'} Modify filters
