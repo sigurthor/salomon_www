@@ -1,6 +1,6 @@
 GIT
   remote: https://8822694c4779c052130037718ba51b09d8ae7839:x-oauth-basic@github.com/sigurthor/a2_backend.git
-  revision: 1696b577ca6e6ab851ac497e817a09883d9fa0b7
+  revision: fd7cfb2cf650190546ae5bc6f76ebf28497ba067
   branch: master
   specs:
     a2 (0.0.6)
@@ -357,7 +357,6 @@ PLATFORMS
 DEPENDENCIES
   a2!
   cache_digests
-  carrierwave
   cashier
   coffee-rails (~> 3.2.1)
   compass-rails
