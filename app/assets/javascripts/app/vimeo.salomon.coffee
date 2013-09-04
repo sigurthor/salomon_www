@@ -21,7 +21,7 @@ salomon.vimeo = ->
 
       player = '
                 <iframe
-                  src="http://player.vimeo.com/video/'+vimeoId+'?color=00a4d1&amp;autoplay=1"
+                  src="http://player.vimeo.com/video/'+vimeoId+'?color=00a4d1&amp;autoplay=1&amp;wmode=transparent"
                   width="' + vimeoWidth + '" height="' + vimeoHeight + '" frameborder="0"
                   webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>'
 

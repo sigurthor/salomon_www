@@ -81,20 +81,29 @@ section#updates {
     }
 
     &.vimeo {
+      height: auto;
       .video-player {
         display: none;
-        height: 302px;
-        width: 540px;
+        margin-bottom: 0;
+        width: 100%;
+        max-width: 540px;
         overflow: hidden;
-        background-color: black;
+        // background-color: black;
+
+        iframe {
+          max-height: 302px;
+          // width: 100%;
+          // max-width: 540px;
+        }
       }
 
       .img-wrapper {
         cursor: pointer;
         position: relative;
 
-        height: 302px;
+        height: auto;
         width: 540px;
+        max-width: 100%;
         overflow: hidden;
 
         &:before {

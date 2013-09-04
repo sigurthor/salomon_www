@@ -1,6 +1,6 @@
-.searchbar
-  %input.search-input{:type => 'text', :placeholder => t('header.search_placeholder', scope: :salomon)}
-  %input{:type => 'submit', :value => 'Submit'}
+-#.searchbar
+-#  %input.search-input{:type => 'text', :placeholder => t('header.search_placeholder', scope: :salomon)}
+-#  %input{:type => 'submit', :value => 'Submit'}
 
 #nav-container{:class=>yield(:navclass)}
   %nav.top-bar
@@ -13,7 +13,7 @@
       / Left Nav Section
       %ul.left
         %li.has-dropdown
-          %a{:href => "#"}  #{t 'pages.gear', scope: :salomon}
+          %a.no-link{:href => "#_"}  #{t 'pages.gear', scope: :salomon}
           %ul.dropdown
             - gear_categories.each do |c|
               %li=link_to c.name,products_url(:category => c.slug)
@@ -21,14 +21,14 @@
         %li= link_to t('pages.videos', scope: :salomon), video_path
         %li
           %a{:href => "http://ssnowdev.tumblr.com/"} #{t 'pages.blog', scope: :salomon}
-        //-%li
-        //-  %a= link_to t('nav.stores') , store_path
+        -#%li
+        -#  %a= link_to t('nav.stores') , store_path
 
       %ul.right
-        //-%li
-        //-%a.searchbutton{:href => '#'} Search
-        //-%li.basket
-        //-  %a{:href => '#'} My Account <i class="ss-icon ss-standard">cart</i> 0
+        -#%li
+        -#%a.searchbutton{:href => '#'} Search
+        -#%li.basket
+        -#  %a{:href => '#'} My Account <i class="ss-icon ss-standard">cart</i> 0
         %li.social.has-dropdown
           %a.ss-icon.ss-social{:href=>'https://www.facebook.com/SalomonSnowboardFans', :target=>'_blank'} &#xF610;
           .dropdown.facebook
@@ -42,7 +42,7 @@
           %a.ss-icon.ss-social{:href=>'https://twitter.com/Salomonsnow', :target=>'_blank'} &#xF611;
           .dropdown.twitter
             .dropdown-inner
-              %a.twitter-follow-button{"data-show-count" => "false", "data-size" => "large", :href => "https://twitter.com/Salomonsnow"} Follow @Salomonsnow
+              %a.twitter-follow-button{"data-show-count" => "false", "data-size" => "large", :href => "https://twitter.com/Salomonsnow"} Follow
               :javascript
                 !function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');
 

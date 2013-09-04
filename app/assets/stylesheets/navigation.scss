@@ -104,6 +104,10 @@
       color: $color-darkblue;
       line-height: 100px;
 
+      &.no-link {
+        cursor: default;
+      }
+
       &:hover {
         background: $color-lightblue;
         color: white;
@@ -208,8 +212,8 @@
       }
 
       &.twitter {
-        left: -90px;
-        width: 150px;
+        left: -89px;
+        width: 123px;
 
         iframe {
           width: 80px !important;
@@ -220,10 +224,16 @@
       }
 
       &.pinterest {
-        width: 240px;
-        left: -206px;
+        width: 210px;
+        right: 10px;
 
-        &:before { left: 213px; }
+        .dropdown-inner {
+          a {
+            vertical-align: 10% !important;
+          }
+        }
+
+        &:before { right: 8px; }
 
       }
 

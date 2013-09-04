@@ -1,6 +1,6 @@
 GIT
   remote: https://8822694c4779c052130037718ba51b09d8ae7839:x-oauth-basic@github.com/sigurthor/a2_backend.git
-  revision: f6f36a1efd04b2303a18c2b584ca01ba147ac2bb
+  revision: fd7cfb2cf650190546ae5bc6f76ebf28497ba067
   branch: master
   specs:
     a2 (0.0.6)
@@ -10,6 +10,7 @@ GIT
       aws-sdk
       carrierwave
       carrierwave_direct
+      cashier
       cloudinary
       dalli
       delayed_job_active_record
@@ -96,6 +97,7 @@ GEM
       carrierwave
       fog
       uuidtools
+    cashier (0.4.1)
     chunky_png (1.2.8)
     cityhash (0.6.0)
     cloudinary (1.0.63)
@@ -288,7 +290,7 @@ GEM
     ruby-hmac (0.4.0)
     ruby-ole (1.2.11.7)
     rubyntlm (0.3.4)
-    rubyzip (1.0.0)
+    rubyzip (0.9.9)
     rush (0.6.8)
       session
     safe_yaml (0.9.5)
@@ -355,6 +357,7 @@ PLATFORMS
 DEPENDENCIES
   a2!
   cache_digests
+  cashier
   coffee-rails (~> 3.2.1)
   compass-rails
   globalize3
@@ -367,6 +370,7 @@ DEPENDENCIES
   rails (= 3.2.14)
   route_downcaser
   route_translator
+  rubyzip (= 0.9.9)
   sass-rails (~> 3.2.3)
   uglifier (>= 1.0.3)
   unicorn

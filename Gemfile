@@ -11,6 +11,8 @@ gem 'instagram'
 gem 'koala', '~> 1.7.0rc1'
 gem 'localeapp'
 gem 'heroku-api'
+gem 'cashier'
+gem 'rubyzip', '0.9.9'
 
 
 group :assets, :frontend_development do

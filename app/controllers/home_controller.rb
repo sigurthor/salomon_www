@@ -1,16 +1,18 @@
 class HomeController < ApplicationController
   def index
     page 'home'
+    puts "#{Cashier.tags} tags"
 
+    tc = A2::TeamCategory.cached_deceandans_of('salomon')
+    @team_categories_info = tc.map { |c| {name: c.name, count: c.team_members.length} }
+    @pro_team_members = tc[tc.index { |c| c.slug == 'pros' }].team_members
 
-    if (stale?(:etag => create_etag([page.updated_at])))
-      team_categories = A2::TeamCategory.cached_deceandans_of(6)
-      @team_categories_info = team_categories.map { |c| {name: c.name, count: c.team_members.length} }
-      @pro_team_members = team_categories.map { |c| c.team_members if c.slug == 'pros' }.first
+    @vimeo = A2::VimeoFeed.cached_latest
+    @instagram = A2::InstagramFeed.cached_latest_by_user('salomonsnowboards')
+    @facebook = A2::FacebookFeed.cached_latest_with_limit(2)
 
-      @vimeo = A2::VimeoFeed.cached_latest[0]
-      @instagram = A2::InstagramFeed.cached_latest_by_user('salomonsnowboards')[0]
-      @facebook = A2::FacebookFeed.cached_latest_with_photo[0..1]
+    respond_to do |f|
+      f.html
     end
 
   end
