@@ -12,10 +12,6 @@
 //#language-bar + .searchbar + #nav-container.sticky + section { margin-top: 60px; }
 //#language-bar + .searchbar + #nav-container.sticky + section#breadcrumbs + section { margin-top: 120px; }
 
-#nav-container.sticky + section { margin-top: 60px; }
-#nav-container.sticky + section#breadcrumbs { margin-top: 0; top: 60px; }
-#nav-container.sticky + section#breadcrumbs + section { margin-top: 120px; }
-
 //
 //  Clickable-once state for buttons
 //
