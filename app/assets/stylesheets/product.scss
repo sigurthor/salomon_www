@@ -1,4 +1,4 @@
-/* Product related */
+  /* Product related */
 
 .selected a {
   cursor: default;
@@ -261,7 +261,7 @@ ul.product-thumbs {
       @include scale(50/44);
 
       &:before {
-        display: block;
+        display: none;
         position: absolute;
 
         top: 2px;
