@@ -22,14 +22,6 @@ salomon.general = () ->
   eraseCookie = (name) ->
     createCookie name, "", -1
 
-  $('#language-bar .has-dropdown li, .ignore').click ->
-    inThreeMonths = 60 * 60 * 24 * 90
-    if $(this).hasClass('ignore')
-      createCookie('defaultCountry', 'Global(en)', inThreeMonths)
-      return
-    country = $(this).find('a').text()
-    createCookie('defaultCountry', country, inThreeMonths)
-
   $("#contactForm").validationEngine()
 
   setTimeout () ->
@@ -45,12 +37,11 @@ salomon.general = () ->
   $("li .team-member").click ->
     window.location = $(this).find("a").attr("href");
 
-  if !readCookie 'defaultCountry'
-    if $('.frontpage').length
-      setTimeout () ->
-        $('#language-bar').addClass 'open'
-      , 1500
-
+  setTimeout () ->
+    console.log($(".dropdown iframe"))
+    $(".dropdown iframe").hover ->
+      $(this).parents("li.social").trigger("hover");
+  , 3500
 
   # Footer e-mail subscription
 
