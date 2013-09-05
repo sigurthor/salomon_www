@@ -19,7 +19,7 @@ class ApplicationController < ActionController::Base
         cookies[:country_code] = {value: country, expires: 10.days.from_now}
         cookies[:continent_code] = A2::CountryCodeContinent.fetch_by_country_code(country).continent_code
       rescue
-        cookies[:country_code] = 'unknown'
+        cookies[:country_code] = {value: 'unknown', expires: 1.days.from_now}
         cookies[:continent_code] = 'unknown'
       end
     end
