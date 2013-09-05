@@ -31,10 +31,14 @@ initTechListExpand = ->
     e.preventDefault()
 
     if $li.hasClass 'expanded'
-      $li.removeClass 'expanded'
+      $li.find('.more').slideUp('400');
+      setTimeout (->
+        $li.removeClass 'expanded'
+      ),400
       $button.html('&#x002B;')
     else
       $li.addClass 'expanded'
+      $li.find('.more').slideDown('400');
       $button.html('&#x2421;')
 
 initProductThumbnails = ->
