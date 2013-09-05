@@ -22,7 +22,7 @@
             %p=v.title
             .time-ago= v.relative_date
           - img_loader do
-            %img{:src=>"#{v.image_url}", alt='', :onload=>'form5image.hasLoaded(this)'}
+            %img{:src=>"#{v.image_url}", :alt => '', :onload=>'form5image.hasLoaded(this)'}
           .video-player.flex-video.vimeo.widescreen
 
   .row
