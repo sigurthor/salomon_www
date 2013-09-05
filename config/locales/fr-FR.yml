@@ -1,2 +1,3 @@
 fr-FR:
   salomon:
+    display_currency: '%{price}€'

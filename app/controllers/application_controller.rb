@@ -1,3 +1,5 @@
+require 'open-uri'
+
 class ApplicationController < ActionController::Base
   protect_from_forgery
 
@@ -5,13 +7,26 @@ class ApplicationController < ActionController::Base
   after_filter :expire_http_cache
 
   rescue_from(ActionController::RoutingError) {
-    render '/error/not_found', :layout  => 'application'
+    render '/error/not_found', :layout => 'application'
   }
 
   def set_locale
 
-    l = params[:locale] if params[:locale]
+    unless cookies[:country_code]
+      begin
+        ip = request.remote_ip
+        country = open("https://geoip.maxmind.com/a?l=Xa0zTRtJOiE0&i=#{ip}").read
+        cookies[:country_code] = {value: country, expires: 10.days.from_now}
+        cookies[:continent_code] = A2::CountryCodeContinent.fetch_by_country_code(country).continent_code
+      rescue
+        cookies[:country_code] = 'unknown'
+        cookies[:continent_code] = 'unknown'
+      end
+    end
 
+    puts "country #{request.remote_ip} Contient #{cookies[:continent_code]}"
+
+    l = params[:locale] if params[:locale]
     I18n.locale = l || I18n.default_locale
   end
 
