@@ -30,7 +30,8 @@ class ProductController < BaseController
   end
 
   def legacy
-
+    product = A2::Product.cached_product_by_slug(params[:slug]) || not_found
+    redirect_to product_show_url(:product => params[:slug],:category => product.categories[0].slug), status: :moved_permanently
   end
 
 
