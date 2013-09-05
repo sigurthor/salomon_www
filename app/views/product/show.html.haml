@@ -39,7 +39,7 @@
     .large-6.columns
       %h1= @product.name
       %span!= t("gender.#{@product.gender}", :count => 2, scope: :salomon) + " " + @product.categories[0].name_singular + " &mdash; " + @product.tag_line
-      %h2= product_price(product)
+      %h2= product_price(@product)
       %form.custom
         - if @product.is_snowboard?
           = get_size_variants
