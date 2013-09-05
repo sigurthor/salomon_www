@@ -50,37 +50,37 @@
           .author= @team_member.quoter_name
           .title= @team_member.quoter_title
 
-      .member-details
-        .row
-          .large-4.columns
-            %h2 Details
-            .social-details
-              - unless @team_member.facebook.blank?
-                .facebook
-                  %a{:href => "http://facebook.com/#{@team_member.facebook}", :target => '_blank'}
-                    %i{:class => 'ss-icon ss-social'} facebook
-                    %span /#{@team_member.facebook}
-              - unless @team_member.twitter.blank?
-                .twitter
-                  %a{:href => "http://twitter.com/#{@team_member.twitter}", :target => '_blank'}
-                    %i{:class => 'ss-icon ss-social'} twitter
-                    %span @#{@team_member.twitter}
-              - unless @team_member.instragram.blank?
-                .instagram
-                  %a{:href => "http://instagram.com/#{@team_member.instragram}", :target => '_blank'}
-                    %i{:class => 'ss-icon ss-social'} instagram
-                    %span @#{@team_member.instragram}
-          .large-8.columns
-            =@team_member.city
-            %ul.member-info-list
-              - unless member_detail_is_empty(@team_member.country)
-                %li.country
-                  %span Country
-                  %span.detail-value= @team_member.country
-
-              %li.city
-                %span Home Mountain
-                %span.detail-value= @team_member.city
+      -#.member-details
+      -#  .row
+      -#    .large-4.columns
+      -#      %h2 Details
+      -#      .social-details
+      -#        - unless @team_member.facebook.blank?
+      -#          .facebook
+      -#            %a{:href => "http://facebook.com/#{@team_member.facebook}", :target => '_blank'}
+      -#              %i{:class => 'ss-icon ss-social'} facebook
+      -#              %span /#{@team_member.facebook}
+      -#        - unless @team_member.twitter.blank?
+      -#          .twitter
+      -#            %a{:href => "http://twitter.com/#{@team_member.twitter}", :target => '_blank'}
+      -#              %i{:class => 'ss-icon ss-social'} twitter
+      -#              %span @#{@team_member.twitter}
+      -#        - unless @team_member.instragram.blank?
+      -#          .instagram
+      -#            %a{:href => "http://instagram.com/#{@team_member.instragram}", :target => '_blank'}
+      -#              %i{:class => 'ss-icon ss-social'} instagram
+      -#              %span @#{@team_member.instragram}
+      -#    .large-8.columns
+      -#      =@team_member.city
+      -#      %ul.member-info-list
+      -#        - unless member_detail_is_empty(@team_member.country)
+      -#          %li.country
+      -#            %span Country
+      -#            %span.detail-value= @team_member.country
+      -#        - unless member_detail_is_empty(@team_member.city)
+      -#          %li.city
+      -#            %span Home Mountain
+      -#            %span.detail-value= @team_member.city
 
   /
     %section#member-gallery
