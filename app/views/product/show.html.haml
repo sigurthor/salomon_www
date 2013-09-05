@@ -17,7 +17,7 @@
     %ul
       %li Your Location
       %li Gear
-      %li=link_to @product.categories[0].name,products_url(:category => @product.categories[0])
+      %li=link_to @product.categories[0].name,products_path(:category => @product.categories[0])
       %li=link_to @product.name, product_show_path(:product => @product.slug)
 
 %section#main.product-details
