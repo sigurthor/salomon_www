@@ -42,8 +42,8 @@
       %nav
         %h5 #{ t 'footer.headings.customer_service', scope: :salomon}
         %ul
-          %li= link_to t('pages.warranty', scope: :salomon), warranty_path
           - unless Rails.env.production?
+            %li= link_to t('pages.warranty', scope: :salomon), warranty_path
             %li= link_to t('pages.contact', scope: :salomon), contact_path
           %li= link_to t('pages.terms', scope: :salomon), terms_path
           %li= link_to t('pages.privacy_policy', scope: :salomon), privacy_policy_path
