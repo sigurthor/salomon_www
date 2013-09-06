@@ -12,12 +12,12 @@ class ApplicationController < ActionController::Base
 
   def set_locale
 
-    unless cookies[:country_code]
+    unless cookies[:country_code] and cookies[:continent_code]
       begin
         ip = request.remote_ip
         country = open("https://geoip.maxmind.com/a?l=Xa0zTRtJOiE0&i=#{ip}").read
         cookies[:country_code] = {value: country, expires: 10.days.from_now}
-        cookies[:continent_code] = A2::CountryCodeContinent.fetch_by_country_code(country).continent_code
+        cookies[:continent_code] = {value: A2::CountryCodeContinent.fetch_by_country_code(country).continent_code, expires: 10.days.from_now }
       rescue
         cookies[:country_code] = {value: 'unknown', expires: 1.days.from_now}
         cookies[:continent_code] = 'unknown'
