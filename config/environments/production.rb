@@ -42,7 +42,7 @@ SalomonWww::Application.configure do
   # Generate digests for assets URLs
   config.assets.digest = true
 
-  config.action_controller.asset_host = "http://d2yssgpnqqyxum.cloudfront.net"
+  config.action_controller.asset_host = "http://d1bvinejaodlex.cloudfront.net"
 
   # Use a different cache store in production
   config.cache_store = :dalli_store
