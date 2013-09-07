@@ -1,4 +1,5 @@
 class HomeController < ApplicationController
+
   def index
     page 'home'
     puts "#{Cashier.tags} tags"

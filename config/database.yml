@@ -23,11 +23,10 @@ frontend_development:
   adapter: postgresql
   encoding: unicode
   pool: 5
-  database: d1gj9pp8j48ih1
-  username: ud67gsddle474u
-  password: p5cmhr73pe5qoofiq9rvpg18epk
-  host: ec2-54-221-212-32.compute-1.amazonaws.com
-  port: 5732
+  database: local_salomon_production
+  username: sigurthor
+  password:
+  host: localhost
 
 
 
