@@ -169,10 +169,8 @@ GEM
     hashie (1.2.0)
     heroku-api (0.2.1)
       excon (~> 0.13.3)
-    heroku_rails_deflate (1.0.1)
-      actionpack (~> 3.2.13)
-      activesupport (~> 3.2.13)
-      rack (~> 1.4.5)
+    heroku-deflater (0.5.1)
+      rack (>= 1.4.5)
     hike (1.2.3)
     httpi (2.1.0)
       rack
@@ -367,7 +365,7 @@ DEPENDENCIES
   compass-rails
   globalize3
   heroku-api
-  heroku_rails_deflate
+  heroku-deflater
   instagram
   jquery-rails
   koala (~> 1.7.0rc1)
