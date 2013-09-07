@@ -13,6 +13,7 @@
 #= require 'lightbox'
 
 $(document).ready ->
+
   $(document).foundation 'topbar'
   $(document).foundation 'forms'
   $(document).foundation 'dropdown', activeClass: 'open'
