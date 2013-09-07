@@ -22,7 +22,7 @@ group :assets, :frontend_development do
   gem 'coffee-rails', '~> 3.2.1'
   gem 'uglifier', '>= 1.0.3'
   gem 'compass-rails' # you need this or you get an err
-  gem 'turbo-sprockets-rails3'
+ # gem 'turbo-sprockets-rails3'
  # gem 'zurb-foundation', '~> 4.0.0'
 end
 
