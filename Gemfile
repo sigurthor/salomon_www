@@ -14,7 +14,7 @@ gem 'localeapp'
 gem 'heroku-api'
 gem 'cashier'
 gem 'rubyzip', '0.9.9'
-gem 'heroku-deflater', :group => :production
+gem 'asset_sync'
 
 
 group :assets, :frontend_development do
