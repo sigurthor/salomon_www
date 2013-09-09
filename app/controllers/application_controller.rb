@@ -12,14 +12,13 @@ class ApplicationController < ActionController::Base
 
   def set_locale
 
-    puts "set locale #{params[:ip]}"
     if !(cookies[:country_code] and cookies[:continent_code] and cookies[:locale]) or params.key?(:ip)
       begin
         puts "ip set"
         ip = params.key?(:ip) ? params[:ip] : request.remote_ip
         country = open("https://geoip.maxmind.com/a?l=Xa0zTRtJOiE0&i=#{ip}").read
         cookies[:country_code] = {value: country, expires: 10.days.from_now}
-        cookies[:continent_code] = {value: A2::CountryCodeContinent.fetch_by_country_code(country).continent_code, expires: 10.days.from_now }
+        cookies[:continent_code] = {value: A2::CountryCodeContinent.fetch_by_country_code(country).continent_code, expires: 10.days.from_now}
         country = A2::Country.fetch_by_iso_code(country)
         cookies[:locale] = country ? country.locale : 'en-US'
       rescue
