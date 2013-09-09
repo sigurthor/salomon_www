@@ -4,7 +4,7 @@ class RackAssetsFilter
   end
 
   def call(env)
-    [status, headers, body] = @app.call env
+    status, headers, body = @app.call(env)
     if env['PATH_INFO'].starts_with("/assets/")
       headers['X-Header-bubu'] = 'sigurthor'
       # ...

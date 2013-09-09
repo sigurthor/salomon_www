@@ -3,6 +3,10 @@ SalomonWww::Application.configure do
   # Settings specified here will take precedence over those in config/application.rb
 
 
+  config.action_dispatch.default_headers = {
+      'seh' => 'SAMEORIGIN',
+  }
+
   #cashier
   config.cashier.adapter = :cache_store
 
