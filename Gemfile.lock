@@ -1,6 +1,6 @@
 GIT
   remote: https://8822694c4779c052130037718ba51b09d8ae7839:x-oauth-basic@github.com/sigurthor/a2_backend.git
-  revision: f15c457bdce1d1c4edda19fea2889a3ad4147fc0
+  revision: 7c785fd7dc6b7e6e4248bcd930aa1a11544c2cfe
   branch: master
   specs:
     a2 (0.0.6)
@@ -13,6 +13,7 @@ GIT
       cashier
       cloudinary
       dalli
+      delayed_job_active_record
       delayed_job_active_record
       devise
       fog (~> 1.3.1)
