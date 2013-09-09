@@ -4,8 +4,9 @@ module ApplicationHelper
   end
 
   def product_price(product)
-    local = (cookies[:continent_code] == 'EU') ? 'fr-FR' : 'en-US'
-    t :display_currency, scope: :salomon, locale: local, price: product.read_attribute(:price, locale: local)
+    #country =
+    #local = (== 'EU') ? 'fr-FR' : 'en-US'
+    t :display_currency, scope: :salomon, locale: cookies[:locale] , price: product.read_attribute(:price, locale: cookies[:locale] )
   end
 
   def prepend_snowboard_crop(image_url)
