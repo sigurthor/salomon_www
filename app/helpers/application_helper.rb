@@ -8,7 +8,12 @@ module ApplicationHelper
 
     locale = params[:locale] ? params[:locale] : cookies[:locale]
     locale = (cookies[:continent_code] == 'EU') ? 'fr-FR' : 'en-US' if Rails.env.production?
-    t :display_currency, scope: :salomon, locale: locale , price: product.read_attribute(:price, locale: locale )
+    if Rails.env.production?
+      t :display_currency, scope: :salomon, locale: locale , price: product.read_attribute(:price, locale: locale ) if  cookies[:country_code] == 'US'
+    else
+      t :display_currency, scope: :salomon, locale: locale , price: product.read_attribute(:price, locale: locale )
+    end
+
   end
 
   def prepend_snowboard_crop(image_url)
