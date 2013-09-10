@@ -42,9 +42,9 @@ init = () ->
   # Arrow nav (switch between riders one by one by clicking)
   $('.navigation-buttons a').on 'click', ->
     if $(this).hasClass('left-arrow')
-      $('.team-nav li:nth-child(' + (currentItemIndex) + ')').click()
+      $('.currently-selected-team-member').prev().click()
     else
-      $('.team-nav li:nth-child(' + (currentItemIndex + 2) + ')').click()
+      $('.currently-selected-team-member').next().click()
 
   $('.navigation-buttons a').mouseenter ->
     if $(this).hasClass 'left-arrow'
