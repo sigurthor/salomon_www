@@ -148,3 +148,4 @@ init = () ->
         console.log $('.currently-selected-team-member').prev().find('h3').text()
         $('.prev-name').html($('.currently-selected-team-member').prev().find('h3').text())
         $('.next-name').html($('.currently-selected-team-member').next().find('h3').text())
+        salomon.vimeo()

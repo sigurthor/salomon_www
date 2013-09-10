@@ -10,12 +10,12 @@
 #   http://dev.mysql.com/doc/refman/5.0/en/old-client.html
 development:
   adapter: postgresql
-  host: localhost
   encoding: unicode
-  database: salomon_www
   pool: 5
-  username: seh
+  database: local_salomon_production
+  username: sigurthor
   password:
+  host: localhost
 
 
 frontend_development:
@@ -27,6 +27,7 @@ frontend_development:
   password: p5cmhr73pe5qoofiq9rvpg18epk
   host: ec2-54-221-212-32.compute-1.amazonaws.com
   port: 5732
+
 
 
 

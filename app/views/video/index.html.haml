@@ -10,19 +10,19 @@
 #page-header
   .row
     .large-8.large-offset-2.columns
-      %h1 Videos Collection
+      %h1= page.title
 
 %section#updates
   #videos.row
-    - @videos.first(8).each do |v|
+    - @videos.each do |v|
       .large-6.columns
         .update-item.vimeo(data-vimeo-id="#{v.item_id}")
           .update-meta
             %i.ss-icon.ss-standard video
             %p=v.title
-            .time-ago 4 days ago
+            .time-ago= v.relative_date
           - img_loader do
-            %img{:src=>"#{v.image_url}", :onload=>'form5image.hasLoaded(this)'}
+            %img{:src=>"#{v.image_url}", :alt => '', :onload=>'form5image.hasLoaded(this)'}
           .video-player.flex-video.vimeo.widescreen
 
   .row

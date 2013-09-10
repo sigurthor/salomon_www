@@ -38,9 +38,18 @@ salomon.general = () ->
     window.location = $(this).find("a").attr("href");
 
   setTimeout () ->
-    $(".dropdown iframe").hover ->
-      $(this).parents("li.social").trigger("hover");
+    $(".dropable iframe").hover ->
+      if $(this).hasClass('twitter-follow-button')
+        $('li.social.twitter').addClass('open');
+      else
+        $('li.social.facebook').addClass('open');
   , 3500
+
+  $('.dropable').on 'mouseenter mouseleave', (e) ->
+    if e.type == 'mouseenter'
+      $(this).addClass('open')
+    if e.type == 'mouseleave'
+      $(this).removeClass('open')
 
   if !readCookie 'defaultCountry'
     if $('.frontpage').length

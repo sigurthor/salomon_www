@@ -1,10 +1,9 @@
 SalomonWww::Application.configure do
 
-  #cashier
-  config.cashier.adapter = :cache_store
 
   #webshop url
-  config.webshop_url = 'http://dev.shop.salomon.com/'
+  config.webshop_url = 'http://shop.salomon.com/'
+  config.salomon_url = 'http://www.salomon.com/'
 
   #instagram
   config.instagram_callback_url =  'http://salomon-prod.herokuapp.com/a2/auth/instagram/callback'
@@ -30,7 +29,9 @@ SalomonWww::Application.configure do
   config.action_controller.perform_caching = true
 
   # Disable Rails's static asset server (Apache or nginx will already do this)
-  config.serve_static_assets = false
+  config.serve_static_assets = true
+
+  config.static_cache_control = "public, max-age=31536000"
 
   # Compress JavaScripts and CSS
   config.assets.compress = true
@@ -41,6 +42,8 @@ SalomonWww::Application.configure do
   # Generate digests for assets URLs
   config.assets.digest = true
 
+  config.action_controller.asset_host = "http://d1bvinejaodlex.cloudfront.net"
+
   # Use a different cache store in production
   config.cache_store = :dalli_store
 
@@ -48,7 +51,7 @@ SalomonWww::Application.configure do
   # config.action_controller.asset_host = "http://assets.example.com"
 
   # Precompile additional assets (application.js, application.css, and all non-JS/CSS are already added)
-  config.assets.precompile += %w( custom.modernizr.js html5shiv.js form5image.js respond.min.js ss-standard.js ss-social.js rails_admin/rails_admin_nestable.js rails_admin/jquery.nestable.js rails_admin/rails_admin_nestable.css)
+  config.assets.precompile += %w( application_head.js html5shiv.js respond.min.js rails_admin/rails_admin_nestable.js rails_admin/jquery.nestable.js rails_admin/rails_admin_nestable.css)
 
   # Enable locale fallbacks for I18n (makes lookups for any locale fall back to
   # the I18n.default_locale when a translation can not be found)

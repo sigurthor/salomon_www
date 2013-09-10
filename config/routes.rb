@@ -1,8 +1,6 @@
 SalomonWww::Application.routes.draw do
 
   match '/404', :to => 'error#not_found'
-  match '/422', :to => 'error#server_error'
-  match '/500', :to => 'error#server_error'
 
   get "video/index"
 
@@ -30,7 +28,12 @@ SalomonWww::Application.routes.draw do
     match 'gear/(:category)/(:product)' => 'product#show', :as => 'product_show'
   end
 
-
+  # legacy redirects
+  #Redirects
+  match 'salomon-gear.html' => redirect('/')
+  match 'teams' => redirect('/team')
+  match 'dealers' => redirect('/')
+  match '/catalog/product/view/id/:id/s/(:slug)-(:variant)/category/(:cat)' => 'product#legacy'
 
 
 

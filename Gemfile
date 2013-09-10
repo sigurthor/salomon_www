@@ -1,5 +1,6 @@
 source 'https://rubygems.org'
 
+
 gem 'rails', '3.2.14'
 gem 'pg'
 gem 'cache_digests'
@@ -13,6 +14,7 @@ gem 'localeapp'
 gem 'heroku-api'
 gem 'cashier'
 gem 'rubyzip', '0.9.9'
+gem 'asset_sync'
 
 
 group :assets, :frontend_development do
@@ -20,6 +22,7 @@ group :assets, :frontend_development do
   gem 'coffee-rails', '~> 3.2.1'
   gem 'uglifier', '>= 1.0.3'
   gem 'compass-rails' # you need this or you get an err
+ # gem 'turbo-sprockets-rails3'
  # gem 'zurb-foundation', '~> 4.0.0'
 end
 
