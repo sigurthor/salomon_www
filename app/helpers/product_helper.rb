@@ -32,7 +32,7 @@ module ProductHelper
 
   def salomon_link(slug)
 
-    locale = params[:locale] ? params[:locale] : cookies[:locale]
+    locale = params[:locale].blank? ? params[:locale] : cookies[:locale]
     c = A2::Country.fetch_by_locale(locale)
     "#{Rails.application.config.salomon_url}#{c.salomon_locale}/product/#{slug}.html"
   end
