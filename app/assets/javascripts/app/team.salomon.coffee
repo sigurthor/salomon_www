@@ -42,9 +42,9 @@ init = () ->
   # Arrow nav (switch between riders one by one by clicking)
   $('.navigation-buttons a').on 'click', ->
     if $(this).hasClass('left-arrow')
-      $('.team-nav li:nth-child(' + (currentItemIndex) + ')').click()
+      $('.currently-selected-team-member').prev().click()
     else
-      $('.team-nav li:nth-child(' + (currentItemIndex + 2) + ')').click()
+      $('.currently-selected-team-member').next().click()
 
   $('.navigation-buttons a').mouseenter ->
     if $(this).hasClass 'left-arrow'
@@ -68,11 +68,11 @@ init = () ->
 
     $('.member-nav-wrapper').css({
       left             : hoverNavDirection,
-      WebkitTransition : 'all 3s ease-in-out',
-      MozTransition    : 'all 3s ease-in-out',
-      MsTransition     : 'all 3s ease-in-out',
-      OTransition      : 'all 3s ease-in-out',
-      transition       : 'all 3s ease-in-out'
+      WebkitTransition : 'all 1s ease-in-out',
+      MozTransition    : 'all 1s ease-in-out',
+      MsTransition     : 'all 1s ease-in-out',
+      OTransition      : 'all 1s ease-in-out',
+      transition       : 'all 1s ease-in-out'
     })
   $('.hover-buttons > div').mouseleave ->
     $('.member-nav-wrapper').css({
@@ -133,7 +133,7 @@ init = () ->
     url = '/team/rider-' + name + '?ajax=true'
     $('section#member').addClass 'loading-member'
     $(this).removeClass('has-overlay').siblings().addClass('has-overlay')
-    $('.currently-selected-team-member').removeClass('currently-selected-team-member')
+    $('.currently-selected-team-member').addClass('has-overlay').removeClass('currently-selected-team-member')
     $(this).addClass('currently-selected-team-member').siblings()
     $.ajax
       type: 'GET'

@@ -1,6 +1,14 @@
 init = () ->
+
   $lastproduct = $('.lastproduct')
   $filters = $(".filter-list li")
+
+  $(window).scroll ->
+    offset = $lastproduct.height() / 2
+    lastProductIsInView = ($lastproduct.offset().top -
+                          $('body').scrollTop()) <= $lastproduct.height() + offset
+    if lastProductIsInView and !$lastproduct.hasClass 'activated'
+      $lastproduct.addClass 'activated'
 
   executionUnblock = ->
     $filters.removeData 'executing'
@@ -32,15 +40,8 @@ init = () ->
           $el = $filters.filter('[data-filter*="'+filter+'"]')
           $el.siblings().filter('[data-filter="all"]').removeClass 'active'
           $el.addClass('active')
-
-    lastProductReached = false
-    $(window).scroll ->
-      offset = $lastproduct.height() / 2
-      lastProductIsInView = ($lastproduct.offset().top -
-                            $('body').scrollTop()) <= $lastproduct.height() + offset
-      if lastProductIsInView and !lastProductReached
-        $lastproduct.addClass 'activated'
-        lastProductReached = true
+          if $('.filters li:not(:first-child)').hasClass('active')
+            $('.clear-filters').show()
 
   $("#product-list").mixitup
     layoutMode: "grid"
@@ -102,14 +103,22 @@ init = () ->
 
   $('.clear-filters').bind 'click', (e) ->
     e.preventDefault()
+    $('.clear-filters').hide()
     $filters.removeClass('active').filter("[data-filter=\"all\"]").addClass 'active'
     dimensions = {}
     $("#product-list").mixitup "filter", 'all'
-    $("html, body").animate({ scrollTop: $('#filterbar').offset().top }, 500)
+    $("html, body").animate({ scrollTop: $('#filterbar').offset().top }, 500, ->
+      $lastproduct.removeClass 'activated'
+    )
 
   $('.modify-filters').bind 'click', (e) ->
     e.preventDefault()
-    $("html, body").animate({ scrollTop: $('#filterbar').offset().top }, 500)
+    $("html, body").animate({ scrollTop: $('#filterbar').offset().top }, 500, ->
+      $lastproduct.removeClass 'activated'
+    )
+
+  $('.filters li').click ->
+    $('.clear-filters').show()
 
 salomon.filters = () ->
   if $('#product-list').length

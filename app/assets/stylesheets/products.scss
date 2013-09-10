@@ -17,6 +17,7 @@ i {
     @include transition(all 0.5s ease-in-out);
     &.activated {
       opacity: 1;
+      @include transition-delay(1s);
     }
   }
 
@@ -110,9 +111,13 @@ i {
 
     &.last {
       position: relative;
-      padding: 40px 30px 20px;
+      min-height: 570px;
+      padding: 20px;
       background: #ebebec;
-      min-height: 410px;
+
+      .clear-filters {
+        display: none;
+      }
 
       h2 {
         @include font-heading();
@@ -154,6 +159,15 @@ i {
           vertical-align: middle;
           background: $color-darkblue;
         }
+
+        li:hover {
+          a {
+            color: $color-lightblue;
+            border-color: $color-lightblue;
+          }
+        }
+
+        li:hover:before { background-color: $color-lightblue; }
 
         li:nth-child(1):before {
           content: "\2713";
