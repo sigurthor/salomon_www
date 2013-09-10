@@ -74,8 +74,8 @@
         .product.last
           %h2 Sorry - No products match this filter criteria
           %ul.links
-            %li
-              %a.clear-filters{:href=>'#'} Clear filters
+            %li.clear-filters
+              %a{:href=>'#'} Clear filters
             %li
               %a Back to front page
 
@@ -90,7 +90,7 @@
           %ul.links
             %li
               %a.modify-filters{:href=>'#filterbar'} Modify filters
-            %li
-              %a.clear-filters{:href=>'#'} Clear filters
+            %li.clear-filters
+              %a{:href=>'#'} Clear filters
             %li
               =link_to 'Back to front page', home_path

@@ -31,6 +31,14 @@
           transition: $settings;
 }
 
+@mixin transition-delay($settings...) {
+  -webkit-transition-delay: $settings;
+     -moz-transition-delay: $settings;
+      -ms-transition-delay: $settings;
+       -o-transition-delay: $settings;
+          transition-delay: $settings;
+}
+
 @mixin animation($settings...) {
   -webkit-animation: $settings;
      -moz-animation: $settings;
