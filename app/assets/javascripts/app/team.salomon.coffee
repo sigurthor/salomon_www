@@ -133,7 +133,7 @@ init = () ->
     url = '/team/rider-' + name + '?ajax=true'
     $('section#member').addClass 'loading-member'
     $(this).removeClass('has-overlay').siblings().addClass('has-overlay')
-    $('.currently-selected-team-member').removeClass('currently-selected-team-member')
+    $('.currently-selected-team-member').addClass('has-overlay').removeClass('currently-selected-team-member')
     $(this).addClass('currently-selected-team-member').siblings()
     $.ajax
       type: 'GET'
