@@ -68,11 +68,11 @@ init = () ->
 
     $('.member-nav-wrapper').css({
       left             : hoverNavDirection,
-      WebkitTransition : 'all 3s ease-in-out',
-      MozTransition    : 'all 3s ease-in-out',
-      MsTransition     : 'all 3s ease-in-out',
-      OTransition      : 'all 3s ease-in-out',
-      transition       : 'all 3s ease-in-out'
+      WebkitTransition : 'all 1s ease-in-out',
+      MozTransition    : 'all 1s ease-in-out',
+      MsTransition     : 'all 1s ease-in-out',
+      OTransition      : 'all 1s ease-in-out',
+      transition       : 'all 1s ease-in-out'
     })
   $('.hover-buttons > div').mouseleave ->
     $('.member-nav-wrapper').css({
