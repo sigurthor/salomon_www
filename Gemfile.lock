@@ -1,6 +1,6 @@
 GIT
   remote: https://8822694c4779c052130037718ba51b09d8ae7839:x-oauth-basic@github.com/sigurthor/a2_backend.git
-  revision: 49ee1f70d5e6be809cb47367e2f7e4f3a2e560d1
+  revision: 3fcb515752793fdab17c6cb1223c135e1c7b42a0
   branch: master
   specs:
     a2 (0.0.6)
@@ -265,7 +265,7 @@ GEM
       remotipart (~> 1.0)
       safe_yaml (~> 0.6)
       sass-rails (~> 3.1)
-    rails_admin_nestable (0.1.4)
+    rails_admin_nestable (0.1.5)
       coffee-rails
       haml-rails
       rails (>= 3.1)

@@ -33,10 +33,12 @@
         %h5 Salomon
         %ul
           %li
-            %a{:href=>'http://ssnowdev.tumblr.com/'} Blog
+            %a{:href=>'http://ssnowdev.tumblr.com/', :target => '_blank'} Blog
           %li= link_to t('pages.team', scope: :salomon), team_path
           - unless Rails.env.production?
             %li= link_to t('pages.faq', scope: :salomon), faq_path
+          %li
+            %a{:href =>'http://salomonsnowboard.com/shopcrew/login', :target => '_blank'} Shop crew
 
     .large-2.columns
       %nav
@@ -48,15 +50,17 @@
           %li= link_to t('pages.terms', scope: :salomon), terms_path
           %li= link_to t('pages.privacy_policy', scope: :salomon), privacy_policy_path
 
+
     .large-3.columns
-      -#.language-selector
-      -#  %h5 #{t 'footer.change_country', scope: :salomon }
-      -#  %form.custom
-      -#    %select#language.dropdown.small
-      -#      - regions.each do |region|
-      -#        %option(value="" disabled="disabled")= "- #{region.name}"
-      -#        -region.fetch_a2_countries.each do |country|
-      -#          %option(value="#{country.locale}")= "#{country.name}"
+      - unless Rails.env.production?
+        .language-selector
+          %h5 #{t 'footer.change_country', scope: :salomon }
+          %form.custom
+            %select#language.dropdown.small
+              - regions.each do |region|
+                %option(value="" disabled="disabled")= "- #{region.name}"
+                -region.fetch_a2_countries.each do |country|
+                  %option(value="#{country.locale}")= "#{country.name}"
 
       .newsletter
         %h5 #{t 'footer.newsletter_signup_head', scope: :salomon }
