@@ -1,13 +1,13 @@
 - unless product.images.empty? and product.team_members.empty?
   %section.panel.gray
     .row
-      .large-8.columns
+      .large-8.columns.product-gallery
         - unless product.images.empty?
           %h2 Gallery
           .large-block-grid-4
             - product.images.first(4).each do |asset|
               %li
-                %a{ :href => asset.img.url, :data => { :lightbox => asset.title } }
+                %a{ :href => cl_image_path(asset.img, :width => 1000, :height => 800, :crop => :fill), :data => { :lightbox => product.name } }
                   = cl_image_tag asset.img, :width => 180, :height => 180, :crop => 'fill', :onload => 'form5image.hasLoaded(this)', :alt => asset.title
             =display_more_assets_link
       - unless product.team_members.empty?

@@ -62,10 +62,11 @@ initProductColorPicker = ->
   $('.imageset').each ->
     $el = $(this)
     imageSetIndex = $el.data 'imagesetindex'
-
     if typeof imageSet != 'undefined'
       set = imageSet[parseInt(imageSetIndex)]
       $el.bind 'click', (e) ->
+        if $(this).parent().hasClass 'selected'
+          return false
         e.preventDefault()
         updateImageset(set)
         $el.parent().parent().find('li').removeClass 'selected'

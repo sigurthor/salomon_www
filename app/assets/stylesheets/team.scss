@@ -61,6 +61,7 @@ body.team {
     background-color: #fff;
 
     & > .row > h2 {
+      &:first-child { margin-top: 80px; }
       @include font-heading();
       font-size: 72px;
       color: $color-darkblue;

@@ -34,9 +34,6 @@ i {
   .product {
     margin-bottom: 2em;
 
-    min-height: 450px;
-    &.snowboard { min-height: 650px; }
-
     font-family: 'TradeGothicW01-BoldCn20 675334';
     color: $base;
     text-transform: uppercase;
@@ -111,7 +108,7 @@ i {
 
     &.last {
       position: relative;
-      min-height: 570px;
+      min-height: 380px;
       padding: 20px;
       background: #ebebec;
 
