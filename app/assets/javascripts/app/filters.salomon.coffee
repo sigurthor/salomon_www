@@ -1,14 +1,17 @@
 init = () ->
 
   $lastproduct = $('.lastproduct')
-  $filters = $(".filter-list li")
 
-  $(window).scroll ->
-    offset = $lastproduct.height() / 2
-    lastProductIsInView = ($lastproduct.offset().top -
-                          $('body').scrollTop()) <= $lastproduct.height() + offset
-    if lastProductIsInView and !$lastproduct.hasClass 'activated'
-      $lastproduct.addClass 'activated'
+  if $lastproduct.length
+    $(window).scroll ->
+      offset = $lastproduct.height() / 2
+      lastProductIsInView = ($lastproduct.offset().top -
+      $('body').scrollTop()) <= $lastproduct.height() + offset
+      if lastProductIsInView and !$lastproduct.hasClass 'activated'
+        $lastproduct.addClass 'activated'
+
+
+  $filters = $(".filter-list li")
 
   executionUnblock = ->
     $filters.removeData 'executing'
