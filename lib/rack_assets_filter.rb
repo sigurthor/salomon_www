@@ -5,11 +5,13 @@ class RackAssetsFilter
 
   def call(env)
     status, headers, body = @app.call(env)
-    if env['PATH_INFO'].starts_with("/assets/")
-      headers['X-Header-bubu'] = 'sigurthor'
+    puts env
+    puts env['PATH_INFO']
+    if env['REQUEST_PATH'].starts_with?("/webfonts/")
+      puts "add origin"
+      headers['Access-Control-Allow-Origin'] = '*'
       # ...
     end
-    return [status, headers, body]
-    env
+    [status, headers, body]
   end
 end

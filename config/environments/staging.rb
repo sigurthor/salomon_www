@@ -2,6 +2,9 @@ require Rails.root.join("config/environments/production")
 puts "staging enviorment"
 SalomonWww::Application.configure do
 
+  #asset host
+  config.action_controller.asset_host = "http://dhzmr2tfimuzd.cloudfront.net"
+
   #webshop url
   config.webshop_url = 'http://dev.shop.salomon.com/'
   config.salomon_url = 'http://dev.salomon.com/'

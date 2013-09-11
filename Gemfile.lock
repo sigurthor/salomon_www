@@ -78,9 +78,6 @@ GEM
     ar_transaction_changes (0.0.1)
       activerecord (>= 3.0.0)
     arel (3.0.2)
-    asset_sync (0.5.4)
-      activemodel
-      fog
     atomic (1.1.14)
     aws-sdk (1.14.1)
       json (~> 1.4)
@@ -363,7 +360,6 @@ PLATFORMS
 
 DEPENDENCIES
   a2!
-  asset_sync
   cache_digests
   cashier
   coffee-rails (~> 3.2.1)
