@@ -1,10 +1,7 @@
 /* General */
 section#breadcrumbs {
-  position: fixed;
+  position: relative;
   top: 60px;
-
-  @include respond-to(small) { position: relative; }
-  @include respond-to(medium) { position: relative; }
 
   z-index: 1019;
 
