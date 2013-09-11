@@ -26,7 +26,7 @@ init = () ->
     itemsTotalWidth = (totalRiders * slideWidth) - 20  # No margin after last element
     $('ul.team-nav').css 'width', itemsTotalWidth
     $('.member-nav-wrapper').css 'width', itemsTotalWidth
-    $('.member-nav-wrapper').css 'margin-left', (-Math.abs(itemsTotalWidth / 2) + 'px').toString()
+    # $('.member-nav-wrapper').css 'margin-left', (-Math.abs(itemsTotalWidth / 2) + 'px').toString()
 
   updateCategoryNav = (selectedCategory) ->
     $('.current-category').removeClass('current-category')
@@ -121,8 +121,8 @@ init = () ->
     else
       newLocation = Math.max(($(window).width() - (itemsTotalWidth / 2) - 20), newLocation)
 
-    if itemsTotalWidth > $(window).width()
-      $(".member-nav-wrapper").css 'left', newLocation
+    # if itemsTotalWidth > $(window).width()
+    #   $(".member-nav-wrapper").css 'left', newLocation
     lastItemIndex = currentItemIndex
 
 
