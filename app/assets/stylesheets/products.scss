@@ -5,6 +5,7 @@ i {
 }
 
 #product-list {
+  @include clearfix();
 
   min-height: 500px;
 

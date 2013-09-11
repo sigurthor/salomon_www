@@ -111,12 +111,14 @@ updateImageset = (set) ->
   initProductThumbnails()
 
 salomon.product = () ->
-  if $('#product-list').length
-    initProductList()
 
-  if $('.product-details').length
-    initProductThumbnails()
-    initProductColorPicker()
-    initProductSizePicker()
-    initTechListExpand()
-    initTechSizeInfo()
+  $(document).ready ->
+    if $('#product-list').length
+      initProductList()
+
+    if $('.product-details').length
+      initProductThumbnails()
+      initProductColorPicker()
+      initProductSizePicker()
+      initTechListExpand()
+      initTechSizeInfo()
