@@ -53,7 +53,7 @@ init = () ->
       $('.next-name').html $('.currently-selected-team-member').next().find('h3').text()
 
   # Hover nav
-  $('.hover-buttons > div').mouseenter ->
+  $('.manually-disabled .hover-buttons > div').mouseenter ->
     if itemsTotalWidth < $(window).width()
       return false
 
