@@ -1,16 +1,19 @@
-%section.panel.gray
-  .row
-    .large-8.columns
-      %h2 Gallery
-      .large-block-grid-4
-        - product.images.first(4).each do |asset|
-          %li
-            %a{ :href => asset.img.url, :data => { :lightbox => asset.title } }
-              = cl_image_tag asset.img, :width => 180, :height => 180, :crop => 'fill', :onload => 'form5image.hasLoaded(this)', :alt => asset.title
-        =display_more_assets_link
-    .large-3.columns.large-offset-1
-      %h2 Riders
-      %ul.riders
-        - product.team_members.first(5).each do |tm|
-          %li=link_to tm.name, tm
-        =display_more_riders_link
+- unless product.images.empty? and product.team_members.empty?
+  %section.panel.gray
+    .row
+      .large-8.columns
+        - unless product.images.empty?
+          %h2 Gallery
+          .large-block-grid-4
+            - product.images.first(4).each do |asset|
+              %li
+                %a{ :href => asset.img.url, :data => { :lightbox => asset.title } }
+                  = cl_image_tag asset.img, :width => 180, :height => 180, :crop => 'fill', :onload => 'form5image.hasLoaded(this)', :alt => asset.title
+            =display_more_assets_link
+      - unless product.team_members.empty?
+        .large-3.columns.large-offset-1
+          %h2 Riders
+          %ul.riders
+            - product.team_members.first(5).each do |tm|
+              %li=link_to tm.name, tm
+            =display_more_riders_link
