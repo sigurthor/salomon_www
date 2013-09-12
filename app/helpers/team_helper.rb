@@ -4,8 +4,8 @@ module TeamHelper
   end
   def slider_viewport
     @wrapper_width = ((@team_member.category.team_members.count * 160) - 20)
-    # @margin_left = (-(@wrapper_width / 2).abs)
-    {:style => 'width: ' + @wrapper_width.to_s + 'px;'}
+    @margin_left = (-(@wrapper_width / 2).abs)
+    {:style => 'width: ' + @wrapper_width.to_s + 'px; margin-left: ' + @margin_left.to_s + 'px'}
   end
   def get_permalink(team_member)
     @permalink = team_member_path(:team_member => team_member.slug).to_s

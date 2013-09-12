@@ -26,7 +26,7 @@ init = () ->
     itemsTotalWidth = (totalRiders * slideWidth) - 20  # No margin after last element
     $('ul.team-nav').css 'width', itemsTotalWidth
     $('.member-nav-wrapper').css 'width', itemsTotalWidth
-    # $('.member-nav-wrapper').css 'margin-left', (-Math.abs(itemsTotalWidth / 2) + 'px').toString()
+    $('.member-nav-wrapper').css 'margin-left', (-Math.abs(itemsTotalWidth / 2) + 'px').toString()
 
   updateCategoryNav = (selectedCategory) ->
     $('.current-category').removeClass('current-category')
@@ -53,7 +53,7 @@ init = () ->
       $('.next-name').html $('.currently-selected-team-member').next().find('h3').text()
 
   # Hover nav
-  $('.manually-disabled .hover-buttons > div').mouseenter ->
+  $('.hover-buttons > div').mouseenter ->
     if itemsTotalWidth < $(window).width()
       return false
 
@@ -86,6 +86,8 @@ init = () ->
 
   $('.category-switches span').on 'click', ->
     updateCategoryNav($(this))
+
+    $('.member-nav-wrapper').css 'left', '50%'
 
     nextCategory = 'nav-' + ($(this).attr 'id').replace('-category', '')
     $('.current-team-nav-category').removeClass('current-team-nav-category')
@@ -121,8 +123,8 @@ init = () ->
     else
       newLocation = Math.max(($(window).width() - (itemsTotalWidth / 2) - 20), newLocation)
 
-    # if itemsTotalWidth > $(window).width()
-    #   $(".member-nav-wrapper").css 'left', newLocation
+    if itemsTotalWidth > $(window).width()
+      $(".member-nav-wrapper").css 'left', newLocation
     lastItemIndex = currentItemIndex
 
 
@@ -135,6 +137,7 @@ init = () ->
     $(this).removeClass('has-overlay').siblings().addClass('has-overlay')
     $('.currently-selected-team-member').addClass('has-overlay').removeClass('currently-selected-team-member')
     $(this).addClass('currently-selected-team-member').siblings()
+    updatePosition($(this))
     $.ajax
       type: 'GET'
       url:  url

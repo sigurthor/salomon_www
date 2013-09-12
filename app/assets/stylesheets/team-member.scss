@@ -99,9 +99,9 @@
     }
 
     .member-nav-wrapper {
-      position: absolute;
-      left: 0; right: 0;
-      margin: auto;
+      display: inline-block;
+      position: relative;
+      left: 50%;
       overflow: hidden;
       @include transition(left 0.5s ease-in-out);
     }
