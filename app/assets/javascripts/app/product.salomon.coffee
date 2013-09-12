@@ -1,5 +1,6 @@
 initProductList = () ->
-  $('#product-list').equalize()
+  $('.js-equalize').equalize {selector: '.js-equalize-me', responsive:true};
+
   $products = $('#product-list .product').each (index, product) ->
     $product = $(product)
     $product.find('.product-thumbs li a').on 'click', (e) ->

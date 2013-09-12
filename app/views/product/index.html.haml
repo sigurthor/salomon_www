@@ -39,12 +39,12 @@
               %a.button{set_text_length_class(feature.name, 10)}=feature.name
 %section#main
   .row
-    #product-list
+    #product-list.js-equalize
       -@products.each do |product|
         - filterClasses = product.product_features.map { |p| "filter-#{p.id}" }.join ' '
         - filterClasses << " filter-#{product.gender}"
         .large-3.columns.mix{:class=>filterClasses, :data => {:name => "#{product.name}", :price => "#{product.price}"}}
-          .product{:class => (product.is_snowboard? ? 'snowboard':'')}
+          .product.js-equalize-me{:class => (product.is_snowboard? ? 'snowboard':'')}
             .main-info
 
               - if product.is_snowboard?
@@ -71,7 +71,7 @@
                   %span=feature.map(&:name).join(", ")
 
       .large-3.columns.end.notfound
-        .product.last
+        .product.last.js-equalize-me
           %h2 Sorry - No products match this filter criteria
           %ul.links
             %li.clear-filters
@@ -80,7 +80,7 @@
               %a Back to front page
 
       .large-3.columns.end
-        .product.last.lastproduct
+        .product.last.lastproduct.js-equalize-me
           %h2
             You've reached
             %br
