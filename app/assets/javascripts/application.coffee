@@ -29,5 +29,5 @@ $(document).ready ->
   salomon.vimeo()
   salomon.team()
   salomon.newsletter()
-  #salomon.heroVideo()
+  salomon.heroVideo()
   salomon.languageBar()
