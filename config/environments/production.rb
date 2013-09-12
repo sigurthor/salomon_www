@@ -54,6 +54,7 @@ SalomonWww::Application.configure do
   # config.action_controller.asset_host = "http://assets.example.com"
 
   # Precompile additional assets (application.js, application.css, and all non-JS/CSS are already added)
+
   config.assets.precompile += %w( application_head.js html5shiv.js respond.min.js rails_admin/rails_admin_nestable.js rails_admin/jquery.nestable.js rails_admin/rails_admin_nestable.css)
 
   # Enable locale fallbacks for I18n (makes lookups for any locale fall back to

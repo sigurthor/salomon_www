@@ -1,6 +1,9 @@
 - content_for :navclass do
   sticky
 
+- content_for :javascript_pre do
+  = javascript_include_tag 'mustache'
+
 %script{:src => "https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false"}
 %section#storelocator
   #map-canvas
@@ -10,7 +13,7 @@
 
       .searchform
         %form
-          %input{:type=>'text', :placeholder=>'Find a City, State or Zip Code'}
+          %input#searchBox{:type=>'text', :placeholder=>'Find a City, State or Zip Code', :autocomplete=>'off'}
           %input.button.search{:type=>'submit', :value=>'Search'}
 
       .intro
@@ -18,21 +21,13 @@
           %em or
 
         %p
-          %a{} Browse the map
-          %span.separator
-            |
-          %a{} Online Retailers
+          %a{:href=>'#retailers'} Online Retailers
 
-      // %ul#results
-      //  %li
-      //    %h4 Ellis brigham
-      //    %p TOWER HOUSE, 3-11 SOUTHAMPTON STREET
-      //    %p LONDON WC2E 7HA
-      //    %p 0207 3951010
+      %ol#results
 
 
 
-  %section.online-retailers
+  %section.online-retailers#retailers
     %h2 Online retailers
     .row
       - @online_store_categories.each do |category|

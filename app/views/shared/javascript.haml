@@ -1,2 +1,5 @@
+= yield(:javascript_pre)
 = javascript_include_tag 'application'
 %script{:src => "//assets.pinterest.com/js/pinit.js"}
+= yield(:javascript)
+
