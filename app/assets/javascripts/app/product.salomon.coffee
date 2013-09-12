@@ -111,6 +111,15 @@ updateImageset = (set) ->
 
   initProductThumbnails()
 
+
+freezeScrollInLightbox = ->
+  $('.product-gallery').click ->
+    $('body').css 'overflow', 'hidden'
+
+  $('.lb-close').click ->
+    $('body').css 'overflow', 'visible'
+
+
 salomon.product = () ->
 
   $(document).ready ->
@@ -123,3 +132,4 @@ salomon.product = () ->
       initProductSizePicker()
       initTechListExpand()
       initTechSizeInfo()
+      freezeScrollInLightbox()
