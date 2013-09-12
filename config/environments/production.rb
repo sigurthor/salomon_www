@@ -55,7 +55,7 @@ SalomonWww::Application.configure do
 
   # Precompile additional assets (application.js, application.css, and all non-JS/CSS are already added)
 
-  config.assets.precompile += %w( application_head.js html5shiv.js respond.min.js rails_admin/rails_admin_nestable.js rails_admin/jquery.nestable.js rails_admin/rails_admin_nestable.css)
+  config.assets.precompile += %w( application_head.js html5shiv.js respond.min.js rails_admin/rails_admin_nestable.js rails_admin/jquery.nestable.js rails_admin/rails_admin_nestable.css mustache.js)
 
   # Enable locale fallbacks for I18n (makes lookups for any locale fall back to
   # the I18n.default_locale when a translation can not be found)
