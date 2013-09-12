@@ -93,6 +93,7 @@ init = () ->
     $('.current-team-nav-category').removeClass('current-team-nav-category')
     $('#' + nextCategory).addClass 'current-team-nav-category'
     updateItemsTotalWidth()
+    $('.current-team-nav-category li:first-child').click()
 
   #
   # Make currently selected profile active. Couldn't this be done in the server template?
