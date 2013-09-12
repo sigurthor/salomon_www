@@ -13,7 +13,7 @@
 
       .searchform
         %form
-          %input#searchBox{:type=>'text', :placeholder=>'Find a City, State or Zip Code'}
+          %input#searchBox{:type=>'text', :placeholder=>'Find a City, State or Zip Code', :autocomplete=>'off'}
           %input.button.search{:type=>'submit', :value=>'Search'}
 
       .intro
@@ -21,16 +21,13 @@
           %em or
 
         %p
-          %a{} Browse the map
-          %span.separator
-            |
-          %a{} Online Retailers
+          %a{:href=>'#retailers'} Online Retailers
 
       %ol#results
 
 
 
-  %section.online-retailers
+  %section.online-retailers#retailers
     %h2 Online retailers
     .row
       - @online_store_categories.each do |category|
