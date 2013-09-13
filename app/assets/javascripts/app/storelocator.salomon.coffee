@@ -91,6 +91,9 @@ searchStores = (e) ->
       $overlay.addClass 'compact'
 
     $('ol#results').html('')
+    for gmarker in salomon.map.markers
+      gmarker.setMap(null)
+
     queryBackend query, parseResults
 
 
@@ -133,8 +136,6 @@ parseResults = (data) ->
   i = 0;
   for store in data.stores
     marker = createMarker(store)
-
-
     $store = $results.append renderStoreResult(store, num2alpha(i++))
     $store = $('#store-'+store.id)
 
