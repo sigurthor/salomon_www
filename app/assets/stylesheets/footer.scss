@@ -38,6 +38,11 @@ footer {
   .language-selector form.custom .custom.dropdown.small {
     min-width: 100%;
 
+    ul {
+      max-height: none;
+      bottom: -170px;
+    }
+
     .current {
       font-family:'TradeGothicW01-BoldCn20 675334';
       font-size: 14px;
