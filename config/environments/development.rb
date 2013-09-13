@@ -60,4 +60,6 @@ SalomonWww::Application.configure do
 
   # Expands the lines which load the assets
   config.assets.debug = false
+
+  config.static_cache_control = 'private, max-age=0'
 end
