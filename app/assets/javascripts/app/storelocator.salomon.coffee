@@ -11,6 +11,9 @@ mapInit = () ->
     center: new google.maps.LatLng(0, 0)
     scrollwheel: false
     mapTypeId: google.maps.MapTypeId.ROADMAP
+    panControlOptions: {position:google.maps.ControlPosition.RIGHT_TOP}
+    zoomControlOptions:{position:google.maps.ControlPosition.RIGHT_TOP}
+
   return new google.maps.Map(document.getElementById('map-canvas'), mapOptions)
 
 #
