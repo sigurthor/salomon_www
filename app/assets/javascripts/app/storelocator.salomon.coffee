@@ -73,10 +73,7 @@ highlightMarker = (marker) ->
     gmarker.setAnimation(null)
 
   marker.setIcon highlightIcon
-  marker.setAnimation(google.maps.Animation.BOUNCE)
-  setTimeout ->
-      marker.setAnimation(null)
-    , 2050
+  marker.setAnimation(google.maps.Animation.DROP)
 
 #
 # Search for stores

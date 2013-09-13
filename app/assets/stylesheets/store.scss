@@ -160,11 +160,13 @@
         input {
           margin-bottom: 0;
           font-size: 18px;
-          height: 40px;
         }
         input[type="text"] {
-          width: 245px;
+          height: 40px;
+          width: 230px;
           margin-right: 10px;
+          padding-top: 0;
+          padding-bottom: 0;
         }
         input[type="text"], input[type="submit"] {
           float: left;
