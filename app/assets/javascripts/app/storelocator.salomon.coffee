@@ -70,6 +70,8 @@ highlightMarker = (marker) ->
   highlightIcon = new google.maps.MarkerImage('http://google.com/mapfiles/ms/micons/blue-dot.png', new google.maps.Size(32,32))
   for gmarker in salomon.map.markers
     gmarker.setIcon(defaultIcon)
+    gmarker.setAnimation(null)
+
   marker.setIcon highlightIcon
   marker.setAnimation(google.maps.Animation.BOUNCE)
   setTimeout ->
