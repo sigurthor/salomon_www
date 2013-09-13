@@ -2,7 +2,7 @@ SalomonWww::Application.configure do
 
 
   #asset host
-  config.action_controller.asset_host = "http://dhzmr2tfimuzd.cloudfront.net"
+  config.action_controller.asset_host = ENV['ASSET_HOST']
 
   #webshop url
   config.webshop_url = 'http://shop.salomon.com/'

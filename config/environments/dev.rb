@@ -1,10 +1,7 @@
 require Rails.root.join("config/environments/production")
+puts "remote dev enviorment"
 SalomonWww::Application.configure do
 
-  puts "remote dev enviorment"
-
-  #asset host
-  config.action_controller.asset_host = "http://d20tzpzbepdfxh.cloudfront.net"
 
   #webshop url
   config.webshop_url = 'http://dev.shop.salomon.com/'
