@@ -2,14 +2,8 @@ require File.expand_path('../boot', __FILE__)
 
 
 require 'rails/all'
-require_relative '../lib/rack_assets_filter'
-
-if defined?(Bundler)
-  # If you precompile assets before deploying to production, use this line
-  Bundler.require(*Rails.groups(:assets => %w(development test)))
-  # If you want your assets lazily compiled in production, use this line
-  # Bundler.require(:default, :assets, Rails.env)
-end
+#require_relative '../lib/rack_assets_filter'
+Bundler.require(:default, Rails.env)
 
 module SalomonWww
   class Application < Rails::Application
@@ -17,7 +11,8 @@ module SalomonWww
     # Application configuration should go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded.
 
-    config.middleware.insert_before( ActionDispatch::Static, RackAssetsFilter )
+   # config.middleware.insert_before( ActionDispatch::Static, RackAssetsFilter )
+
 
     config.i18n.fallbacks = true
 
