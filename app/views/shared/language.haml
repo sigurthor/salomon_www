@@ -9,7 +9,7 @@
             .lang-list
               %h5= region.name
               %ul
-                - region.fetch_a2_countries.each do |country|
+                - region.a2_countries.each do |country|
                   %li
                     = link_to country.name, "/#{country.locale}"
 

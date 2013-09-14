@@ -1,7 +1,7 @@
 GIT
   remote: https://8822694c4779c052130037718ba51b09d8ae7839:x-oauth-basic@github.com/sigurthor/a2_backend.git
   revision: bc4c8b964f7e56a54689af4a66193cfe85d9e2f7
-  branch: master
+  branch: emea-launch
   specs:
     a2 (0.0.6)
       activerecord-import
@@ -21,7 +21,6 @@ GIT
       geocoder
       globalize3
       hashie (~> 1.2)
-      identity_cache
       instagram
       localeapp
       memcachier
@@ -75,8 +74,6 @@ GEM
       nokogiri (>= 1.4.0)
     ancestry (2.0.0)
       activerecord (>= 3.0.0)
-    ar_transaction_changes (0.0.1)
-      activerecord (>= 3.0.0)
     arel (3.0.2)
     atomic (1.1.14)
     aws-sdk (1.14.1)
@@ -101,7 +98,6 @@ GEM
       uuidtools
     cashier (0.4.1)
     chunky_png (1.2.8)
-    cityhash (0.6.0)
     cloudinary (1.0.63)
       aws_cf_signer
       rest-client
@@ -177,9 +173,6 @@ GEM
       rack
       rubyntlm (~> 0.3.2)
     i18n (0.6.5)
-    identity_cache (0.0.1)
-      ar_transaction_changes (= 0.0.1)
-      cityhash (= 0.6.0)
     instagram (0.10.0)
       faraday (>= 0.7, < 0.9)
       faraday_middleware (~> 0.8)

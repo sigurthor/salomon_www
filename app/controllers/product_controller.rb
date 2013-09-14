@@ -3,13 +3,13 @@ class ProductController < BaseController
 
   def index
 
-    @category = A2::ProductCategory.fetch_by_slug(params[:category]) || not_found
+    @category = A2::ProductCategory.find_by_slug(params[:category]) || not_found
     page @category.slug
 
     if stale?(:etag => create_etag([@category.updated_at, page.updated_at]))
 
       @feature_types = A2::ProductFeatureType.includes(:product_features).where(:id => @category.filters.split(',')) unless @category.filters.blank?
-      @products = Rails.cache.fetch(@category) { @category.products.visible.include_all.all }
+      @products = Rails.cache.fetch(@category) { @category.products.visible.include_all }
 
       respond_to do |f|
         f.html

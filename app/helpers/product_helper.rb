@@ -34,7 +34,7 @@ module ProductHelper
 
     locale = params[:locale].blank? ? cookies[:locale] : params[:locale]
     puts "locale #{locale}"
-    c = A2::Country.fetch_by_locale(locale)
+    c = A2::Country.find_by_locale(locale)
     puts "salomon locale#{c.salomon_locale}"
     "#{Rails.application.config.salomon_url}#{c.salomon_locale}/product/#{slug}.html"
   end

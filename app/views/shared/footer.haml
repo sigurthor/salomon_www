@@ -57,7 +57,7 @@
         %form.custom
           %select#language.dropdown.small
             - regions.each do |region|
-              -region.fetch_a2_countries.each do |country|
+              -region.a2_countries.each do |country|
                 %option(value="#{country.locale}")= "#{country.name}"
 
       .newsletter

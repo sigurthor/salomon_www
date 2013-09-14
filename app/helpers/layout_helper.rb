@@ -4,6 +4,6 @@ module LayoutHelper
   end
 
   def regions
-    @regions = A2::Region.fetch_by_visible(true)
+    @regions = A2::Region.where(:visible => true)
   end
 end

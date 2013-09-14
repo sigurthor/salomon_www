@@ -18,8 +18,8 @@ class ApplicationController < ActionController::Base
         ip = params.key?(:ip) ? params[:ip] : request.remote_ip
         country = open("https://geoip.maxmind.com/a?l=Xa0zTRtJOiE0&i=#{ip}").read
         cookies[:country_code] = {value: country, expires: 10.days.from_now}
-        cookies[:continent_code] = {value: A2::CountryCodeContinent.fetch_by_country_code(country).continent_code, expires: 10.days.from_now}
-        country = A2::Country.fetch_by_iso_code(country)
+        cookies[:continent_code] = {value: A2::CountryCodeContinent.fynd_by_country_code(country).continent_code, expires: 10.days.from_now}
+        country = A2::Country.find_by_iso_code(country)
         cookies[:locale] = country ? country.locale : 'en-US'
       rescue
         puts "ip fail"
@@ -42,10 +42,8 @@ class ApplicationController < ActionController::Base
   def default_url_options(options={})
     logger.debug "default_url_options is passed options: #{options.inspect}\n #{I18n.locale}2"
     if (I18n.locale == :en)
-      puts 'none'
       {}
     else
-      puts 'other'
       {:locale => I18n.locale}
     end
   end
@@ -65,8 +63,7 @@ class ApplicationController < ActionController::Base
   def page(pid = nil)
     return @page if @page
     pid = pid ? pid : current_uri = request.env['PATH_INFO']
-    p = A2::Page.fetch_by_pid(pid)
-    p = A2::Page.create(:pid => pid) unless p
+    p = A2::Page.find_or_create_by_pid(pid)
     @page ||= Rails.cache.fetch(p) { A2::Page.includes(:translations).find(p.id) }
   end
 
