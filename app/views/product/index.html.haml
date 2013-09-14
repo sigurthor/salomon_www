@@ -64,7 +64,7 @@
 
               .more-info
                 .feature
-                  %span= t("gender.#{product.gender}",:scope => :salomon, :count => 2) + " " + product.categories[0].name_singular
+                  %span= t("gender.#{product.gender}",:scope => :salomon, :count => 2) + " " + @category.name_singular
                 -product.features_by_type(overview_only=true).each do |feature_name, feature|
                   .feature
                     %h5=feature_name

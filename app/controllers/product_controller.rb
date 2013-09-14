@@ -9,7 +9,7 @@ class ProductController < BaseController
     if stale?(:etag => create_etag([@category.updated_at, page.updated_at]))
 
       @feature_types = A2::ProductFeatureType.includes(:product_features).where(:id => @category.filters.split(',')) unless @category.filters.blank?
-      @products = Rails.cache.fetch(@category) { @category.products.visible.include_all }
+      @products = @category.products.visible.include_all # Rails.cache.fetch(@category) {  }
 
       respond_to do |f|
         f.html

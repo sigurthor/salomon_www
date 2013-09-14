@@ -1,5 +1,6 @@
 SalomonWww::Application.configure do
 
+  config.eager_load = true
 
   #asset host
   config.action_controller.asset_host = ENV['ASSET_HOST']

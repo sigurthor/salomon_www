@@ -2,6 +2,7 @@ SalomonWww::Application.configure do
   puts "development"
   # Settings specified here will take precedence over those in config/application.rb
 
+  config.eager_load = false
 
   config.action_dispatch.default_headers = {
       'seh' => 'SAMEORIGIN',

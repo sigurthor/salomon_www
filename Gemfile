@@ -14,18 +14,17 @@ gem 'heroku-api'
 gem 'cashier'
 gem 'rubyzip', '0.9.9'
 gem 'protected_attributes'
+gem 'activerecord-deprecated_finders'
 gem 'friendly_id', github: 'FriendlyId/friendly_id', branch: 'master'
 #gem 'asset_sync'
 
 
-group :assets, :frontend_development do
-  gem 'sass-rails'
-  gem 'coffee-rails'
-  gem 'uglifier'
-  gem 'compass-rails' # you need this or you get an err
+  gem 'sass-rails', '~> 4.0.0'
+  gem 'coffee-rails', '~> 4.0.0'
+  gem 'uglifier', '>= 1.3.0'
+  gem 'compass-rails', github: 'milgner/compass-rails', ref: '1749c06f15dc4b058427e7969810457213647fb8'
  # gem 'turbo-sprockets-rails3'
  # gem 'zurb-foundation', '~> 4.0.0'
-end
 
 gem 'jquery-rails'
 
