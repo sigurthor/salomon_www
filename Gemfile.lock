@@ -18,7 +18,7 @@ GIT
 
 GIT
   remote: https://8822694c4779c052130037718ba51b09d8ae7839:x-oauth-basic@github.com/sigurthor/a2_backend.git
-  revision: e65acefe0c0269d32f9bf8bdfeaa23635899f06f
+  revision: 2aa9ae00ba23a087a144f400243595b78c770d37
   branch: Rails4
   specs:
     a2 (0.0.6)
