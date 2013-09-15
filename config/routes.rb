@@ -1,12 +1,10 @@
 SalomonWww::Application.routes.draw do
-  puts "drawing routes"
-
   get '/404', :to => 'error#not_found'
 
-  get "video/index"
+  get 'video/index'
 
   namespace :admin do
-    get "category/assign_product_to_category"
+    get 'category/assign_product_to_category'
   end
 
 
