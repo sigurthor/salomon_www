@@ -18,7 +18,7 @@ GIT
 
 GIT
   remote: https://8822694c4779c052130037718ba51b09d8ae7839:x-oauth-basic@github.com/sigurthor/a2_backend.git
-  revision: 284112107043c0c01de730919e357a02eea4439e
+  revision: e65acefe0c0269d32f9bf8bdfeaa23635899f06f
   branch: Rails4
   specs:
     a2 (0.0.6)
@@ -40,7 +40,6 @@ GIT
       instagram
       localeapp
       memcachier
-      mysql2
       protected_attributes
       rails (~> 4.0.0)
       rails_admin
@@ -205,7 +204,6 @@ GEM
     minitest (4.7.5)
     multi_json (1.8.0)
     multipart-post (1.2.0)
-    mysql2 (0.3.13)
     nested_form (0.3.2)
     net-scp (1.0.4)
       net-ssh (>= 1.99.1)
