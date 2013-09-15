@@ -1,1 +1,1 @@
-OpenSSL::SSL::VERIFY_PEER = OpenSSL::SSL::VERIFY_NONE if Rails.env.development? || Rails.env.frontend_development?    if OpenSSL::SSL::VERIFY_PEER.blank?
+OpenSSL::SSL::VERIFY_PEER = OpenSSL::SSL::VERIFY_NONE

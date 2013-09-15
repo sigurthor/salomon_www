@@ -2,7 +2,7 @@ class HomeController < ApplicationController
 
   def index
     page 'home'
-    puts "#{Cashier.tags} tags"
+    puts "#{Cashier.tags} tags2"
 
     @team_category = A2::TeamCategory.select([:id,:updated_at]).find_by_slug(:pros)
 
