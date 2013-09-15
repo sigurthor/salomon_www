@@ -22,6 +22,9 @@ SalomonWww::Application.configure do
   #cashier
   config.cashier.adapter = :cache_store
 
+  #sets allow origin for webfonts
+  config.middleware.insert_before( ActionDispatch::Static, RackAssetsFilter )
+
   #heroku api key
   config.heroku_api = '5df2c849bb04d21744311d6d4940455b3cd1ff50'
 

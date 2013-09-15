@@ -11,7 +11,7 @@ module SalomonWww
     # Application configuration should go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded.
 
-    config.middleware.insert_before( ActionDispatch::Static, RackAssetsFilter )
+
 
 
     config.i18n.fallbacks = true
