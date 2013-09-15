@@ -28,9 +28,15 @@ frontend_development:
   host: ec2-54-221-212-32.compute-1.amazonaws.com
   port: 5732
 
-
-
-
+dev:
+  adapter: postgresql
+  encoding: unicode
+  pool: 5
+  database: dfbtr338dofv9p
+  username: u8h69ph7fqhq8g
+  password: pb9moaiogm4lt49ms8puu16qfkr
+  host: ec2-54-243-197-148.compute-1.amazonaws.com
+  port: 5742
 
 
 # Warning: The database defined as "test" will be erased and
