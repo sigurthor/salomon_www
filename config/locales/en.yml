@@ -2,9 +2,9 @@
 # See https://github.com/svenfuchs/rails-i18n/tree/master/rails%2Flocale for starting points.
 
 en:
+  countries:
+    global: Global(EN)
   salomon:
-    region: Global(en)
-    currency: Eur
     display_currency: $%{price}
 
     gender:

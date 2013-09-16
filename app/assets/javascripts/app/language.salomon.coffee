@@ -10,19 +10,20 @@ salomon.languageBar = () ->
     lang = $(this).val()
     window.location =  lang
 
-  $('#language-bar .has-dropdown li, .ignore').click ->
+  $('.ignore').click ->
     inThreeMonths = 60 * 60 * 24 * 90
     if $(this).hasClass('ignore')
-      createCookie('defaultCountry', 'Global(en)', inThreeMonths)
-      return
-    country = $(this).find('a').text()
-    createCookie('defaultCountry', country, inThreeMonths)
+      createCookie('show_bar',0, inThreeMonths)
+      createCookie('user_locale', readCookie('current_locale'), inThreeMonths)
 
-  if !readCookie 'defaultCountry'
+  if show_bar()
     setTimeout () ->
       $('#language-bar').addClass 'open'
       $('body').addClass 'top-panel-40'
     , 1500
+
+show_bar = () ->
+  (readCookie('user_locale') != readCookie('current_locale')) || (readCookie('show_bar') == '1')
 
 createCookie = (name, value, days) ->
   if days
