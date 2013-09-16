@@ -109,3 +109,31 @@
   font-family: $font-boldcnd20obl;
   text-transform: uppercase;
 }
+
+@mixin loading-spinner($size) {
+  position: absolute;
+
+  height: $size;
+  width: $size;
+
+  top: 0; right: 0; bottom: 0; left: 0;
+  margin: auto;
+
+  &:after {
+    display: block;
+
+    content: '\EB83';
+    height: $size;
+    width: $size;
+
+    line-height: 1.25;
+
+    font-family: "SSStandard";
+    font-size: $size;
+    content: "\EB83";
+
+    color: #00637F;
+    z-index: 999999;
+    @include spin;
+  }
+}

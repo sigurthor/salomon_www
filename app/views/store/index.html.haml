@@ -10,22 +10,26 @@
   #map-search-overlay
     .overlay-inner
       %h1 Find a Store
-
       .searchform
         %form
           %input#searchBox{:type=>'text', :placeholder=>'Find a City, State or Zip Code', :autocomplete=>'off'}
           %input.button.search{:type=>'submit', :value=>'Search'}
 
-      .intro
+      .state-intro
         %p
           %em or
 
         %p
           %a{:href=>'#retailers'} Online Retailers
 
+      .state-searching
+        .loading
+
+      .state-notfound
+        %h3 No stores found
+        %p Try searching again or check out one of our <a href="#retailers">online retailers</a>.
+
       %ol#results
-
-
 
   %section.online-retailers#retailers
     %h2 Online retailers
