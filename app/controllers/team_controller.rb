@@ -15,7 +15,7 @@ class TeamController < BaseController
 
   def show
     page 'team-member'
-    @team_categories = A2::TeamCategory.find_by(:slug => 'salomon').descendants  unless params[:ajax]
+    @team_categories = A2::TeamCategory.cached_deceandans_of('salomon') unless params[:ajax]
     @team_member = A2::TeamMember.find_by(:slug => params[:team_member])
     @profile_video = @team_member.video
 
