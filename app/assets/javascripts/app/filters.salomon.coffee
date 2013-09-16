@@ -10,7 +10,6 @@ init = () ->
       if lastProductIsInView and !$lastproduct.hasClass 'activated'
         $lastproduct.addClass 'activated'
 
-
   $filters = $(".filter-list li")
 
   executionUnblock = ->
@@ -124,5 +123,6 @@ init = () ->
     $('.clear-filters').show()
 
 salomon.filters = () ->
-  if $('#product-list').length
-    init()
+  $(document).ready ->
+    if $('#product-list').length
+      init()

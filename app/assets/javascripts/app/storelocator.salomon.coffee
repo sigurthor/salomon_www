@@ -141,7 +141,6 @@ parseResults = (data) ->
 
     $store.on 'click', (e) ->
       $thisStore = $(this)
-      e.preventDefault()
       thisMarker = $thisStore.data 'marker'
       googleMap.panTo thisMarker.getPosition()
       googleMap.setZoom 15
