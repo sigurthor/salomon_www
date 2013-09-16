@@ -12,27 +12,37 @@ class ApplicationController < ActionController::Base
 
   def set_locale
 
-    if !(cookies[:country_code] and cookies[:continent_code] and cookies[:locale]) or params.key?(:ip)
-      begin
-        puts "ip set"
-        ip = params.key?(:ip) ? params[:ip] : request.remote_ip
-        country = open("https://geoip.maxmind.com/a?l=Xa0zTRtJOiE0&i=#{ip}").read
-        cookies[:country_code] = {value: country, expires: 10.days.from_now}
-        cookies[:continent_code] = {value: A2::CountryCodeContinent.fynd_by_country_code(country).continent_code, expires: 10.days.from_now}
-        country = A2::Country.find_by_iso_code(country)
-        cookies[:locale] = country ? country.locale : 'en-US'
-      rescue
-        puts "ip fail"
-        cookies[:country_code] = {value: 'unknown', expires: 1.days.from_now}
-        cookies[:continent_code] = 'unknown'
-        cookies[:locale] = 'en-US'
-      end
-    end
+    detect_location
 
     puts "country #{cookies[:country_code]} contient #{cookies[:continent_code]} locale #{cookies[:locale]}"
 
     l = params[:locale] if params[:locale]
     I18n.locale = l || I18n.default_locale
+  end
+
+  def detect_location
+    if !(cookies[:country_code] and cookies[:continent_code] and cookies[:locale]) or params.key?(:ip)
+      begin
+        puts "ip set"
+        ip = params.key?(:ip) ? params[:ip] : request.remote_ip
+        country_code = open("https://geoip.maxmind.com/a?l=Xa0zTRtJOiE0&i=#{ip}").read
+        country = A2::Country.find_by(:iso_code => country_code)
+        continent = A2::CountryCodeContinent.find_by(:country_code => country_code).continent_code
+        locale = country ? country.locale : 'en'
+        set_location_cookies(country_code, continent, locale)
+      rescue
+        puts "ip fail"
+        set_location_cookies('unknown', 'unknown', 'en')
+      end
+    end
+  end
+
+  def set_location_cookies(country_code, continent_code, locale)
+
+    cookies[:country_code] = {value: country_code, expires: 10.days.from_now}
+    cookies[:continent_code] = {value: continent_code, expires: 10.days.from_now}
+    cookies[:locale] = locale
+
   end
 
   def not_found
