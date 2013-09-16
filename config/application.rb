@@ -58,8 +58,8 @@ module SalomonWww
     # parameters by using an attr_accessible or attr_protected declaration.
 
 
-   # config.active_record.whitelist_attributes = false
-    config.assets.paths << Rails.root.join('vendor')
+    #config.active_record.whitelist_attributes = false
+    #config.assets.paths << Rails.root.join('vendor')
 
     # Enable the asset pipeline
     config.assets.enabled = true
