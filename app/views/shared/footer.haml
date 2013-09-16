@@ -58,7 +58,7 @@
           %select#language.dropdown.small
             - regions.each do |region|
               -region.a2_countries.each do |country|
-                %option(value="#{country.locale}")= "#{country.name}"
+                %option(value="#{url_for_locale(country.locale)}?set_country=#{country.locale}")= "#{country.name}"
 
       .newsletter
         %h5 #{t 'footer.newsletter_signup_head', scope: :salomon }

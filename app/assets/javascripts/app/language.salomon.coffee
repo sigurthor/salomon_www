@@ -8,7 +8,7 @@ salomon.languageBar = () ->
 
   $('select#language').on 'change', ->
     lang = $(this).val()
-    window.location = '/' + lang
+    window.location =  lang
 
   $('#language-bar .has-dropdown li, .ignore').click ->
     inThreeMonths = 60 * 60 * 24 * 90

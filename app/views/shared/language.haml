@@ -11,10 +11,10 @@
               %ul
                 - region.a2_countries.each do |country|
                   %li
-                    = link_to country.name, "/#{country.locale}"
+                    = link_to country.name, "#{url_for_locale(country.locale)}?set_country=#{country.locale}"
 
 
 
     %li
       %a.ignore{:href=>'#'} #{t 'header.ignore', scope: :salomon}
-  %p #{ t 'header.language_notification', scope: :salomon, :country => 'Iceland' }
+  %p #{ t 'header.language_notification', scope: :salomon, :country => t(cookies[:country_code].to_sym, :scope => :countries) }

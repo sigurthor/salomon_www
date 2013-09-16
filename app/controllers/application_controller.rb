@@ -12,18 +12,26 @@ class ApplicationController < ActionController::Base
 
   def set_locale
 
-    detect_location
+    if params[:set_country]
+      cookies[:locale] = params[:set_country]
+      redirect_to url_for_locale(params[:set_country])
+    end
 
-    puts "country #{cookies[:country_code]} contient #{cookies[:continent_code]} locale #{cookies[:locale]}"
 
     l = params[:locale] if params[:locale]
-    I18n.locale = l || I18n.default_locale
+    I18n.locale = l || 'en'
+
+    detect_location
+    redirect
+
+    puts "country #{cookies[:country_code]} contient #{cookies[:continent_code]} locale #{cookies[:locale]}"
+    puts "#{params[:locale]} locale param #{cookies[:locale]}"
   end
 
   def detect_location
+
     if !(cookies[:country_code] and cookies[:continent_code] and cookies[:locale]) or params.key?(:ip)
       begin
-        puts "ip set"
         ip = params.key?(:ip) ? params[:ip] : request.remote_ip
         country_code = open("https://geoip.maxmind.com/a?l=Xa0zTRtJOiE0&i=#{ip}").read
         country = A2::Country.find_by(:iso_code => country_code)
@@ -31,18 +39,28 @@ class ApplicationController < ActionController::Base
         locale = country ? country.locale : 'en'
         set_location_cookies(country_code, continent, locale)
       rescue
-        puts "ip fail"
-        set_location_cookies('unknown', 'unknown', 'en')
+        set_location_cookies('', '', 'en')
       end
     end
   end
 
-  def set_location_cookies(country_code, continent_code, locale)
+  def redirect
+    if 'en'.casecmp(I18n.locale.to_s).zero?
+      redirect_to url_for_locale(cookies[:locale]) unless cookies[:locale].casecmp(I18n.locale.to_s).zero?
+    end
+  end
 
+  def set_location_cookies(country_code, continent_code, locale)
     cookies[:country_code] = {value: country_code, expires: 10.days.from_now}
     cookies[:continent_code] = {value: continent_code, expires: 10.days.from_now}
     cookies[:locale] = locale
+  end
 
+  helper_method :url_for_locale
+
+  def url_for_locale(locale, setcountry=false)
+    return '/' if locale.blank?
+    url_for(params.merge!(:locale => locale).merge!(:only_path => true).except!(:ip, :set_country))
   end
 
   def not_found
