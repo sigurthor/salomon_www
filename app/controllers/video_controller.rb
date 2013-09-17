@@ -1,4 +1,4 @@
-class VideoController < ApplicationController
+class VideoController < BaseController
   def index
     page 'videos'
     @videos = A2::VimeoFeed.order('date desc').limit(8)

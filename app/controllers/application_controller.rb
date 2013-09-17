@@ -22,14 +22,13 @@ class ApplicationController < ActionController::Base
     I18n.locale = l || 'en'
     cookies[:current_locale] = I18n.locale
 
-    detect_location
     redirect
 
     puts "country #{cookies[:country_code]} contient #{cookies[:continent_code]} locale #{cookies[:user_locale]}"
     puts "#{params[:locale]} locale param #{cookies[:locale]}"
   end
 
-  def detect_location
+  def detect_user
 
     if !(cookies[:country_code] and cookies[:continent_code] and cookies[:user_locale]) or params.key?(:ip)
       begin
@@ -48,6 +47,7 @@ class ApplicationController < ActionController::Base
   end
 
   def redirect
+    detect_user
     if 'en'.casecmp(I18n.locale.to_s).zero?
       redirect_to url_for_locale(cookies[:user_locale]) unless cookies[:user_locale].casecmp(I18n.locale.to_s).zero?
     end
