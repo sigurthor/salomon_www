@@ -1,2 +1,3 @@
 de-AT:
   salomon:
+     display_currency: '%{price}€'
