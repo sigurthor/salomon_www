@@ -36,4 +36,11 @@ class ApplicationController < ActionController::Base
     @page ||= Rails.cache.fetch(p) { A2::Page.includes(:translations).find(p.id) }
   end
 
+  helper_method :url_for_locale
+
+  def url_for_locale(locale, setcountry=false)
+    return '/' if locale.blank?
+    url_for(params.merge!(:locale => locale).merge!(:only_path => true).except!(:ip, :set_country))
+  end
+
 end

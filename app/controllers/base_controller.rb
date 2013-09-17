@@ -59,11 +59,6 @@ class BaseController < ApplicationController
     cookies[:user_locale] = {value: locale, expires: 10.days.from_now}
   end
 
-  helper_method :url_for_locale
 
-  def url_for_locale(locale, setcountry=false)
-    return '/' if locale.blank?
-    url_for(params.merge!(:locale => locale).merge!(:only_path => true).except!(:ip, :set_country))
-  end
 
 end
