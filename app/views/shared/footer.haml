@@ -56,9 +56,11 @@
         %h5 #{t 'footer.change_country', scope: :salomon }
         %form.custom
           %select#language.dropdown.small
-            - regions.each do |region|
-              -region.a2_countries.each do |country|
-                %option(value="#{url_for_locale(country.locale)}?set_country=#{country.locale}")= "#{country.name}"
+            - countries.each do |country|
+              - if is_current_locale(country.locale)
+                %option{:value =>"#{url_for_locale(country.locale)}?set_country=#{country.locale}", :selected => 'selected' }= "#{country.name}"
+              - else
+                %option{:value =>"#{url_for_locale(country.locale)}?set_country=#{country.locale}", }= "#{country.name}"
 
       .newsletter
         %h5 #{t 'footer.newsletter_signup_head', scope: :salomon }

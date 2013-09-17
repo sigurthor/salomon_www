@@ -6,4 +6,8 @@ module LayoutHelper
   def regions
     @regions = A2::Region.where(:visible => true)
   end
+
+  def countries
+    @countries = A2::Country.all
+  end
 end

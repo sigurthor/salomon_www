@@ -14,6 +14,10 @@ def prepend_snowboard_crop(image_url)
 end
 
 
+def is_current_locale(locale)
+  I18n.locale.to_s.casecmp(locale).zero?
+end
+
 
 def img_loader
   haml_tag :div, :class => 'img-wrapper' do
