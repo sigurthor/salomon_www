@@ -30,11 +30,12 @@ module ProductHelper
     end
   end
 
+  def hide_buy_button?
+    params[:locale].casecmp('en').zero?
+  end
+
   def salomon_link(slug)
-
-
     c = A2::Country.find_by( :locale => I18n.locale.to_s)
-    puts "salomon locale#{c.salomon_locale}"
     "#{Rails.application.config.salomon_url}#{c.salomon_locale}/product/#{slug}.html"
   end
 
