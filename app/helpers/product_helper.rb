@@ -39,5 +39,22 @@ module ProductHelper
     "#{Rails.application.config.salomon_url}#{c.salomon_locale}/product/#{slug}.html"
   end
 
+  def set_asset_type(asset_type)
+    if asset_type == 'A2::ImageAsset'
+      {:class => 'vimeo'}
+    elsif asset_type == 'A2::VideoAsset'
+      {:class => 'product-image'}
+    end
+  end
+
+  def set_lightbox_href(asset)
+    if asset.type == 'A2::ImageAsset'
+      {:href => cl_image_path(asset.img, :width => 1000, :height => 800, :crop => :fill), :title => asset.title, :data => {:group => 'product-media'}}
+    elsif asset.type == 'A2::VideoAsset'
+      {:href => "http://player.vimeo.com/video/" + asset.video_url + "?title=0&byline=0&portrait=0", :title => asset.title, :data => {:group => 'product-media'}}
+    end
+
+  end
+
 
 end
