@@ -9,11 +9,10 @@
               %li
                 %a{ :href => cl_image_path(asset.img, :width => 1000, :height => 800, :crop => :fill), :data => { :lightbox => product.name } }
                   = cl_image_tag asset.img, :width => 180, :height => 180, :crop => 'fill', :onload => 'form5image.hasLoaded(this)', :alt => asset.title
-            =display_more_assets_link
+
       - unless product.team_members.empty?
         .large-3.columns.large-offset-1
           %h2 Riders
           %ul.riders
             - product.team_members.first(5).each do |tm|
               %li=link_to tm.name, tm
-            =display_more_riders_link
