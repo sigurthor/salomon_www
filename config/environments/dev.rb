@@ -1,5 +1,5 @@
 require Rails.root.join("config/environments/production")
-puts "staging enviorment"
+puts "remote dev enviorment"
 SalomonWww::Application.configure do
 
 

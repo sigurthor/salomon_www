@@ -29,11 +29,12 @@
 
 
     // Instagram column
-    .large-3.columns
-      .update-item.instagram
-        .update-meta
-          %i.ss-icon.ss-social instagram
-          .time-ago= instagram.relative_date + " ago"
-        = link_to cl_image_tag(instagram.img, :width=>240, :height=>240, :crop=>'fill', :alt => instagram.title), instagram.url, target: '_blank'
-        %p= truncate(instagram.title, length: 100, separator: ' ')
-      %a.button.instagram{:href=>'http://instagram.com/salomonsnowboards', :target=>'_blank'} More on Instagram
+    - cache 'home-instagram', :tag => %w('instagram-import')  do
+      .large-3.columns
+        .update-item.instagram
+          .update-meta
+            %i.ss-icon.ss-social instagram
+            .time-ago= instagram.relative_date + " ago"
+          = link_to cl_image_tag(instagram.img, :width=>240, :height=>240, :crop=>'fill', :alt => instagram.title), instagram.url, target: '_blank'
+          %p= truncate(instagram.title, length: 100, separator: ' ')
+        %a.button.instagram{:href=>'http://instagram.com/salomonsnowboards', :target=>'_blank'} More on Instagram

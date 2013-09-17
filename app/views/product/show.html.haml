@@ -45,8 +45,7 @@
           = get_size_variants
         - else
           = get_color_variants
-        - if (!Rails.env.production? or cookies[:country_code] == 'US')
-          = link_to 'Buy now',salomon_link(@product.slug), :target => '_blank', :class => 'button'
+        = link_to 'Buy now',salomon_link(@product.slug), :target => '_blank', :class => 'button'
 
 
 
