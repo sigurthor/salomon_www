@@ -18,7 +18,7 @@ GIT
 
 GIT
   remote: https://8822694c4779c052130037718ba51b09d8ae7839:x-oauth-basic@github.com/sigurthor/a2_backend.git
-  revision: c99b1597cd123f1527645933c4635e9d5fa89803
+  revision: b931c3c6004bbe581307b12a5027ec3aa689210f
   branch: master
   specs:
     a2 (0.0.6)
@@ -40,6 +40,7 @@ GIT
       instagram
       localeapp
       memcachier
+      money
       rails (~> 4.0.0)
       rails_admin
       rails_admin_nestable
@@ -201,6 +202,8 @@ GEM
     memcachier (0.0.2)
     mime-types (1.25)
     minitest (4.7.5)
+    money (5.1.1)
+      i18n (~> 0.6.0)
     multi_json (1.8.0)
     multipart-post (1.2.0)
     nested_form (0.3.2)
@@ -280,7 +283,7 @@ GEM
     rubyzip (0.9.9)
     rush (0.6.8)
       session
-    safe_yaml (0.9.6)
+    safe_yaml (0.9.7)
     sass (3.2.10)
     sass-rails (4.0.0)
       railties (>= 4.0.0.beta, < 5.0)
@@ -357,6 +360,7 @@ DEPENDENCIES
   jquery-rails
   koala (~> 1.7.0rc1)
   localeapp
+  money
   pg
   rails (~> 4.0.0)
   rails_12factor
