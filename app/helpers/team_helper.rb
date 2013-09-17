@@ -47,7 +47,7 @@ module TeamHelper
 
   def gear_heading
     unless @team_member.products.empty?
-      render :text => 'This is what ' + @team_member.name + ' Rides'
+      render :text => @team_member.name + ' rides'
     end
   end
 
