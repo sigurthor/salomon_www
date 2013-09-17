@@ -19,7 +19,7 @@ GIT
 GIT
   remote: https://8822694c4779c052130037718ba51b09d8ae7839:x-oauth-basic@github.com/sigurthor/a2_backend.git
   revision: 29e58bb2034e29eec3e25828d81e39c25271fcc6
-  branch: Rails4
+  branch: master
   specs:
     a2 (0.0.6)
       activerecord-import
@@ -280,7 +280,7 @@ GEM
     rubyzip (0.9.9)
     rush (0.6.8)
       session
-    safe_yaml (0.9.5)
+    safe_yaml (0.9.6)
     sass (3.2.10)
     sass-rails (4.0.0)
       railties (>= 4.0.0.beta, < 5.0)
