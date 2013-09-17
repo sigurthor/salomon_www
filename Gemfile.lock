@@ -18,7 +18,7 @@ GIT
 
 GIT
   remote: https://8822694c4779c052130037718ba51b09d8ae7839:x-oauth-basic@github.com/sigurthor/a2_backend.git
-  revision: 29e58bb2034e29eec3e25828d81e39c25271fcc6
+  revision: c99b1597cd123f1527645933c4635e9d5fa89803
   branch: master
   specs:
     a2 (0.0.6)
@@ -335,7 +335,7 @@ GEM
       promise (~> 0.3.0)
       rack (~> 1.5)
       simple_oauth (~> 0.2)
-    workless (1.2.1)
+    workless (1.2.2)
       delayed_job (>= 2.0.7)
       heroku-api
       rails
