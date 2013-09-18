@@ -1,6 +1,6 @@
 /* Product related */
 
-/* Lightbox */
+/* Lightbox - overwriting stock JS generated inline CSS with !important */
 #html5-elem-wrap {
   border-radius: 5px;
   background-color: #fff !important;
@@ -22,6 +22,10 @@
   img {
     max-height: 100% !important;
   }
+}
+
+#html5-text {
+  display: none !important;
 }
 
 .selected a {
