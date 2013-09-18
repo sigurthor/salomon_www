@@ -10,7 +10,7 @@
 #= require 'app/newsletter.salomon'
 #= require 'app/herovideo.salomon'
 #= require 'app/language.salomon'
-#= require 'lightbox'
+#= require 'html5lightbox'
 
 $(document).ready ->
 

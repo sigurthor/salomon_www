@@ -1,5 +1,4 @@
 /* Product related */
-
 .selected a {
   cursor: default;
 }
@@ -454,4 +453,32 @@ section#tech {
       background-color: $color-lightblue;
     }
   }
+}
+
+/* Lightbox - overwriting stock JS generated inline CSS with !important */
+#html5-elem-wrap {
+  border-radius: 5px;
+  background-color: #fff !important;
+}
+
+#html5-elem-data-box {
+  margin-top: 15px !important;
+}
+
+#html5-loading {
+  border-radius: 5px;
+  background-color: #fff !important;
+}
+
+#html5-image {
+  padding: 8px !important;
+  border-radius: 5px;
+  background-color: #fff !important;
+  img {
+    max-height: 100% !important;
+  }
+}
+
+#html5-text {
+  display: none !important;
 }
