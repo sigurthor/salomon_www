@@ -113,11 +113,18 @@ updateImageset = (set) ->
 
 
 freezeScrollInLightbox = ->
-  $('.product-gallery').click ->
+  $('.product-gallery img').click ->
     $('body').css 'overflow', 'hidden'
 
-  $('.lb-close').click ->
+  $('body').on 'click', '#html5-close', ->
     $('body').css 'overflow', 'visible'
+
+  $('body').on 'click', '#html5-lightbox-overlay', ->
+    $('body').css 'overflow', 'visible'
+
+  $(document).keyup (e) ->
+    if e.keyCode is 27
+      $('body').css 'overflow', 'visible'
 
 salomon.product = () ->
 
