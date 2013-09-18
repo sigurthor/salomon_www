@@ -113,11 +113,17 @@ updateImageset = (set) ->
 
 
 freezeScrollInLightbox = ->
-  $('.product-gallery').click ->
+
+  $('.product-gallery img').click ->
     $('body').css 'overflow', 'hidden'
 
-  $('.lb-close').click ->
+  $('.lb-close, #lightboxOverlay').click ->
     $('body').css 'overflow', 'visible'
+
+  $(document).keyup (e) ->
+    if (e.keyCode == 27)
+      console.log 'lol'
+      $('body').css 'overflow', 'visible'
 
 
 salomon.product = () ->
@@ -132,4 +138,4 @@ salomon.product = () ->
       initProductSizePicker()
       initTechListExpand()
       initTechSizeInfo()
-      freezeScrollInLightbox()
+      # freezeScrollInLightbox()  Disable while integrating new lightbox
