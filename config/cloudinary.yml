@@ -14,6 +14,13 @@ staging:
   enhance_image_tag: true
   static_image_support: false
 
+dev:
+  cloud_name: seh
+  api_key: '569659432387592'
+  api_secret: 9wfoVcyTecMViuk5fFmm2Lxr9-Y
+  enhance_image_tag: true
+  static_image_support: false
+
 frontend_development:
   cloud_name: seh
   api_key: '569659432387592'

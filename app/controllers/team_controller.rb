@@ -2,7 +2,7 @@ class TeamController < BaseController
   def index
     page 'team'
     if(params[:category])
-      @team_categories = [A2::TeamCategory.includes(:team_members).find_by_slug(params[:category])]
+      @team_categories = [A2::TeamCategory.includes(:team_members).find_by(:slug => params[:category])]
     else
       @team_categories = A2::TeamCategory.cached_deceandans_of('salomon')
     end
@@ -15,8 +15,8 @@ class TeamController < BaseController
 
   def show
     page 'team-member'
-    @team_categories = A2::TeamCategory.find_by_slug('salomon').descendants  unless params[:ajax]
-    @team_member = A2::TeamMember.find_by_slug(params[:team_member])
+    @team_categories = A2::TeamCategory.cached_deceandans_of('salomon') unless params[:ajax]
+    @team_member = A2::TeamMember.find_by(:slug => params[:team_member])
     @profile_video = @team_member.video
 
     if params[:ajax]

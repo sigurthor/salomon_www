@@ -3,22 +3,21 @@ module ApplicationHelper
     {:class => (filter_name.length > length ? 'long' : '')}
   end
 
+
+
   def product_price(product)
-    #country =
-
-    locale = params[:locale] ? params[:locale] : cookies[:locale]
-    locale = (cookies[:continent_code] == 'EU') ? 'fr-FR' : 'en-US' if Rails.env.production?
-    if Rails.env.production?
-      t :display_currency, scope: :salomon, locale: locale , price: product.read_attribute(:price, locale: locale ) if  cookies[:country_code] == 'US'
-    else
-      t :display_currency, scope: :salomon, locale: locale , price: product.read_attribute(:price, locale: locale )
-    end
-
+    t :display_currency, scope: :salomon, price: product.price unless params[:locale].casecmp('en').zero?
   end
 
   def prepend_snowboard_crop(image_url)
-     image_url.gsub!('upload/','upload/c_crop,g_north_west,w_954,h_5000/').html_safe
+    image_url.gsub!('upload/', 'upload/c_crop,g_north_west,w_954,h_5000/').html_safe
   end
+
+
+  def is_current_locale(locale)
+    I18n.locale.to_s.casecmp(locale).zero?
+  end
+
 
   def img_loader
     haml_tag :div, :class => 'img-wrapper' do
@@ -33,4 +32,5 @@ module ApplicationHelper
       yield
     end
   end
+
 end

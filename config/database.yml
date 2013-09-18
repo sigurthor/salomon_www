@@ -22,15 +22,21 @@ frontend_development:
   adapter: postgresql
   encoding: unicode
   pool: 5
-  database: d1gj9pp8j48ih1
-  username: ud67gsddle474u
-  password: p5cmhr73pe5qoofiq9rvpg18epk
+  database: dfbtr338dofv9p
+  username: u5vnucp2jei5k7
+  password: p5junqq7v8eft35m2ofbhkaf3ck
   host: ec2-54-221-212-32.compute-1.amazonaws.com
-  port: 5732
+  port: 5742
 
-
-
-
+dev:
+  adapter: postgresql
+  encoding: unicode
+  pool: 5
+  database: dfbtr338dofv9p
+  username: u8h69ph7fqhq8g
+  password: pb9moaiogm4lt49ms8puu16qfkr
+  host: ec2-54-243-197-148.compute-1.amazonaws.com
+  port: 5742
 
 
 # Warning: The database defined as "test" will be erased and
@@ -50,10 +56,11 @@ test:
 
 production:
   adapter: postgresql
-  host: localhost
   encoding: unicode
-  database: salomon_www
   pool: 5
-  username: seh
-  password:
+  database: dfbtr338dofv9p
+  username: u5vnucp2jei5k7
+  password: p5junqq7v8eft35m2ofbhkaf3ck
+  host: ec2-54-221-212-32.compute-1.amazonaws.com
+  port: 5742
 

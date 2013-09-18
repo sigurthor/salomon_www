@@ -1,8 +1,9 @@
 SalomonWww::Application.configure do
 
+  config.eager_load = true
 
   #asset host
-  config.action_controller.asset_host = "http://dhzmr2tfimuzd.cloudfront.net"
+  config.action_controller.asset_host = ENV['ASSET_HOST']
 
   #webshop url
   config.webshop_url = 'http://shop.salomon.com/'
@@ -20,6 +21,9 @@ SalomonWww::Application.configure do
 
   #cashier
   config.cashier.adapter = :cache_store
+
+  #sets allow origin for webfonts
+  config.middleware.insert_before( ActionDispatch::Static, RackAssetsFilter )
 
   #heroku api key
   config.heroku_api = '5df2c849bb04d21744311d6d4940455b3cd1ff50'

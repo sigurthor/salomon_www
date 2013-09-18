@@ -1,4 +1,4 @@
-class ErrorController < ApplicationController
+class ErrorController < BaseController
   def not_found
     render :status => 404, :formats => [:html]
   end

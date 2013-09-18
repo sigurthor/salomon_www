@@ -9,7 +9,7 @@
     .loading-category
     .category-switches
       %h2
-        - @team_categories.reverse_each do |cat|
+        - @team_categories.each do |cat|
           %span{is_current_category(cat.name)}
             =cat.name
     .navigation-buttons

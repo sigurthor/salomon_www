@@ -7,90 +7,90 @@
 - content_for :page_title do
   #{@category.name}
 
+- cache [I18n.locale,page,@category] do
+  %section#filterbar
+    .row.filter-text
+      .large-12.columns
+        .row
+          .large-8.large-offset-2
+            %h1=page.title
 
-%section#filterbar
-  .row.filter-text
-    .large-12.columns
-      .row
-        .large-8.large-offset-2
-          %h1=page.title
-
-  .filters
-    .group
-      %h4 Rider
-      %ul.filter-list
-        %li.active(data-filter="all" data-dimension="gender")
-          %a.button{:href=>'#'} All
-        %li(data-filter="filter-M filter-U" data-dimension="gender")
-          %a.button{:href=>'#'} Men
-        %li(data-filter="filter-W filter-U" data-dimension="gender")
-          %a.button{:href=>'#'} Women
-        %li(data-filter="filter-K" data-dimension="gender")
-          %a.button{:href=>'#'} Youth
-
-    - @feature_types.each_with_index do |filter, index|
+    .filters
       .group
-        %h4=filter.name
+        %h4 Rider
         %ul.filter-list
-          %li.active(data-filter="all" data-dimension="feature-#{filter.id}")
-            %a.button{} All
-          - filter.product_features.each do |feature|
-            %li(data-filter="filter-#{feature.id}" data-dimension="feature-#{filter.id}")
-              %a.button{set_text_length_class(feature.name, 10)}=feature.name
-%section#main
-  .row
-    #product-list.js-equalize
-      -@products.each do |product|
-        - filterClasses = product.product_features.map { |p| "filter-#{p.id}" }.join ' '
-        - filterClasses << " filter-#{product.gender}"
-        .large-3.columns.mix{:class=>filterClasses, :data => {:name => "#{product.name}", :price => "#{product.price}"}}
-          .product.js-equalize-me{:class => (product.is_snowboard? ? 'snowboard':'')}
-            .main-info
+          %li.active(data-filter="all" data-dimension="gender")
+            %a.button{:href=>'#'} All
+          %li(data-filter="filter-M filter-U" data-dimension="gender")
+            %a.button{:href=>'#'} Men
+          %li(data-filter="filter-W filter-U" data-dimension="gender")
+            %a.button{:href=>'#'} Women
+          %li(data-filter="filter-K" data-dimension="gender")
+            %a.button{:href=>'#'} Youth
 
-              - if product.is_snowboard?
-                - img_loader do
-                  = link_to prepend_snowboard_crop(cl_image_tag(product.master_image,  :width => 180, :height => 386, :alt => product.name, :crop => :fill, :class => 'product-image', :onload => 'form5image.hasLoaded(this)')), product_show_path(:category => params[:category], :product => product.slug)
-                %h2{set_text_length_class(product.name, 16)}
-                  = link_to product.name, product_show_path(:category => params[:category], :product => product.slug)
-                .price= product_price(product)
-                = render :partial => 'products_size_thumbs', :locals => { :variants => product.product_variants }
-              - else
-                - img_loader do
-                  = link_to cl_image_tag(product.master_image,  :width => 200, :alt => product.name, :crop => :fill, :class => 'product-image', :onload => 'form5image.hasLoaded(this)'), product_show_path(:category => params[:category], :product => product.slug)
-                %h2{set_text_length_class(product.name, 16)}
-                  = link_to product.name, product_show_path(:category => params[:category], :product => product.slug)
-                .price= product_price(product)
-                = render :partial => 'products_color_thumbs', :locals => { :variants => product.product_color_variants }
+      - @feature_types.each_with_index do |filter, index|
+        .group
+          %h4=filter.name
+          %ul.filter-list
+            %li.active(data-filter="all" data-dimension="feature-#{filter.id}")
+              %a.button{} All
+            - filter.product_features.each do |feature|
+              %li(data-filter="filter-#{feature.id}" data-dimension="feature-#{filter.id}")
+                %a.button{set_text_length_class(feature.name, 10)}=feature.name
+  %section#main
+    .row
+      #product-list.js-equalize
+        -@products.each do |product|
+          - filterClasses = product.product_features.map { |p| "filter-#{p.id}" }.join ' '
+          - filterClasses << " filter-#{product.gender}"
+          .large-3.columns.mix{:class=>filterClasses, :data => {:name => "#{product.name}", :price => "#{product.price}"}}
+            .product.js-equalize-me{:class => (product.is_snowboard? ? 'snowboard':'')}
+              .main-info
 
-            .more-info
-              .feature
-                %span= t("gender.#{product.gender}",:scope => :salomon, :count => 2) + " " + product.categories[0].name_singular
-              -product.features_by_type(overview_only=true).each do |feature_name, feature|
+                - if product.is_snowboard?
+                  - img_loader do
+                    = link_to prepend_snowboard_crop(cl_image_tag(product.master_image,  :width => 180, :height => 386, :alt => product.name, :crop => :fill, :class => 'product-image', :onload => 'form5image.hasLoaded(this)')), product_show_path(:category => params[:category], :product => product.slug)
+                  %h2{set_text_length_class(product.name, 16)}
+                    = link_to product.name, product_show_path(:category => params[:category], :product => product.slug)
+                  .price= product_price(product)
+                  = render :partial => 'products_size_thumbs', :locals => { :variants => product.product_variants }
+                - else
+                  - img_loader do
+                    = link_to cl_image_tag(product.master_image,  :width => 200, :alt => product.name, :crop => :fill, :class => 'product-image', :onload => 'form5image.hasLoaded(this)'), product_show_path(:category => params[:category], :product => product.slug)
+                  %h2{set_text_length_class(product.name, 16)}
+                    = link_to product.name, product_show_path(:category => params[:category], :product => product.slug)
+                  .price= product_price(product)
+                  = render :partial => 'products_color_thumbs', :locals => { :variants => product.product_color_variants }
+
+              .more-info
                 .feature
-                  %h5=feature_name
-                  %span=feature.map(&:name).join(", ")
+                  %span= t("gender.#{product.gender}",:scope => :salomon, :count => 2) + " " + @category.name_singular
+                -product.features_by_type(overview_only=true).each do |feature_name, feature|
+                  .feature
+                    %h5=feature_name
+                    %span=feature.map(&:name).join(", ")
 
-      .large-3.columns.end.notfound
-        .product.last.js-equalize-me
-          %h2 Sorry - No products match this filter criteria
-          %ul.links
-            %li.clear-filters
-              %a{:href=>'#'} Clear filters
-            %li
-              %a Back to front page
+        .large-3.columns.end.notfound
+          .product.last.js-equalize-me
+            %h2 Sorry - No products match this filter criteria
+            %ul.links
+              %li.clear-filters
+                %a{:href=>'#'} Clear filters
+              %li
+                %a Back to front page
 
-      .large-3.columns.end
-        .product.last.lastproduct.js-equalize-me
-          %h2
-            You've reached
-            %br
-            the last
-            %br
-            product
-          %ul.links
-            %li
-              %a.modify-filters{:href=>'#filterbar'} Modify filters
-            %li.clear-filters
-              %a{:href=>'#'} Clear filters
-            %li
-              =link_to 'Back to front page', home_path
+        .large-3.columns.end
+          .product.last.lastproduct.js-equalize-me
+            %h2
+              You've reached
+              %br
+              the last
+              %br
+              product
+            %ul.links
+              %li
+                %a.modify-filters{:href=>'#filterbar'} Modify filters
+              %li.clear-filters
+                %a{:href=>'#'} Clear filters
+              %li
+                =link_to 'Back to front page', home_path
