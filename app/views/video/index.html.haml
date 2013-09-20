@@ -12,6 +12,21 @@
     .large-8.large-offset-2.columns
       %h1 Videos
 
+      .filters
+        .group
+          %h4 Rider
+          %ul.filter-list
+            %li.active(data-filter="all" data-dimension="gender")
+              %a.button{:href=>'#'} All
+            %li(data-filter="" data-dimension="gender")
+              %a.button{:href=>'#'} Team Vacation
+            %li(data-filter="" data-dimension="gender")
+              %a.button{:href=>'#'} At Home
+            %li(data-filter="" data-dimension="gender")
+              %a.button{:href=>'#'} Talking Shop
+            %li(data-filter="" data-dimension="gender")
+              %a.button{:href=>'#'} Product/Tech
+
 %section#updates
   #videos.row
     - @videos.each do |v|
