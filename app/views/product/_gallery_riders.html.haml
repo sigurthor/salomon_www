@@ -1,15 +1,15 @@
 - unless product.assets.empty? or product.team_members.empty?
-  %section.panel.gray
+  %section.panel
     .row
       .large-8.columns.product-gallery
         - unless product.assets.empty?
           %h2 Gallery
           .large-block-grid-4
-            - product.assets.first(4).each do |asset|
+            - product.assets.first(3).each do |asset|
               %li{set_asset_type(asset.type)}
                 %a.html5lightbox{set_lightbox_href(asset)}
                   = cl_image_tag asset.img, :width => 180, :height => 180, :crop => 'fill', :onload => 'form5image.hasLoaded(this)', :alt => asset.title
-
+            =display_more_assets_link()
       - unless product.team_members.empty?
         .large-3.columns.large-offset-1
           %h2 Riders
