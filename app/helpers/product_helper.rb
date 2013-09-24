@@ -16,8 +16,8 @@ module ProductHelper
 
   def display_more_assets_link
     @number_of_assets = @product.assets.count
-    unless @number_of_assets < 4
-      @number_of_extra_assets = @number_of_assets - 3
+    unless @number_of_assets < 5
+      @number_of_extra_assets = @number_of_assets - 4
       @asset_label = pluralize(@number_of_extra_assets, "more item")
       "<div class='more-images'><a href='#'><div> #{@asset_label}</div></a></div>".html_safe
     end
