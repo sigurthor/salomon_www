@@ -16,9 +16,10 @@ module ProductHelper
 
   def display_more_assets_link
     @number_of_assets = @product.assets.count
-    unless @number_of_assets < 5
-      @number_of_extra_assets = @number_of_assets - 4
-      "<div class='more-images'><a href='#'><div>#{@number_of_extra_assets} other riders</div></a></div>".html_safe
+    unless @number_of_assets < 4
+      @number_of_extra_assets = @number_of_assets - 3
+      @asset_label = pluralize(@number_of_extra_assets, "more item")
+      "<div class='more-images'><a href='#'><div> #{@asset_label}</div></a></div>".html_safe
     end
   end
 
@@ -26,7 +27,7 @@ module ProductHelper
     @number_of_riders = @product.team_members.count
     unless @number_of_riders < 6
       @number_of_extra_riders = @number_of_riders - 5
-      "<li class='more-riders'>#{@number_of_extra_riders} other riders</li>".html_safe
+      "<li class='more-riders'>#{@number_of_extra_riders} other " + pluralize(@number_of_extra_riders, "rider") + "</li>".html_safe
     end
   end
 
