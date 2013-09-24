@@ -9,7 +9,7 @@
               %li{set_asset_type(asset.type)}
                 %a.html5lightbox{set_lightbox_href(asset)}
                   = cl_image_tag asset.img, :width => 180, :height => 180, :crop => 'fill', :onload => 'form5image.hasLoaded(this)', :alt => asset.title
-            =display_more_assets_link()
+            / =display_more_assets_link()
       - unless product.team_members.empty?
         .large-3.columns.large-offset-1
           %h2 Riders
