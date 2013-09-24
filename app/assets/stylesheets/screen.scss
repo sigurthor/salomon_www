@@ -8,7 +8,8 @@
 // Foundation Components
 @import
   "vendor/foundation/components/global",
-  "vendor/foundation/components/grid",
+  // "vendor/foundation/components/grid",
+  "vendor/foundation/components/grid-5",
   "vendor/foundation/components/visibility",
   "vendor/foundation/components/block-grid",
   "vendor/foundation/components/type",
@@ -70,6 +71,6 @@
 
 // Unresponsifying Foundation.
 // Also check out _variables.scss for topbar
-.nav-container, section, #language-bar {
-  min-width: 1000px;
-}
+// .nav-container, section, #language-bar {
+//   min-width: 1000px;
+// }
