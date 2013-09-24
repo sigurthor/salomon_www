@@ -1,0 +1,31 @@
+.member-details
+  .row
+    .large-4.columns
+      %h2 Details
+      .social-details
+        - unless rider.facebook.blank?
+          .facebook
+            %a{:href => "http://facebook.com/#{rider.facebook}", :target => '_blank'}
+              %i{:class => 'ss-icon ss-social'} facebook
+              %span /#{rider.facebook}
+        - unless rider.twitter.blank?
+          .twitter
+            %a{:href => "http://twitter.com/#{rider.twitter}", :target => '_blank'}
+              %i{:class => 'ss-icon ss-social'} twitter
+              %span @#{rider.twitter}
+        - unless rider.instragram.blank?
+          .instagram
+            %a{:href => "http://instagram.com/#{rider.instragram}", :target => '_blank'}
+              %i{:class => 'ss-icon ss-social'} instagram
+              %span @#{rider.instragram}
+    .large-8.columns
+      =rider.city
+      %ul.member-info-list
+        - unless member_detail_is_empty(rider.country)
+          %li.country
+            %span Country
+            %span.detail-value= rider.country
+        - unless member_detail_is_empty(rider.city)
+          %li.city
+            %span Home Mountain
+            %span.detail-value= rider.city
