@@ -14,23 +14,6 @@ module ProductHelper
     end
   end
 
-  def display_more_assets_link
-    @number_of_assets = @product.assets.count
-    unless @number_of_assets < 5
-      @number_of_extra_assets = @number_of_assets - 4
-      @asset_label = pluralize(@number_of_extra_assets, "more item")
-      "<div class='more-images'><a href='#'><div> #{@asset_label}</div></a></div>".html_safe
-    end
-  end
-
-  def display_more_riders_link
-    @number_of_riders = @product.team_members.count
-    unless @number_of_riders < 6
-      @number_of_extra_riders = @number_of_riders - 5
-      "<li class='more-riders'>#{@number_of_extra_riders} other " + pluralize(@number_of_extra_riders, "rider") + "</li>".html_safe
-    end
-  end
-
   def hide_buy_button?
     params[:locale].casecmp('en').zero?
   end
