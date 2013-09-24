@@ -39,6 +39,8 @@ section#the-team {
     z-index: 1;
     overflow: hidden;
 
+    margin-bottom: 20px;
+
     &:before {
       content: '';
       position: absolute;
@@ -56,6 +58,10 @@ section#the-team {
 
     &:hover:before {
       opacity: 0;
+    }
+
+    img {
+      width: 100%;
     }
 
     .team-member-info {
