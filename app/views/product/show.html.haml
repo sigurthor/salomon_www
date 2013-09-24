@@ -67,10 +67,23 @@
 
       %p.product-description=@product.description
 
-  = render :partial => 'gallery_riders', :locals => { :product => @product }
-
-  - # Template Dependency: product/tech_panel
-  = render :partial => 'tech_panel', :locals => { :product => @product }
+      .product-assets
+        .large-4.columns
+          - unless @product.team_members.empty?
+            %h2 Riders
+            %ul.riders
+              - @product.team_members.first(5).each do |tm|
+                %li{set_text_length_class(tm.name, 14)}
+                  =link_to(tm.name, tm)
+        .large-8.columns.product-gallery
+          - unless @product.assets.empty?
+            %h2 Gallery
+            %ul.large-block-grid-4
+              - @product.assets.first(3).each do |asset|
+                %li{set_asset_type(asset.type)}
+                  %a.html5lightbox{set_lightbox_href(asset)}
+                    = cl_image_tag asset.img, :width => 180, :height => 180, :crop => 'fill', :onload => 'form5image.hasLoaded(this)', :alt => asset.title
+            =display_more_assets_link()
 
   - if @product.products.length > 0
     = render :partial => 'related_gear', :locals => { :products => @product.products }

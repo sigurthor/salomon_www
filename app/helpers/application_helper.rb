@@ -3,8 +3,6 @@ module ApplicationHelper
     {:class => (filter_name.length > length ? 'long' : '')}
   end
 
-
-
   def product_price(product)
     t :display_currency, scope: :salomon, price: product.price unless params[:locale].casecmp('en').zero?
   end
