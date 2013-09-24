@@ -70,6 +70,13 @@ section#updates {
       height: 385px;
     }
 
+    &.instagram {
+      img {
+        display: block;
+        margin: 0 auto;
+      }
+    }
+
     &.facebook {
       height: 182px;
       overflow: hidden;
@@ -101,6 +108,7 @@ section#updates {
         cursor: pointer;
         position: relative;
 
+        margin: 0 auto;
         height: auto;
         min-height: 246px;
         width: 540px;
