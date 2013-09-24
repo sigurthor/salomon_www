@@ -4,13 +4,13 @@
       %h2 Team
       .large-12.columns
         .team-members
-          %ul.large-block-grid-4
+          .row
             - team_category.team_members.each do |tm|
-              %li
+              .large-3.medium-4.small-6.columns
                 .team-member.img-zoom-hover
                   .team-member-info
                     %h2
                       =link_to(tm.name, team_member_path(:team_member => tm.slug))
                     .team-member-country= tm.country
-                  = cl_image_tag(tm.thumb_image, :width => 285, :height => 285, :alt => tm.name, :crop => 'fit', :alt => tm.name)
+                  = cl_image_tag(tm.thumb_image, :width => 285, :height => 285, :alt => tm.name, :crop => 'fill', :alt => tm.name)
         = link_to('See the full team', team_path, :class =>'button')
