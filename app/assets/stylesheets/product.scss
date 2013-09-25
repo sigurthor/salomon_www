@@ -36,8 +36,10 @@ ul {
 
   .product-main-image {
     text-align: center;
-    width: 580px;
-    height: 500px;
+    margin: 0 auto;
+    width: 100%;
+    max-width: 580px;
+    height: auto;
   }
 
   .product-thumbnails {
