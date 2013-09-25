@@ -45,7 +45,7 @@
           - filterClasses << " filter-#{product.gender}"
           .large-3.columns.mix{:class=>filterClasses, :data => {:name => "#{product.name}", :price => "#{product.price}"}}
             .product.js-equalize-me{:class => (product.is_snowboard? ? 'snowboard':'')}
-              .main-info
+              .main-info.img-zoom-hover
 
                 - if product.is_snowboard?
                   - img_loader do
