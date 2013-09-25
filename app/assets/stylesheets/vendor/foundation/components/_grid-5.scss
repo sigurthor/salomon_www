@@ -150,7 +150,7 @@ $total-columns: 12 !default;
       .small-offset-#{$i} { @include grid-column($offset:$i, $collapse:null,$float:false); }
     }
 
-    [class*="column"] + [class*="column"]:last-child { float: $opposite-direction; }
+    // [class*="column"] + [class*="column"]:last-child { float: $opposite-direction; }
     [class*="column"] + [class*="column"].end { float: $default-float; }
 
     .column.small-centered,
