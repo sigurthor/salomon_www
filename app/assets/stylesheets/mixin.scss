@@ -1,18 +1,10 @@
-// @mixin respond-to($media) {
-//   @if $media == mobile {
-//     @media only screen and (max-width: 320px) { @content; }
-//   }
-//   @else if $media == medium {
-//     @media only screen and (min-width: 321px) and (max-width: 1024px) { @content; }
-//   }
-//   @else if $media == wide {
-//     @media only screen and (min-width: 1024px) { @content; }
-//   }
-// }
 
 @mixin respond-to($media) {
   @if $media == small {
     @media #{$small} { @content; }
+  }
+  @else if $media == middle {
+    @media #{$middle} { @content; }
   }
   @else if $media == medium {
     @media #{$medium} { @content; }
@@ -27,7 +19,6 @@
     @media #{$portrait} { @content; }
   }
 }
-
 
 .clearfix {
   zoom:1;
