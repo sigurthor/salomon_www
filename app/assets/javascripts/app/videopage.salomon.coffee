@@ -23,7 +23,7 @@ salomon.videopage = () ->
                           <div class="img-wrapper">
                           </div>
                           <div class="img-wrapper">
-                            <img src="'+video.image_url+'" onload="form5image.hasLoaded(this)">
+                            <img src="http://res.cloudinary.com/seh/image/upload/c_fill,h_304,w_540/'+video.img+'" onload="form5image.hasLoaded(this)">
                           </div>
 
                           <div class="video-player flex-video vimeo widescreen"></div>

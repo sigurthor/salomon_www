@@ -1,5 +1,6 @@
 #= require 'app/salomon'
 #= require 'app/general.salomon'
+#= require 'app/footer.salomon'
 #= require 'app/navbar.salomon'
 #= require 'app/filters.salomon'
 #= require 'app/product.salomon'
@@ -21,6 +22,7 @@ $(document).ready ->
 
   salomon.navbar()
   salomon.general()
+  salomon.footer()
   salomon.filters()
   #salomon.searchbar()
   salomon.product()
