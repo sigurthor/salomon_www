@@ -18,7 +18,7 @@
     @media #{$medium} { @content; }
   }
   @else if $media == large {
-    @media #{$large-screen} { @content; }
+    @media #{$large} { @content; }
   }
   @else if $media == landscape {
     @media #{$landscape} { @content; }
