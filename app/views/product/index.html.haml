@@ -43,7 +43,7 @@
         -@products.each do |product|
           - filterClasses = product.product_features.map { |p| "filter-#{p.id}" }.join ' '
           - filterClasses << " filter-#{product.gender}"
-          .large-3.columns.mix{:class=>filterClasses, :data => {:name => "#{product.name}", :price => "#{product.price}"}}
+          .large-3.medium-4.middle-6.columns.mix{:class=>filterClasses, :data => {:name => "#{product.name}", :price => "#{product.price}"}}
             .product.js-equalize-me{:class => (product.is_snowboard? ? 'snowboard':'')}
               .main-info.img-zoom-hover
 
