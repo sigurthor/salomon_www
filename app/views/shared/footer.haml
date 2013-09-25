@@ -12,7 +12,7 @@
         #{ t 'footer.copyright', scope: :salomon }
 
     .large-2.columns
-      %nav
+      %nav.collapseable
         %h5 #{t 'footer.headings.social', scope: :salomon}
         %ul.social
           %li
@@ -29,7 +29,7 @@
             %a.ss-youtube{:href=>'https://www.youtube.com/user/Salomonsnowboarding', :target=>'_blank'} YouTube
 
     .large-2.columns
-      %nav
+      %nav.collapseable
         %h5 Salomon
         %ul
           %li
@@ -41,7 +41,7 @@
             %a{:href =>'http://salomonsnowboard.com/shopcrew/login', :target => '_blank'} Shop crew
 
     .large-2.columns
-      %nav
+      %nav.collapseable
         %h5 #{ t 'footer.headings.customer_service', scope: :salomon}
         %ul
           - unless Rails.env.production?
