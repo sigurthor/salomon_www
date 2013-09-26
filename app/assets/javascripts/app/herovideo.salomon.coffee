@@ -3,7 +3,7 @@ salomon.heroVideo = () ->
   #
   # Frontpage Video DEMO
   #
-  $('#play-overlay').bind 'click', (e) ->
+  $('#hero').bind 'click', (e) ->
     e.preventDefault()
 
     $video = $('#hero video')
