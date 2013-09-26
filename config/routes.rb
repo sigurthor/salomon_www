@@ -23,8 +23,10 @@ SalomonWww::Application.routes.draw do
     get 'team' => 'team#index', :as => 'team'
     get 'team/rider-(:team_member)' => 'team#show', :as => 'team_member'
     get 'team(/:category)' => 'team#index', :as => 'team'
+    get 'gear' => 'product#overview', :as => 'product_overview'
     get 'gear/(:category)' => 'product#index', :as => 'products'
     get 'gear/(:category)/(:product)' => 'product#show', :as => 'product_show'
+
   end
 
   # legacy redirects

@@ -1,5 +1,8 @@
 class ProductController < BaseController
 
+  def overview
+
+  end
 
   def index
 
