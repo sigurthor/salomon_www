@@ -35,12 +35,20 @@ footer {
     max-width: 180px;
   }
 
-  .language-selector form.custom .custom.dropdown.small {
-    min-width: 100%;
+  .language-selector {
+    a { display: block; }
 
     ul {
       max-height: none;
       bottom: -170px;
+    }
+
+    .f-dropdown {
+      &.enabled {
+        top: 0 !important;
+        right: 300px !important;
+        left: auto !important;
+      }
     }
 
     .current {
@@ -48,6 +56,18 @@ footer {
       font-size: 14px;
       color: #9B9B9B;
       text-transform: uppercase;
+    }
+
+    a.button {
+      line-height: 15px;
+      &:after {
+        display: inline-block;
+        content: '\1F30E';
+        font-family: $icon-font;
+        color: #fff;
+        margin-left: 5px;
+        line-height: 10px;
+      }
     }
   }
 

@@ -54,14 +54,18 @@
     .large-3.columns
       .language-selector
         %h5 #{t 'footer.change_country', scope: :salomon }
-        %form.custom
-          %select#language.dropdown.small
-            - countries.each do |country|
-              - if is_current_locale(country.locale)
-                %option{:value =>"#{url_for_locale(country.locale)}?set_country=#{country.locale}", :selected => 'selected' }= "#{country.name}"
-              - else
-                %option{:value =>"#{url_for_locale(country.locale)}?set_country=#{country.locale}", }= "#{country.name}"
-
+        .language-selector-body
+          %a.button(data-dropdown='footer-lang-dropdown')
+            = A2::Country.find_by(:locale => I18n.locale ).name
+          .f-dropdown#footer-lang-dropdown(data-dropdown-content)
+            .inner
+              - regions.each do |region|
+                .lang-list
+                  %h5= region.name
+                  %ul
+                    - region.a2_countries.each do |country|
+                      %li
+                        = link_to country.name, "#{url_for_locale(country.locale)}?set_country=#{country.locale}"
       .newsletter
         %h5 #{t 'footer.newsletter_signup_head', scope: :salomon }
         .newsletter-subhead #{t 'footer.newsletter_signup_subhead', scope: :salomon }

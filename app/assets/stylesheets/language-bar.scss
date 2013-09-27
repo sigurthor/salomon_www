@@ -137,3 +137,144 @@
 
   @include transition(top 0.25s ease-in-out);
 }
+
+
+#language-bar {
+  @include clearfix();
+  position: fixed;
+  top: -100px;
+  left: 0;
+
+  @include respond-to(mobile) { position: absolute; }
+  @include respond-to(medium) { position: absolute; }
+
+  width: 100%;
+
+  height: 40px;
+  z-index: 5001;
+  padding-left: 20px;
+
+  background-color: $color-lightblue;
+
+  font-family: $font-boldcnd20;
+  color: white;
+
+  &.open {
+    top: 0;
+  }
+
+  p {
+    float: left;
+    line-height: 40px;
+  }
+
+  ul.right {
+    float: right;
+    margin-right: 10px;
+
+    & > li {
+      display: inline-block;
+
+      line-height: 40px;
+      font-family: $font-boldcnd20;
+      font-size: 18px;
+      text-transform: uppercase;
+
+      a {
+        display: block;
+        height: 40px;
+        position: relative;
+        color: white;
+        line-height: 40px;
+        padding: 0 10px;
+
+        &:hover {
+          background-color: $color-mediumblue;
+        }
+      }
+
+      &.has-dropdown > a {
+        &:after {
+          font-family: "SSStandard";
+          font-size: 8px;
+          content: "\25BE";
+          margin-left: 5px;
+        }
+      }
+
+      .ignore {
+        padding-left: 40px;
+      }
+      .ignore:before {
+        display: block;
+        position: absolute;
+        left: 12px;
+        top: 10px;
+        width: 20px;
+        height: 20px;
+        background-color: $color-mediumblue;
+        font-family: "SSStandard";
+        content: "\2421";
+        font-size: 14px;
+        line-height: 23px;
+        text-align: center;
+        margin-right: 10px;
+      }
+    }
+
+  }
+
+  .f-dropdown {
+    position: fixed;
+
+    &.open {
+      top: 30px;
+      right: 100px;
+    }
+
+    z-index: 4002;
+    width: 800px;
+
+    border: none;
+    background: transparent;
+
+    .inner {
+      @include clearfix();
+      padding: 20px;
+      background-color: $color-lightblue;
+    }
+
+    .lang-list {
+      float: left;
+      width: 25%;
+
+    }
+
+    h5 {
+      font-family: $font-light;
+      font-size: 14px;
+      color: white;
+    }
+
+    ul {
+      margin: 0;
+      padding: 0;
+
+      li {
+        padding: 0;
+      }
+
+      a {
+        padding: 0;
+      }
+    }
+
+    &:before {
+      @include css-triangle(10px, $color-lightblue, bottom);
+      position: relative;
+      left: 750px;
+    }
+  }
+
+  @include transition(top 0.25s ease-in-out);
+}
