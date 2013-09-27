@@ -69,8 +69,8 @@ body.top-panel-40 { padding-top: 40px; }
 #page-header {
   @include clearfix();
 
+  margin-top: 60px;
   position: relative;
-  top: 60px;
   width: 100%;
 
   background-color: $color-darkblue;
@@ -133,7 +133,7 @@ body.top-panel-40 { padding-top: 40px; }
 }
 
 #page-header + section {
-  padding: 5em 0;
+  // padding: 5em 0;
 }
 
 input {
