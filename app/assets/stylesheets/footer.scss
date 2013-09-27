@@ -43,11 +43,19 @@ footer {
       bottom: -170px;
     }
 
-    .f-dropdown {
+    #footer-lang-dropdown {
       &.enabled {
+        display: block !important;
         top: 0 !important;
         right: 300px !important;
         left: auto !important;
+        width: 800px;
+        a, h5 { color: #fff !important; }
+      }
+
+      .lang-list {
+        float: left;
+
       }
     }
 
@@ -131,5 +139,12 @@ footer {
     font-size: 12px;
     line-height: 12px;
     margin-bottom: 10px;
+  }
+
+  .language-selector-body {
+    #footer-lang-dropdown {
+      display: none;
+      background-color: $color-lightblue;
+    }
   }
 }
