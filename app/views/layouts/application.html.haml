@@ -12,13 +12,19 @@
         fjs.parentNode.insertBefore(js, fjs);
       }(document, 'script', 'facebook-jssdk'));
 
-    = render :file => '/shared/language'
+    #container
 
-    = render :file => '/shared/nav'
+      = render :file => '/shared/language'
 
-    =yield
+      = render :file => '/shared/nav'
 
-    = render :file => '/shared/footer'
+      %main#main-wrap
+        =yield
+
+        = render :file => '/shared/footer'
+
+      = render :file => '/shared/nav-mobile'
+
     = render :file => '/shared/javascript'
 
     :javascript

@@ -11,6 +11,7 @@
 #= require 'app/newsletter.salomon'
 #= require 'app/herovideo.salomon'
 #= require 'app/language.salomon'
+#= require 'app/mobilenav.salomon'
 #= require 'html5lightbox'
 
 $(document).ready ->
@@ -33,3 +34,4 @@ $(document).ready ->
   salomon.newsletter()
   salomon.heroVideo()
   salomon.languageBar()
+  salomon.mobilenav()

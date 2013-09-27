@@ -1,5 +1,6 @@
 #language-bar {
   @include clearfix();
+  overflow: hidden;
   position: fixed;
   top: -100px;
   left: 0;

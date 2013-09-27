@@ -5,15 +5,12 @@
 #nav-container{:class=>yield(:navclass)}
   %nav.top-bar
     %section.top-bar-section
-      %ul.title-area
-        %li=link_to 'Salomon Snowboards', home_path, class: 'logo'
-        %li.toggle-topbar
-          %a{:href=>'#'}
-            %span Menu
+      .sidebar-toggle.ss-icon.ss-standard.ss-rows
+      =link_to 'Salomon Snowboards', home_path, class: 'logo'
       / Left Nav Section
-      %ul.left
+      %ul.desk-nav.left
         %li.has-dropdown
-          %a.no-link{:href => "#_"}  #{t 'pages.gear', scope: :salomon}
+          %a{:href => "/gear"}  #{t 'pages.gear', scope: :salomon}
           %ul.dropdown
             - gear_categories.each do |c|
               %li=link_to c.name,products_url(:category => c.slug)
@@ -24,7 +21,7 @@
         -#%li
         -#  %a= link_to t('nav.stores') , store_path
 
-      %ul.right.social-wrap
+      %ul.desk-nav.right.social-wrap
         %li.social.facebook.dropable
           %a.ss-icon.ss-social{:href=>'https://www.facebook.com/SalomonSnowboardFans', :target=>'_blank'} facebook
           .drop

@@ -144,9 +144,9 @@ section#hero {
       height 1.5s ease-in-out
   );
   @include translateZ(0);
-}
 
-.sticky + #hero {
-  margin-top: 60px;
+  .sticky + #main-wrap > & {
+    margin-top: 60px;
+  }
 }
 
