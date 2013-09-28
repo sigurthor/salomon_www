@@ -41,6 +41,13 @@ initTechListExpand = ->
       $li.addClass 'expanded'
       $li.find('.more').slideDown('400');
       $button.html('&#x2421;')
+initTechListWrapExpand = ->
+  $('.js-expand-tech-list-wrap').on 'click', (e) ->
+    e.preventDefault()
+    $button = $(this)
+
+    $('.tech-list-wrap').addClass 'expanded'
+    $button.remove()
 
 initProductThumbnails = ->
   $thumbs = $('.product-thumbnails li')
@@ -137,5 +144,6 @@ salomon.product = () ->
       initProductColorPicker()
       initProductSizePicker()
       initTechListExpand()
+      initTechListWrapExpand()
       initTechSizeInfo()
       freezeScrollInLightbox()

@@ -7,9 +7,10 @@
       - slice_count += 1
 
     - list1, list2 = product.features_by_type.in_groups_of(slice_count, false)
-    .large-6.columns
+    .large-6.columns.tech-list-wrap
       = render :partial => 'tech_feature_list', :locals => { :list =>list1 }
-    .large-6.columns
+      %a.button.show-more.js-expand-tech-list-wrap Show more
+    .large-6.columns.tech-list-wrap
       = render :partial => 'tech_feature_list', :locals => { :list =>list2 }
 
   - if product.is_snowboard?
