@@ -56,14 +56,17 @@ body.top-panel-40 { padding-top: 40px; }
 //
 //  Image hover zoom
 //
-.img-zoom-hover {
-  img {
-    @include transition(all 0.2s ease-in-out);
-  }
+@include respond-to(large) {
+  .img-zoom-hover {
+    img {
+      @include transition(all 0.2s ease-in-out);
+    }
 
-  &.team-member:hover img { @include scale(1.2); }
-  &.main-info:hover img { @include scale(1.025); }
-  &.nav-team-member:hover img { @include scale(1.1); }
+
+      &.team-member:hover img { @include scale(1.2); }
+      &.main-info:hover img { @include scale(1.025); }
+      &.nav-team-member:hover img { @include scale(1.1); }
+  }
 }
 
 #page-header {

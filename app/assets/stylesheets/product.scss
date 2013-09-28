@@ -259,8 +259,10 @@ ul.product-thumbs {
       height: 45px;
     }
 
-    &:hover {
-      @include scale(50/44);
+    @include respond-to(large) {
+      &:hover {
+        @include scale(50/44);
+      }
     }
 
     &.selected {
