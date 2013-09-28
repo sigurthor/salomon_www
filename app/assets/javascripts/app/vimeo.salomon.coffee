@@ -11,21 +11,26 @@ salomon.vimeo = ->
 
     vimeoId = $self.data 'vimeo-id'
 
-    if vimeoId != ''
-      vimeoWidth = 540
-      vimeoHeight = 304
 
-      if ($self.data 'vimeo-width') != undefined
-        vimeoWidth = $self.data 'vimeo-width'
-        vimeoHeight = $self.data 'vimeo-height'
+    if $('html').hasClass 'touch'
+      window.open 'https://vimeo.com/'+vimeoId
 
-      player = '
-                <iframe
-                  src="http://player.vimeo.com/video/'+vimeoId+'?color=00a4d1&amp;autoplay=1&amp;wmode=transparent"
-                  width="' + vimeoWidth + '" height="' + vimeoHeight + '" frameborder="0"
-                  webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>'
+    else
+      if vimeoId != ''
+        vimeoWidth = 540
+        vimeoHeight = 304
 
-      $self.find('.video-player').show()
-      $self.find('.video-player').html(player)
+        if ($self.data 'vimeo-width') != undefined
+          vimeoWidth = $self.data 'vimeo-width'
+          vimeoHeight = $self.data 'vimeo-height'
 
-      $self.unbind()
+        player = '
+                  <iframe
+                    src="http://player.vimeo.com/video/'+vimeoId+'?color=00a4d1&amp;autoplay=1&amp;wmode=transparent"
+                    width="' + vimeoWidth + '" height="' + vimeoHeight + '" frameborder="0"
+                    webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>'
+
+        $self.find('.video-player').show()
+        $self.find('.video-player').html(player)
+
+        $self.unbind()
