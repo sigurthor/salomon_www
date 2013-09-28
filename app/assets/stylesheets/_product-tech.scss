@@ -189,6 +189,13 @@ ul.tech-list {
       display: block;
     }
 
+
+    @include respond-to(small) {
+      &.mobile-inactive {
+        display: none;
+      }
+    }
+
   }
 
   ul.tech-stats {

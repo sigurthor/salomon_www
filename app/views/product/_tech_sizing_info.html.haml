@@ -7,7 +7,7 @@
           %a.button{:href=>'#', :data=>{:variant=>variant.size}}=variant.size
 
   - variants.each_with_index do |variant, index|
-    .tab-content{:class => (index == 0?'active':''), :data=>{:variant=>variant.size}}
+    .tab-content.mobile-inactive{:class => (index == 0?'active':''), :data=>{:variant=>variant.size}}
       %ul.tech-stats
         -variant.tech_specifications.each do |spec|
           %li
