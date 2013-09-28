@@ -259,8 +259,10 @@ ul.product-thumbs {
       height: 45px;
     }
 
-    &:hover {
-      @include scale(50/44);
+    @include respond-to(large) {
+      &:hover {
+        @include scale(50/44);
+      }
     }
 
     &.selected {
@@ -460,6 +462,20 @@ section#tech {
     }
   }
 }
+
+@include respond-to(middle) {
+  .product-info-upper {
+    text-align: center;
+
+    .product-meta {
+      h5, ul {
+        display: inline;
+        float: none;
+      }
+    }
+  }
+}
+
 
 .product-assets {
   li {
