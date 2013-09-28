@@ -86,6 +86,8 @@ body.top-panel-40 { padding-top: 40px; }
     color: #fff;
     line-height: 72px;
 
+    @include respond-to(small) { font-size: 50px; }
+
   }
   &.lines {
 
