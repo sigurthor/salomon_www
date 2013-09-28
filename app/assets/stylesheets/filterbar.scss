@@ -61,6 +61,14 @@ section#filterbar {
       display: inline-block;
       margin: 0 20px;
     }
+
+    @include respond-to(medium) {
+      display: none;
+    }
+
+    &.expanded {
+      display: block;
+    }
   }
 
 
@@ -117,6 +125,16 @@ section#filterbar {
       height: 40px;
       padding-top: 12px;
       background-color: $color-lightblue;
+    }
+  }
+
+  .show-filters {
+    display: none;
+
+    @include respond-to(medium) {
+      margin: 0 auto 20px;
+      display: block;
+      width: 280px;
     }
   }
 }
