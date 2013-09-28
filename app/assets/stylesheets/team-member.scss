@@ -468,17 +468,29 @@
     top: -5px;
     font-family: $font-boldcnd20obl;
     color: #fff;
-    &.prev-name { left: 35px; }
-    &.next-name { right: 35px; }
+    &.prev-name {
+      left: 35px;
+    }
+    &.next-name {
+      right: 35px;
+    }
   }
   a:hover {
     color: #fff !important;
     white-space: nowrap;
     &.left-arrow {
-      .prev-name { display: block; }
+      .prev-name {
+        display: block;
+        @include respond-to(medium) { display: none; }
+        @include respond-to(small) { display: none; }
+      }
     }
     &.right-arrow {
-      .next-name { display: block; }
+      .next-name {
+        display: block;
+        @include respond-to(medium) { display: none; }
+        @include respond-to(small) { display: none; }
+      }
     }
   }
 }
