@@ -1,0 +1,18 @@
+- content_for(:bodyclass) do
+  gear
+
+- content_for(:navclass) do
+  sticky
+
+#page-header
+  .row
+    .large-8.large-offset-2.columns
+      %h1 Gear
+
+%section#gear
+  .row
+    - gear_categories.each do |c|
+      .large-12.columns.cat{:class => c.name}
+        .content
+          %h2=c.name
+          =link_to 'See all',products_url(:category => c.slug), :class => 'button'
