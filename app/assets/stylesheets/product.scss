@@ -463,6 +463,20 @@ section#tech {
   }
 }
 
+@include respond-to(middle) {
+  .product-info-upper {
+    text-align: center;
+
+    .product-meta {
+      h5, ul {
+        display: inline;
+        float: none;
+      }
+    }
+  }
+}
+
+
 .product-assets {
   li {
     list-style: none;
