@@ -340,6 +340,10 @@
       @include font-heading();
       font-size: 48px;
       margin-top: 0;
+
+      @include respond-to(small) {
+        text-align: center;
+      }
     }
   }
 
@@ -389,6 +393,11 @@
 
     .member-info-list {
       @include columns(2);
+
+      @include respond-to(small) {
+        text-align: center;
+      }
+
       & > li {
         font-size: 18px;
         line-height: 30px;
@@ -402,6 +411,11 @@
         &:first-child {
           width: 240px;
           font-family: $font-boldcnd20;
+
+          @include respond-to(small) {
+            width: auto;
+            margin-right: 1em;
+          }
         }
 
         &:last-child {
@@ -449,6 +463,12 @@
       line-height: 400px;
       vertical-align: middle;
       text-transform: uppercase;
+
+      @include respond-to(small) {
+        line-height: 1;
+        margin-bottom: 2em;
+      }
+
       h3 {
         @include font-heading();
         font-size: 36px;
