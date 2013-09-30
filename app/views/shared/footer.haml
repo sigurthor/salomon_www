@@ -58,7 +58,11 @@
           %a.button(data-dropdown='footer-lang-dropdown')
             = A2::Country.find_by(:locale => I18n.locale ).name
           .f-dropdown#footer-lang-dropdown(data-dropdown-content)
-            .inner
+            .regions
+              %h5.lang-heading
+                Choose your
+                %br
+                region
               - regions.each do |region|
                 .lang-list
                   %h5= region.name
@@ -66,6 +70,8 @@
                     - region.a2_countries.each do |country|
                       %li
                         = link_to country.name, "#{url_for_locale(country.locale)}?set_country=#{country.locale}"
+            .cancel-button
+              Cancel
       .newsletter
         %h5 #{t 'footer.newsletter_signup_head', scope: :salomon }
         .newsletter-subhead #{t 'footer.newsletter_signup_subhead', scope: :salomon }

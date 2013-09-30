@@ -44,13 +44,58 @@ footer {
     }
 
     #footer-lang-dropdown {
+      border: 0;
+      background-color: transparent !important;
+
+      .regions {
+        padding: 20px;
+        overflow: hidden;
+        background-color: $color-lightblue;
+      }
+
+      h5.lang-heading {
+        font-family: $font-boldcnd20obl;
+        font-size: 64px;
+        line-height: 64px;
+        margin-bottom: 40px;
+      }
+
+      .cancel-button {
+        font-size: 18px;
+        font-family: $font-boldcnd20;
+        color: #fff;
+        padding: 20px;
+        text-align: center;
+        text-transform: uppercase;
+        margin-top: 5px;
+        cursor: pointer;
+        background-color: $color-lightblue;
+        @include single-transition(background-color);
+      }
+
       &.enabled {
         display: block !important;
-        top: 0 !important;
+        top: auto !important;
+        bottom: -10px !important;
         right: 300px !important;
         left: auto !important;
         width: 800px;
+
+        .lang-list + .lang-list {
+          margin-left: 100px;
+        }
+
+        li {
+          margin: 20px 0;
+        }
+
         a, h5 { color: #fff !important; }
+        a {
+          font-family: $font-boldcnd20;
+          font-size: 18px;
+          text-transform: uppercase;
+          padding: 0;
+        }
       }
 
       .lang-list {
