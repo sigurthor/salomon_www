@@ -64,7 +64,7 @@ function loadHtml5LightBox(jsFolder) {
                 errorcss: "{text-align:center; color:#ff0000; font-size:14px; font-family:Arial, sans-serif;}",
                 supportesckey: true,
                 supportarrowkeys: true,
-                version: "2.6",
+                version: "2.8",
                 stamp: false,
                 freemark: "html5box.com",
                 freelink: "http://html5box.com/",
