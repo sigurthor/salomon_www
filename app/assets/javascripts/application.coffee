@@ -1,5 +1,6 @@
 #= require 'app/salomon'
 #= require 'app/general.salomon'
+#= require 'app/footer.salomon'
 #= require 'app/navbar.salomon'
 #= require 'app/filters.salomon'
 #= require 'app/product.salomon'
@@ -10,6 +11,7 @@
 #= require 'app/newsletter.salomon'
 #= require 'app/herovideo.salomon'
 #= require 'app/language.salomon'
+#= require 'app/mobilenav.salomon'
 #= require 'html5lightbox'
 
 $(document).ready ->
@@ -21,6 +23,7 @@ $(document).ready ->
 
   salomon.navbar()
   salomon.general()
+  salomon.footer()
   salomon.filters()
   #salomon.searchbar()
   salomon.product()
@@ -31,3 +34,4 @@ $(document).ready ->
   salomon.newsletter()
   salomon.heroVideo()
   salomon.languageBar()
+  salomon.mobilenav()

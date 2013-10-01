@@ -3,7 +3,7 @@
     %h2 Updates
 
     // Vimeo column
-    .large-6.columns
+    .large-6.medium-12.columns
       .update-item.vimeo(data-vimeo-id="#{vimeo.item_id}")
         .update-meta
           %i.ss-icon.ss-standard video
@@ -15,7 +15,7 @@
       %a.button.vimeo{:href=>'http://vimeo.com/salomonsnowboards', :target=>'_blank'} More videos on Vimeo
 
     // Facebook column
-    .large-3.columns
+    .large-3.medium-6.small-12.columns
       - facebook.each do |fb|
         .update-item.facebook
           .update-meta
@@ -30,7 +30,7 @@
 
     // Instagram column
     - cache 'home-instagram', :tag => %w('instagram-import')  do
-      .large-3.columns
+      .large-3.medium-6.small-12.columns
         .update-item.instagram
           .update-meta
             %i.ss-icon.ss-social instagram

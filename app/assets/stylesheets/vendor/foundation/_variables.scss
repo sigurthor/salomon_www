@@ -8,6 +8,8 @@ $color-red: #F8433A;
 $color-green: #4CDE9F;
 $color-red-darkbg: #F8433A;
 
+$color-borders: #EDECEC;
+
 $font-regular: "Trade Gothic W01 Roman", helvetica, arial, sans-serif;
 $font-light: "Trade Gothic W01 Light", helvetica, arial, sans-serif;
 $font-obl: "Trade Gothic W01 Obl", helvetica, arial, sans-serif;
@@ -134,21 +136,20 @@ $primary-color: $color-lightblue;
 
 // Media Queries
 
-// $small-screen: 768px;
-// $medium-screen: 1280px;
-// $large-screen: 1440px;
+$small-screen: 496px;
+$middle-screen: 760px;
+$medium-screen: 1023px;
+$large-screen: 1200px;
 
-$small-screen: 50px;
-$medium-screen: 100px;
-// $large-screen: 1440px;
+$screen: "only screen";
 
+$small: "only screen and (max-width: #{$small-screen})";
+$middle: "only screen and (max-width:#{$middle-screen})";
+$medium: "only screen and (max-width:#{$medium-screen})";
+$large: "only screen and (min-width: #{$large-screen})";
 
-// $screen: "only screen";
-// $small: "only screen and (min-width: #{$small-screen})";
-// $medium: "only screen and (min-width: #{$medium-screen})";
-// $large: "only screen and (min-width: #{$large-screen})";
-// $landscape: "only screen and (orientation: landscape)";
-// $portrait: "only screen and (orientation: portrait)";
+$landscape: "only screen and (orientation: landscape)";
+$portrait: "only screen and (orientation: portrait)";
 
 //// Cursors
 
@@ -1319,7 +1320,7 @@ $topbar-link-weight: normal;
 
 // $topbar-transition-speed: 300ms;
 // $topbar-breakpoint: emCalc(940); // Change to 9999px for always mobile layout
-$topbar-breakpoint: emCalc(100); // Change to 9999px for always mobile layout
+$topbar-breakpoint: 1px; // Change to 9999px for always mobile layout
 // $topbar-media-query: "only screen and (min-width: #{$topbar-breakpoint})";
 
 // Divider Styles

@@ -176,7 +176,12 @@
     }
   }
 
-  section { margin-top: 80px; }
+  section {
+    margin-top: 80px;
+    @include respond-to(small) {
+      margin-top: 40px;
+    }
+  }
   section:first-child { margin: 0; }
 
   .member-profile {
@@ -185,6 +190,12 @@
     color: #fff;
     height: 663px;
     background-size: cover;
+
+
+    @include respond-to(small) {
+      max-width: 100%;
+      height: 180px;
+    }
 
     .video-player {
       position: absolute;
@@ -237,6 +248,9 @@
       margin-top: -5px;
       margin-bottom: 50px;
       line-height: 120px;
+      @include respond-to(small) {
+        text-align: center;
+      }
     }
 
     .profile-text {
@@ -245,6 +259,10 @@
       h2 {
         max-width: 820px;
       }
+
+      @include respond-to(small) {
+        display: none;
+      }
     }
 
     .quote {
@@ -252,6 +270,10 @@
       bottom: 40px;
       left: 40px;
       z-index: 999;
+
+      @include respond-to(small) {
+        display: none;
+      }
     }
     .play-video {
 
@@ -312,12 +334,16 @@
 
   .member-details {
     text-transform: uppercase;
-    margin-top: 20px;
+    margin-top: 30px;
 
     h2 {
       @include font-heading();
       font-size: 48px;
       margin-top: 0;
+
+      @include respond-to(small) {
+        text-align: center;
+      }
     }
   }
 
@@ -367,6 +393,11 @@
 
     .member-info-list {
       @include columns(2);
+
+      @include respond-to(small) {
+        text-align: center;
+      }
+
       & > li {
         font-size: 18px;
         line-height: 30px;
@@ -380,6 +411,11 @@
         &:first-child {
           width: 240px;
           font-family: $font-boldcnd20;
+
+          @include respond-to(small) {
+            width: auto;
+            margin-right: 1em;
+          }
         }
 
         &:last-child {
@@ -427,6 +463,12 @@
       line-height: 400px;
       vertical-align: middle;
       text-transform: uppercase;
+
+      @include respond-to(small) {
+        line-height: 1;
+        margin-bottom: 2em;
+      }
+
       h3 {
         @include font-heading();
         font-size: 36px;
@@ -468,17 +510,29 @@
     top: -5px;
     font-family: $font-boldcnd20obl;
     color: #fff;
-    &.prev-name { left: 35px; }
-    &.next-name { right: 35px; }
+    &.prev-name {
+      left: 35px;
+    }
+    &.next-name {
+      right: 35px;
+    }
   }
   a:hover {
     color: #fff !important;
     white-space: nowrap;
     &.left-arrow {
-      .prev-name { display: block; }
+      .prev-name {
+        display: block;
+        @include respond-to(medium) { display: none; }
+        @include respond-to(small) { display: none; }
+      }
     }
     &.right-arrow {
-      .next-name { display: block; }
+      .next-name {
+        display: block;
+        @include respond-to(medium) { display: none; }
+        @include respond-to(small) { display: none; }
+      }
     }
   }
 }
@@ -490,6 +544,30 @@
       .columns {
         display: inline-block;
         margin: 0 auto;
+      }
+    }
+  }
+
+
+  .mobile-details {
+    display: none;
+    margin-bottom: 30px;
+
+    @include respond-to(small) {
+      display: block;
+    }
+
+    h2 { text-align: center; }
+    p {
+      text-transform: none;
+      font-family: $font-regular;
+      padding: 0 20px;
+      margin-bottom: 0;
+
+      &.quote {
+        font-size: 0.75em;
+        text-align: right;
+        font-family: $font-obl;
       }
     }
   }

@@ -21,5 +21,6 @@
 //= require jquery.validationEngine-en
 //= require jquery.validationEngine
 //= require jquery.equalize.min
+//= require jquery.sidebar
 //= require retina
 //= require application.coffee

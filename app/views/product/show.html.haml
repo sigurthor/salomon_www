@@ -22,7 +22,7 @@
 
 %section#main.product-details
   .row
-    .large-6.columns
+    .medium-6.columns
       .product-main-image
         - img_loader do
           - if @product.is_snowboard?
@@ -36,20 +36,18 @@
               .overlay-wrapper
                 = link_to cl_image_tag(thumb.img, :width=>'80', :height=>'80', :crop =>'fit', :data=>{:fullsize=>cl_image_path(thumb.img, :width=>'580', :height=>'500', :alt => @product.name, :crop => 'fit')}), '#'
               %a{:href=>'#'} View #{i+1}
-    .large-6.columns
-      %h1= @product.name
-      %span!= t("gender.#{@product.gender}", :count => 2, scope: :salomon) + " " + @product.categories[0].name_singular + " &mdash; " + @product.tag_line
-      %h2= product_price(@product)
-      %form.custom
-        - if @product.is_snowboard?
-          = get_size_variants
-        - else
-          = get_color_variants
+    .medium-6.columns
+      .product-info-upper
+        %h1= @product.name
+        %span!= t("gender.#{@product.gender}", :count => 2, scope: :salomon) + " " + @product.categories[0].name_singular + " &mdash; " + @product.tag_line
+        %h2= product_price(@product)
+        %form.custom
+          - if @product.is_snowboard?
+            = get_size_variants
+          - else
+            = get_color_variants
 
-        = link_to 'Buy now',salomon_link(@product.slug), :target => '_blank', :class => 'button' unless hide_buy_button?
-
-
-
+          = link_to 'Buy now',salomon_link(@product.slug), :target => '_blank', :class => 'button' unless hide_buy_button?
       .product-model
         %span= "MODEL #{@product.article_code}"
 

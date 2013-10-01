@@ -2,9 +2,9 @@
   %ul.right
     %li #{t 'header.change_country', scope: :salomon}
     %li.has-dropdown
-      %a(data-dropdown='lang-dropdown' data-options='is_hover:true')
+      %a
         = A2::Country.find_by(:locale => I18n.locale ).name
-      .f-dropdown#lang-dropdown(data-dropdown-content)
+      .f-dropdown#lang-dropdown
         .inner
           - regions.each do |region|
             .lang-list

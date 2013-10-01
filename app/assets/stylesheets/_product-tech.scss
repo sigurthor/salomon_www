@@ -1,9 +1,40 @@
+
+.show-more {
+  display: none;
+}
+
+@include respond-to(medium) {
+  .tech-list-wrap {
+    + .tech-list-wrap ul.tech-list {
+      display: none;
+    }
+
+    &.expanded ul.tech-list,
+    &.expanded + .tech-list-wrap ul.tech-list {
+      display: block;
+    }
+
+    .show-more {
+      display: block;
+      width: 100%;
+
+      background-color: $color-mediumblue;
+
+      &:hover {
+        background-color: $color-lightblue;
+      }
+    }
+  }
+}
 ul.tech-list {
   list-style: none;
+
+  @include respond-to(small) { margin-bottom: 0; }
 
   & > li {
     display: inline-block;
     width: 100%;
+    position: relative;
 
     margin-bottom: 4px;
     margin-right: 1%;
@@ -19,9 +50,13 @@ ul.tech-list {
 
     a.expand {
       font-family: "SSStandard";
-      display: inline-block;
+      display: block;
       width: 40px;
       height: 40px;
+
+      position: absolute;
+      top: 10px;
+      left: 10px;
 
       border-radius: 50%;
       background-color: #fff;
@@ -32,14 +67,20 @@ ul.tech-list {
       text-align: center;
     }
 
-    span:first-of-type {
-      font-family: $font-boldcnd20;
-      color: #fff;
-    }
+    span {
+      padding-left: 50px;
+      display: block;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      overflow: hidden;
 
-    span:last-of-type {
       font-family: $font-boldcnd20;
       color: $color-lightblue;
+
+      b {
+        color: #fff;
+        font-weight: normal;
+      }
     }
 
     &.expanded {
@@ -50,8 +91,11 @@ ul.tech-list {
         color: white;
       }
 
-      span:first-of-type {
+      span {
         color: $color-darkblue;
+        b {
+          color: $color-darkblue;
+        }
       }
 
       ul.more {
@@ -145,6 +189,13 @@ ul.tech-list {
       display: block;
     }
 
+
+    @include respond-to(small) {
+      &.mobile-inactive {
+        display: none;
+      }
+    }
+
   }
 
   ul.tech-stats {
@@ -152,6 +203,18 @@ ul.tech-list {
        -moz-column-count:3;
          ms-column-count:3;
             column-count:3;
+    @include respond-to(middle) {
+      -webkit-column-count:2;
+         -moz-column-count:2;
+           ms-column-count:2;
+              column-count:2;
+    }
+    @include respond-to(small) {
+      -webkit-column-count:1;
+         -moz-column-count:1;
+           ms-column-count:1;
+              column-count:1;
+    }
 
     font-family: $font-boldcnd20;
     font-size: 18px;
@@ -160,10 +223,12 @@ ul.tech-list {
     text-transform: uppercase;
     list-style: none;
     li {
+      padding: 0 10px;
       span {
-        &:first-child {
-          display: inline-block;
-          width: 190px;
+        &:last-child {
+          float: right;
+          // display: inline-block;
+          // width: 90%;
         }
       }
     }

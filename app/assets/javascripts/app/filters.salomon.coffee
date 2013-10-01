@@ -1,3 +1,11 @@
+initFiltersExpand = ->
+  $('.show-filters').on 'click', (e) ->
+    e.preventDefault()
+    $button = $(this)
+
+    $('#filterbar .filters').addClass 'expanded'
+    $button.remove()
+
 init = () ->
 
   $lastproduct = $('.lastproduct')
@@ -126,3 +134,4 @@ salomon.filters = () ->
   $(document).ready ->
     if $('#product-list').length
       init()
+      initFiltersExpand()

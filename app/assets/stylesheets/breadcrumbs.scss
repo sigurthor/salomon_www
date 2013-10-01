@@ -1,7 +1,7 @@
 /* General */
 section#breadcrumbs {
+  margin-top: 60px;
   position: relative;
-  top: 60px;
 
   z-index: 1019;
 
@@ -10,7 +10,8 @@ section#breadcrumbs {
 
   padding-left: 20px;
 
-  background: rgba(0, 50, 64, 0.9);
+  // background: rgba(0, 50, 64, 0.9);
+  background: $color-darkblue;
 
   text-transform: uppercase;
 
@@ -34,6 +35,20 @@ section#breadcrumbs {
         font-family: "TradeGothicW01-BoldCn20 675337";
         color: #fff;
         font-size: 14px;
+
+        @include respond-to(small) {
+          display: none;
+
+          + li {
+            display: none;
+
+            + li:before {
+              content: '\2026';
+              vertical-align: -14%;
+              font-size: 16px
+            }
+          }
+        }
       }
 
       &:nth-child(n+3) {

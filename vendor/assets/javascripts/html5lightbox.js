@@ -3,29 +3,6 @@
  * Website: http://html5box.com
  * Version 2.6
  */
-(function () {
-    var scripts = document.getElementsByTagName("script");
-    var jsFolder = "";
-    for (var i = 0; i < scripts.length; i++)
-        if (scripts[i].src && scripts[i].src.match(/html5lightbox\.js/i)) jsFolder = scripts[i].src.substr(0, scripts[i].src.lastIndexOf("/") + 1);
-    if (typeof jQuery == "undefined" || parseFloat(/^\d\.\d+/i.exec(jQuery.fn.jquery)) < 1.6) {
-        var head = document.getElementsByTagName("head")[0];
-        var script = document.createElement("script");
-        script.setAttribute("type", "text/javascript");
-        if (script.readyState) script.onreadystatechange =
-            function () {
-                if (script.readyState == "loaded" || script.readyState == "complete") {
-                    script.onreadystatechange = null;
-                    loadHtml5LightBox(jsFolder)
-                }
-        };
-        else script.onload = function () {
-            loadHtml5LightBox(jsFolder)
-        };
-        script.setAttribute("src", jsFolder + "jquery.js");
-        head.appendChild(script)
-    } else loadHtml5LightBox(jsFolder)
-})();
 
 function loadHtml5LightBox(jsFolder) {
     (function ($) {

@@ -6,17 +6,28 @@ section#product-feature {
 
   padding-bottom: 0;
 
+  img {
+    display: block;
+    margin: 0 auto;
+
+    @include respond-to(medium) { margin-bottom: 20px; }
+  }
+
   img.boredom {
     position: absolute;
     top: -3px;
     left: 0;
     right: 0;
-    margin: 0 auto;
   }
 
   img.new-logo {
     float: left;
     margin-left: 20px;
+
+    @include respond-to(small) {
+      width: 60px;
+      margin-bottom: 0;
+    }
   }
 
   h3 {
@@ -27,6 +38,10 @@ section#product-feature {
     margin: 0;
     text-transform: uppercase;
     line-height:68px;
+
+    @include respond-to(small) {
+      line-height: 30px;
+    }
   }
   h2 {
     float: left;
@@ -36,6 +51,12 @@ section#product-feature {
     margin-top: 10px;
     margin-bottom: 10px;
     line-height: 48px;
+
+    @include respond-to(small) {
+      margin-top: 0;
+      text-align: center;
+      font-size: 60px;
+    }
   }
   p {
     font-family: $font-light;

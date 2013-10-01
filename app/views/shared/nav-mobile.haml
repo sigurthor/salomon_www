@@ -1,0 +1,34 @@
+-#.searchbar
+-#  %input.search-input{:type => 'text', :placeholder => t('header.search_placeholder', scope: :salomon)}
+-#  %input{:type => 'submit', :value => 'Submit'}
+
+%nav#sidebar{:class=>yield(:navclass)}
+  %section.main
+    %h5 Main
+    %ul
+      %li.open
+        %a{:href => "/gear"}  #{t 'pages.gear', scope: :salomon}
+        .drop-wrap
+          %ul
+            - gear_categories.each do |c|
+              %li=link_to c.name,products_url(:category => c.slug)
+      %li= link_to t('pages.team', scope: :salomon), team_path
+      %li= link_to t('pages.videos', scope: :salomon), video_path
+      %li
+        %a{:href => "http://bonfiresalomon.tumblr.com/"} #{t 'pages.blog', scope: :salomon}
+      -#%li
+      -#  %a= link_to t('nav.stores') , store_path
+  %section.share
+    %h5 Share Salomon
+    %ul.right.social-wrap
+      %li.social.facebook
+        %a.ss-icon.ss-social{:href=>'https://www.facebook.com/SalomonSnowboardFans', :target=>'_blank'} facebook
+
+      %li.social.twitter
+        %a.ss-icon.ss-social{:href=>'https://twitter.com/Salomonsnow', :target=>'_blank'} twitter
+
+      %li.social.instagram
+        %a.ss-icon.ss-social{:href=>'http://instagram.com/salomonsnowboards', :target=>'_blank'} instagram
+
+      %li.social.pinterest
+        %a.ss-icon.ss-social{:href=>'http://pinterest.com/salomonsnow/', :target=>'_blank'} pinterest
