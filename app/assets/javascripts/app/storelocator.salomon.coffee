@@ -34,7 +34,7 @@ initMapPosition = (location) ->
 #
 createMarker = (store) ->
   options =
-    position: new google.maps.LatLng(store.lat, store.lng)
+    position: new google.maps.LatLng(store.latitude, store.longitude)
     title: store.name
     map: googleMap
     storeId: store.id
@@ -101,7 +101,8 @@ queryBackend = (query, cb) ->
   # Todo: implement error handling if request fails
 
   updateState searching: 1
-  queryString = 'http://nikitaclothing.com/services/map/get_stores.json'
+  #queryString = 'http://nikitaclothing.com/services/map/get_stores.json'
+  queryString = 'http://www.salomonsnowboards.com/a2/services/map.json?search_string=portland&range=10'
   $.get queryString,
     search_string: query
     radius: 50
@@ -185,13 +186,13 @@ initStoreLocator = ->
 #
 renderStoreResult = (store, num) ->
   itemTpl = """
-    <li id="store-{{id}}" data-lat="{{lat}}" data-lng="{{lng}}" data-num="{{num}}">
+    <li id="store-{{id}}" data-lat="{{latitude}}" data-lng="{{longitude}}" data-num="{{num}}">
       <h4>{{name}}</h4>
       <p>{{address}}</p>
-      <p>{{zipcode}} {{city}}</p>
+      <p>{{postal_code}} {{city}}</p>
       <p>{{phone}}</p>
       <p>
-        <a href="http://{{website}}" target="_blank">{{website}}</a>
+        <a href="http://{{url}}" target="_blank">{{url}}</a>
       </p>
     </li>
   """
