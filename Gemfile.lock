@@ -1,6 +1,6 @@
 GIT
   remote: git://github.com/FriendlyId/friendly_id.git
-  revision: 637ec7d62a56fc81dcc141ce2d1c287fa4b40055
+  revision: afa6a2a8c89a80aea886743a7e5329b6374be4d1
   branch: master
   specs:
     friendly_id (5.0.0.rc2)
@@ -18,7 +18,7 @@ GIT
 
 GIT
   remote: https://8822694c4779c052130037718ba51b09d8ae7839:x-oauth-basic@github.com/sigurthor/a2_backend.git
-  revision: 31176e8fc3eae759ff3919fbd8d410d0e12788fe
+  revision: 15fd0fcf1fbddf9534186a196a74e59b5d601a90
   branch: master
   specs:
     a2 (0.0.6)
@@ -131,7 +131,7 @@ GEM
       warden (~> 1.2.3)
     erubis (2.7.0)
     excon (0.13.4)
-    execjs (2.0.1)
+    execjs (2.0.2)
     faraday (0.8.8)
       multipart-post (~> 1.2.0)
     faraday_middleware (0.9.0)
@@ -283,7 +283,7 @@ GEM
     rush (0.6.8)
       session
     safe_yaml (0.9.7)
-    sass (3.2.10)
+    sass (3.2.11)
     sass-rails (4.0.0)
       railties (>= 4.0.0.beta, < 5.0)
       sass (>= 3.1.10)
