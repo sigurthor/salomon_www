@@ -50,7 +50,7 @@ html, body {
         font-size: 16px;
       }
 
-      &:hover {
+      &:active {
         color: $color-darkblue;
         background: #fff;
         border-bottom-color: #fff;
@@ -65,7 +65,7 @@ html, body {
 
         color: #fff;
 
-        &:hover {
+        &:active {
           background: transparent;
           border-bottom-color: darken($color-mediumblue,5%);
         }
@@ -168,7 +168,7 @@ html, body {
             font-family: "SSSocialRegular";
             font-size: 32px;
 
-            &:hover {
+            &:active {
               background: #fff;
             }
           }
