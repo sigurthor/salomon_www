@@ -48,8 +48,7 @@
           - filterClasses << " filter-#{product.gender}"
           .large-3.medium-4.middle-6.columns.mix{:class=>filterClasses, :data => {:name => "#{product.name}", :price => "#{product.price}"}}
             .product.js-equalize-me{:class => (product.is_snowboard? ? 'snowboard':'')}
-              .main-info.img-zoom-hover
-
+              .main-info
                 - if product.is_snowboard?
                   - img_loader do
                     = link_to prepend_snowboard_crop(cl_image_tag(product.master_image,  :width => 180, :height => 386, :alt => product.name, :crop => :fill, :class => 'product-image', :onload => 'form5image.hasLoaded(this)')), product_show_path(:category => params[:category], :product => product.slug)
