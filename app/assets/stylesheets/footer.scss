@@ -166,5 +166,27 @@ footer {
     .lang-list {
       float: left;
     }
+
+    @include respond-to(medium) {
+
+      li { margin: 0 0 !important; }
+
+      h5.lang-heading {
+        font-size: 32px;
+        line-height: normal;
+      }
+
+      .lang-list {
+        float: none;
+        & + .lang-list {
+          margin-left: 0;
+        }
+      }
+
+      .region-list {
+        max-height: 288px;
+        overflow: scroll;
+      }
+    }
   }
 }
