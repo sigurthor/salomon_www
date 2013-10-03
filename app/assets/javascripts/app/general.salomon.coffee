@@ -1,5 +1,15 @@
 salomon.general = () ->
 
+  toggleScroll = () ->
+    if $('body').css('overflow') == 'hidden'
+      $('body').css 'overflow', 'visible'
+    else
+      $('body').css 'overflow', 'hidden'
+
+  $('.footer-language-chooser, #footer-language-modal .cancel-button').click ->
+    toggleScroll()
+    $('.black-overlay').toggle()
+    $('#footer-language-modal').toggle()
 
   $("#contactForm").validationEngine()
 

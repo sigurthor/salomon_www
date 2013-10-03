@@ -2,6 +2,17 @@
   -webkit-font-smoothing: antialiased;
 }
 
+.black-overlay {
+  content: '';
+  position: fixed;
+  display: none;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, .7);
+  z-index: 99999;
+}
+
 //
 // Margin configurations based on which top panels are active
 //
@@ -13,7 +24,6 @@
 //#language-bar + .searchbar + #nav-container.sticky + section#breadcrumbs + section { margin-top: 120px; }
 
 #language-bar.open + #nav-container { top: 40px; }
-
 
 body.top-panel-40 { padding-top: 40px; }
 
