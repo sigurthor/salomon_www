@@ -125,8 +125,10 @@ footer {
       margin-left: 100px;
     }
 
-    li {
-      margin: 20px 0;
+    @include respond-to(wide) {
+      li {
+        margin: 20px 0;
+      }
     }
 
     a, h5 { color: #fff !important; }
@@ -168,8 +170,23 @@ footer {
     }
 
     @include respond-to(medium) {
+      .regions {
+        padding: 0 !important;
+        background-color: transparent !important;
 
-      li { margin: 0 0 !important; }
+        .lang-heading {
+          padding: 10px 20px;
+          margin-bottom: 2px;
+          background-color: $color-lightblue;
+        }
+
+        .region-list {
+          padding: 20px;
+          background-color: $color-lightblue;
+        }
+      }
+        .cancel-button { margin-top: 2px; }
+      li { margin: 0 !important; }
 
       h5.lang-heading {
         font-size: 32px;
