@@ -149,12 +149,14 @@ footer {
     display: block;
     line-height: 15px;
     &:after {
+      position: relative;
+      top: 2px;
       display: inline-block;
       content: '\1F30E';
       font-family: $icon-font;
       color: #fff;
       margin-left: 5px;
-      line-height: 10px;
+      line-height: 15px;
     }
   }
 }
