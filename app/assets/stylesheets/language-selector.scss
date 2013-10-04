@@ -10,6 +10,12 @@
   z-index: 9999999;
   text-transform: uppercase;
 
+
+  li { padding: 5px; }
+  li:hover {
+    background-color: #00637f;
+  }
+
   .lang-list + .lang-list {
     margin-left: 100px;
   }

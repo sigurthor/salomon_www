@@ -25,6 +25,14 @@
 
 #language-bar.open + #nav-container { top: 40px; }
 
+#lang-dropdown li {
+  padding: 5px !important;
+}
+
+#lang-dropdown li:hover {
+  background-color: #00637f !important;
+}
+
 body.top-panel-40 { padding-top: 40px; }
 
 //
