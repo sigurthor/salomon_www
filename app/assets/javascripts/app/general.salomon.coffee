@@ -13,9 +13,11 @@ salomon.general = () ->
   $(document).keyup (e) ->
     if e.keyCode is 27 and $('#footer-language-modal').is(':visible')
       $('.black-overlay, #footer-language-modal').fadeOut()
+      toggleScroll()
 
   $('.lang-list li').click ->
     $('.black-overlay, #footer-language-modal').toggle()
+    toggleScroll()
 
     # $('body').on 'click', '#html5-lightbox-overlay', ->
 
