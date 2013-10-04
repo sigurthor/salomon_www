@@ -6,14 +6,19 @@ salomon.general = () ->
     else
       $('body').css 'overflow', 'hidden'
 
-  $('.footer-language-chooser, #footer-language-modal #cancel-button, .black-overlay').click ->
+  $('.footer-language-chooser').click ->
     toggleScroll()
     $('.black-overlay, #footer-language-modal').fadeToggle()
+
 
   $(document).keyup (e) ->
     if e.keyCode is 27 and $('#footer-language-modal').is(':visible')
       $('.black-overlay, #footer-language-modal').fadeOut()
-      toggleScroll()
+      $('body').css 'overflow', 'visible'
+
+  $('.black-overlay, #cancel-button').click ->
+    $('.black-overlay, #footer-language-modal').fadeOut()
+    $('body').css 'overflow', 'visible'
 
   $('.lang-list li').click ->
     $('.black-overlay, #footer-language-modal').toggle()
