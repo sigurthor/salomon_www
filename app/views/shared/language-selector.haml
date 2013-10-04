@@ -12,5 +12,5 @@
             - region.a2_countries.each do |country|
               %li
                 = link_to country.name, "#{url_for_locale(country.locale)}?set_country=#{country.locale}"
-  .cancel-button
+  #cancel-button.button
     Cancel
