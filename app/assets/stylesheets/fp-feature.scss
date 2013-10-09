@@ -1,4 +1,17 @@
 section#product-feature {
+
+  .feature-text {
+    position: absolute;
+    top: 0; right: 0; bottom: 0;
+    height: 285px;
+    margin: auto;
+    @include respond-to(medium) {
+      position: static;
+      top: auto; right: auto; bottom: auto;
+      height: auto;
+    }
+  }
+
   position: relative;
 
   //padding-top: 120px;
