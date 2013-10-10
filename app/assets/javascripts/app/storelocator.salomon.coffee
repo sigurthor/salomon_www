@@ -1,4 +1,5 @@
 salomon.storelocator = () ->
+  $('.js-equalize').equalize {selector: '.js-equalize-me', responsive:true};
   if $('#map-canvas').length
     initStoreLocator()
 
