@@ -102,8 +102,6 @@ section#updates {
         // background-color: black;
 
         iframe {
-          max-height: 302px;
-
           @include respond-to(medium) {
             max-height: none;
           }
