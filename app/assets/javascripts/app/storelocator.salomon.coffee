@@ -102,7 +102,7 @@ queryBackend = (query, cb) ->
 
   updateState searching: 1
   #queryString = 'http://nikitaclothing.com/services/map/get_stores.json'
-  queryString = 'http://www.salomonsnowboards.com/a2/services/map.json?search_string=portland&range=10'
+  queryString = 'http://www.salomonsnowboards.com/a2/services/map.json'
   $.get queryString,
     search_string: query
     radius: 50
