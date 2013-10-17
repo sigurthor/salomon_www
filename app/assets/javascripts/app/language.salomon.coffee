@@ -22,8 +22,14 @@ salomon.languageBar = () ->
       $('body').addClass 'top-panel-40'
     , 1500
 
+  footerLangSelector()
+
 show_bar = () ->
   (readCookie('user_locale') != readCookie('current_locale')) || (readCookie('show_bar') == '1')
+
+footerLangSelector = ->
+  $('footer .language-selector a.button, footer #cancel-button').click ->
+    $('footer .f-dropdown').toggleClass 'enabled'
 
 createCookie = (name, value, days) ->
   if days

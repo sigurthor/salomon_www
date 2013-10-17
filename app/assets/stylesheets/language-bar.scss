@@ -189,4 +189,6 @@
     }
 
   }
+
+  @include transition(top 0.25s ease-in-out);
 }

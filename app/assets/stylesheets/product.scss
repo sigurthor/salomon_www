@@ -7,6 +7,15 @@ ul {
   list-style: none;
 }
 
+#html5-lightbox {
+  i {
+    font-family: 'SSStandard';
+    color: #fff;
+  }
+  #html5-prev, #html5-next {
+    font-size: 2em;
+  }
+}
 
 .product-details {
   h1 {
@@ -496,11 +505,18 @@ section#tech {
 
 /* Lightbox - overwriting stock JS generated inline CSS with !important */
 
-#html5-elem-data-box {
-  margin-top: 15px !important;
-}
-
-#html5-loading {
-  border-radius: 5px;
-  background-color: #fff !important;
+#html5-lightbox {
+  #html5-elem-data-box {
+    margin-top: 15px !important;
+  }
+  i {
+    text-shadow: 0 1px 3px black;
+  }
+  #html5-loading {
+    border-radius: 5px;
+    background-color: #fff !important;
+    .loading-icon {
+      @include loading-spinner(32px);
+    }
+  }
 }

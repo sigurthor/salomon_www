@@ -1,0 +1,16 @@
+#footer-language-modal
+  .regions
+    %h5.lang-heading
+      Choose your
+      %br
+      region
+    .region-list
+      - regions.each do |region|
+        .lang-list
+          %h5= region.name
+          %ul
+            - region.a2_countries.each do |country|
+              %li
+                = link_to country.name, "#{url_for_locale(country.locale)}?set_country=#{country.locale}"
+  #cancel-button.button
+    Cancel

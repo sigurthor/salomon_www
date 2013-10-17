@@ -45,22 +45,6 @@ footer {
     }
   }
 
-  .language-selector form.custom .custom.dropdown.small {
-    min-width: 100%;
-
-    ul {
-      max-height: none;
-      bottom: -170px;
-    }
-
-    .current {
-      font-family:'TradeGothicW01-BoldCn20 675334';
-      font-size: 14px;
-      color: #9B9B9B;
-      text-transform: uppercase;
-    }
-  }
-
   h5 {
     margin: 0;
     font-size: 14px;
@@ -71,6 +55,7 @@ footer {
   nav {
     float: left;
     display: inline-block;
+    font-size: 14px;
 
     ul {
       display: inline-block;
@@ -92,12 +77,8 @@ footer {
             font-size: 16px;
           }
         }
-
-
       }
     }
-
-    font-size: 14px;
   }
   .newsletter {
     input[type="text"] {
@@ -161,5 +142,23 @@ footer {
       }
     }
   }
+
+.footer-language-chooser {
+
+  a.button {
+    display: block;
+    line-height: 15px;
+    &:after {
+      position: relative;
+      top: 2px;
+      display: inline-block;
+      content: '\1F30E';
+      font-family: $icon-font;
+      color: #fff;
+      margin-left: 5px;
+      line-height: 15px;
+    }
+  }
+}
 
 }

@@ -52,16 +52,10 @@
 
 
     .large-3.columns
-      .language-selector
+      .footer-language-chooser
         %h5 #{t 'footer.change_country', scope: :salomon }
-        %form.custom
-          %select#language.dropdown.small
-            - countries.each do |country|
-              - if is_current_locale(country.locale)
-                %option{:value =>"#{url_for_locale(country.locale)}?set_country=#{country.locale}", :selected => 'selected' }= "#{country.name}"
-              - else
-                %option{:value =>"#{url_for_locale(country.locale)}?set_country=#{country.locale}", }= "#{country.name}"
-
+        %a.button
+          = A2::Country.find_by(:locale => I18n.locale ).name
       .newsletter
         %h5 #{t 'footer.newsletter_signup_head', scope: :salomon }
         .newsletter-subhead #{t 'footer.newsletter_signup_subhead', scope: :salomon }

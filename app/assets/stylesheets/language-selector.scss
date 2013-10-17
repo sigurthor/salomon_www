@@ -1,0 +1,108 @@
+#footer-language-modal {
+  position: fixed;
+  top: 0; right: 0; bottom: 0; left: 0;
+  display: none;
+  max-width: 800px;
+  height: 679px;
+  border: 0;
+  margin: auto;
+  background-color: transparent !important;
+  z-index: 9999999;
+  text-transform: uppercase;
+
+
+  li {
+    padding: 5px;
+    a { display: block; }
+  }
+  li:hover {
+    background-color: #00637f;
+  }
+
+  .lang-list + .lang-list {
+    margin-left: 100px;
+  }
+
+  @include respond-to(wide) {
+    li {
+      margin: 20px 0;
+    }
+  }
+
+  a, h5 { color: #fff !important; }
+
+  a {
+    font-family: $font-boldcnd20;
+    font-size: 18px;
+    text-transform: uppercase;
+    padding: 0;
+  }
+
+  .regions {
+    padding: 20px;
+    overflow: hidden;
+    background-color: $color-lightblue;
+  }
+
+  h5.lang-heading {
+    font-family: $font-boldcnd20obl;
+    font-size: 64px;
+    line-height: 64px;
+    margin-bottom: 40px;
+    text-transform: uppercase;
+  }
+
+  #cancel-button.button {
+    display: block;
+    height: auto;
+    font-size: 18px;
+    font-family: $font-boldcnd20;
+    color: #fff;
+    padding: 20px;
+    text-align: center;
+    text-transform: uppercase;
+    margin-top: 5px;
+    cursor: pointer;
+  }
+  .lang-list {
+    float: left;
+  }
+
+  @include respond-to(medium) {
+    height: 457px;
+    .regions {
+      padding: 0 !important;
+      background-color: transparent !important;
+
+      .lang-heading {
+        padding: 10px 20px;
+        margin-bottom: 2px;
+        background-color: $color-lightblue;
+      }
+
+      .region-list {
+        padding: 20px;
+        background-color: $color-lightblue;
+      }
+    }
+      #cancel-button { margin-top: 2px; }
+    li { margin: 0 !important; }
+
+    h5.lang-heading {
+      font-size: 32px;
+      line-height: normal;
+    }
+
+    .lang-list {
+      float: none;
+      & + .lang-list {
+        margin-left: 0;
+      }
+    }
+
+    .region-list {
+      max-height: 288px;
+      overflow: scroll;
+    }
+  }
+}
