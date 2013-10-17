@@ -3,6 +3,9 @@ puts "staging enviorment"
 SalomonWww::Application.configure do
 
 
+  #saleforce
+  config.sales_force_url = 'https://cs10.salesforce.com/servlet/servlet.WebToCase?encoding=UTF-8'
+
   #webshop url
   config.webshop_url = 'http://dev.shop.salomon.com/'
   config.salomon_url = 'http://dev.salomon.com/'

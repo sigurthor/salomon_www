@@ -2,6 +2,9 @@ SalomonWww::Application.configure do
 
   config.eager_load = true
 
+  #saleforce
+  config.sales_force_url = 'https://www.salesforce.com/servlet/servlet.WebToCase?encoding=UTF-8'
+
   #asset host
   config.action_controller.asset_host = ENV['ASSET_HOST']
 
