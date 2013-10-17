@@ -1,0 +1,12 @@
+jQuery(document).ready ->
+  jQuery("#contactForm").submit ->
+    erreurs = 0
+    erreurs++  if jQuery.trim(jQuery("#firstname").val()) is ""
+    erreurs++  if jQuery.trim(jQuery("#lastname").val()) is ""
+    if erreurs is 0
+      jQuery("#name").val jQuery("#firstname").val() + " " + jQuery("#lastname").val()
+      jQuery("#firstname").attr "disabled", "disabled"
+      jQuery("#lastname").attr "disabled", "disabled"
+
+    #jQuery("#contactForm").submit();
+    false
