@@ -18,7 +18,7 @@ GIT
 
 GIT
   remote: https://8822694c4779c052130037718ba51b09d8ae7839:x-oauth-basic@github.com/sigurthor/a2_backend.git
-  revision: c731c9e649a53c9991487fa6535763bc34560cef
+  revision: 46a3fab727554c0573cbd961efd7489059d0d9d8
   branch: master
   specs:
     a2 (0.0.6)
@@ -107,7 +107,7 @@ GEM
       fog
       uuidtools
     cashier (0.4.1)
-    cloudinary (1.0.63)
+    cloudinary (1.0.64)
       aws_cf_signer
       rest-client
     coffee-rails (4.0.0)

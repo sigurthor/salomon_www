@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130915195544) do
+ActiveRecord::Schema.define(version: 20131018143815) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -63,14 +63,16 @@ ActiveRecord::Schema.define(version: 20130915195544) do
     t.integer   "position"
     t.boolean   "visible"
     t.string    "ancestry"
-    t.timestamp "created_at",    precision: 6, null: false
-    t.timestamp "updated_at",    precision: 6, null: false
+    t.timestamp "created_at",     precision: 6,             null: false
+    t.timestamp "updated_at",     precision: 6,             null: false
     t.string    "type"
     t.string    "brand"
     t.integer   "magento_id"
     t.string    "filters"
     t.string    "name_singular"
     t.string    "long_name"
+    t.integer   "ancestry_depth",               default: 0
+    t.string    "title"
   end
 
   add_index "a2_categories", ["ancestry"], name: "index_a2_categories_on_ancestry", using: :btree
@@ -91,8 +93,9 @@ ActiveRecord::Schema.define(version: 20130915195544) do
     t.string    "name"
     t.string    "code"
     t.string    "brand"
-    t.timestamp "created_at", precision: 6, null: false
-    t.timestamp "updated_at", precision: 6, null: false
+    t.timestamp "created_at", precision: 6,                    null: false
+    t.timestamp "updated_at", precision: 6,                    null: false
+    t.string    "value",                    default: "ffffff"
   end
 
   add_index "a2_colors", ["code", "brand"], name: "brand_colors", unique: true, using: :btree
@@ -405,6 +408,8 @@ ActiveRecord::Schema.define(version: 20130915195544) do
     t.integer   "shopify_id"
     t.boolean   "hidden"
     t.integer   "position"
+    t.string    "name2"
+    t.string    "project_code"
   end
 
   add_index "a2_products", ["article_code"], name: "index_a2_products_on_article_code", unique: true, using: :btree
