@@ -26,7 +26,7 @@ salomon.general = () ->
 
     # $('body').on 'click', '#html5-lightbox-overlay', ->
 
-  $("#contactForm").validationEngine()
+
 
   setTimeout () ->
     $('#play-overlay').fadeIn(4000)

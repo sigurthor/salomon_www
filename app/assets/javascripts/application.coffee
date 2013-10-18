@@ -12,6 +12,7 @@
 #= require 'app/herovideo.salomon'
 #= require 'app/language.salomon'
 #= require 'app/mobilenav.salomon'
+#= require 'app/contact.salomon'
 #= require 'html5lightbox'
 
 $(document).ready ->

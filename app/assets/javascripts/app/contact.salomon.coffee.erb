@@ -1,4 +1,8 @@
 jQuery(document).ready ->
+
+  jQuery("#contactForm").validationEngine()
+  jQuery("#contactForm").attr("action", "<%= Rails.application.config.sales_force_url  %>");
+
   jQuery("#contactForm").submit ->
     erreurs = 0
     erreurs++  if jQuery.trim(jQuery("#firstname").val()) is ""
@@ -9,4 +13,4 @@ jQuery(document).ready ->
       jQuery("#lastname").attr "disabled", "disabled"
 
     #jQuery("#contactForm").submit();
-    false
+    true
