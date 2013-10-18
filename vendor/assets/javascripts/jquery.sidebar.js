@@ -1,9 +1,9 @@
 ;(function ( $, window, document, undefined ) {
 
-  var pluginName = "sidebar",
+  var pluginName = "offcanvas",
     defaults = {
-      sideEl: $('.sidebar'),
-      bodyEl: $('.body'),
+      sideEl: $('#off-canvas'),
+      bodyEl: $('body'),
       topNavEl: $('.top-nav'),
       toggleEl: $('.sidebar-toggle'),
       maxWidth: 1023,
@@ -89,7 +89,6 @@
       }
 
       this.settings.toggleEl.on('click', $.proxy(this.toggle, this));
-      documentEl.on('keydown', $.proxy(this.onKeyDown, this));
 
       $(window).on('resize', $.proxy(this.onResize, this)).resize();
     },

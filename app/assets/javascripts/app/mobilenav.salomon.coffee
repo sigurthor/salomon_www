@@ -1,6 +1,6 @@
 salomon.mobilenav = () ->
-  $('#container').sidebar
-    sideEl: $('#sidebar'),
+  $('#container').offcanvas
+    sideEl: $('#off-canvas'),
     bodyEl: $('#main-wrap'),
     topNavEl: $('#nav-container'),
     toggleEl: $('.sidebar-toggle'),
