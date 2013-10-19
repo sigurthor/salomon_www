@@ -13,6 +13,7 @@
 #= require 'app/language.salomon'
 #= require 'app/mobilenav.salomon'
 #= require 'app/contact.salomon'
+#= require 'offcanvas'
 #= require 'html5lightbox'
 
 $(document).ready ->

@@ -184,6 +184,18 @@ html, body {
   background: #fff;
   z-index: 1;
 }
+#off-canvas,
+#main-wrap,
+#nav-container {
+  @include backface-visibility(hidden);
+  @include transition-duration(300ms);
+  -webkit-transition: -webkit-transform, opacity;
+  -moz-transition: -moz-transform, opacity;
+  -ms-transition: -ms-transform, opacity;
+  -o-transition: -o-transform, opacity;
+  transition: transform, opacity;
+
+}
 
 #container {
   overflow: hidden;

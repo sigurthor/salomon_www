@@ -51,7 +51,6 @@
   "error",
   "general",
   "searchbar", "navigation",
-  "sidebar",
   "language-bar",
   "breadcrumbs",
   "hero",
@@ -70,7 +69,8 @@
   "filterbar",
   "team",
   "team-member",
-  "language-selector";
+  "language-selector",
+  "sidebar";
 
 .nav-container, section, #language-bar {
   min-width: 320px;
