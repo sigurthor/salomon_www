@@ -212,6 +212,20 @@
       text-align: center;
     }
 
+    .retailer-category {
+      margin: 1em 0;
+      border-top: 1px $color-darkblue solid;
+      text-align: center;
+      line-height: 6px;
+
+      h3 {
+        display: inline-block;
+        background: #E9E9EA;
+        padding: 0 30px;
+        margin-top: -12px;
+      }
+    }
+
     .retailer {
       position: relative;
       background-color: white;
