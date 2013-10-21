@@ -39,7 +39,7 @@
     visibility: hidden;
     position: absolute;
     top: 100%;
-    right: 0;
+    right: 5px;
 
     z-index: 4002;
     width: 600px;
@@ -82,15 +82,15 @@
       @include css-triangle(10px, $color-lightblue, bottom);
       position: relative;
       left: 100%;
-      margin-left: -180px;
+      margin-left: -175px;
     }
 
     @include respond-to(middle) {
-      width: 100%;
-      left: 0;
+      width: auto;
+      left: 5px;
 
       &:before {
-        left: 50%;
+        left: 51%;
         margin-left: 0;
       }
     }

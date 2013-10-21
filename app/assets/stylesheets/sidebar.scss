@@ -188,13 +188,11 @@ html, body {
 #main-wrap,
 #nav-container {
   @include backface-visibility(hidden);
-  @include transition-duration(300ms);
-  -webkit-transition: -webkit-transform, opacity;
-  -moz-transition: -moz-transform, opacity;
-  -ms-transition: -ms-transform, opacity;
-  -o-transition: -o-transform, opacity;
-  transition: transform, opacity;
-
+  -webkit-transition: -webkit-transform 300ms, opacity 300ms;
+  -moz-transition: -moz-transform 300ms, opacity 300ms;
+  -ms-transition: -ms-transform 300ms, opacity 300ms;
+  -o-transition: -o-transform 300ms, opacity 300ms;
+  transition: transform 300ms, opacity 300ms;
 }
 
 #container {

@@ -160,19 +160,6 @@ body.top-panel-40 { padding-top: 40px; }
 }
 
 input {
-  &:after {
-    position: absolute;
-    top: 0;
-    right: 0;
-    width: 20px;
-    height: 20px;
-    content: '\2713';
-    font-family: $icon-font;
-    color: #fff;
-    border-radius: 99999px;
-    background-color: $color-green;
-    z-index: 99999;
-  }
   &.dark-input {
     &.input-success {
       border: 2px solid $color-green;
