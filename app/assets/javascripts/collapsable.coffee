@@ -25,7 +25,9 @@ do ($ = jQuery, window, document) ->
         $itemEl.siblings('dt').removeClass('open')
         unless @settings.cssAnimation
           $itemEl.next('dd').stop().slideToggle(200)
-          $itemEl.siblings('dt').next('dd:visible').stop().slideUp(200).find('dd:visible').stop().slideUp(200)
+          $itemEl.siblings('dt').next('dd:visible').stop().slideUp(200)
+          $itemEl.siblings('dd').find('dt.open').removeClass('open')
+          $itemEl.siblings('dd').find('dd:visible').stop().slideUp(200)
       , @
 
     yourOtherFunction: ->
