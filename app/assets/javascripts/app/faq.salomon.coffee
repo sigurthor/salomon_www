@@ -1,0 +1,2 @@
+salomon.faq = () ->
+  $('.faq').collapsable()

@@ -1,0 +1,80 @@
+.faq {
+  padding-top: 60px;
+  >dl {
+
+    dl {
+      margin-bottom: 0;
+    }
+
+    dt {
+      @include user-select(none);
+      cursor: pointer;
+
+      + dd { display: none; }
+
+      .no-js & {
+        + dd { display: block; }
+        > .icon { display: none; }
+      }
+
+      &.open {
+        + dd {
+          border-bottom: 1px dashed $color-borders;
+
+          &:last-child {border-bottom: 0;}
+          + dt { margin-top: 20px; }
+        }
+        >.icon:before { content: 'minus'; }
+      }
+    }
+
+    dd {
+      margin: 0;
+      padding: 0 20px 20px;
+    }
+
+    >dt {
+      padding: 5px 0;
+      line-height: 30px;
+      position: relative;
+
+      font-size: emCalc(22);
+      text-transform: uppercase;
+
+      @include respond-to(small) {
+        padding-left: 40px;
+      }
+
+      >.icon {
+        position: absolute;
+        top: 5px;
+        left: -40px;
+
+        width: 30px;
+        height: 30px;
+        @extend .ss-icon.ss-standard;
+        pointer-events:none;
+
+        @include respond-to(small) {
+          left: 0;
+        }
+        &:before {
+          content: 'plus';
+          display: inline-block;
+          vertical-align: 0%;
+
+          width: 30px;
+          height: 30px;
+          line-height: 33px;
+
+          font-size: 16px;
+          color: $color-lightblue;
+          text-align: center;
+
+          border: 1px solid $color-lightblue;
+          border-radius: 100%;
+        }
+      }
+    }
+  }
+}
