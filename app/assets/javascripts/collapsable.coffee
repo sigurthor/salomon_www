@@ -19,8 +19,15 @@ do ($ = jQuery, window, document) ->
       @attachEvents()
 
     attachEvents: ->
+      @$element.find('.icon').on 'click', $.proxy (e) ->
+        e.preventDefault()
+        $(e.target).parent('dt').trigger 'click'
+        return false
+
       @$element.find('dt').on 'click', $.proxy (e) ->
+        e.preventDefault()
         $itemEl = $(e.target)
+
         $itemEl.toggleClass('open')
         $itemEl.siblings('dt').removeClass('open')
         unless @settings.cssAnimation

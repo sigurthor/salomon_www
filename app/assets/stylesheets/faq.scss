@@ -53,7 +53,6 @@
         width: 30px;
         height: 30px;
         @extend .ss-icon.ss-standard;
-        pointer-events:none;
 
         @include respond-to(small) {
           left: 0;
