@@ -36,6 +36,7 @@ GIT
       devise
       fog (~> 1.3.1)
       geocoder
+      globalize
       hashie (~> 1.2)
       instagram
       localeapp
@@ -152,6 +153,10 @@ GEM
     formatador (0.2.4)
     geocoder (1.1.8)
     gli (2.8.1)
+    globalize (4.0.0.alpha.1)
+      activemodel (>= 4.0.0)
+      activerecord (>= 4.0.0)
+      paper_trail (~> 3.0.0.beta)
     gyoku (1.1.0)
       builder (>= 2.1.2)
     haml (4.0.3)
