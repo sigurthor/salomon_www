@@ -1,9 +1,9 @@
 GIT
   remote: git://github.com/FriendlyId/friendly_id.git
-  revision: 495b5cd0b395a2eabb8b00bd244e589d99de105a
+  revision: 2764077e3af32a88114d68c75e20ef738e4fa829
   branch: master
   specs:
-    friendly_id (5.0.0.rc3)
+    friendly_id (5.0.0)
       activerecord (~> 4.0.0)
 
 GIT
@@ -18,7 +18,7 @@ GIT
 
 GIT
   remote: https://8822694c4779c052130037718ba51b09d8ae7839:x-oauth-basic@github.com/sigurthor/a2_backend.git
-  revision: 46a3fab727554c0573cbd961efd7489059d0d9d8
+  revision: 4bd91bf03ad2c174ae434427a9ca567d9a3a6703
   branch: master
   specs:
     a2 (0.0.6)
@@ -110,9 +110,9 @@ GEM
     cloudinary (1.0.64)
       aws_cf_signer
       rest-client
-    coffee-rails (4.0.0)
+    coffee-rails (4.0.1)
       coffee-script (>= 2.2.0)
-      railties (>= 4.0.0.beta, < 5.0)
+      railties (>= 4.0.0, < 5.0)
     coffee-script (2.2.0)
       coffee-script-source
       execjs
@@ -179,7 +179,7 @@ GEM
       thor (>= 0.14, < 2.0)
     jquery-ui-rails (4.0.5)
       railties (>= 3.1.0)
-    json (1.8.0)
+    json (1.8.1)
     kaminari (0.14.1)
       actionpack (>= 3.0.0)
       activesupport (>= 3.0.0)
@@ -188,7 +188,7 @@ GEM
       addressable
       faraday
       multi_json
-    localeapp (0.6.13)
+    localeapp (0.6.14)
       gli
       i18n
       json
@@ -203,7 +203,7 @@ GEM
     minitest (4.7.5)
     money (5.1.1)
       i18n (~> 0.6.0)
-    multi_json (1.8.1)
+    multi_json (1.8.2)
     multipart-post (1.2.0)
     nested_form (0.3.2)
     net-scp (1.0.4)
@@ -284,8 +284,8 @@ GEM
       session
     safe_yaml (0.9.7)
     sass (3.2.12)
-    sass-rails (4.0.0)
-      railties (>= 4.0.0.beta, < 5.0)
+    sass-rails (4.0.1)
+      railties (>= 4.0.0, < 5.0)
       sass (>= 3.1.10)
       sprockets-rails (~> 2.0.0)
     savon (2.3.0)
@@ -306,7 +306,7 @@ GEM
       multi_json (~> 1.0)
       rack (~> 1.0)
       tilt (~> 1.1, != 1.3.0)
-    sprockets-rails (2.0.0)
+    sprockets-rails (2.0.1)
       actionpack (>= 3.0)
       activesupport (>= 3.0)
       sprockets (~> 2.8)
