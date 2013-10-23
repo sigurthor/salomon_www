@@ -11,4 +11,7 @@
         = link_to cl_image_tag(color.image, :width => 100, :height => 100, :crop => :fill), '#', :class => 'imageset', :data => {:imagesetindex => "#{colorIndex}"}
         - color.product_images.each_with_index do |variant, imgIndex|
           :javascript
-            imageSet[#{colorIndex}][#{imgIndex}] = '#{cl_image_path(variant.img, :width=>'580', :height =>'500', :crop => 'fit')}';
+            imageSet[#{colorIndex}][#{imgIndex}] = {
+              fullsize: '#{cl_image_path(variant.img, :width=>'580', :height =>'500', :crop => 'fit')}',
+              thumb: '#{cl_image_path(variant.img, :width=>'80', :height =>'80', :crop => 'fit')}'
+            };

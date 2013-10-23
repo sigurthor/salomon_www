@@ -33,6 +33,22 @@
   }
 }
 
+@mixin user-select($select:none) {
+  -webkit-user-select: $select;
+  -khtml-user-select: $select;
+  -moz-user-select: $select;
+  -o-user-select: $select;
+  user-select: $select;
+}
+
+@mixin backface-visibility($visibility: hidden) {
+  -webkit-backface-visibility: $visibility;
+     -moz-backface-visibility: $visibility;
+      -ms-backface-visibility: $visibility;
+       -o-backface-visibility: $visibility;
+          backface-visibility: $visibility;
+}
+
 @mixin transition($settings...) {
   -webkit-transition: $settings;
      -moz-transition: $settings;
@@ -47,6 +63,14 @@
       -ms-transition-delay: $settings;
        -o-transition-delay: $settings;
           transition-delay: $settings;
+}
+
+@mixin transition-duration($settings...) {
+  -webkit-transition-duration: $settings;
+     -moz-transition-duration: $settings;
+      -ms-transition-duration: $settings;
+       -o-transition-duration: $settings;
+          transition-duration: $settings;
 }
 
 @mixin animation($settings...) {

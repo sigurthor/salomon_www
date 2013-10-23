@@ -1,8 +1,9 @@
 salomon.mobilenav = () ->
   $('#container').offcanvas
-    sideEl: $('#off-canvas'),
-    bodyEl: $('#main-wrap'),
-    topNavEl: $('#nav-container'),
-    toggleEl: $('.sidebar-toggle'),
-    sideNavWidth: 220,
-    sideNavSide: 'left'
+    maxWidth: 1023
+    elements:
+      offcanvas: $ '#off-canvas'
+      toggle: $ '.canvas-toggle'
+      movable:
+        body: $ '#main-wrap'
+        topNav: $ '#nav-container'

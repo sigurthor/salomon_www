@@ -33,8 +33,11 @@
 
   %section.online-retailers#retailers
     %h2 Online retailers
-    .row.js-equalize
-      - @online_store_categories.each do |category|
+    - @online_store_categories.each do |category|
+      .row.js-equalize
+        .large-12.columns
+          .retailer-category
+            %h3=category.name
         - category.online_stores.each do |store|
           .large-2.columns.js-equalize-me
             .retailer

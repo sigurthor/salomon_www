@@ -12,7 +12,10 @@
 #= require 'app/herovideo.salomon'
 #= require 'app/language.salomon'
 #= require 'app/mobilenav.salomon'
+#= require 'app/faq.salomon'
 #= require 'app/contact.salomon'
+#= require 'offcanvas'
+#= require 'collapsable'
 #= require 'html5lightbox'
 
 $(document).ready ->
@@ -36,3 +39,4 @@ $(document).ready ->
   salomon.heroVideo()
   salomon.languageBar()
   salomon.mobilenav()
+  salomon.faq()

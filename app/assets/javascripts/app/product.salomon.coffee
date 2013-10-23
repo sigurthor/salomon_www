@@ -7,6 +7,8 @@ initProductList = () ->
       $anchor = $(this)
       e.preventDefault()
       fullSizeImg = $(this).data 'fullsize'
+
+      $product.find('.img-wrapper').removeClass 'loaded'
       $product.find('.product-image').attr('src', fullSizeImg)
       $anchor.parent().addClass('selected').siblings().removeClass('selected')
 
@@ -100,7 +102,7 @@ updateImageset = (set) ->
   $mainImg.find('.img-wrapper').removeClass 'loaded'
 
   # First image goes into the main spot...
-  $mainImg.find('img').attr('src', set[0]);
+  $mainImg.find('img').attr('src', set[0].fullsize);
 
   $thumbList = $('.product-thumbnails ul')
   $thumbList.html('')
@@ -111,7 +113,7 @@ updateImageset = (set) ->
 
     imgTpl = '
             <li class="'+cssClass+'">
-              <a href="#"><img src="'+img+'" data-fullsize="'+img+'" /></a>
+              <a href="#"><div class="img-wrapper" style="width: 80px; height: 80px;"><img src="'+img.thumb+'" data-fullsize="'+img.fullsize+'" width="80" height="80" onload="form5image.hasLoaded(this);" /></div></a>
               <a href="#">View ' + (i+1) + '</a>
             </li>'
     $thumbList.append imgTpl
