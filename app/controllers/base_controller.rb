@@ -30,7 +30,7 @@ class BaseController < ApplicationController
 
   def detect_user
 
-    if !(cookies[:country_code] and cookies[:continent_code] and cookies[:user_locale]) or params.key?(:ip)
+    if !(cookies[:country_code] and cookies[:continent_code] and cookies[:user_locale]) or params.key?(:ip) or cookies[:country_code].include?('INVALID_LICENSE_KEY')
       begin
         ip = params.key?(:ip) ? params[:ip] : request.remote_ip
         country_code = open("https://geoip.maxmind.com/a?l=Xa0zTRtJOiE0&i=#{ip}").read
