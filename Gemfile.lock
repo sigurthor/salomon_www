@@ -18,14 +18,14 @@ GIT
 
 GIT
   remote: https://8822694c4779c052130037718ba51b09d8ae7839:x-oauth-basic@github.com/sigurthor/a2_backend.git
-  revision: 50c6aab713b1134f42a12078c60590cd8216175e
+  revision: 5c529bd6617700101e0a9d6828ad6da3bdd229f5
   branch: master
   specs:
     a2 (0.0.7)
       activerecord (~> 4.0.0)
       acts-as-taggable-on
       ancestry
-      aws-sdk (~> 1.14.1)
+      aws-sdk (~> 1.11.1)
       carrierwave
       carrierwave_direct
       cashier
@@ -87,7 +87,7 @@ GEM
       activerecord (>= 3.0.0)
     arel (4.0.0)
     atomic (1.1.14)
-    aws-sdk (1.14.1)
+    aws-sdk (1.11.3)
       json (~> 1.4)
       nokogiri (< 1.6.0)
       uuidtools (~> 2.1)
@@ -105,7 +105,7 @@ GEM
       fog
       uuidtools
     cashier (0.4.1)
-    cloudinary (1.0.64)
+    cloudinary (1.0.66)
       aws_cf_signer
       rest-client
     coffee-rails (4.0.1)
@@ -121,7 +121,7 @@ GEM
     delayed_job_active_record (4.0.0)
       activerecord (>= 3.0, < 4.1)
       delayed_job (>= 3.0, < 4.1)
-    devise (3.1.1)
+    devise (3.2.1)
       bcrypt-ruby (~> 3.0)
       orm_adapter (~> 0.1)
       railties (>= 3.2.6, < 5)
@@ -156,7 +156,7 @@ GEM
       paper_trail (~> 3.0.0.beta)
     gyoku (1.1.0)
       builder (>= 2.1.2)
-    haml (4.0.3)
+    haml (4.0.4)
       tilt
     haml-rails (0.4)
       actionpack (>= 3.1, < 4.1)
@@ -213,7 +213,7 @@ GEM
     net-ssh (2.7.0)
     nokogiri (1.5.10)
     nori (2.3.0)
-    orm_adapter (0.4.0)
+    orm_adapter (0.5.0)
     paper_trail (3.0.0.beta1)
       activerecord (>= 3.0, < 5.0)
     pg (0.17.0)
@@ -301,7 +301,7 @@ GEM
     session (3.1.0)
       fattr
     simple_oauth (0.2.0)
-    spreadsheet (0.9.1)
+    spreadsheet (0.9.4)
       ruby-ole (>= 1.0)
     sprockets (2.10.0)
       hike (~> 1.2)
