@@ -1,7 +1,9 @@
 %section#hero.has-video
   #play-overlay
-    = image_tag('layout/hero_video_overlay.png', :alt => 'Play video')
+    -#= image_tag('layout/hero_video_overlay.png', :alt => 'Play video')
+    %empty{:style =>'height: 320px;width:200px;display:block'}
     %a.button{:href=>'#'} Click to play
   %video.ambient{:autoplay=>'', :loop=>'loop', :muted => 'muted'}
-    %source{:src=>'http://vimeo.com/73305457/download?t=1377699115&v=186168904&s=31a2c503c0e8ff66330fd3173c4564a8', :type=>'video/mp4'}/
-    %source{:src=>'http://a2.form5.is/assets/hero-ambient-video-cropped.ogv', :type=>'video/ogg'}/
+    = image_tag('layout/freestyle_arsenal.png', :alt => 'Play video')
+    -# %source{:src=>'http://vimeo.com/73305457/download?t=1377699115&v=186168904&s=31a2c503c0e8ff66330fd3173c4564a8', :type=>'video/mp4'}/
+    -# %source{:src=>'http://a2.form5.is/assets/hero-ambient-video-cropped.ogv', :type=>'video/ogg'}/
