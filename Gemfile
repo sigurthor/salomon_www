@@ -26,6 +26,8 @@ gem 'uglifier', '>= 1.3.0'
 
 gem 'jquery-rails'
 
+gem 'spree', github: 'spree/spree', ref: '2-1-stable'
+
 gem 'rails_12factor', group: :dev
 
 
