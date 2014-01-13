@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131018143815) do
+ActiveRecord::Schema.define(version: 20140109014329) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -244,6 +244,7 @@ ActiveRecord::Schema.define(version: 20131018143815) do
     t.timestamp "updated_at",   precision: 6, null: false
     t.integer   "article_code"
     t.string    "brand"
+    t.integer   "position"
   end
 
   add_index "a2_product_color_variants", ["model"], name: "index_a2_product_color_variants_on_model", using: :btree
@@ -296,6 +297,7 @@ ActiveRecord::Schema.define(version: 20131018143815) do
     t.timestamp "updated_at",   precision: 6, null: false
     t.string    "brand"
     t.integer   "variant_code"
+    t.integer   "spree_id"
   end
 
   add_index "a2_product_images", ["sap"], name: "index_a2_product_images_on_sap", using: :btree
@@ -373,7 +375,7 @@ ActiveRecord::Schema.define(version: 20131018143815) do
     t.string    "product_family_code"
     t.string    "product_line_code"
     t.string    "season"
-    t.integer   "technical_size"
+    t.string    "technical_size"
     t.string    "description"
     t.string    "short_description"
     t.integer   "price_eu"
@@ -381,7 +383,7 @@ ActiveRecord::Schema.define(version: 20131018143815) do
     t.string    "sourcing_country"
     t.integer   "weight"
     t.string    "dimensions"
-    t.integer   "shopify_id"
+    t.integer   "spree_id"
     t.integer   "product_image_id"
   end
 
@@ -395,8 +397,8 @@ ActiveRecord::Schema.define(version: 20131018143815) do
     t.integer   "master_article_code"
     t.text      "description"
     t.integer   "product_type_code"
-    t.timestamp "created_at",          precision: 6, null: false
-    t.timestamp "updated_at",          precision: 6, null: false
+    t.timestamp "created_at",          precision: 6,           null: false
+    t.timestamp "updated_at",          precision: 6,           null: false
     t.string    "product_line_code"
     t.string    "gender"
     t.integer   "article_code"
@@ -405,11 +407,12 @@ ActiveRecord::Schema.define(version: 20131018143815) do
     t.string    "product_family_code"
     t.string    "season"
     t.string    "slug"
-    t.integer   "shopify_id"
+    t.integer   "spree_id"
     t.boolean   "hidden"
     t.integer   "position"
     t.string    "name2"
     t.string    "project_code"
+    t.decimal   "cost",                precision: 8, scale: 2
   end
 
   add_index "a2_products", ["article_code"], name: "index_a2_products_on_article_code", unique: true, using: :btree
