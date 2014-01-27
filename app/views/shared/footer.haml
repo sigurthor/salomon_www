@@ -34,9 +34,9 @@
         %ul
           %li
             %a{:href=>'http://salomonsnowboards.tumblr.com/', :target => '_blank'} Blog
-          %li= link_to t('pages.team', scope: :salomon), team_path
+          %li= link_to t('pages.team', scope: :salomon), main_app.team_path
           - unless Rails.env.production?
-            %li= link_to t('pages.faq', scope: :salomon), faq_path
+            %li= link_to t('pages.faq', scope: :salomon), main_app.faq_path
           %li
             %a{:href =>'http://salomonsnowboard.com/shopcrew/login', :target => '_blank'} Shop crew
 
@@ -45,10 +45,10 @@
         %h5 #{ t 'footer.headings.customer_service', scope: :salomon}
         %ul
           - unless Rails.env.production?
-            %li= link_to t('pages.warranty', scope: :salomon), warranty_path
-            %li= link_to t('pages.contact', scope: :salomon), contact_path
-          %li= link_to t('pages.terms', scope: :salomon), terms_path
-          %li= link_to t('pages.privacy_policy', scope: :salomon), privacy_policy_path
+            %li= link_to t('pages.warranty', scope: :salomon), main_app.warranty_path
+            %li= link_to t('pages.contact', scope: :salomon), main_app.contact_path
+          %li= link_to t('pages.terms', scope: :salomon), main_app.terms_path
+          %li= link_to t('pages.privacy_policy', scope: :salomon), main_app.privacy_policy_path
 
 
     .large-3.columns

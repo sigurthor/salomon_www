@@ -11,9 +11,9 @@
         .drop-wrap
           %ul
             - gear_categories.each do |c|
-              %li=link_to c.name,products_url(:category => c.slug)
-      %li= link_to t('pages.team', scope: :salomon), team_path
-      %li= link_to t('pages.videos', scope: :salomon), video_path
+              %li=link_to c.name,main_app.products_url(:category => c.slug)
+      %li= link_to t('pages.team', scope: :salomon), main_app.team_path
+      %li= link_to t('pages.videos', scope: :salomon), main_app.video_path
       %li
         %a{:href => "http://salomonsnowboards.tumblr.com/"} #{t 'pages.blog', scope: :salomon}
       -#%li

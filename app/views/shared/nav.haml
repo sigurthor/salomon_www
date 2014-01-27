@@ -6,20 +6,20 @@
   %nav.top-bar
     %section.top-bar-section
       .canvas-toggle.ss-icon.ss-standard.ss-rows
-      =link_to 'Salomon Snowboards', home_path, class: 'logo'
+      =link_to 'Salomon Snowboards', main_app.home_path, class: 'logo'
       / Left Nav Section
       %ul.desk-nav.left
         %li.has-dropdown
           %a{:href => "/gear"}  #{t 'pages.gear', scope: :salomon}
           %ul.dropdown
             - gear_categories.each do |c|
-              %li=link_to c.name,products_url(:category => c.slug)
-        %li= link_to t('pages.team', scope: :salomon), team_path
-        %li= link_to t('pages.videos', scope: :salomon), video_path
+              %li=link_to c.name,main_app.products_url(:category => c.slug)
+        %li= link_to t('pages.team', scope: :salomon), main_app.team_path
+        %li= link_to t('pages.videos', scope: :salomon), main_app.video_path
         %li
           %a{:href => "http://salomonsnowboards.tumblr.com/"} #{t 'pages.blog', scope: :salomon}
         %li
-          %a= link_to t('pages.stores', scope: :salomon) , store_path
+          %a= link_to t('pages.stores', scope: :salomon) , main_app.store_path
 
       %ul.desk-nav.right.social-wrap
         %li.social.facebook.dropable

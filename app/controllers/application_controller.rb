@@ -40,7 +40,7 @@ class ApplicationController < ActionController::Base
 
   def url_for_locale(locale, setcountry=false)
     return '/' if locale.blank?
-    url_for(params.merge!(:locale => locale).merge!(:only_path => true).except!(:ip, :set_country))
+    main_app.url_for(params.merge!(:locale => locale).merge!(:only_path => true).except!(:ip, :set_country))
   end
 
 end

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140109014329) do
+ActiveRecord::Schema.define(version: 20140126235031) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -44,6 +44,15 @@ ActiveRecord::Schema.define(version: 20140109014329) do
     t.string    "type"
     t.timestamp "created_at",      precision: 6, null: false
     t.timestamp "updated_at",      precision: 6, null: false
+  end
+
+  create_table "a2_box_shares", force: true do |t|
+    t.string   "title"
+    t.string   "slug"
+    t.datetime "expire"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "box_embed_url"
   end
 
   create_table "a2_brands", id: false, force: true do |t|
