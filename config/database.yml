@@ -12,8 +12,8 @@ development:
   adapter: postgresql
   encoding: unicode
   pool: 5
-  database: local_salomon_production
-  username: sigurthor
+  database: salomon_www_local
+  username: seh
   password:
   host: localhost
 
@@ -45,14 +45,14 @@ dev:
 
 
 test:
-  adapter: mysql2
+  adapter: postgresql
   encoding: utf8
   reconnect: false
   database: salomon_www_test
   pool: 5
-  username: root
+  username: seh
   password:
-  socket: /tmp/mysql.sock
+  host: localhost
 
 production:
   adapter: postgresql
