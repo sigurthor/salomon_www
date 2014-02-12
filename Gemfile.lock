@@ -68,7 +68,7 @@ GIT
 
 GIT
   remote: https://8822694c4779c052130037718ba51b09d8ae7839:x-oauth-basic@github.com/sigurthor/a2_backend.git
-  revision: c798eb0d7686530cd100b60459208ae34da6904c
+  revision: 8c0c3757d497358c5408d04ace322e26f5a6dcc5
   branch: spree
   specs:
     a2 (0.0.7)
