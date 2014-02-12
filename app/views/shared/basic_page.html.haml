@@ -11,3 +11,6 @@
   .row
     .column.medium-8.medium-offset-2.middle-10.middle-offset-1.small-12{:class => page.pid}
       = raw page.html
+
+%script
+  window.sf_url = "#{Rails.application.config.sales_force_url }";

@@ -12,7 +12,7 @@ SalomonWww::Application.configure do
   config.cashier.adapter = :cache_store
 
   #saleforce
-  config.sales_force_url = 'https://cs10.salesforce.com/servlet/servlet.WebToCase?encoding=UTF-8'
+  config.sales_force_url = 'https://test-cs10.salesforce.com/servlet/servlet.WebToCase?encoding=UTF-8'
 
   #webshop url
   config.webshop_url = 'http://dev.shop.salomon.com/'
