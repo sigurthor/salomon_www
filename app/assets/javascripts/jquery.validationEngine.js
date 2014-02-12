@@ -1646,10 +1646,6 @@
 			
 			var pos = methods._calculatePosition(field, prompt, options);
 			prompt.css({
-				'position': positionType === 'inline' ? 'relative' : 'absolute',
-				"top": pos.callerTopPosition,
-				"left": pos.callerleftPosition,
-				"marginTop": pos.marginTopSize,
 				"opacity": 0
 			}).data("callerField", field);
 			

@@ -1,0 +1,37 @@
+.satDescription01, #contactForm{
+  padding-top: 60px;
+}
+
+#contactForm{
+
+  img{
+    display: none;
+  }
+
+  input{
+    text-transform: none;
+  }
+  textarea{
+    height: 160px;
+    text-transform: none;
+  }
+  input[type=submit]{
+    @include button-base;
+    @include button-size;
+    @include button-style;
+    @include radius;
+    @include single-transition;
+  }
+  .item{
+    position: relative;
+  }
+  .formErrorContent{
+    color: #de0000;
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 400px;
+    text-align: right;
+
+  }
+}

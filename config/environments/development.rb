@@ -12,7 +12,7 @@ SalomonWww::Application.configure do
   config.cashier.adapter = :cache_store
 
   #saleforce
-  config.sales_force_url = 'https://test-cs10.salesforce.com/servlet/servlet.WebToCase?encoding=UTF-8'
+  config.sales_force_url = 'https://cs10.salesforce.com/servlet/servlet.WebToCase?encoding=UTF-8'
 
   #webshop url
   config.webshop_url = 'http://dev.shop.salomon.com/'
@@ -43,7 +43,7 @@ SalomonWww::Application.configure do
   config.consider_all_requests_local       = true
   config.action_controller.perform_caching = true
 
-  # Don't care if the mailer can't send
+  # Don't care if the mailer can't send@
   config.action_mailer.raise_delivery_errors = false
 
   # Print deprecation notices to the Rails logger
