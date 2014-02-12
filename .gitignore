@@ -22,4 +22,4 @@
 /.ruby-version
 /.ruby-gemset
 
-.dump
+/*.dump
