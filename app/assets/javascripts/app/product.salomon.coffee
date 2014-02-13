@@ -7,9 +7,12 @@ initProductList = () ->
       $anchor = $(this)
       e.preventDefault()
       fullSizeImg = $(this).data 'fullsize'
+      img = $product.find('img.product-image').get(0)
 
-      $product.find('.img-wrapper').removeClass 'loaded'
-      $product.find('.product-image').attr('src', fullSizeImg)
+      unless img.src == fullSizeImg
+        $product.find('.img-wrapper').removeClass 'loaded'
+        img.src = fullSizeImg
+
       $anchor.parent().addClass('selected').siblings().removeClass('selected')
 
 initTechSizeInfo = ->
