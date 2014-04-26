@@ -6,7 +6,7 @@ task :sync_feeds => :environment do
   puts 'Sync vimeo'
   open('http://www.salomonsnowboard.com/a2/services/job/trigger/vimeo_import')
   puts 'Sync facebook'
-  open('http://www.salomonsnowboard.com/a2/services/job/trigger/facebook_import')
+  open('http://salomon-prod.herokuapp.com/a2/services/job/trigger/facebook_import')
   puts 'Sync instagram'
   open('http://www.salomonsnowboard.com/a2/services/job/trigger/instagram_import')
 end
