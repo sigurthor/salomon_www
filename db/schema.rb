@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140212202732) do
+ActiveRecord::Schema.define(version: 20140426170951) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -92,7 +92,7 @@ ActiveRecord::Schema.define(version: 20140212202732) do
   create_table "a2_colorables", force: true do |t|
     t.string   "color_code"
     t.string   "colorable_type"
-    t.string   "colorable_id"
+    t.integer  "colorable_id"
     t.integer  "position"
     t.datetime "created_at",     null: false
     t.datetime "updated_at",     null: false
@@ -254,11 +254,12 @@ ActiveRecord::Schema.define(version: 20140212202732) do
     t.string   "color_1_name"
     t.string   "model"
     t.boolean  "has_photos"
-    t.datetime "created_at",   null: false
-    t.datetime "updated_at",   null: false
+    t.datetime "created_at",           null: false
+    t.datetime "updated_at",           null: false
     t.integer  "article_code"
     t.string   "brand"
     t.integer  "position"
+    t.integer  "product_images_count"
   end
 
   add_index "a2_product_color_variants", ["model"], name: "index_a2_product_color_variants_on_model", using: :btree
