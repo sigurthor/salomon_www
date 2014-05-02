@@ -68,7 +68,7 @@ GIT
 
 GIT
   remote: https://8822694c4779c052130037718ba51b09d8ae7839:x-oauth-basic@github.com/sigurthor/a2_backend.git
-  revision: 707cecebf2fbb29ebb316cd0a5ea3c7504ed494a
+  revision: b3196782ea4280d2c065d5214901011ee6c47773
   branch: spree
   specs:
     a2 (0.0.7)
@@ -287,9 +287,9 @@ GEM
     multi_xml (0.5.5)
     multipart-post (1.2.0)
     nested_form (0.3.2)
-    net-scp (1.2.0)
+    net-scp (1.2.1)
       net-ssh (>= 2.6.5)
-    net-ssh (2.8.0)
+    net-ssh (2.9.0)
     nokogiri (1.6.0)
       mini_portile (~> 0.5.0)
     orm_adapter (0.5.0)
