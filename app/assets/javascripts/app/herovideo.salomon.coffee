@@ -23,11 +23,13 @@ salomon.heroVideo = () ->
     videoWidth = Math.ceil(videoHeight / 9 * 16)
     videoHeight += 12
 
+    video_id = $('#hero').data('video').split('/').slice(-1)
+
     if videoWidth > windowWidth
       videoWidth = windowWidth
       videoHeight = Math.ceil(videoWidth / 16 * 9)
 
-    $hero.html('<div style="width:'+videoWidth+'px; height:'+videoHeight+'px; margin: 0 auto;"><div class="flex-video vimeo widescreen"><iframe src="//player.vimeo.com/video/81956147?color=00a4d1&amp;autoplay=1" width="1280" height="720" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe></div></div>')
+    $hero.html('<div style="width:'+videoWidth+'px; height:'+videoHeight+'px; margin: 0 auto;"><div class="flex-video vimeo widescreen"><iframe src="//player.vimeo.com/video/'+video_id+'?color=00a4d1&amp;autoplay=1" width="1280" height="720" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe></div></div>')
     $hero.css 'height', videoHeight+'px'
 
   ###

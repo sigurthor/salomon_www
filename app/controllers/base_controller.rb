@@ -1,5 +1,6 @@
 require 'open-uri'
 class BaseController < ApplicationController
+  include A2::ControllerHelpers::CMS
 
   helper :layout
 

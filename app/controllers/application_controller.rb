@@ -29,12 +29,14 @@ class ApplicationController < ActionController::Base
 
   helper_method :page
 
+=begin
   def page(pid = nil)
     return @page if @page
     pid = pid ? pid : current_uri = request.env['PATH_INFO']
     p = A2::Page.find_or_create_by(:pid => pid)
     @page ||= Rails.cache.fetch(p) { A2::Page.includes(:translations).find(p.id) }
   end
+=end
 
   helper_method :url_for_locale
 
