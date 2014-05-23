@@ -5,11 +5,10 @@
       .large-6.columns.large.feature-image
         = cl_image_tag(b.image)
     - banner 'home-product-feature-text' do |b|
-      - if mobile_device?
-        .large-6.columns.large.feature-text
-          %h2= raw b.title
-          =cl_image_tag b.image, :class=>'new-logo'
-          %h3= raw b.subtitle
+      .large-6.columns.large.feature-text
+        %h2= raw b.title
+        =cl_image_tag b.image, :class=>'new-logo'
+        %h3= raw b.subtitle
 
-          %p= b.content
-          =link_to b.link_text , b.link_url , :class => 'button'
+        %p= b.content
+        =link_to b.link_text , b.link_url , :class => 'button'
