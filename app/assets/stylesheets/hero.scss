@@ -1,3 +1,6 @@
+section#hero-mobile{
+  margin-top: 100px;
+}
 section#hero {
   height: 680px;
   margin-top: 100px;
@@ -61,11 +64,6 @@ section#hero {
     }
 
     #play-overlay {
-      position: absolute;
-      top: 0;
-      left: 0;
-      bottom: 0;
-      right: 0;
 
       margin: auto;
 

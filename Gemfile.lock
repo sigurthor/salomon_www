@@ -68,7 +68,7 @@ GIT
 
 GIT
   remote: https://8822694c4779c052130037718ba51b09d8ae7839:x-oauth-basic@github.com/sigurthor/a2_backend.git
-  revision: 20d805677f82a4357a8b96d0815faa270b89d7f3
+  revision: 301c530a2fe7ba2f3d20a15a088e3be1e19dc294
   branch: spree
   specs:
     a2 (0.0.7)
@@ -227,7 +227,7 @@ GEM
       ruby-hmac
     font-awesome-rails (4.1.0.0)
       railties (>= 3.2, < 5.0)
-    formatador (0.2.4)
+    formatador (0.2.5)
     geocoder (1.2.1)
     gli (2.10.0)
     globalize (4.0.1)
