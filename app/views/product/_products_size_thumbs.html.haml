@@ -1,5 +1,6 @@
 .variants
   %ul.product-thumbs.product-sizes
     - variants.each_with_index do |size, index|
-      %li{:class => (index == 0?'selected':'')}
-        %a.button{:href=>'#', :data => {:fullsize => prepend_snowboard_crop(cl_image_path(size.product_image.img,  :width => 180, :height=>386, :crop => :fill, :class => 'product-image'))}}=size.size
+      - if size.product_image
+        %li{:class => (index == 0?'selected':'')}
+          %a.button{:href=>'#', :data => {:fullsize => prepend_snowboard_crop(cl_image_path(size.product_image.img,  :width => 180, :height=>386, :crop => :fill, :class => 'product-image'))}}=size.size

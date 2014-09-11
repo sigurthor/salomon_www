@@ -37,6 +37,7 @@ class BaseController < ApplicationController
         country_code = open("https://geoip.maxmind.com/a?l=Xa0zTRtJOiE0&i=#{ip}").read
         country_code = 'global' if country_code.include?('IP_NOT_FOUND')
         country = A2::Country.find_by(:iso_code => country_code)
+
         continent = A2::CountryCodeContinent.find_by(:country_code => country_code).try(:continent_code)
         locale = country ? country.locale : 'en'
         set_location_cookies(country_code, continent, locale)

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140523103251) do
+ActiveRecord::Schema.define(version: 20140909090945) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -87,17 +87,19 @@ ActiveRecord::Schema.define(version: 20140523103251) do
     t.integer  "position"
     t.boolean  "visible"
     t.string   "ancestry"
-    t.datetime "created_at",                 null: false
-    t.datetime "updated_at",                 null: false
+    t.datetime "created_at",                     null: false
+    t.datetime "updated_at",                     null: false
     t.string   "type"
     t.string   "brand"
     t.integer  "magento_id"
     t.string   "filters"
     t.string   "name_singular"
     t.string   "long_name"
-    t.integer  "ancestry_depth", default: 0
+    t.integer  "ancestry_depth",     default: 0
     t.string   "title"
     t.string   "google_url"
+    t.boolean  "show_in_stock_only"
+    t.string   "show_season"
   end
 
   add_index "a2_categories", ["ancestry"], name: "index_a2_categories_on_ancestry", using: :btree
@@ -192,6 +194,16 @@ ActiveRecord::Schema.define(version: 20140523103251) do
     t.boolean  "run_now"
   end
 
+  create_table "a2_lookbooks", force: true do |t|
+    t.string   "name"
+    t.string   "description"
+    t.string   "img"
+    t.string   "slug"
+    t.string   "position"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "a2_news_letter_subscribers", force: true do |t|
     t.string   "email"
     t.string   "country"
@@ -274,6 +286,7 @@ ActiveRecord::Schema.define(version: 20140523103251) do
     t.string   "brand"
     t.integer  "position"
     t.integer  "product_images_count"
+    t.string   "season"
   end
 
   add_index "a2_product_color_variants", ["model"], name: "index_a2_product_color_variants_on_model", using: :btree
@@ -426,8 +439,8 @@ ActiveRecord::Schema.define(version: 20140523103251) do
     t.integer  "master_article_code"
     t.text     "description"
     t.integer  "product_type_code"
-    t.datetime "created_at",                                  null: false
-    t.datetime "updated_at",                                  null: false
+    t.datetime "created_at",                                               null: false
+    t.datetime "updated_at",                                               null: false
     t.string   "product_line_code"
     t.string   "gender"
     t.integer  "article_code"
@@ -443,10 +456,12 @@ ActiveRecord::Schema.define(version: 20140523103251) do
     t.string   "project_code"
     t.decimal  "cost",                precision: 8, scale: 2
     t.string   "google_url"
+    t.text     "seasons",                                     default: [],              array: true
   end
 
   add_index "a2_products", ["article_code"], name: "index_a2_products_on_article_code", unique: true, using: :btree
   add_index "a2_products", ["model"], name: "index_a2_products_on_model", unique: true, using: :btree
+  add_index "a2_products", ["seasons"], name: "index_a2_products_on_seasons", using: :gin
   add_index "a2_products", ["slug"], name: "index_a2_products_on_slug", unique: true, using: :btree
 
   create_table "a2_regions", force: true do |t|
@@ -524,6 +539,8 @@ ActiveRecord::Schema.define(version: 20140523103251) do
     t.datetime "updated_at",                      null: false
     t.string   "quoter_name"
     t.string   "quoter_title"
+    t.string   "instagram"
+    t.string   "sports"
   end
 
   create_table "a2_tech_definitions", force: true do |t|

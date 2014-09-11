@@ -62,12 +62,12 @@
                   %h2{set_text_length_class(product.name, 16)}
                     = link_to product.name, product_show_path(:category => params[:category], :product => product.slug)
                   .price= product_price(product)
-                  = render :partial => 'products_color_thumbs', :locals => { :variants => product.product_color_variants }
+                  = render :partial => 'products_color_thumbs', :locals => { :variants => product.product_color_variants_with_image }
 
               .more-info
                 .feature
                   %span= t("gender.#{product.gender}",:scope => :salomon, :count => 2) + " " + @category.name_singular
-                -product.features_by_type(overview_only=true).each do |feature_name, feature|
+                - product.features_by_type(overview_only=true).each do |feature_name, feature|
                   .feature
                     %h5=feature_name
                     %span=feature.map(&:name).join(", ")
